@@ -1,0 +1,28 @@
+{
+  "name": "@SCOPE/WORKSPACE",
+  "version": "0.1.0",
+  "private": true,
+  "description": "DESCRIPTION",
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "pnpm run build",
+    "build:libs": "pnpm run build --filter=./libs/**",
+    "dev": "pnpm run dev --parallel --no-cache",
+    "lint": "pnpm run lint",
+    "lint:fix": "pnpm run lint:fix",
+    "prepare": "husky install",
+    "sort-package": "npx sort-package-json && pnpm run sort-package",
+    "test": "pnpm run test --parallel",
+    "test:ci": "pnpm run test:ci --parallel",
+    "test:integration": "pnpm run test:integration --parallel",
+    "test:integration:ci": "pnpm run test:integration:ci --parallel",
+    "test:unit": "pnpm run test:unit --parallel",
+    "test:unit:ci": "pnpm run test:unit:ci --parallel",
+    "typecheck": "pnpm run typecheck"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "17.0.3",
+    "@commitlint/config-conventional": "17.0.3",
+    "husky": "8.0.1"
+  }
+}
