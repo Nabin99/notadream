@@ -3,13 +3,37 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
+  "main": "./dist/utility-shared.umd.cjs",
+  "module": "./dist/utility-shared.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/utility-shared.js",
+      "require": "./dist/utility-shared.umd.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --ignore-path .eslintignore ",
+    "lint:fix": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\" --ignore-path .eslintignore "
   },
   "devDependencies": {
-    "typescript": "^5.0.2",
-    "vite": "^4.4.0"
+    "@types/node": "20.4.1",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^5.61.0",
+    "eslint": "^8.45.0",
+    "eslint-config-prettier": "^8.8.0",
+    "path": "^0.12.7",
+    "prettier": "^3.0.0",
+    "typescript": "^5.1.6",
+    "vite": "^4.4.0",
+    "vite-plugin-dts": "^3.3.0"
+  },
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=8"
   }
 }
