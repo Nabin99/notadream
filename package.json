@@ -20,10 +20,16 @@
     "test:unit:ci": "pnpm run test:unit:ci --parallel",
     "typecheck": "pnpm run typecheck"
   },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": [
+      "npx prettier --write",
+      "npx eslint --fix"
+    ]
+  },
   "devDependencies": {
     "@commitlint/cli": "17.0.3",
     "@commitlint/config-conventional": "17.0.3",
-    "husky": "8.0.1",
+    "husky": "^8.0.0",
     "lint-staged": "^13.2.3"
   }
 }
