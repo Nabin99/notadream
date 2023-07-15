@@ -4,12 +4,76 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["@typescript-eslint"],
+  plugins: ["@typescript-eslint", "import", "prettier", "promise", "unicorn"],
   extends: [
     "eslint:recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "plugin:prettier/recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:unicorn/recommended",
     "prettier",
   ],
+  rules: {
+    "import/order": [
+      1,
+      {
+        alphabetize: {
+          order: "asc",
+          caseInsensitive: true,
+        },
+        groups: [
+          "builtin",
+          "external",
+          "internal",
+          ["parent", "sibling"],
+          "index",
+          "object",
+          "type",
+        ],
+        "newlines-between": "always",
+      },
+    ],
+    "prettier/prettier": "error",
+    "unicorn/filename-case": [
+      "error",
+      {
+        cases: {
+          camelCase: true,
+          snakeCase: true,
+        },
+      },
+    ],
+    "unicorn/numeric-separators-style": [
+      "error",
+      {
+        number: {
+          minimumDigits: 6,
+          groupLength: 3,
+        },
+      },
+    ],
+    "unicorn/prevent-abbreviations": [
+      "error",
+      {
+        allowList: {
+          db: true,
+          docs: true,
+          env: true,
+          err: true,
+          i: true,
+          param: true,
+          req: true,
+          res: true,
+        },
+      },
+    ],
+  },
+  settings: {
+    node: {
+      tryExtensions: [".js", ".json", ".node", ".ts"],
+    },
+  },
   env: {
     node: true,
   },

@@ -7,8 +7,8 @@
   "scripts": {
     "dev": "nodemon --watch './src/**/*.ts' --exec 'ts-node' --esm ./src/index.ts",
     "build": "tsc -p tsconfig.json",
-    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --ignore-path .eslintignore ",
-    "lint:fix": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\" --ignore-path .eslintignore "
+    "lint": "eslint \"src/**/*.{js,ts}\" --ignore-path .eslintignore ",
+    "lint:fix": "eslint --fix \"src/**/*.{js,ts}\" --ignore-path .eslintignore "
   },
   "devDependencies": {
     "@types/node": "20.4.1",
@@ -16,6 +16,10 @@
     "@typescript-eslint/parser": "^5.61.0",
     "eslint": "^8.45.0",
     "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-unicorn": "^47.0.0",
     "nodemon": "^3.0.1",
     "prettier": "^3.0.0",
     "ts-node": "^10.9.1",
