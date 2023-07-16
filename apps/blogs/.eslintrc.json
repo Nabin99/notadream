@@ -1,3 +1,62 @@
 {
-  "extends": ["next/core-web-vitals"]
+  "extends": ["next/core-web-vitals", "plugin:react/recommended", "prettier"],
+  "plugins": ["unicorn"],
+  "rules": {
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "react/react-in-jsx-scope": "off",
+    "import/order": [
+      1,
+      {
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          ["parent", "sibling"],
+          "index",
+          "object",
+          "type"
+        ],
+        "newlines-between": "always"
+      }
+    ],
+    "no-console": "warn",
+    "no-debugger": "warn",
+    "unicorn/filename-case": [
+      "error",
+      {
+        "cases": {
+          "kebabCase": true,
+          "pascalCase": true
+        }
+      }
+    ],
+    "unicorn/numeric-separators-style": [
+      "error",
+      {
+        "number": {
+          "minimumDigits": 6,
+          "groupLength": 3
+        }
+      }
+    ],
+    "unicorn/prevent-abbreviations": [
+      "error",
+      {
+        "allowList": {
+          "db": true,
+          "docs": true,
+          "env": true,
+          "err": true,
+          "i": true,
+          "param": true,
+          "req": true,
+          "res": true
+        }
+      }
+    ]
+  }
 }

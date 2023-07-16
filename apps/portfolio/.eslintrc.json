@@ -1,6 +1,6 @@
 {
-  "extends": ["next/core-web-vitals"],
-  "plugins": ["@typescript-eslint", "import", "react", "unicorn", "prettier"],
+  "extends": ["next/core-web-vitals", "plugin:react/recommended", "prettier"],
+  "plugins": ["unicorn"],
   "rules": {
     "@typescript-eslint/no-non-null-assertion": "off",
     "react/react-in-jsx-scope": "off",
@@ -23,7 +23,6 @@
         "newlines-between": "always"
       }
     ],
-    "prettier/prettier": "error",
     "no-console": "warn",
     "no-debugger": "warn",
     "unicorn/filename-case": [
