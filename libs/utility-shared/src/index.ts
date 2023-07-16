@@ -1,3 +1,5 @@
-export const printString = (givenString: string) => {
+const printString = (givenString: string) => {
   console.log(givenString);
 };
+
+export { printString };

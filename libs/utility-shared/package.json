@@ -1,25 +1,27 @@
 {
-  "name": "utility-shared",
+  "name": "@notadream/utility-shared",
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "main": "./dist/utility-shared.umd.cjs",
-  "module": "./dist/utility-shared.js",
+  "main": "./dist/notadream-utility-shared.umd.cjs",
+  "module": "./dist/notadream-utility-shared.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/utility-shared.js",
-      "require": "./dist/utility-shared.umd.cjs"
+      "import": "./dist/notadream-utility-shared.js",
+      "require": "./dist/notadream-utility-shared.umd.cjs",
+      "types": "./dist/index.d.ts"
     }
   },
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "vite build && tsc --emitDeclarationOnly && mv dist/src dist/types",
+    "build": "tsc && vite build",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --ignore-path .eslintignore ",
     "lint:fix": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\" --ignore-path .eslintignore "
   },
+  "dependencies": {},
   "devDependencies": {
     "@types/node": "20.4.1",
     "@typescript-eslint/eslint-plugin": "^6.0.0",

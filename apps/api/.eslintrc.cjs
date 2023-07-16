@@ -54,7 +54,7 @@ module.exports = {
     "node/no-unpublished-import": [
       "error",
       {
-        allowModules: ["@faker-js/faker", "mercurius-codegen", "query-string"],
+        allowModules: ["@notadream/utility-shared"],
       },
     ],
     "node/no-unsupported-features/es-syntax": [

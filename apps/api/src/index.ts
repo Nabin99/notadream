@@ -1,6 +1,4 @@
-// import { printString } from "utility-shared";
+import { printString } from "@notadream/utility-shared";
 
 const hello = "hello";
-// printString(hello);
-
-console.log(hello);
+printString(hello);

@@ -69,6 +69,9 @@ importers:
 
   apps/api:
     devDependencies:
+      '@notadream/utility-shared':
+        specifier: workspace:^
+        version: link:../../libs/utility-shared
       '@types/node':
         specifier: 20.4.1
         version: 20.4.1
@@ -108,9 +111,6 @@ importers:
       typescript:
         specifier: ^5.1.6
         version: 5.1.6
-      utility-shared:
-        specifier: workspace:**
-        version: link:../../libs/utility-shared
 
   apps/blogs:
     dependencies:
