@@ -5,36 +5,34 @@ module.exports = {
   env: { browser: true, es2020: true },
   extends: [
     "eslint:recommended",
-    "plugin:import/recommended",
-    "plugin:import/typescript",
+    "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking",
-    "plugin:react-hooks/recommended",
-    "plugin:prettier/recommended",
-    "plugin:unicorn/recommended",
     "prettier",
   ],
-  parser: "@typescript-eslint/parser",
   parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
-    project: true,
-    tsconfigRootDir: __dirname,
+    parser: "@typescript-eslint/parser",
   },
   plugins: [
-    "react-refresh",
     "@typescript-eslint",
     "import",
-    "prettier",
-    "promise",
+    "react",
+    "react-hooks",
+    "react-refresh",
     "unicorn",
+    "prettier",
   ],
+  settings: {
+    react: {
+      version: "detect",
+    },
+  },
   rules: {
+    "@typescript-eslint/no-non-null-assertion": "off",
     "react-refresh/only-export-components": [
       "warn",
       { allowConstantExport: true },
     ],
-    "@typescript-eslint/no-non-null-assertion": "off",
+    "react/react-in-jsx-scope": "off",
     "import/order": [
       1,
       {
@@ -54,13 +52,14 @@ module.exports = {
         "newlines-between": "always",
       },
     ],
-    "prettier/prettier": "error",
+    "no-console": process.env.NODE_ENV === "production" ? "error" : "warn",
+    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "warn",
     "unicorn/filename-case": [
       "error",
       {
         cases: {
-          camelCase: true,
-          snakeCase: true,
+          kebabCase: true,
+          pascalCase: true,
         },
       },
     ],

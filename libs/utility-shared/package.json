@@ -16,7 +16,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc && vite build",
+    "build": "vite build && tsc --emitDeclarationOnly && mv dist/src dist/types",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --ignore-path .eslintignore ",
     "lint:fix": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\" --ignore-path .eslintignore "
   },

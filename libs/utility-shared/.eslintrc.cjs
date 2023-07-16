@@ -1,10 +1,10 @@
 module.exports = {
-  parser: "@typescript-eslint/parser",
   parserOptions: {
+    parser: "@typescript-eslint/parser",
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["@typescript-eslint", "import", "prettier", "promise", "unicorn"],
+  plugins: ["@typescript-eslint", "import", "promise", "unicorn", "prettier"],
   extends: [
     "eslint:recommended",
     "plugin:import/recommended",
@@ -34,6 +34,8 @@ module.exports = {
         "newlines-between": "always",
       },
     ],
+    "no-console": process.env.NODE_ENV === "production" ? "error" : "warn",
+    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "warn",
     "prettier/prettier": "error",
     "unicorn/filename-case": [
       "error",

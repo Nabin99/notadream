@@ -1,20 +1,28 @@
 module.exports = {
-  parser: "@typescript-eslint/parser",
+  root: true,
   parserOptions: {
+    parser: "@typescript-eslint/parser",
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["@typescript-eslint", "import", "prettier", "promise", "unicorn"],
+  plugins: [
+    "@typescript-eslint",
+    "react",
+    "react-hooks",
+    "import",
+    "promise",
+    "unicorn",
+    "prettier",
+  ],
   extends: [
     "eslint:recommended",
-    "plugin:import/recommended",
-    "plugin:import/typescript",
-    "plugin:prettier/recommended",
+    "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:unicorn/recommended",
     "prettier",
   ],
   rules: {
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "react/react-in-jsx-scope": "off",
     "import/order": [
       1,
       {
@@ -34,13 +42,14 @@ module.exports = {
         "newlines-between": "always",
       },
     ],
-    "prettier/prettier": "error",
+    "no-console": process.env.NODE_ENV === "production" ? "error" : "warn",
+    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "warn",
     "unicorn/filename-case": [
       "error",
       {
         cases: {
-          camelCase: true,
-          snakeCase: true,
+          kebabCase: true,
+          pascalCase: true,
         },
       },
     ],
@@ -73,8 +82,12 @@ module.exports = {
     node: {
       tryExtensions: [".js", ".json", ".node", ".ts"],
     },
+    react: {
+      version: "detect",
+    },
   },
   env: {
     node: true,
+    es2020: true,
   },
 };

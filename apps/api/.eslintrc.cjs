@@ -28,9 +28,9 @@ module.exports = {
     "@typescript-eslint",
     "import",
     "node",
-    "prettier",
     "promise",
     "unicorn",
+    "prettier",
   ],
   rules: {
     "import/order": [
@@ -62,6 +62,8 @@ module.exports = {
       "error",
       { ignores: ["modules"] },
     ],
+    "no-console": process.env.NODE_ENV === "production" ? "error" : "warn",
+    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "warn",
     "prettier/prettier": "error",
     "unicorn/filename-case": [
       "error",

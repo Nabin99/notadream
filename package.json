@@ -10,6 +10,7 @@
     "dev": "pnpm run --parallel dev",
     "lint": "pnpm run -r lint",
     "lint:fix": "pnpm run -r lint:fix",
+    "lint:fix:staged": "pnpm run -r --filter !blogs --filter !portfolio lint:fix",
     "prepare": "husky install",
     "sort-package": "npx sort-package-json && pnpm run sort-package",
     "test": "pnpm run test --parallel",
@@ -21,9 +22,9 @@
     "typecheck": "pnpm run typecheck"
   },
   "lint-staged": {
-    "**/*.{js,jsx,ts,tsx,html,css,scss}": [
-      "pnpm run prettier --write",
-      "pnpm run lint:fix"
+    "**/*.{js,jsx,ts,tsx}": [
+      "pnpm prettier --write",
+      "pnpm run lint:fix:staged"
     ]
   },
   "devDependencies": {
