@@ -7,10 +7,9 @@ module.exports = {
   plugins: ["@typescript-eslint", "import", "promise", "unicorn", "prettier"],
   extends: [
     "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
     "plugin:import/recommended",
     "plugin:import/typescript",
-    "plugin:prettier/recommended",
-    "plugin:@typescript-eslint/recommended",
     "plugin:unicorn/recommended",
     "prettier",
   ],
