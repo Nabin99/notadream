@@ -1,1 +1,3 @@
-console.log("hello");
+import TestComponent from "./components/TestComponent";
+
+export { TestComponent };

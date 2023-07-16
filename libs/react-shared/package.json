@@ -1,15 +1,16 @@
 {
-  "name": "react-shared",
+  "name": "@notadream/react-shared",
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "main": "./dist/react-shared.umd.cjs",
-  "module": "./dist/react-shared.js",
+  "main": "./dist/notadream-react-shared.umd.cjs",
+  "module": "./dist/notadream-react-shared.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/react-shared.js",
-      "require": "./dist/react-shared.umd.cjs"
+      "import": "./dist/notadream-react-shared.js",
+      "require": "./dist/notadream-react-shared.umd.cjs",
+      "types": "./dist/index.d.ts"
     }
   },
   "files": [
@@ -20,6 +21,7 @@
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --ignore-path .eslintignore ",
     "lint:fix": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\" --ignore-path .eslintignore "
   },
+  "dependencies": {},
   "devDependencies": {
     "@types/node": "20.4.1",
     "@types/react": "^18.2.14",
