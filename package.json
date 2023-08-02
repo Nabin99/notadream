@@ -5,15 +5,15 @@
   "description": "DESCRIPTION",
   "license": "UNLICENSED",
   "scripts": {
-    "build": "pnpm run --parallel build",
-    "build:libs": "pnpm run --parallel --filter=./libs/** build ",
-    "dev": "pnpm run --parallel dev",
-    "lint": "pnpm run -r lint",
-    "lint:fix": "pnpm run -r lint:fix",
-    "lint:fix:staged": "pnpm run -r --filter !blogs --filter !portfolio lint:fix",
+    "build": "npx nx run-many --target=build --all",
+    "build:libs": "npx nx run-many --target=build  --projects=@notadream/utility-shared,@notadream/react-shared ",
+    "dev": "pnpm run --stream --parallel dev",
+    "lint": "npx nx run-many --target=lint --all",
+    "lint:fix": "npx nx run-many --target=lint:fix --all",
+    "lint:fix:staged": "pnpm run --stream -r --filter !blogs --filter !portfolio lint:fix",
     "prepare": "husky install",
     "sort-package": "npx sort-package-json && pnpm run sort-package",
-    "test": "pnpm run test --parallel",
+    "test": "pnpm run --parallel test ",
     "test:ci": "pnpm run test:ci --parallel",
     "test:integration": "pnpm run test:integration --parallel",
     "test:integration:ci": "pnpm run test:integration:ci --parallel",
@@ -31,6 +31,7 @@
     "@commitlint/cli": "17.0.3",
     "@commitlint/config-conventional": "17.0.3",
     "husky": "^8.0.3",
-    "lint-staged": "^13.2.3"
+    "lint-staged": "^13.2.3",
+    "nx": "^16.6.0"
   }
 }

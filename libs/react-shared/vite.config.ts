@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 
-import { devDependencies, dependencies } from "./package.json";
+import { peerDependencies, dependencies } from "./package.json";
 
 export default defineConfig({
   build: {
@@ -14,10 +14,16 @@ export default defineConfig({
       fileName: "notadream-react-shared",
     },
     rollupOptions: {
-      external: [...Object.keys(devDependencies), ...Object.keys(dependencies)],
+      external: [
+        ...Object.keys(peerDependencies),
+        ...Object.keys(dependencies),
+      ],
       output: {
         exports: "named",
-        globals: {},
+        globals: {
+          react: "React",
+          "react-dom": "ReactDom",
+        },
       },
     },
     target: "es2022",
