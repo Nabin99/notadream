@@ -29,5 +29,9 @@
   "engines": {
     "node": ">=18",
     "pnpm": ">=8"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "fastify": "^4.21.0"
   }
 }
