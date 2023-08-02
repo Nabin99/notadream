@@ -5,23 +5,29 @@ services:
     build:
       context: ./apps/admin/docker
       ports:
-      - "80:80"
+        - "80:80"
 
   api:
     build:
       context: ./apps/api/docker
+      ports:
+        - "4000:4000"
 
   blogs:
     build:
       context: ./apps/blogs/docker
+      ports:
+        - "4002:4002"
 
   portfolio:
     build:
       context: ./apps/portfolio/docker
+      ports:
+        - "4003:4003"
 
 networks:
   public:
   private:
 
 volumes:
-  
+  local:
