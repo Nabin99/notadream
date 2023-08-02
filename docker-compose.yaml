@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  admin:
+    build:
+      context: ./apps/admin/docker
+      ports:
+      - "80:80"
+
+  api:
+    build:
+      context: ./apps/api/docker
+
+  blogs:
+    build:
+      context: ./apps/blogs/docker
+
+  portfolio:
+    build:
+      context: ./apps/portfolio/docker
+
+networks:
+  public:
+  private:
+
+volumes:
+  

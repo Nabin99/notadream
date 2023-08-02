@@ -5,8 +5,8 @@
   "description": "DESCRIPTION",
   "license": "UNLICENSED",
   "scripts": {
-    "build": "pnpm run build",
-    "build:libs": "pnpm run -r --filter=./libs/** build ",
+    "build": "pnpm run --parallel build",
+    "build:libs": "pnpm run --parallel --filter=./libs/** build ",
     "dev": "pnpm run --parallel dev",
     "lint": "pnpm run -r lint",
     "lint:fix": "pnpm run -r lint:fix",
