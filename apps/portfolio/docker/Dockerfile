@@ -30,8 +30,10 @@ COPY libs/react-shared libs/react-shared
 COPY libs/utility-shared libs/utility-shared
 
 # Build the "portfolio" app
-RUN pnpm --filter "portfolio" build
+RUN pnpm  --filter ./libs/utility-shared/ build && \
+    pnpm  --filter ./libs/react-shared/ build && \
+    pnpm  --filter ./apps/portfolio/ build
 
-CMD ["pnpm","run", "start"]
+CMD ["pnpm","start"]
 
 
