@@ -12,7 +12,7 @@ WORKDIR /apps/personal-web/
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 
 # Install dependencies
-RUN pnpm i --frozen-lockfile
+RUN pnpm i 
 
 # Copy app and library package.json files
 COPY apps/api/package.json apps/api/
@@ -34,6 +34,6 @@ FROM build as production
 
 COPY --from=build /apps/personal-web/apps/api/dist /apps/api/dist/
 
-CMD ["node","index.js"]
+CMD ["node","/apps/personal-web/apps/api/dist/index.js"]
 
 

@@ -12,7 +12,7 @@ WORKDIR /apps/personal-web/
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 
 # Install dependencies
-RUN pnpm i --frozen-lockfile
+RUN pnpm i
 
 # Copy app and library package.json files
 COPY apps/admin/package.json apps/admin/

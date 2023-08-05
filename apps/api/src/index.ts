@@ -1,15 +1,19 @@
-import app from "./api.ts";
-import config from "./config/config.ts";
+import app from "./api";
+import config from "./config/config";
 
-const server = await app();
+const start = async () => {
+  const server = await app();
 
-server.listen(
-  { port: Number(config.port), host: "0.0.0.0" },
-  (err, address) => {
-    if (err) {
-      server.log.error(err);
-    }
+  server.listen(
+    { port: Number(config.port) || 4000, host: "0.0.0.0" },
+    (err, address) => {
+      if (err) {
+        server.log.error(err);
+      }
 
-    server.log.info(`Server listening at ${address}`);
-  },
-);
+      server.log.info(`Server listening at ${address}`);
+    },
+  );
+};
+
+start();
