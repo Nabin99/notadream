@@ -6,7 +6,7 @@ RUN npm install -g pnpm@8 \
     && pnpm config set store-dir .pnpm-store \
     && pnpm config set auto-install-peers false
 
-WORKDIR /apps/personal-web/
+WORKDIR /apps/notadream/
 
 # Copy package.json and pnpm files
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
@@ -16,24 +16,24 @@ RUN pnpm i
 
 # Copy app and library package.json files
 COPY apps/api/package.json apps/api/
-COPY libs/utility-shared/package.json libs/utility-shared/
+COPY libs/backend/package.json libs/backend/
 
 # Install dependencies for the workspace-specific packages
 RUN pnpm install --filter ./apps/api/ && \
-    pnpm install --filter ./libs/utility-shared/
+    pnpm install --filter ./libs/backend/
 
 # Copy app and library source code
 COPY apps/api apps/api
-COPY libs/utility-shared libs/utility-shared
+COPY libs/backend libs/backend
 
 # Build the "api" app
-RUN pnpm  --filter ./libs/utility-shared/ build && \
+RUN pnpm  --filter ./libs/backend/ build && \
     pnpm  --filter ./apps/api/ build
 
 FROM build as production
 
-COPY --from=build /apps/personal-web/apps/api/dist /apps/api/dist/
+COPY --from=build /apps/notadream/apps/api/dist /apps/api/dist/
 
-CMD ["node","/apps/personal-web/apps/api/dist/index.js"]
+CMD ["node","/apps/notadream/apps/api/dist/index.js"]
 
 

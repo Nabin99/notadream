@@ -6,7 +6,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "build": "npx nx run-many --target=build --all",
-    "build:libs": "npx nx run-many --target=build  --projects=@notadream/utility-shared,@notadream/react-shared ",
+    "build:libs": "npx nx run-many --target=build  --projects=@notadream/backend,@notadream/react",
     "dev": "pnpm run --stream --parallel dev",
     "lint": "npx nx run-many --target=lint --all",
     "lint:fix": "npx nx run-many --target=lint:fix --all",

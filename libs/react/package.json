@@ -1,15 +1,15 @@
 {
-  "name": "@notadream/react-shared",
+  "name": "@notadream/react",
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "main": "./dist/notadream-react-shared.umd.cjs",
-  "module": "./dist/notadream-react-shared.js",
+  "main": "./dist/notadream-react.umd.cjs",
+  "module": "./dist/notadream-react.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/notadream-react-shared.js",
-      "require": "./dist/notadream-react-shared.umd.cjs",
+      "import": "./dist/notadream-react.js",
+      "require": "./dist/notadream-react.umd.cjs",
       "types": "./dist/index.d.ts"
     }
   },

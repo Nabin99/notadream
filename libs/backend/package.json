@@ -1,15 +1,15 @@
 {
-  "name": "@notadream/utility-shared",
+  "name": "@notadream/backend",
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "main": "./dist/notadream-utility-shared.umd.cjs",
-  "module": "./dist/notadream-utility-shared.js",
+  "main": "./dist/notadream-backend.umd.cjs",
+  "module": "./dist/notadream-backend.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/notadream-utility-shared.js",
-      "require": "./dist/notadream-utility-shared.umd.cjs",
+      "import": "./dist/notadream-backend.js",
+      "require": "./dist/notadream-backend.umd.cjs",
       "types": "./dist/index.d.ts"
     }
   },

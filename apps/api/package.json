@@ -1,5 +1,5 @@
 {
-  "name": "api",
+  "name": "@notadream/api",
   "private": true,
   "version": "0.1.0",
   "scripts": {
@@ -9,7 +9,7 @@
     "lint:fix": "eslint --fix \"src/**/*.{js,ts}\" --ignore-path .eslintignore "
   },
   "devDependencies": {
-    "@notadream/utility-shared": "workspace:^",
+    "@notadream/backend": "workspace:^",
     "@types/node": "20.4.1",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",

@@ -10,17 +10,14 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(dirname(fileURLToPath(import.meta.url)), "src/index.ts"),
-      name: "NotadreamReactShared",
-      fileName: "notadream-react-shared",
+      name: "NotadreamBackend",
+      fileName: "notadream-backend",
     },
     rollupOptions: {
       external: [...Object.keys(devDependencies), ...Object.keys(dependencies)],
       output: {
         exports: "named",
-        globals: {
-          react: "React",
-          "react-dom": "ReactDom",
-        },
+        globals: {},
       },
     },
     target: "es2022",

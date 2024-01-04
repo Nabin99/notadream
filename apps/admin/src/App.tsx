@@ -1,4 +1,4 @@
-import { TestComponent } from "@notadream/react-shared";
+import { TestComponent } from "@notadream/react";
 import { useState } from "react";
 
 import reactLogo from "./assets/react.svg";

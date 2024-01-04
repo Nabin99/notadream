@@ -1,5 +1,5 @@
 {
-  "name": "blogs",
+  "name": "@notadream/blogs",
   "version": "0.1.0",
   "private": true,
   "scripts": {
