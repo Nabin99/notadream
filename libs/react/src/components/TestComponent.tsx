@@ -1,5 +1,9 @@
+import { getConfig } from "..";
+
 const TestComponent = () => {
-  return <div>TestComponent</div>;
+  const { appTitle } = getConfig();
+
+  return <div>{appTitle}</div>;
 };
 
 export default TestComponent;
