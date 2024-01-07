@@ -15,7 +15,14 @@ export default defineConfig(({ mode }) => {
       createHtmlPlugin({
         inject: {
           data: {
-            title: process.env.VITE_APP_TITLE || "My app",
+            title: process.env.VITE_APP_TITLE || "Portfolio",
+            description:
+              process.env.VITE_APP_DESCRIPTION ||
+              "Portfolio of Mr. Nabin Dhital",
+            keywords:
+              process.env.VITE_APP_KEYWORDS ||
+              "Software developer, React, NodeJs, MERN stack",
+            author: process.env.VITE_APP_AUTHOR || "Nabin Dhital",
           },
         },
         minify: true,
