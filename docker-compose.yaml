@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: ./apps/admin/docker/Dockerfile
     ports:
-      - "80:80"
+      - "4001:4001"
 
   api:
     build:

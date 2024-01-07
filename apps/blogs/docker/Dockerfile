@@ -1,4 +1,4 @@
-FROM node:18-alpine AS base
+FROM node:20-alpine AS base
 
 # 1. Install dependencies only when needed
 FROM base AS deps
@@ -16,17 +16,15 @@ RUN npm install -g pnpm@8 \
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 
 # Install dependencies
-RUN pnpm i 
+RUN pnpm i
 
 # Copy app and library package.json files
 COPY apps/blogs/package.json apps/blogs/
 COPY libs/react/package.json libs/react/
-COPY libs/backend/package.json libs/backend/
 
 # Install dependencies for the workspace-specific packages
 RUN pnpm install --filter ./apps/blogs/ && \
-    pnpm install --filter ./libs/react/ && \
-    pnpm install --filter ./libs/backend/
+    pnpm install --filter ./libs/react/ 
 
 # 2. Rebuild the source code only when needed
 FROM base AS builder
@@ -41,13 +39,12 @@ COPY --from=deps /apps/notadream/ ./
 # Copy app and library source code
 COPY apps/blogs apps/blogs
 COPY libs/react libs/react
-COPY libs/backend libs/backend
 
 
 # Build the "blogs" app
-RUN pnpm  --filter ./libs/backend/ build && \
-    pnpm  --filter ./libs/react/ build && \
+RUN pnpm  --filter ./libs/react/ build && \
     pnpm  --filter ./apps/blogs/ build
+    
 
 # 3. Production image, copy all the files and run next
 FROM base AS runner
