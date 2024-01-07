@@ -32,7 +32,7 @@ export default defineConfig(({ mode }) => {
       },
     },
     server: {
-      port: Number(process.env.VITE_PORT) || 4003,
+      port: Number(process.env.VITE_APP_PORT) || 4003,
     },
     optimizeDeps: {
       include: ["react/jsx-runtime"],

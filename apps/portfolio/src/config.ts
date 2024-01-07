@@ -1,15 +1,15 @@
 import { configureApp } from "@notadream/react";
 
 configureApp({
-  appName: "Notadream",
-  appTitle: "Not a dream good",
-  appDescription: "This is a example portfolio app.",
-  appKeywords: "notadream",
-  apiBaseURL: "localhost:4000",
-  appPort: 4003,
+  appName: import.meta.env.VITE_APP_NAME as string,
+  appTitle: import.meta.env.VITE_APP_TITLE as string,
+  appDescription: import.meta.env.VITE_APP_DESCRIPTION as string,
+  appKeywords: import.meta.env.VITE_APP_KEYWORDS as string,
+  apiBaseURL: import.meta.env.VITE_API_BASE_URL as string,
+  appPort: Number(import.meta.env.VITE_APP_PORT) || 4003,
   websiteDomain: window.location.hostname,
   copyright: {
-    holder: "Notadream",
+    holder: import.meta.env.VITE_COPYRIGHT_HOLDER as string,
   },
-  version: "0.1.0",
+  version: import.meta.env.VITE_VERSION as string,
 });
