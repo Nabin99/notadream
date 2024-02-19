@@ -21,10 +21,7 @@
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --ignore-path .eslintignore ",
     "lint:fix": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\" --ignore-path .eslintignore "
   },
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/node": "20.4.1",
     "@types/react": "^18.2.46",
@@ -44,6 +41,11 @@
     "typescript": "^5.3.3",
     "vite": "^4.5.1",
     "vite-plugin-dts": "^3.7.0"
+  },
+  "peerDependencies": {
+    "@stylexjs/stylex": "^0.5.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "engines": {
     "node": ">=18",

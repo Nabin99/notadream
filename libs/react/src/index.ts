@@ -1,5 +1,3 @@
-import TestComponent from "./components/TestComponent";
-
-export { TestComponent };
+export * from "./components/TestComponent";
 
 export * from "./config";
