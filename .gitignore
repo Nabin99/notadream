@@ -1,6 +1,7 @@
 **/dist
-**/.nx
+**/.next
 **/.env*
 !**/.env.*
 **/*.log
 **/node_modules
+**/.turbo

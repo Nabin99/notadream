@@ -5,33 +5,30 @@
   "description": "DESCRIPTION",
   "license": "UNLICENSED",
   "scripts": {
-    "build": "npx nx run-many --target=build --all",
-    "build:libs": "npx nx run-many --target=build  --projects=@notadream/backend,@notadream/react",
-    "dev": "pnpm run --stream --parallel dev",
-    "dev:portfolio": "pnpm run --stream --parallel --filter @notadream/portfolio dev",
-    "lint": "npx nx run-many --target=lint --all",
-    "lint:fix": "npx nx run-many --target=lint:fix --all",
-    "lint:fix:staged": "pnpm run --stream -r --filter !@notadream/blogs lint:fix",
-    "sort-package": "npx sort-package-json && pnpm run sort-package",
+    "build": "pnpm run -r --parallel build",
+    "build:libs": "pnpm run -r --parallel --target @notadream/backend --target @notadream/react build",
+    "dev": "pnpm run -r --parallel dev",
+    "dev:portfolio": "pnpm run -r --parallel --filter @notadream/portfolio dev",
+    "lint": "pnpm run -r --parallel lint",
+    "lint:fix": "pnpm run -r --parallel lint:fix",
+    "lint:fix:staged": "pnpm run --parallel -r --filter !@notadream/blogs lint:fix",
+    "prepare": "pnpm husky install",
+    "sort-package": "sort-package-json && pnpm run sort-package",
     "test": "pnpm run --parallel test ",
     "test:ci": "pnpm run test:ci --parallel",
     "test:integration": "pnpm run test:integration --parallel",
     "test:integration:ci": "pnpm run test:integration:ci --parallel",
     "test:unit": "pnpm run test:unit --parallel",
     "test:unit:ci": "pnpm run test:unit:ci --parallel",
-    "typecheck": "pnpm run typecheck"
-  },
-  "lint-staged": {
-    "**/*.{js,jsx,ts,tsx}": [
-      "pnpm prettier --write",
-      "pnpm run lint:fix:staged"
-    ]
+    "typecheck": "pnpm run -r --parallel typecheck"
   },
   "devDependencies": {
     "@commitlint/cli": "18.4.3",
     "@commitlint/config-conventional": "18.4.3",
-    "husky": "^8.0.3",
-    "lint-staged": "^15.2.0",
-    "nx": "^17.2.8"
-  }
+    "husky": "^8.0.3"
+  },
+  "workspaces": [
+    "apps/*",
+    "libs/*"
+  ]
 }

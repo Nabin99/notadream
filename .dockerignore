@@ -1,9 +1,10 @@
 **/dist
-**/.nx
 **/.env*
 !**/.env.*
 **/*.log
 **/node_modules
+**/.turbo
+**/.next
 
 docker-compose.yaml
 

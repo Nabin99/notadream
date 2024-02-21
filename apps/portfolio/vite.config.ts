@@ -13,7 +13,10 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [
       react(),
-      stylexPlugin(),
+      stylexPlugin({
+        classNamePrefix: "nd-",
+        useRemForFontSize: true,
+      }),
       createHtmlPlugin({
         inject: {
           data: {
