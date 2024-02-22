@@ -21,13 +21,13 @@ const layoutStyle = stylex.create({
     alignItems: "center",
   },
   header: {
-    gridArea: `'header header' 'main main' 'footer footer'`,
+    gridTemplateAreas: `'header header' 'main main' 'footer footer'`,
   },
   sidebar: {
-    gridArea: `'sidebar header' 'sidebar main' 'sidebar footer'`,
+    gridTemplateAreas: `'sidebar header' 'sidebar main' 'sidebar footer'`,
   },
   both: {
-    gridArea: `'header header' 'sidebar main' 'footer footer'`,
+    gridTemplateAreas: `'header header' 'sidebar main' 'footer footer'`,
   },
 });
 
