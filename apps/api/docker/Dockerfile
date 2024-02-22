@@ -19,8 +19,8 @@ COPY apps/api/package.json apps/api/
 COPY libs/backend/package.json libs/backend/
 
 # Install dependencies for the workspace-specific packages
-RUN pnpm install --filter ./apps/api/ && \
-    pnpm install --filter ./libs/backend/
+RUN pnpm  --filter ./apps/api/ install && \
+    pnpm  --filter ./libs/backend/ install
 
 # Copy app and library source code
 COPY apps/api apps/api

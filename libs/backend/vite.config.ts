@@ -20,7 +20,7 @@ export default defineConfig({
         globals: {},
       },
     },
-    target: "es2022",
+    target: "esnext",
   },
   resolve: {
     alias: {
@@ -30,6 +30,7 @@ export default defineConfig({
   plugins: [
     dts({
       insertTypesEntry: true,
+      include: ["src/"],
     }),
   ],
 });

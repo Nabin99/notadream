@@ -4,7 +4,7 @@ FROM node:20-alpine as build
 # Use a specific version of pnpm and set configurations
 RUN npm install -g pnpm@8 \
     && pnpm config set store-dir .pnpm-store \
-    && pnpm config set auto-install-peers false
+    && pnpm config set auto-install-peers true
 
 WORKDIR /apps/notadream/
 
@@ -19,8 +19,8 @@ COPY apps/admin/package.json apps/admin/
 COPY libs/react/package.json libs/react/
 
 # Install dependencies for the workspace-specific packages
-RUN pnpm install --filter ./apps/admin/ && \
-    pnpm install --filter ./libs/react/ 
+RUN pnpm  --filter ./apps/admin/ install && \
+    pnpm  --filter ./libs/react/ install
 
 # Copy app and library source code
 COPY apps/admin apps/admin

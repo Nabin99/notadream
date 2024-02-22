@@ -1,34 +1,31 @@
 {
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Notadream backend",
+  "_version": "0.1.0",
+  "extends": "./tsconfig.node.json",
+  "exclude": ["node_modules", "dist"],
+  "include": ["src/"],
   "compilerOptions": {
     "composite": true,
-    "declaration": true,
-    "declarationMap": true,
-    "baseUrl": "./src",
-    "rootDir": "./src",
-    "paths": {
-      "*": ["types/*"]
-    },
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "Node",
     "types": ["vite/client", "node"],
-    "lib": ["ESNext", "DOM", "DOM.Iterable"],
-    "allowJs": true,
-    "allowSyntheticDefaultImports": true,
+    "target": "ES2020",
     "useDefineForClassFields": true,
-    "strict": true,
-    "skipLibCheck": false,
-    "sourceMap": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "esModuleInterop": true,
     "noEmit": true,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "noImplicitReturns": false,
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
     "forceConsistentCasingInFileNames": true
-  },
-  "include": ["src"],
-  "exclude": ["node_modules", "dist"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  }
 }

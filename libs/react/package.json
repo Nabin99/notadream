@@ -19,9 +19,14 @@
   "scripts": {
     "build": "tsc --incremental && vite build",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --ignore-path .eslintignore ",
-    "lint:fix": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\" --ignore-path .eslintignore "
+    "lint:fix": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\" --ignore-path .eslintignore ",
+    "typecheck": "tsc"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@stylexjs/stylex": "^0.5.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
   "devDependencies": {
     "@types/node": "20.4.1",
     "@types/react": "^18.2.46",
@@ -47,6 +52,14 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
+  "description": "A notadream react components library",
+  "keywords": [
+    "notadream",
+    "react",
+    "components"
+  ],
+  "author": "Nabin Dhital",
+  "license": "MIT",
   "engines": {
     "node": ">=18",
     "pnpm": ">=8"

@@ -4,16 +4,37 @@
     "//#build": {
       "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**", "dist/**"],
-      "inputs": ["src/**"]
+      "inputs": [
+        "src/**",
+        "package.json",
+        "tsconfig.josn",
+        "vite.config.ts",
+        "tsconfig.node.json",
+        ".eslintrc.cjs"
+      ]
     },
     "//#build:libs": {
       "dependsOn": ["^build:libs"],
       "outputs": [".next/**", "!.next/cache/**", "dist/**"],
-      "inputs": ["src/**"]
+      "inputs": [
+        "src/**",
+        "package.json",
+        "tsconfig.josn",
+        "vite.config.ts",
+        "tsconfig.node.json",
+        ".eslintrc.cjs"
+      ]
     },
     "//#deploy": {
       "dependsOn": ["//#build", "//#test", "//#lint"],
-      "inputs": ["src/**"]
+      "inputs": [
+        "src/**",
+        "package.json",
+        "tsconfig.josn",
+        "vite.config.ts",
+        "tsconfig.node.json",
+        ".eslintrc.cjs"
+      ]
     },
     "//#test": {
       "dependsOn": ["build"],

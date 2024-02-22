@@ -4,11 +4,7 @@ import { fileURLToPath } from "node:url";
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 
-import {
-  devDependencies,
-  dependencies,
-  peerDependencies,
-} from "./package.json";
+import { devDependencies, dependencies } from "./package.json";
 
 export default defineConfig({
   build: {
@@ -18,11 +14,7 @@ export default defineConfig({
       fileName: "notadream-react",
     },
     rollupOptions: {
-      external: [
-        ...Object.keys(peerDependencies),
-        ...Object.keys(devDependencies),
-        ...Object.keys(dependencies),
-      ],
+      external: [...Object.keys(devDependencies), ...Object.keys(dependencies)],
       output: {
         exports: "named",
         globals: {
@@ -32,7 +24,7 @@ export default defineConfig({
         },
       },
     },
-    target: "es2022",
+    target: "esnext",
   },
   resolve: {
     alias: {
@@ -42,6 +34,7 @@ export default defineConfig({
   plugins: [
     dts({
       insertTypesEntry: true,
+      include: ["src/"],
     }),
   ],
 });

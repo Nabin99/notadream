@@ -10,7 +10,7 @@ WORKDIR /apps/notadream/
 # Use a specific version of pnpm and set configurations
 RUN npm install -g pnpm@8 \
     && pnpm config set store-dir .pnpm-store \
-    && pnpm config set auto-install-peers false
+    && pnpm config set auto-install-peers true
 
 # Copy package.json and pnpm files
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
@@ -23,14 +23,14 @@ COPY apps/blogs/package.json apps/blogs/
 COPY libs/react/package.json libs/react/
 
 # Install dependencies for the workspace-specific packages
-RUN pnpm install --filter ./apps/blogs/ && \
-    pnpm install --filter ./libs/react/ 
+RUN pnpm  --filter ./apps/blogs/ install && \
+    pnpm  --filter ./libs/react/ install
 
 # 2. Rebuild the source code only when needed
 FROM base AS builder
 RUN npm install -g pnpm@8 \
     && pnpm config set store-dir .pnpm-store \
-    && pnpm config set auto-install-peers false
+    && pnpm config set auto-install-peers true
 
 WORKDIR /apps/notadream/
 

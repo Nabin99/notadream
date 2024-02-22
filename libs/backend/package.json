@@ -37,6 +37,14 @@
     "vite": "^4.5.1",
     "vite-plugin-dts": "^3.7.0"
   },
+  "description": "A notadream utility library",
+  "keywords": [
+    "notadream",
+    "utility",
+    "components"
+  ],
+  "author": "Nabin Dhital",
+  "license": "MIT",
   "engines": {
     "node": ">=18",
     "pnpm": ">=8"
