@@ -5,12 +5,12 @@
   "description": "DESCRIPTION",
   "license": "UNLICENSED",
   "scripts": {
-    "build": "pnpm run -r --parallel build",
-    "build:libs": "pnpm run -r --parallel --target @notadream/backend --target @notadream/react build",
-    "dev": "pnpm run -r --parallel dev",
-    "dev:portfolio": "pnpm run -r --parallel --filter @notadream/portfolio dev",
-    "lint": "pnpm run -r --parallel lint",
-    "lint:fix": "pnpm run -r --parallel lint:fix",
+    "build": "turbo run build",
+    "build:libs": "turbo run build --filter=./libs/** ",
+    "dev": "turbo dev",
+    "dev:portfolio": "pnpm run dev --filter=@notadream/portfolio",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix",
     "lint:fix:staged": "pnpm run --parallel -r --filter !@notadream/blogs lint:fix",
     "prepare": "pnpm husky install",
     "sort-package": "sort-package-json && pnpm run sort-package",
@@ -25,10 +25,11 @@
   "devDependencies": {
     "@commitlint/cli": "18.4.3",
     "@commitlint/config-conventional": "18.4.3",
-    "husky": "^8.0.3"
+    "husky": "^8.0.3",
+    "turbo": "^1.12.4"
   },
   "workspaces": [
-    "apps/*",
-    "libs/*"
+    "libs/*",
+    "apps/*"
   ]
 }

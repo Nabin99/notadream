@@ -1,28 +1,29 @@
 {
   "compilerOptions": {
-    "target": "ES2021",             // Specify ECMAScript target version
-    "module": "CommonJS",           // Generate CommonJS modules
-    "outDir": "./dist",             // Output directory for transpiled JavaScript files
-    "rootDir": "./src",             // Source directory where TypeScript files are located
-    "strict": true,                 // Enable strict type checking
-    "esModuleInterop": true,        // Enable interoperability between CommonJS and ES modules
-    "resolveJsonModule": true,     // Allow importing JSON files as modules
-    "declaration": true,           // Generate declaration files (*.d.ts)
-    "sourceMap": true,             // Generate source maps for easier debugging
-    "noUnusedLocals": false,       // Disable reporting of unused local variables
-    "noUnusedParameters": false,   // Disable reporting of unused parameters
-    "allowJs": false,              // Disallow JavaScript files to be mixed with TypeScript files
-    "checkJs": false,              // Disable type checking of JavaScript files
-    "lib": ["ES2022"],             // Include default library files for the specified target
-    "skipLibCheck": true,          // Skip type checking of declaration files (*.d.ts)
-    "declarationMap": true,        // Generate declaration map files (*.d.ts.map)
-    "baseUrl": ".",                // Base URL for module resolution
+    "target": "ESNext", 
+    "module": "CommonJS",
+    "outDir": "./dist", // Output directory for transpiled JavaScript files
+    "rootDir": "./src", // Source directory where TypeScript files are located
+    "strict": true, // Enable strict type checking
+    "esModuleInterop": true, // Enable interoperability between CommonJS and ES modules
+    "resolveJsonModule": true, // Allow importing JSON files as modules
+    "declaration": false, // Generate declaration files (*.d.ts)
+    "sourceMap": false, // Generate source maps for easier debugging
+    "noEmit": false,
+    "noUnusedLocals": true, // Disable reporting of unused local variables
+    "noUnusedParameters": true, // Disable reporting of unused parameters
+    "allowJs": false, // Disallow JavaScript files to be mixed with TypeScript files
+    "checkJs": false, // Disable type checking of JavaScript files
+    "lib": ["ESNext"], // Include default library files for the specified target
+    "skipLibCheck": true, // Skip type checking of declaration files (*.d.ts)
+    "declarationMap": false, // Generate declaration map files (*.d.ts.map)
+    "baseUrl": ".", // Base URL for module resolution
     "paths": {
-      "@/*": ["src/*"]             // Path aliases for easier imports (optional)
+      "@/*": ["src/*"] // Path aliases for easier imports (optional)
     },
-    "experimentalDecorators": true,  // Enable support for experimental decorators
-    "emitDecoratorMetadata": true    // Emit additional metadata for decorators
+    "experimentalDecorators": true, // Enable support for experimental decorators
+    "emitDecoratorMetadata": true // Emit additional metadata for decorators
   },
-  "include": ["src"],               // Files or directories to include for compilation
+  "include": ["src"], // Files or directories to include for compilation
   "exclude": ["node_modules", "dist"] // Files or directories to exclude from compilation
 }

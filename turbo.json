@@ -1,53 +1,29 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
-    "//#build": {
+    "build": {
       "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**", "dist/**"],
       "inputs": [
         "src/**",
         "package.json",
-        "tsconfig.josn",
+        "tsconfig.json",
         "vite.config.ts",
         "tsconfig.node.json",
         ".eslintrc.cjs"
       ]
     },
-    "//#build:libs": {
-      "dependsOn": ["^build:libs"],
-      "outputs": [".next/**", "!.next/cache/**", "dist/**"],
-      "inputs": [
-        "src/**",
-        "package.json",
-        "tsconfig.josn",
-        "vite.config.ts",
-        "tsconfig.node.json",
-        ".eslintrc.cjs"
-      ]
-    },
-    "//#deploy": {
-      "dependsOn": ["//#build", "//#test", "//#lint"],
-      "inputs": [
-        "src/**",
-        "package.json",
-        "tsconfig.josn",
-        "vite.config.ts",
-        "tsconfig.node.json",
-        ".eslintrc.cjs"
-      ]
-    },
-    "//#test": {
+    "test": {
       "dependsOn": ["build"],
       "inputs": ["src/**/*.tsx", "src/**/*.ts", "test/**/*.ts", "test/**/*.tsx"]
     },
-    "//#lint": {
+    "lint": {
       "inputs": ["src/**"]
     },
-    "//#dev": {
-      "cache": false,
-      "persistent": true
+    "lint:fix": {
+      "inputs": ["src/**"]
     },
-    "//#dev:portfolio": {
+    "dev": {
       "cache": false,
       "persistent": true
     }
