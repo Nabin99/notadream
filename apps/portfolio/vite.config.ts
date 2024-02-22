@@ -14,7 +14,6 @@ export default defineConfig(({ mode }) => {
     plugins: [
       react(),
       stylexPlugin({
-        classNamePrefix: "nd-",
         useRemForFontSize: true,
       }),
       createHtmlPlugin({
