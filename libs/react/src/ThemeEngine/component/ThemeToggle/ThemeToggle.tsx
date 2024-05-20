@@ -8,7 +8,6 @@ export const ThemeToggle = () => {
     <div>
       <button
         onClick={() => {
-          console.log("inside here ");
           if (theme.currentMode === "light") {
             setCurrentThemeState?.((pre) => ({
               ...pre,
