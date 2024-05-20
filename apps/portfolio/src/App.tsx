@@ -1,9 +1,12 @@
-import { Layout } from "@notadream/react";
+import { Layout, ThemeToggle } from "@notadream/react";
 
 function App() {
+  // const theme = useThemeState();
+
   return (
     <>
       <Layout type="header">
+        <ThemeToggle />
         <>children</>
       </Layout>
     </>

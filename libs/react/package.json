@@ -23,7 +23,6 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@stylexjs/stylex": "^0.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -48,7 +47,6 @@
     "vite-plugin-dts": "^3.7.0"
   },
   "peerDependencies": {
-    "@stylexjs/stylex": "^0.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

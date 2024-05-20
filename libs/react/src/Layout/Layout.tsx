@@ -1,5 +1,4 @@
 import { FC } from "react";
-import * as stylex from "@stylexjs/stylex";
 
 import { Footer } from "./Footer";
 import { Header } from "./Header";
@@ -13,24 +12,6 @@ export interface LayoutProperties {
   type?: "sidebar" | "header" | "both";
 }
 
-const layoutStyle = stylex.create({
-  base: {
-    width: "100%",
-    justifyContent: "center",
-    alignContent: "center",
-    alignItems: "center",
-  },
-  header: {
-    gridTemplateAreas: `'header header' 'main main' 'footer footer'`,
-  },
-  sidebar: {
-    gridTemplateAreas: `'sidebar header' 'sidebar main' 'sidebar footer'`,
-  },
-  both: {
-    gridTemplateAreas: `'header header' 'sidebar main' 'footer footer'`,
-  },
-});
-
 export const Layout: FC<LayoutProperties> = ({
   children,
   header,
@@ -39,7 +20,7 @@ export const Layout: FC<LayoutProperties> = ({
   type,
 }) => {
   return (
-    <div {...stylex.props(layoutStyle.base, layoutStyle[type || "header"])}>
+    <div>
       {header || <Header />}
       {type !== "header" ? sidebar || <Sidebar /> : null}
       <main style={{ minHeight: "100vh" }}>{children}</main>
