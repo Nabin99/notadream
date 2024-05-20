@@ -1,11 +1,7 @@
 // ThemeContext.tsx
 import React, { createContext, useContext, useState } from "react";
 
-import {
-  getDefaultColorScheme,
-  getDefaultTheme,
-  getDefaultThemeMode,
-} from "../theme-config";
+import { getDefaultTheme, getDefaultThemeMode } from "../theme-config";
 
 // import type { ColorScheme, ThemeMode, ThemeState, Themes } from "../type";
 import type { ThemeState } from "../type";
@@ -35,12 +31,12 @@ const ThemeStateContext = createContext<ThemeState>({
   currentTheme: "notadream",
   currentColorScheme: "light",
   currentMode: "auto",
-  setCurrentThemeState: undefined,
+  // setCurrentThemeState: undefined,
 });
 
-// const ThemeDispatchContext = createContext<
-//   React.Dispatch<React.SetStateAction<ThemeState>> | undefined
-// >(undefined);
+const ThemeDispatchContext = createContext<
+  React.Dispatch<React.SetStateAction<ThemeState>> | undefined
+>(undefined);
 
 // const themeReducer = (
 //   state: ThemeState,
@@ -60,39 +56,40 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const themeStore: ThemeState = {
-    currentColorScheme: getDefaultColorScheme(),
+    currentColorScheme: window.matchMedia("(prefers-color-scheme: dark)")
+      .matches
+      ? "dark"
+      : "light",
     currentTheme: getDefaultTheme(),
     currentMode: getDefaultThemeMode(),
-    setCurrentThemeState: undefined,
+    // setCurrentThemeState: undefined,
   };
   // const [themeState, dispatch] = useReducer(themeReducer, themeStore);
 
   const [themeState, setThemeState] = useState<ThemeState>(themeStore);
 
   return (
-    <ThemeStateContext.Provider
-      value={{ ...themeState, setCurrentThemeState: setThemeState }}
-    >
-      {/* <ThemeDispatchContext.Provider value={setThemeState}> */}
-      {children}
-      {/* </ThemeDispatchContext.Provider> */}
+    <ThemeStateContext.Provider value={{ ...themeState }}>
+      <ThemeDispatchContext.Provider value={setThemeState}>
+        {children}
+      </ThemeDispatchContext.Provider>
     </ThemeStateContext.Provider>
   );
 };
 
 export const useThemeState = (): ThemeState => useContext(ThemeStateContext);
 
-// export const useSetThemeState = (): React.Dispatch<
-//   React.SetStateAction<ThemeState>
-// > => {
-//   const dispatch = useContext(ThemeDispatchContext);
+export const useSetThemeState = (): React.Dispatch<
+  React.SetStateAction<ThemeState>
+> => {
+  const dispatch = useContext(ThemeDispatchContext);
 
-//   if (!dispatch) {
-//     throw new Error("useThemeDispatch must be used within a ThemeStore");
-//   }
+  if (!dispatch) {
+    throw new Error("useThemeDispatch must be used within a ThemeStore");
+  }
 
-//   return dispatch;
-// };
+  return dispatch;
+};
 
 // export const useSetColorScheme = (): ((colorScheme: ColorScheme) => void) => {
 //   const dispatch = useContext(ThemeDispatchContext);

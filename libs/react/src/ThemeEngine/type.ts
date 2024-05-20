@@ -105,7 +105,7 @@ export interface ThemeState {
   currentTheme: keyof Themes;
   currentColorScheme: ColorScheme;
   currentMode: ThemeMode;
-  setCurrentThemeState:
-    | React.Dispatch<React.SetStateAction<ThemeState>>
-    | undefined;
+  // setCurrentThemeState:
+  //   | React.Dispatch<React.SetStateAction<ThemeState>>
+  //   | undefined;
 }

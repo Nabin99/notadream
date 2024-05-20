@@ -1,34 +1,35 @@
-import { useThemeState } from "../../context";
+import { useThemeState, useSetThemeState } from "../../context";
 
 export const ThemeToggle = () => {
   const theme = useThemeState();
-  // const setCurrentThemeState = useSetThemeState();
+  const setCurrentThemeState = useSetThemeState();
 
   return (
     <div>
       <button
         onClick={() => {
-          if (theme.currentMode === "dark") {
-            theme.setCurrentThemeState?.((pre) => ({
+          console.log("inside here ");
+          if (theme.currentMode === "light") {
+            setCurrentThemeState?.((pre) => ({
               ...pre,
               currentColorScheme: "dark",
               currentMode: "dark",
             }));
-          } else if (theme.currentMode === "light") {
-            theme.setCurrentThemeState?.((pre) => ({
-              ...pre,
-              currentColorScheme: "light",
-              currentMode: "light",
-            }));
-          } else {
+          } else if (theme.currentMode === "dark") {
             const darkThemeMq = window.matchMedia(
               "(prefers-color-scheme: dark)"
             );
 
-            theme.setCurrentThemeState?.((pre) => ({
+            setCurrentThemeState?.((pre) => ({
               ...pre,
               currentColorScheme: darkThemeMq.matches ? "dark" : "light",
               currentMode: "auto",
+            }));
+          } else {
+            setCurrentThemeState?.((pre) => ({
+              ...pre,
+              currentColorScheme: "light",
+              currentMode: "light",
             }));
           }
         }}

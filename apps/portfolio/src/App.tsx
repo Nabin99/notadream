@@ -1,7 +1,8 @@
-import { Layout, ThemeToggle } from "@notadream/react";
+import { Layout, ThemeToggle, useThemeState } from "@notadream/react";
 
 function App() {
-  // const theme = useThemeState();
+  const theme = useThemeState();
+  console.log(theme);
 
   return (
     <>
