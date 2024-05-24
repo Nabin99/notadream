@@ -1,7 +1,11 @@
 // ThemeContext.tsx
 import React, { createContext, useContext, useState } from "react";
 
-import { getDefaultTheme, getDefaultThemeMode } from "../theme-config";
+import {
+  getDefaultTheme,
+  getDefaultThemeMode,
+  // getThemeConfig,
+} from "../theme-config";
 
 // import type { ColorScheme, ThemeMode, ThemeState, Themes } from "../type";
 import type { ThemeState } from "../type";
@@ -67,6 +71,12 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
   // const [themeState, dispatch] = useReducer(themeReducer, themeStore);
 
   const [themeState, setThemeState] = useState<ThemeState>(themeStore);
+
+  // useEffect(() => {
+  //   const component = document.createElement("style");
+  //   component.innerHTML = `${getThemeConfig().generatedCSS}`;
+  //   document.head.appendChild(component);
+  // }, []);
 
   return (
     <ThemeStateContext.Provider value={{ ...themeState }}>

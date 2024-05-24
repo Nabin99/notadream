@@ -54,7 +54,6 @@ export const defaultThemingVariables: Theme = {
       dark: "#343a40",
       light: "#dee2e6",
     },
-
     placeholder: {
       dark: "#6c757d",
       light: "#6c757d",
@@ -63,62 +62,48 @@ export const defaultThemingVariables: Theme = {
       dark: "#6c757d",
       light: "#6c757d",
     },
-    white: "#ffffff",
-    black: "#000000",
+    white: {
+      light: "#ffffff",
+      dark: "#ffffff",
+    },
+    black: {
+      light: "#000000",
+      dark: "#000000",
+    },
   },
-  typography: {
-    fontFamily: "Arial, sans-serif",
-    baseFontSize: "16px",
-    headingFontFamily: "Arial, sans-serif",
-    headings: {
-      h1: {
-        fontSize: "2.5rem",
-        fontWeight: "bold",
-        lineHeight: "1.2",
-      },
-      h2: {
-        fontSize: "2rem",
-        fontWeight: "bold",
-        lineHeight: "1.3",
-      },
-      h3: {
-        fontSize: "1.75rem",
-        fontWeight: "bold",
-        lineHeight: "1.4",
-      },
-      h4: {
-        fontSize: "1.5rem",
-        fontWeight: "bold",
-        lineHeight: "1.5",
-      },
-      h5: {
-        fontSize: "1.25rem",
-        fontWeight: "bold",
-        lineHeight: "1.6",
-      },
-      h6: {
-        fontSize: "1rem",
-        fontWeight: "bold",
-        lineHeight: "1.7",
-      },
-    },
-    text: {
-      body: {
-        fontSize: "1rem",
-        fontWeight: "normal",
-        lineHeight: "1.5",
-      },
-      small: {
-        fontSize: "0.875rem",
-        fontWeight: "normal",
-        lineHeight: "1.3",
-      },
-      caption: {
-        fontSize: "0.75rem",
-        fontWeight: "normal",
-        lineHeight: "1.2",
-      },
-    },
+  fontFamily: { text: "Arial, sans-serif", heading: "Arial, sans-serif" },
+  fontSizes: {
+    base: "16px",
+    h1: "2.5rem",
+    h2: "2rem",
+    h3: "1.75rem",
+    h4: "1.5rem",
+    h5: "1.25rem",
+    h6: "1rem",
+    small: "0.875rem",
+    caption: "0.75rem",
+  },
+  fontWeight: {
+    base: "normal",
+    h1: "bold",
+    h2: "bold",
+    h3: "bold",
+    h4: "bold",
+    h5: "bold",
+    h6: "bold",
+    small: "normal",
+    caption: "normal",
+  },
+  lineHeight: {
+    base: "1.5",
+    h1: "1.2",
+    h2: "1.3",
+    h3: "1.4",
+    h4: "1.5",
+    h5: "1.6",
+    h6: "1.7",
+    small: "1.3",
+    caption: "1.2",
   },
   spacing: {
     xs: "4px",
@@ -154,28 +139,4 @@ export const defaultThemingVariables: Theme = {
     lg: "992px",
     xl: "1200px",
   },
-};
-
-export const generateCSSVariableFromThemeKey = <T>(
-  object: T,
-  prefix: string
-): T => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const result: any = {};
-
-  for (const key in object) {
-    if (Object.prototype.hasOwnProperty.call(object, key)) {
-      const modifiedKey = `${prefix}-${key
-        .replace(/([a-z0-9])([A-Z])/g, "$1-$2")
-        .toLowerCase()}`;
-
-      if (typeof object[key] === "object") {
-        result[key] = generateCSSVariableFromThemeKey(object[key], modifiedKey);
-      } else {
-        result[key] = modifiedKey;
-      }
-    }
-  }
-
-  return result;
 };

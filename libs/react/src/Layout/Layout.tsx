@@ -20,11 +20,11 @@ export const Layout: FC<LayoutProperties> = ({
   type,
 }) => {
   return (
-    <div>
+    <>
       {header || <Header />}
       {type !== "header" ? sidebar || <Sidebar /> : null}
       <main style={{ minHeight: "100vh" }}>{children}</main>
       {footer || <Footer />}
-    </div>
+    </>
   );
 };

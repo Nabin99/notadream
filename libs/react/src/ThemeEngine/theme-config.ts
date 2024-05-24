@@ -1,3 +1,5 @@
+import { getClassesDefinition } from "./classes";
+import { generateCss } from "./classes/generate-css";
 import {
   defaultThemingVariables,
   generateCSSVariableFromThemeKey,
@@ -8,8 +10,9 @@ import type {
   ColorScheme,
   ThemeConfig,
   Themes,
-  Theme,
   ThemeMode,
+  MappedVariables,
+  ClassScheme,
 } from "./type";
 
 interface ThemeConfigProvider {
@@ -18,13 +21,18 @@ interface ThemeConfigProvider {
   getDefaultColorScheme: () => ColorScheme;
   getDefaultThemeMode: () => ThemeMode;
   getThemeConfig: () => Readonly<ThemeConfig>;
-  getCSSVariableNaming: (theme?: keyof Themes) => Readonly<Theme>;
+  getGeneratedCSSVariables: () => Readonly<MappedVariables> | undefined;
+  getGeneratedClassName: () =>
+    | Readonly<Record<keyof ClassScheme, string>>
+    | undefined;
+  getGeneratedCSS: () => Readonly<string>;
   setDefaultTheme: (defaultTheme: keyof Themes) => ThemeConfigProvider;
   setThemes: (themes: Themes) => ThemeConfigProvider;
   setDefaultColorScheme: (
     defaultColorScheme: ColorScheme
   ) => ThemeConfigProvider;
   setThemeConfig: (themeConfig: Partial<ThemeConfig>) => ThemeConfigProvider;
+  initTheme: (extendClassDefinition?: Partial<ClassScheme>) => void;
 }
 
 const ThemeConfigProvider = (): ThemeConfigProvider => {
@@ -36,19 +44,20 @@ const ThemeConfigProvider = (): ThemeConfigProvider => {
       notadream: { ...defaultThemingVariables },
     },
     cssVariablePrefix: "nd",
+    generatedCSS: "",
+    mappedVariables: undefined,
+    mappedClassNames: undefined,
   };
+
   const themeConfigMethods: ThemeConfigProvider = {
     getDefaultColorScheme: () => themeConfig.defaultColorScheme,
     getDefaultTheme: () => themeConfig.defaultTheme,
     getDefaultThemeMode: () => themeConfig.defaultThemeMode,
     getThemeConfig: () => themeConfig,
     getThemes: () => themeConfig.themes,
-    getCSSVariableNaming: (theme = "notadream") => {
-      return generateCSSVariableFromThemeKey<Theme>(
-        themeConfig.themes[theme],
-        themeConfig.cssVariablePrefix
-      );
-    },
+    getGeneratedCSSVariables: () => themeConfig.mappedVariables,
+    getGeneratedClassName: () => themeConfig.mappedClassNames,
+    getGeneratedCSS: () => themeConfig.generatedCSS,
     setDefaultColorScheme: (defaultColorScheme: ColorScheme) => {
       themeConfig.defaultColorScheme = defaultColorScheme;
 
@@ -69,6 +78,30 @@ const ThemeConfigProvider = (): ThemeConfigProvider => {
 
       return themeConfigMethods;
     },
+    initTheme: (extendClassDefinition?: Partial<ClassScheme>) => {
+      const { generatedVariablesString, mappedGeneratedCSSVariables } =
+        generateCSSVariableFromThemeKey(
+          themeConfig.themes[themeConfig.defaultTheme],
+          themeConfig.cssVariablePrefix,
+          themeConfig.cssVariablePrefix,
+          themeConfig.defaultColorScheme
+        );
+
+      const { generatedCss, mappedClassNames } = generateCss(
+        {
+          ...getClassesDefinition(mappedGeneratedCSSVariables),
+          ...extendClassDefinition,
+        },
+        generatedVariablesString,
+        themeConfig.cssVariablePrefix
+      );
+
+      themeConfig.mappedClassNames = mappedClassNames;
+      themeConfig.mappedVariables = mappedGeneratedCSSVariables;
+      themeConfig.generatedCSS = generatedCss;
+
+      return;
+    },
   };
 
   return themeConfigMethods;
@@ -84,5 +117,7 @@ export const {
   setDefaultTheme,
   setThemeConfig,
   setThemes,
-  getCSSVariableNaming,
+  getGeneratedCSS,
+  getGeneratedCSSVariables,
+  getGeneratedClassName,
 } = ThemeConfigProvider();

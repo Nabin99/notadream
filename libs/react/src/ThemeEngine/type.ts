@@ -19,23 +19,29 @@ export interface Colors {
   border: ColorVariation;
   placeholder: ColorVariation;
   disabled: ColorVariation;
-  white: string;
-  black: string;
+  white: ColorVariation;
+  black: ColorVariation;
 }
 
-export interface Typography {
-  fontFamily: string;
-  baseFontSize: string;
-  headingFontFamily: string;
-  headings: Record<string, TypographyVariant>;
-  text: Record<string, TypographyVariant>;
+export interface FontFamily {
+  text: string;
+  heading: string;
 }
 
-export interface TypographyVariant {
-  fontSize: string;
-  fontWeight: string;
-  lineHeight: string;
+export interface FontSizes {
+  base: string;
+  h1: string;
+  h2: string;
+  h3: string;
+  h4: string;
+  h5: string;
+  h6: string;
+  small: string;
+  caption: string;
 }
+
+export interface FontWeights extends FontSizes {}
+export interface LineHeight extends FontSizes {}
 
 export interface Spacing {
   xs: string;
@@ -78,7 +84,10 @@ export interface Breakpoints {
 
 export interface Theme {
   colors: Colors;
-  typography: Typography;
+  fontFamily: FontFamily;
+  fontSizes: FontSizes;
+  fontWeight: FontWeights;
+  lineHeight: LineHeight;
   spacing: Spacing;
   borderRadius: BorderRadius;
   boxShadow: BoxShadow;
@@ -99,13 +108,25 @@ export interface ThemeConfig {
   defaultColorScheme: ColorScheme;
   defaultThemeMode: ThemeMode;
   cssVariablePrefix: string;
+  generatedCSS: string;
+  mappedVariables?: MappedVariables;
+  mappedClassNames?: Record<keyof ClassScheme, string>;
 }
 
 export interface ThemeState {
   currentTheme: keyof Themes;
   currentColorScheme: ColorScheme;
   currentMode: ThemeMode;
-  // setCurrentThemeState:
-  //   | React.Dispatch<React.SetStateAction<ThemeState>>
-  //   | undefined;
+}
+
+export interface ClassScheme {
+  h1: React.CSSProperties;
+  h2: React.CSSProperties;
+  h3: React.CSSProperties;
+  h4: React.CSSProperties;
+  primaryButton: React.CSSProperties;
+}
+
+export interface MappedVariables extends Omit<Theme, "colors"> {
+  colors: Record<keyof Colors, string>;
 }

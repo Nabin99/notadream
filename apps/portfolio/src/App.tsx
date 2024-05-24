@@ -1,14 +1,14 @@
-import { Layout, ThemeToggle, useThemeState } from "@notadream/react";
+import { Layout, ThemeToggle, getThemeConfig } from "@notadream/react";
 
 function App() {
-  const theme = useThemeState();
-  console.log(theme);
-
   return (
     <>
       <Layout type="header">
         <ThemeToggle />
         <>children</>
+        <button className={getThemeConfig().mappedClassNames?.secondaryButton}>
+          Secondary
+        </button>
       </Layout>
     </>
   );
