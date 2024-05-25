@@ -20,7 +20,6 @@ export default defineConfig({
         globals: {
           react: "React",
           "react-dom": "ReactDom",
-          "@stylexjs/stylex": "StyleX",
         },
       },
     },
