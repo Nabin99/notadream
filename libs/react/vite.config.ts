@@ -4,7 +4,7 @@ import { fileURLToPath } from "node:url";
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 
-import { devDependencies, dependencies } from "./package.json";
+import { devDependencies } from "./package.json";
 
 export default defineConfig({
   build: {
@@ -14,7 +14,7 @@ export default defineConfig({
       fileName: "notadream-react",
     },
     rollupOptions: {
-      external: [...Object.keys(devDependencies), ...Object.keys(dependencies)],
+      external: [...Object.keys(devDependencies)], //...Object.keys(dependencies)
       output: {
         exports: "named",
         globals: {

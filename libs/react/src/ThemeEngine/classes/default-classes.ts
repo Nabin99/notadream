@@ -5,6 +5,10 @@ const useGeneratedVariables = (variable: string) => `var(--${variable})`;
 export const getClassesDefinition = (
   mappedVariables: MappedVariables
 ): ClassScheme => ({
+  errorMessage: {
+    fontSize: useGeneratedVariables(mappedVariables.fontSizes.small),
+    color: useGeneratedVariables(mappedVariables.colors.danger),
+  },
   h1: {
     fontSize: useGeneratedVariables(mappedVariables.fontSizes.h1),
     fontWeight: useGeneratedVariables(mappedVariables.fontWeight.h1),

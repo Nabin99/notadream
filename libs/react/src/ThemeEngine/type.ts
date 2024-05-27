@@ -125,6 +125,7 @@ export interface ClassScheme {
   h3: React.CSSProperties;
   h4: React.CSSProperties;
   primaryButton: React.CSSProperties;
+  errorMessage: React.CSSProperties;
 }
 
 export interface MappedVariables extends Omit<Theme, "colors"> {
