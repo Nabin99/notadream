@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/no-empty-file */
 module.exports = {
   parserOptions: {
     parser: "@typescript-eslint/parser",
@@ -40,7 +41,8 @@ module.exports = {
       {
         cases: {
           camelCase: true,
-          snakeCase: true,
+          snakeCase: false,
+          kebabCase: true,
         },
       },
     ],
@@ -68,6 +70,7 @@ module.exports = {
         },
       },
     ],
+    // "unicorn/switch-case-braces": ["error", "avoid"],
   },
   settings: {
     node: {

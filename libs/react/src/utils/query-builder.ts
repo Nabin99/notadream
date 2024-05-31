@@ -28,34 +28,36 @@ export class QueryBuilder {
     };
   }
 
-  getQueryString = (): string => {
-    const queryParts: string[] = [];
+  getQueryString(): string {
+    // const queryParts: string[] = [];
     const queryParameters = this.build();
 
-    if (queryParameters.filters) {
-      queryParameters.filters.forEach((filter) => {
-        queryParts.push(
-          `${filter.field}${filter.operator}${encodeURIComponent(filter.value.toString())}`
-        );
-      });
-    }
+    return `?query=${encodeURIComponent(JSON.stringify(queryParameters, null, 2))}`;
 
-    if (queryParameters.sort) {
-      queryParameters.sort.forEach((sort) => {
-        queryParts.push(`sort=${sort.field},${sort.order}`);
-      });
-    }
+    //     if (queryParameters.filters) {
+    //       queryParameters.filters.forEach((filter) => {
+    //         queryParts.push(
+    //           `${filter.field}${filter.operator}${encodeURIComponent(filter.value.toString())}`
+    //         );
+    //       });
+    //     }
 
-    if (queryParameters.pagination) {
-      if (queryParameters.pagination.limit) {
-        queryParts.push(`limit=${queryParameters.pagination.limit}`);
-      }
+    //     if (queryParameters.sort) {
+    //       queryParameters.sort.forEach((sort) => {
+    //         queryParts.push(`sort=${sort.field},${sort.order}`);
+    //       });
+    //     }
 
-      if (queryParameters.pagination.offset) {
-        queryParts.push(`offset=${queryParameters.pagination.offset}`);
-      }
-    }
+    //     if (queryParameters.pagination) {
+    //       if (queryParameters.pagination.limit) {
+    //         queryParts.push(`limit=${queryParameters.pagination.limit}`);
+    //       }
 
-    return queryParts.join("&");
-  };
+    //       if (queryParameters.pagination.offset) {
+    //         queryParts.push(`offset=${queryParameters.pagination.offset}`);
+    //       }
+    //     }
+
+    //     return queryParts.join("&");
+  }
 }
