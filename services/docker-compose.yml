@@ -16,6 +16,8 @@ services:
       POSTGRES_PASSWORD: Password123
       POSTGRES_USER: admin
       POSTGRES_DB: notadream
+    networks:
+      - private
 
   adminer:
     image: adminer:4.8.1-standalone
@@ -23,9 +25,18 @@ services:
     depends_on:
       - db
     ports:
-      - 8080:8080
+      - ${ADMINER_PORT}:8080
+    networks:
+      - private
+      - public
 
   mailhog:
     image: mailhog/mailhog
     ports:
-      - 8081:8025
+      - ${MAILHOG_PORT}:8025
+    networks:
+      - public
+
+networks:
+  private:
+  public:
