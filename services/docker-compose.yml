@@ -1,0 +1,42 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:16.3
+    restart: always
+    # set shared memory limit when using docker-compose
+    shm_size: 128mb
+    # or set shared memory limit when deploy via swarm stack
+    #volumes:
+    #  - type: tmpfs
+    #    target: /dev/shm
+    #    tmpfs:
+    #      size: 134217728 # 128*2^20 bytes = 128Mb
+    environment:
+      POSTGRES_PASSWORD: Password123
+      POSTGRES_USER: admin
+      POSTGRES_DB: notadream
+    networks:
+      - private
+
+  adminer:
+    image: adminer:4.8.1-standalone
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - ${ADMINER_PORT}:8080
+    networks:
+      - private
+      - public
+
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - ${MAILHOG_PORT}:8025
+    networks:
+      - public
+
+networks:
+  private:
+  public:
