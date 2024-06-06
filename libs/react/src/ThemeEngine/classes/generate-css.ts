@@ -1,4 +1,4 @@
-import { ClassScheme } from "../type";
+import { ClassScheme, GeneratedClasses } from "../type";
 
 const resetBrowserDefaultCSS = `html,
 body,
@@ -366,26 +366,38 @@ export function generateCss(
   prefix = "nd"
 ): {
   generatedCss: string;
-  mappedClassNames: Record<keyof ClassScheme, string>;
+  mappedClassNames: GeneratedClasses<ClassScheme>;
 } {
   let generateCss = resetBrowserDefaultCSS.replaceAll(/\s+/g, "");
 
-  const mapClassNames = {} as Record<keyof ClassScheme, string>;
+  const mapClassNames = {} as GeneratedClasses<ClassScheme>;
 
-  Object.entries(classDefinitions).forEach(([classKey]) => {
-    const className = hashString(classKey, prefix);
-    mapClassNames[classKey as keyof ClassScheme] = className;
-    generateCss += `.${className}{`;
+  Object.entries(classDefinitions).forEach(([classGroupKey]) => {
+    const cgk = classGroupKey as keyof GeneratedClasses<ClassScheme>;
 
-    Object.entries(classDefinitions[classKey as keyof ClassScheme]).forEach(
-      ([properties, values]) => {
-        generateCss += `${properties
-          .replace(/([a-z0-9])([A-Z])/g, "$1-$2")
-          .toLowerCase()}:${values};`;
-      }
-    );
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    mapClassNames[cgk] = {} as any;
 
-    generateCss += `}`;
+    Object.entries(classDefinitions[cgk]).forEach(([classKey]) => {
+      const className = hashString(classKey, prefix);
+
+      const ck = classKey as keyof GeneratedClasses<ClassScheme>[typeof cgk];
+
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      mapClassNames[cgk] = { ...mapClassNames[cgk], [ck]: className } as any;
+
+      generateCss += `.${className}{`;
+
+      Object.entries(classDefinitions[cgk][ck]).forEach(
+        ([properties, values]) => {
+          generateCss += `${properties
+            .replace(/([a-z0-9])([A-Z])/g, "$1-$2")
+            .toLowerCase()}:${values};`;
+        }
+      );
+
+      generateCss += `}`;
+    });
   });
 
   if (window) {

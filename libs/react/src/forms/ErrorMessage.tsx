@@ -6,7 +6,7 @@ interface ErrorMessageProperties {
 
 export const ErrorMessage = ({ errorMessage }: ErrorMessageProperties) => {
   return (
-    <span className={getGeneratedClassName()?.errorMessage}>
+    <span className={getGeneratedClassName()?.forms.errorMessage}>
       {errorMessage}
     </span>
   );
