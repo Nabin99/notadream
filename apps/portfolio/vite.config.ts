@@ -10,6 +10,9 @@ export default defineConfig(({ mode }) => {
   process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
 
   return {
+    build: {
+      cssCodeSplit: false,
+    },
     plugins: [
       react(),
       createHtmlPlugin({
