@@ -1,7 +1,7 @@
 import "./assets/index.css";
 
 export * from "./components/TestComponent";
-export * from "./PageLayout";
-export * from "./ThemeEngine";
+export * from "./page-layouts";
+export * from "./theme-engine";
 
 export * from "./config";

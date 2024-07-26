@@ -4,11 +4,11 @@ function App() {
   return (
     <>
       <PageLayout
-        layout="sidebarOverlay"
+        layout="sidebar"
         header={"Header"}
         footer={"footer"}
         main="Page content"
-        secondarySidebar="true"
+        secondarySidebar="any thing"
         sidebarOverlayExtended={true}
         sidebar="Sidebar"
       />

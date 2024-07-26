@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { getGeneratedClassName } from "../ThemeEngine";
+import { getGeneratedClassName } from "../theme-engine";
 
 interface PageLayoutProperties {
   layout: "basic" | "sidebar" | "sidebarOverlay";

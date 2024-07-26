@@ -1,4 +1,4 @@
-import { getGeneratedClassName } from "../ThemeEngine";
+import { getGeneratedClassName } from "../theme-engine";
 
 export interface FooterProperties {
   children: React.ReactNode;

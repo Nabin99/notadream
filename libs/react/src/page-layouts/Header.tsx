@@ -1,6 +1,6 @@
 import React from "react";
 
-import { getGeneratedClassName } from "../ThemeEngine";
+import { getGeneratedClassName } from "../theme-engine";
 
 export interface HeaderProperties {
   children?: React.ReactNode;

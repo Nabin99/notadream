@@ -1,4 +1,4 @@
-import { getGeneratedClassName } from "../ThemeEngine";
+import { getGeneratedClassName } from "../theme-engine";
 
 interface ErrorMessageProperties {
   errorMessage: React.ReactNode;
