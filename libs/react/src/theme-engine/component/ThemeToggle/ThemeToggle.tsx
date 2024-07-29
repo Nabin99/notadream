@@ -8,7 +8,7 @@ export const ThemeToggle = () => {
   return (
     <div>
       <button
-        className={getGeneratedClassName()?.primaryButton}
+        className={getGeneratedClassName()?.buttons.primaryButton}
         onClick={() => {
           if (theme.currentMode === "light") {
             setCurrentThemeState?.((pre) => ({

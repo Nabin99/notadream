@@ -1,15 +1,17 @@
-import { Layout, ThemeToggle, getThemeConfig } from "@notadream/react";
+import { PageLayout } from "@notadream/react";
 
 function App() {
   return (
     <>
-      <Layout type="header">
-        <ThemeToggle />
-        <>children</>
-        <button className={getThemeConfig().mappedClassNames?.secondaryButton}>
-          Secondary
-        </button>
-      </Layout>
+      <PageLayout
+        layout="sidebar"
+        header={"Header"}
+        footer={"footer"}
+        main="Page content"
+        secondarySidebar="any thing"
+        sidebarOverlayExtended={true}
+        sidebar="Sidebar"
+      />
     </>
   );
 }

@@ -1,4 +1,4 @@
-import { getGeneratedClassName } from "../ThemeEngine";
+import { getGeneratedClassName } from "../theme-engine";
 
 interface ErrorMessageProperties {
   errorMessage: React.ReactNode;
@@ -6,7 +6,7 @@ interface ErrorMessageProperties {
 
 export const ErrorMessage = ({ errorMessage }: ErrorMessageProperties) => {
   return (
-    <span className={getGeneratedClassName()?.errorMessage}>
+    <span className={getGeneratedClassName()?.forms.errorMessage}>
       {errorMessage}
     </span>
   );

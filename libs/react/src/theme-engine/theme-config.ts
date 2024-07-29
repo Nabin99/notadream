@@ -13,6 +13,7 @@ import type {
   ThemeMode,
   MappedVariables,
   ClassScheme,
+  GeneratedClasses,
 } from "./type";
 
 interface ThemeConfigProvider {
@@ -23,7 +24,7 @@ interface ThemeConfigProvider {
   getThemeConfig: () => Readonly<ThemeConfig>;
   getGeneratedCSSVariables: () => Readonly<MappedVariables> | undefined;
   getGeneratedClassName: () =>
-    | Readonly<Record<keyof ClassScheme, string>>
+    | Readonly<GeneratedClasses<ClassScheme>>
     | undefined;
   getGeneratedCSS: () => Readonly<string>;
   setDefaultTheme: (defaultTheme: keyof Themes) => ThemeConfigProvider;
