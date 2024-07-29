@@ -1,4 +1,3 @@
-import { getClassesDefinition } from "./classes";
 import { generateCss } from "./classes/generate-css";
 import {
   defaultThemingVariables,
@@ -12,8 +11,6 @@ import type {
   Themes,
   ThemeMode,
   MappedVariables,
-  ClassScheme,
-  GeneratedClasses,
 } from "./type";
 
 interface ThemeConfigProvider {
@@ -23,9 +20,6 @@ interface ThemeConfigProvider {
   getDefaultThemeMode: () => ThemeMode;
   getThemeConfig: () => Readonly<ThemeConfig>;
   getGeneratedCSSVariables: () => Readonly<MappedVariables> | undefined;
-  getGeneratedClassName: () =>
-    | Readonly<GeneratedClasses<ClassScheme>>
-    | undefined;
   getGeneratedCSS: () => Readonly<string>;
   setDefaultTheme: (defaultTheme: keyof Themes) => ThemeConfigProvider;
   setThemes: (themes: Themes) => ThemeConfigProvider;
@@ -33,7 +27,7 @@ interface ThemeConfigProvider {
     defaultColorScheme: ColorScheme
   ) => ThemeConfigProvider;
   setThemeConfig: (themeConfig: Partial<ThemeConfig>) => ThemeConfigProvider;
-  initTheme: (extendClassDefinition?: Partial<ClassScheme>) => void;
+  initTheme: () => void;
 }
 
 const ThemeConfigProvider = (): ThemeConfigProvider => {
@@ -47,7 +41,6 @@ const ThemeConfigProvider = (): ThemeConfigProvider => {
     cssVariablePrefix: "nd",
     generatedCSS: "",
     mappedVariables: undefined,
-    mappedClassNames: undefined,
   };
 
   const themeConfigMethods: ThemeConfigProvider = {
@@ -57,7 +50,6 @@ const ThemeConfigProvider = (): ThemeConfigProvider => {
     getThemeConfig: () => themeConfig,
     getThemes: () => themeConfig.themes,
     getGeneratedCSSVariables: () => themeConfig.mappedVariables,
-    getGeneratedClassName: () => themeConfig.mappedClassNames,
     getGeneratedCSS: () => themeConfig.generatedCSS,
     setDefaultColorScheme: (defaultColorScheme: ColorScheme) => {
       themeConfig.defaultColorScheme = defaultColorScheme;
@@ -79,7 +71,7 @@ const ThemeConfigProvider = (): ThemeConfigProvider => {
 
       return themeConfigMethods;
     },
-    initTheme: (extendClassDefinition?: Partial<ClassScheme>) => {
+    initTheme: () => {
       const { generatedVariablesString, mappedGeneratedCSSVariables } =
         generateCSSVariableFromThemeKey(
           themeConfig.themes[themeConfig.defaultTheme],
@@ -88,18 +80,16 @@ const ThemeConfigProvider = (): ThemeConfigProvider => {
           themeConfig.defaultColorScheme
         );
 
-      const { generatedCss, mappedClassNames } = generateCss(
-        {
-          ...getClassesDefinition(mappedGeneratedCSSVariables),
-          ...extendClassDefinition,
-        },
-        generatedVariablesString,
-        themeConfig.cssVariablePrefix
-      );
+      const generatedCss = generateCss(generatedVariablesString);
 
-      themeConfig.mappedClassNames = mappedClassNames;
       themeConfig.mappedVariables = mappedGeneratedCSSVariables;
       themeConfig.generatedCSS = generatedCss;
+
+      if (window) {
+        const component = document.createElement("style");
+        component.innerHTML = generatedCss;
+        document.head.appendChild(component);
+      }
 
       return;
     },
@@ -120,5 +110,4 @@ export const {
   setThemes,
   getGeneratedCSS,
   getGeneratedCSSVariables,
-  getGeneratedClassName,
 } = ThemeConfigProvider();

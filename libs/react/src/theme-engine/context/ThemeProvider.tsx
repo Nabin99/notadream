@@ -66,7 +66,6 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
       : "light",
     currentTheme: getDefaultTheme(),
     currentMode: getDefaultThemeMode(),
-    // setCurrentThemeState: undefined,
   };
   // const [themeState, dispatch] = useReducer(themeReducer, themeStore);
 

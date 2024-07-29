@@ -1,5 +1,4 @@
 import { useThemeState, useSetThemeState } from "../../context";
-import { getGeneratedClassName } from "../../theme-config";
 
 export const ThemeToggle = () => {
   const theme = useThemeState();
@@ -8,7 +7,6 @@ export const ThemeToggle = () => {
   return (
     <div>
       <button
-        className={getGeneratedClassName()?.buttons.primaryButton}
         onClick={() => {
           if (theme.currentMode === "light") {
             setCurrentThemeState?.((pre) => ({
