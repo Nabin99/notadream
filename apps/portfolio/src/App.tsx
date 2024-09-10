@@ -1,5 +1,7 @@
 import { PageLayout, ThemeToggle, useThemeState } from "@notadream/react";
 
+import "@notadream/react/dist/index.css";
+
 function App() {
   const themeState = useThemeState();
   return (

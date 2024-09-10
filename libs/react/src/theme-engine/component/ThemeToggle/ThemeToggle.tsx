@@ -1,40 +1,34 @@
 import { useThemeState, useSetThemeState } from "../../context";
 
 export const ThemeToggle = () => {
-  const theme = useThemeState();
   const setCurrentThemeState = useSetThemeState();
 
-  return (
-    <div>
-      <button
-        onClick={() => {
-          if (theme.currentMode === "light") {
-            setCurrentThemeState?.((pre) => ({
-              ...pre,
-              currentColorScheme: "dark",
-              currentMode: "dark",
-            }));
-          } else if (theme.currentMode === "dark") {
-            const darkThemeMq = window.matchMedia(
-              "(prefers-color-scheme: dark)"
-            );
+  const theme = useThemeState();
 
-            setCurrentThemeState?.((pre) => ({
-              ...pre,
-              currentColorScheme: darkThemeMq.matches ? "dark" : "light",
-              currentMode: "auto",
-            }));
-          } else {
-            setCurrentThemeState?.((pre) => ({
-              ...pre,
-              currentColorScheme: "light",
-              currentMode: "light",
-            }));
-          }
-        }}
+  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
+    const mode = event.target.value as "light" | "dark" | "auto";
+
+    setCurrentThemeState((pre) => ({
+      ...pre,
+      currentMode: mode,
+      currentColorScheme:
+        mode != "auto" ? mode : darkThemeMq.matches ? "dark" : "light",
+    }));
+  };
+
+  return (
+    <div className="theme-toggle" data-theme={theme.currentColorScheme}>
+      <label htmlFor="theme-select">Theme:</label>
+      <select
+        id="theme-select"
+        value={theme.currentMode}
+        onChange={handleChange}
       >
-        Click to toggle
-      </button>
+        <option value="auto">Auto</option>
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+      </select>
     </div>
   );
 };

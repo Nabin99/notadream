@@ -109,11 +109,11 @@ export interface ThemeConfig {
   defaultThemeMode: ThemeMode;
   cssVariablePrefix: string;
   generatedCSS: string;
-  mappedVariables?: MappedVariables;
 }
 
 export interface ThemeState {
-  currentTheme: keyof Themes;
+  currentThemeName: keyof Themes;
+  currentTheme: Theme;
   currentColorScheme: ColorScheme;
   currentMode: ThemeMode;
 }
@@ -155,6 +155,6 @@ export interface ThemeState {
 //   };
 // };
 
-export interface MappedVariables extends Omit<Theme, "colors"> {
-  colors: Record<keyof Colors, string>;
-}
+// export interface MappedVariables extends Omit<Theme, "colors"> {
+//   colors: Record<keyof Colors, string>;
+// }

@@ -1,3 +1,2 @@
-.background-colors {
-  background-color: red;
-}
+@import "../theme-engine/assets/index.css";
+@import "./reset.css";

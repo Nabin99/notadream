@@ -1,4 +1,3 @@
-import { generateCss } from "./classes/generate-css";
 import {
   defaultThemingVariables,
   generateCSSVariableFromThemeKey,
@@ -10,7 +9,7 @@ import type {
   ThemeConfig,
   Themes,
   ThemeMode,
-  MappedVariables,
+  Theme,
 } from "./type";
 
 interface ThemeConfigProvider {
@@ -19,7 +18,6 @@ interface ThemeConfigProvider {
   getDefaultColorScheme: () => ColorScheme;
   getDefaultThemeMode: () => ThemeMode;
   getThemeConfig: () => Readonly<ThemeConfig>;
-  getGeneratedCSSVariables: () => Readonly<MappedVariables> | undefined;
   getGeneratedCSS: () => Readonly<string>;
   setDefaultTheme: (defaultTheme: keyof Themes) => ThemeConfigProvider;
   setThemes: (themes: Themes) => ThemeConfigProvider;
@@ -28,6 +26,11 @@ interface ThemeConfigProvider {
   ) => ThemeConfigProvider;
   setThemeConfig: (themeConfig: Partial<ThemeConfig>) => ThemeConfigProvider;
   initTheme: () => void;
+  updateTheme: (
+    themeToLoad: Theme,
+    colorScheme: ColorScheme,
+    onlyColor: boolean
+  ) => void;
 }
 
 const ThemeConfigProvider = (): ThemeConfigProvider => {
@@ -40,7 +43,6 @@ const ThemeConfigProvider = (): ThemeConfigProvider => {
     },
     cssVariablePrefix: "nd",
     generatedCSS: "",
-    mappedVariables: undefined,
   };
 
   const themeConfigMethods: ThemeConfigProvider = {
@@ -49,7 +51,6 @@ const ThemeConfigProvider = (): ThemeConfigProvider => {
     getDefaultThemeMode: () => themeConfig.defaultThemeMode,
     getThemeConfig: () => themeConfig,
     getThemes: () => themeConfig.themes,
-    getGeneratedCSSVariables: () => themeConfig.mappedVariables,
     getGeneratedCSS: () => themeConfig.generatedCSS,
     setDefaultColorScheme: (defaultColorScheme: ColorScheme) => {
       themeConfig.defaultColorScheme = defaultColorScheme;
@@ -72,26 +73,61 @@ const ThemeConfigProvider = (): ThemeConfigProvider => {
       return themeConfigMethods;
     },
     initTheme: () => {
-      const { generatedVariablesString, mappedGeneratedCSSVariables } =
-        generateCSSVariableFromThemeKey(
-          themeConfig.themes[themeConfig.defaultTheme],
-          themeConfig.cssVariablePrefix,
-          themeConfig.cssVariablePrefix,
-          themeConfig.defaultColorScheme
-        );
+      const {
+        generatedColorVariablesString,
+        generatedNonColorVariablesString,
+      } = generateCSSVariableFromThemeKey(
+        themeConfig.themes[themeConfig.defaultTheme],
+        themeConfig.cssVariablePrefix,
+        themeConfig.cssVariablePrefix,
+        themeConfig.defaultColorScheme
+      );
 
-      const generatedCss = generateCss(generatedVariablesString);
-
-      themeConfig.mappedVariables = mappedGeneratedCSSVariables;
-      themeConfig.generatedCSS = generatedCss;
+      themeConfig.generatedCSS = `:root{${generatedColorVariablesString}${generatedNonColorVariablesString}}`;
 
       if (window) {
-        const component = document.createElement("style");
-        component.innerHTML = generatedCss;
-        document.head.appendChild(component);
+        const colorComponent = document.createElement("style");
+        colorComponent.setAttribute("id", "css-color-variables");
+        colorComponent.setAttribute("type", "text/css");
+        colorComponent.innerHTML = `:root{${generatedColorVariablesString}}`;
+        document.head.appendChild(colorComponent);
+
+        const nonColorComponent = document.createElement("style");
+        nonColorComponent.setAttribute("id", "css-non-color-variables");
+        nonColorComponent.setAttribute("type", "text/css");
+        nonColorComponent.innerHTML = `{:root${generatedNonColorVariablesString}}`;
+        document.head.appendChild(nonColorComponent);
       }
 
       return;
+    },
+
+    updateTheme: (themeToLoad, colorScheme, onlyColor) => {
+      const {
+        generatedColorVariablesString,
+        generatedNonColorVariablesString,
+      } = generateCSSVariableFromThemeKey(
+        themeToLoad,
+        themeConfig.cssVariablePrefix,
+        themeConfig.cssVariablePrefix,
+        colorScheme,
+        onlyColor
+      );
+
+      if (window) {
+        const colorComponent = document.querySelector("#css-color-variables");
+        colorComponent &&
+          (colorComponent.innerHTML = `:root{${generatedColorVariablesString}}`);
+
+        if (!onlyColor) {
+          const nonColorComponent = document.querySelector(
+            "#css-non-color-variables"
+          );
+          nonColorComponent &&
+            (nonColorComponent.innerHTML =
+              `:root{${generatedNonColorVariablesString}}` || "");
+        }
+      }
     },
   };
 
@@ -109,5 +145,5 @@ export const {
   setThemeConfig,
   setThemes,
   getGeneratedCSS,
-  getGeneratedCSSVariables,
+  updateTheme,
 } = ThemeConfigProvider();

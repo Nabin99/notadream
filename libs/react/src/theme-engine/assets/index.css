@@ -1,0 +1,11 @@
+.theme-toggle {
+  background: var(--nd-colors-background);
+  border: 1px solid var(--nd-colors-text);
+  color: var(--nd-colors-text);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+.theme-toggle label {
+  margin-right: 0.5rem;
+}
