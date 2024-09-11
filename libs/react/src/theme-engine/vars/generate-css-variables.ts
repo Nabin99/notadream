@@ -1,47 +1,49 @@
-import { MappedVariables } from "../type";
-
 export const generateCSSVariableFromThemeKey = <T>(
   object: T,
   concatinatedPrefix: string,
   prefix: string,
-  mode: "dark" | "light"
+  mode = window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : ("light" as "dark" | "light"),
+  onlyColor = false
 ): {
-  mappedGeneratedCSSVariables: MappedVariables;
-  generatedVariablesString: string;
+  generatedColorVariablesString: string;
+  generatedNonColorVariablesString?: string;
 } => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const mappedGeneratedCSSVariables: any = {};
+  let generatedColorVariablesString: string = "";
+  let generatedNonColorVariablesString: string = "";
 
-  let generatedVariablesString: string = "";
-
-  for (const key in object) {
-    if (Object.prototype.hasOwnProperty.call(object, key)) {
-      const modifiedKey = `${concatinatedPrefix}-${key
-        .replace(/([a-z0-9])([A-Z])/g, "$1-$2")
-        .toLowerCase()}`;
-      if (modifiedKey.includes("colors-")) {
-        mappedGeneratedCSSVariables[key] = modifiedKey;
-        generatedVariablesString += `--${modifiedKey}:${
-          object[key][mode as keyof object]
-        };`;
-      } else if (typeof object[key] === "object") {
-        const {
-          mappedGeneratedCSSVariables: cssVariablesMapped,
-          generatedVariablesString: rootVariables,
-        } = generateCSSVariableFromThemeKey(
-          object[key],
-          modifiedKey,
-          prefix,
-          mode
-        );
-        mappedGeneratedCSSVariables[key] = cssVariablesMapped;
-        generatedVariablesString += rootVariables;
-      } else {
-        mappedGeneratedCSSVariables[key] = modifiedKey;
-        generatedVariablesString += `--${modifiedKey}:${object[key]};`;
+  const cssVariableGenerator = (
+    object: T,
+    concatinatedPrefix: string,
+    prefix: string,
+    mode: "dark" | "light"
+  ) => {
+    for (const key in object) {
+      if (Object.prototype.hasOwnProperty.call(object, key)) {
+        const modifiedKey = `${concatinatedPrefix}-${key
+          .replace(/([a-z0-9])([A-Z])/g, "$1-$2")
+          .toLowerCase()}`;
+        if (modifiedKey.includes("colors-")) {
+          generatedColorVariablesString += `--${modifiedKey}:${
+            object[key][mode as keyof object]
+          };`;
+        } else if (typeof object[key] === "object") {
+          cssVariableGenerator(
+            object[key as keyof object],
+            modifiedKey,
+            prefix,
+            mode
+          );
+        } else {
+          !onlyColor &&
+            (generatedNonColorVariablesString += `--${modifiedKey}:${object[key]};`);
+        }
       }
     }
-  }
+  };
 
-  return { mappedGeneratedCSSVariables, generatedVariablesString };
+  cssVariableGenerator(object, concatinatedPrefix, prefix, mode);
+
+  return { generatedColorVariablesString, generatedNonColorVariablesString };
 };

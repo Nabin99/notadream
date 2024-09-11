@@ -15,12 +15,7 @@ declare module "@notadream/react" {
 setThemeConfig({
   defaultColorScheme: "light",
   defaultTheme: "notadream",
-}).initTheme({
-  secondaryButton: {
-    color: "red",
-    backgroundColor: "green",
-  },
-});
+}).initTheme();
 
 ReactDOM.createRoot(document.querySelector("#root")!).render(
   <React.StrictMode>

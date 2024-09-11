@@ -109,53 +109,11 @@ export interface ThemeConfig {
   defaultThemeMode: ThemeMode;
   cssVariablePrefix: string;
   generatedCSS: string;
-  mappedVariables?: MappedVariables;
-  mappedClassNames?: GeneratedClasses<ClassScheme>;
 }
 
 export interface ThemeState {
-  currentTheme: keyof Themes;
+  currentThemeName: keyof Themes;
+  currentTheme: Theme;
   currentColorScheme: ColorScheme;
   currentMode: ThemeMode;
-}
-
-export interface ClassScheme {
-  typography: {
-    h1: React.CSSProperties;
-    h2: React.CSSProperties;
-    h3: React.CSSProperties;
-    h4: React.CSSProperties;
-  };
-  layouts: {
-    base: React.CSSProperties;
-    headerFooter: React.CSSProperties;
-    main: React.CSSProperties;
-    sidebarLayout: React.CSSProperties;
-    sidebar: React.CSSProperties;
-    splitLayout: React.CSSProperties;
-    splitLeft: React.CSSProperties;
-    splitRight: React.CSSProperties;
-    gridLayout: React.CSSProperties;
-    gridItem: React.CSSProperties;
-    centerLayout: React.CSSProperties;
-    centerContent: React.CSSProperties;
-    sidebarOverlay: React.CSSProperties;
-    sidebarOverlayOpen: React.CSSProperties;
-  };
-  forms: {
-    errorMessage: React.CSSProperties;
-  };
-  buttons: {
-    primaryButton: React.CSSProperties;
-  };
-}
-
-export type GeneratedClasses<T> = {
-  [K in keyof T]: {
-    [p in keyof T[K]]: string;
-  };
-};
-
-export interface MappedVariables extends Omit<Theme, "colors"> {
-  colors: Record<keyof Colors, string>;
 }

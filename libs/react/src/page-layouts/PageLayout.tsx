@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 
-import { getGeneratedClassName } from "../theme-engine";
-
 interface PageLayoutProperties {
   layout: "basic" | "sidebar" | "sidebarOverlay";
   header?: React.ReactNode;
@@ -58,14 +56,12 @@ export const PageLayout: React.FC<PageLayoutProperties> = ({
   }
 };
 
-const classes = getGeneratedClassName()?.layouts;
-
 const BasicPageLayout = ({
   footer,
   header,
   main,
 }: Omit<PageLayoutProperties, "layout" | "sidebar" | "secondarySidebar">) => (
-  <div className={classes?.base}>
+  <div>
     {header ? header : null}
     {main ? main : null}
     {footer ? footer : null}
@@ -79,7 +75,7 @@ const SidebarPageLayout = ({
   secondarySidebar,
   sidebar,
 }: Omit<PageLayoutProperties, "layout">) => (
-  <div className={`${classes?.base} ${classes?.sidebarLayout}`}>
+  <div>
     {header ? header : null}
     <div>
       {sidebar ? sidebar : null}
@@ -100,12 +96,10 @@ const SidebarOverlayPageLayout = ({
   const [expandSidebar, setExpandSidebar] = useState(sidebarOverlayExtended);
 
   return (
-    <div className={classes?.base}>
+    <div>
       {header ? header : null}
       {sidebar && (
-        <aside
-          className={`${classes?.sidebarOverlay} ${expandSidebar ? classes?.sidebarOverlayOpen : {}}`}
-        >
+        <aside>
           <button onClick={() => setExpandSidebar((pre) => !pre)}> |||</button>
           {sidebar}
           {`${expandSidebar}`}
