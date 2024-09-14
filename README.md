@@ -1,4 +1,4 @@
-# Personal Web APP
-This is a highly customizable template web app for portfolio and blogs. Build with nextjs, nodejs, fastify, supertokens, postgresql using docker.
+# Notadream Starter Project
+This is the project to create a self managed complete software development library for quick delivering the future possible projects. 
 
 
