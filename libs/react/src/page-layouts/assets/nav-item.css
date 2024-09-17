@@ -1,0 +1,23 @@
+.nav-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--nd-spacing-sm);
+  gap: var(--nd-spacing-sm);
+  cursor: pointer;
+}
+
+.nav-item.active {
+  color: var(--nd-colors-primary);
+}
+
+/* a.nav-item.active {
+  border-left: 2px solid var(--nd-colors-primary);
+} */
+
+/* @media screen and (min-width: 768px) {
+  a.nav-item.active {
+    border-bottom: 2px solid var(--nd-colors-primary);
+    border-left: none;
+  }
+} */
