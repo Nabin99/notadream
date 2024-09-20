@@ -13,7 +13,7 @@ function App() {
     },
     {
       name: "About",
-      path: "dkf",
+      path: "/about",
       children: [
         {
           name: "Team",

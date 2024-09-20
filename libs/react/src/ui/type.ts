@@ -1,11 +1,39 @@
 export interface ListboxOptionType {
-  [key: string]: string | number;
+  id: string | number;
+  [key: string]: string | number | React.ReactNode;
 }
 
 export interface ListboxProperties {
   data: ListboxOptionType[];
   selected: ListboxOptionType;
   setSelected: (value: ListboxOptionType) => void;
-  accessKey: string;
+  renderKey?: string | number;
   buttonIcon?: React.ReactNode; // Allow users to pass custom icons
+  placeholder?: string;
+}
+
+export type SizesType = "xsmall" | "small" | "medium" | "large";
+export type ButtonVariant = "solid" | "outline" | "borderless";
+export type ButtonType = "button" | "submit" | "reset";
+
+export interface ButtonProperties
+  extends React.HTMLAttributes<HTMLButtonElement> {
+  children?: React.ReactNode;
+  icon?: React.ReactNode; // Icon support
+  iconOnly?: boolean; // For icon-only mode
+  loading?: boolean; // Loading state support
+  onClick?: () => void;
+  size?: SizesType;
+  variant?: ButtonVariant;
+  disabled?: boolean;
+  type?: ButtonType;
+  className?: string; // To allow additional custom styles
+  isFullWidth?: boolean;
+}
+
+export interface SpinnerProperties {
+  size?: SizesType;
+  color?: string; // Option to customize the color
+  thickness?: string; // Option to customize the thickness of the spinner
+  className?: string; // For additional custom styles
 }

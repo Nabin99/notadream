@@ -26,26 +26,37 @@ header {
 }
 
 /* Navbar Container - Mobile First */
-.navbar {
-  display: none; /* Hidden by default for mobile */
-  flex-direction: column;
-  padding: var(--nd-spacing-xs);
-  background-color: var(--nd-colors-background);
+.navbar-container {
+  display: none;
   position: absolute;
   top: 100%;
   left: 0;
   width: 100%;
+  z-index: var(--nd-z-index-dropdown);
+  padding: var(--nd-spacing-md);
+  background-color: var(--nd-colors-background);
+  flex-direction: column;
 }
 
-.navbar.open {
+.navbar-container.open {
   display: flex;
+}
+
+.navbar-container > .header-menu {
+  margin-top: var(--nd-spacing-lg);
+}
+
+.navigation-menu {
+  display: flex; /* Hidden by default for mobile */
+  flex-direction: column;
+  padding: var(--nd-spacing-xs);
 }
 
 .nav-list.nested-level {
   margin-left: var(--nd-spacing-md);
 }
 
-.header-menu {
+header > .header-menu {
   display: none;
 }
 
@@ -59,7 +70,7 @@ header {
 }
 
 @media screen and (min-width: 768px) {
-  .navbar {
+  .navbar-container {
     display: flex;
     flex-direction: row;
     position: static;
@@ -67,19 +78,23 @@ header {
     align-items: center;
   }
 
+  .navbar-container > .header-menu {
+    display: none;
+  }
+
+  header > .header-menu {
+    display: flex;
+  }
+
   .toggle-nav-menu {
     display: none;
   }
 
-  .header-menu {
-    display: flex;
-  }
-
-  .navbar > .nav-list > .nav-list-item {
+  .navigation-menu > .nav-list > .nav-list-item {
     position: relative;
   }
 
-  .navbar > .nav-list > .nav-list-item > .nav-list.nested-level {
+  .navigation-menu > .nav-list > .nav-list-item > .nav-list.nested-level {
     position: absolute;
     top: 100%;
     left: 0;
@@ -87,7 +102,7 @@ header {
     margin-left: 0;
   }
 
-  .navbar > .nav-list {
+  .navigation-menu > .nav-list {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -95,7 +110,7 @@ header {
     position: relative;
   }
 
-  .navbar > .nav-list > .nav-list-item.active {
+  .navigation-menu > .nav-list > .nav-list-item.active {
     border-bottom: 2px solid var(--nd-colors-primary);
     border-left: none;
   }

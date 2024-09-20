@@ -1,8 +1,10 @@
 import { ReactNode, useState } from "react";
+import { HiMenu, HiX } from "react-icons/hi";
 import { NavLink } from "react-router-dom";
 
-import { Navbar } from "./nav";
+import { NavigationMenu } from "./nav";
 import { ThemeToggle } from "../../theme-engine";
+import { Button } from "../../ui";
 
 import type { NavItemType } from "../types";
 
@@ -26,29 +28,38 @@ export const Header = ({ navItems, logo }: HeaderProperties) => {
           {logo}
         </NavLink>
       </div>
-      <button
-        className="toggle-nav-menu"
+      <Button
+        size="medium"
+        variant="borderless"
         onClick={handleToggleMobileMenu}
         aria-expanded={isMenuOpen}
         aria-label="Toggle navigation menu"
-      >
-        {isMenuOpen ? "X" : "☰"}
-      </button>
-      {navItems ? (
-        <Navbar
-          items={navItems || []}
-          openItems={openItems}
-          className={`${isMenuOpen ? "open" : ""}`}
-          setOpenItem={(name) => {
-            if (openItems.includes(name)) {
-              setOpenItems((pre) => pre.filter((item) => item !== name));
-            } else {
-              setOpenItems((pre) => [...pre, name]);
-            }
-          }}
-          toggleMenuOpen={handleToggleMobileMenu}
-        />
-      ) : null}
+        icon={isMenuOpen ? <HiX /> : <HiMenu />}
+        iconOnly={true}
+        className="toggle-nav-menu"
+      ></Button>
+      <div className={`navbar-container ${isMenuOpen ? "open" : ""}`}>
+        {navItems ? (
+          <NavigationMenu
+            items={navItems || []}
+            openItems={openItems}
+            className={`${isMenuOpen ? "open" : ""}`}
+            setOpenItem={(name) => {
+              if (openItems.includes(name)) {
+                setOpenItems((pre) => pre.filter((item) => item !== name));
+              } else {
+                setOpenItems((pre) => [...pre, name]);
+              }
+            }}
+            toggleMenuOpen={handleToggleMobileMenu}
+          />
+        ) : null}
+
+        <div className="header-menu">
+          <ThemeToggle />
+        </div>
+      </div>
+
       <div className="header-menu">
         <ThemeToggle />
       </div>

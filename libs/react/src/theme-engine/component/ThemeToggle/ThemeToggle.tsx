@@ -1,7 +1,29 @@
+import { HiSun } from "react-icons/hi";
+import { HiMiniMoon } from "react-icons/hi2";
+import { WiMoonAltThirdQuarter } from "react-icons/wi";
+
 import { Listbox } from "../../../ui";
 import { useThemeState, useSetThemeState } from "../../context";
 
 import type { ListboxOptionType } from "../../../ui";
+
+const themesOptions = [
+  {
+    id: 1,
+    name: <WiMoonAltThirdQuarter />,
+    value: "auto",
+  },
+  {
+    id: 2,
+    name: <HiSun />,
+    value: "light",
+  },
+  {
+    id: 3,
+    name: <HiMiniMoon />,
+    value: "dark",
+  },
+];
 
 export const ThemeToggle = () => {
   const setCurrentThemeState = useSetThemeState();
@@ -20,27 +42,9 @@ export const ThemeToggle = () => {
     }));
   };
 
-  const themesOptions = [
-    {
-      id: 1,
-      name: "Auto",
-      value: "auto",
-    },
-    {
-      id: 2,
-      name: "Light",
-      value: "light",
-    },
-    {
-      id: 3,
-      name: "Dark",
-      value: "dark",
-    },
-  ];
-
   return (
     <Listbox
-      accessKey="name"
+      renderKey="name"
       data={themesOptions}
       selected={
         themesOptions.find(

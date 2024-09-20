@@ -2,9 +2,9 @@ import { useLocation } from "react-router-dom";
 
 import { NavItem } from "./NavItem";
 
-import type { NavbarProperties, NavItemType } from "../../types";
+import type { NavigationMenuProperties, NavItemType } from "../../types";
 
-export const Navbar: React.FC<NavbarProperties> = ({
+export const NavigationMenu: React.FC<NavigationMenuProperties> = ({
   className = "",
   childIndicatorIcon,
   items,
@@ -50,7 +50,10 @@ export const Navbar: React.FC<NavbarProperties> = ({
                     event.stopPropagation();
                     handleToggleItem(item.name);
                   }
-                : () => toggleMenuOpen?.()
+                : () => {
+                    toggleMenuOpen?.();
+                    handleToggleItem(item.name);
+                  }
             }
           >
             <NavItem
@@ -74,8 +77,8 @@ export const Navbar: React.FC<NavbarProperties> = ({
 
   return (
     <nav
-      className={`navbar ${className}`}
-      aria-label="Navigation bar"
+      className={`navigation-menu ${className}`}
+      aria-label="Navigation menu"
       {...properties}
     >
       {renderNavItems(items)}

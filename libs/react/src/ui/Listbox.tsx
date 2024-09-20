@@ -14,7 +14,7 @@ export const Listbox: React.FC<ListboxProperties> = ({
   data,
   selected,
   setSelected,
-  accessKey,
+  renderKey = "name",
   buttonIcon = <HiChevronDown aria-hidden="true" />, // Default icon
 }) => {
   return (
@@ -23,7 +23,7 @@ export const Listbox: React.FC<ListboxProperties> = ({
         {({ open }) => (
           <>
             <ListboxButton className="listbox-button">
-              <span>{selected?.[accessKey]}</span>
+              <span>{selected?.[renderKey]}</span>
               <span className={`icon ${open ? "rotate" : ""}`}>
                 {buttonIcon}
               </span>
@@ -37,7 +37,7 @@ export const Listbox: React.FC<ListboxProperties> = ({
             >
               <ListboxOptions className="listbox-options">
                 {data.map((dataObject) => (
-                  <ListboxOption key={dataObject[accessKey]} value={dataObject}>
+                  <ListboxOption key={dataObject?.id} value={dataObject}>
                     {({ selected }) => (
                       <div
                         className={`listbox-option ${selected ? "selected" : ""}`}
@@ -46,7 +46,7 @@ export const Listbox: React.FC<ListboxProperties> = ({
                           <HiCheck className="check-icon" aria-hidden="true" />
                         )}
                         <span className="option-text">
-                          {dataObject?.[accessKey]}
+                          {dataObject?.[renderKey]}
                         </span>
                       </div>
                     )}

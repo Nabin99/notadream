@@ -2,7 +2,7 @@ import { AppConfig } from "./type";
 
 interface ConfigurationProviderReturnType {
   configureApp: (config: AppConfig) => void;
-  getConfig: () => Readonly<AppConfig>;
+  getAppConfig: () => Readonly<AppConfig>;
 }
 
 const configurationProvider = (): ConfigurationProviderReturnType => {
@@ -12,8 +12,8 @@ const configurationProvider = (): ConfigurationProviderReturnType => {
     configureApp: (config: AppConfig) => {
       store.config = { ...config };
     },
-    getConfig: () => ({ ...store.config }),
+    getAppConfig: () => ({ ...store.config }),
   };
 };
 
-export const { configureApp, getConfig } = configurationProvider();
+export const { configureApp, getAppConfig } = configurationProvider();

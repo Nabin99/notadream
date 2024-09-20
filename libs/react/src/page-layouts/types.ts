@@ -28,7 +28,8 @@ export interface NavItemType {
   path: string;
 }
 
-export interface NavbarProperties extends React.HTMLAttributes<HTMLElement> {
+export interface NavigationMenuProperties
+  extends React.HTMLAttributes<HTMLElement> {
   items: NavItemType[];
   childIndicatorIcon?: ReactNode;
   openItems?: string[];
