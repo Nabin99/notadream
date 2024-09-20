@@ -1,4 +1,4 @@
-import { Footer, Header, PageLayout, ThemeToggle } from "@notadream/react";
+import { Footer, Header, Logo, PageLayout } from "@notadream/react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import "@notadream/react/dist/index.css";
@@ -46,7 +46,12 @@ function App() {
               <>
                 <PageLayout
                   layout="basic"
-                  header={<Header navItems={navItems} logo="logo"></Header>}
+                  header={
+                    <Header
+                      navItems={navItems}
+                      logo={<Logo src={"/vite.svg"} size="medium" />}
+                    ></Header>
+                  }
                   footer={<Footer>footer</Footer>}
                   main={<main>Page content</main>}
                 />
@@ -61,7 +66,6 @@ function App() {
           },
         ])}
       />
-      <ThemeToggle />
     </>
   );
 }

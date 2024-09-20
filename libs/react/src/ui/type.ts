@@ -37,3 +37,10 @@ export interface SpinnerProperties {
   thickness?: string; // Option to customize the thickness of the spinner
   className?: string; // For additional custom styles
 }
+
+export interface LogoProperties {
+  src: string; // Logo image source
+  alt?: string; // Alt text for accessibility
+  size?: SizesType; // Size of the logo
+  className?: string; // Additional custom classes
+}
