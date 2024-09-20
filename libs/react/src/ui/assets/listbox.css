@@ -1,0 +1,108 @@
+/* Base Styles - Mobile First */
+.listbox-container {
+  position: relative;
+  width: 100%; /* Full width on mobile */
+  margin: 0 auto;
+}
+
+/* Button to open the Listbox */
+.listbox-button {
+  width: 100%;
+  padding: var(--nd-spacing-xs) var(--nd-spacing-sm);
+  display: flex;
+  justify-content: space-between;
+  gap: var(--nd-spacing-sm);
+  align-items: center;
+  background-color: inherit;
+  border: 1px solid var(--nd-colors-border);
+  border-radius: var(--nd-border-radius-sm);
+  cursor: pointer;
+  transition: border-color 0.2s;
+  color: var(--nd-colors-text);
+}
+
+.listbox-button:hover {
+  border-color: var(--nd-colors-primary);
+}
+
+.listbox-button:focus {
+  outline: none;
+  border-color: var(--nd-colors-primary);
+}
+
+/* Dropdown icon */
+.icon {
+  font-size: var(--nd-font-sizes-base);
+  transition: transform 0.2s;
+}
+
+.icon.rotate {
+  transform: rotate(180deg);
+}
+
+/* Options dropdown */
+.listbox-options {
+  position: absolute;
+  top: calc(100% + var(--nd-spacing-sm));
+  width: 100%; /* Full width for dropdown on mobile */
+  background-color: var(--nd-colors-background);
+  border: 1px solid var(--nd-colors-border);
+  border-radius: var(--nd-border-radius-sm);
+  box-shadow: var(--nd-box-shadow-md);
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: var(--nd-z-index-dropdown);
+  right: 0;
+}
+
+/* Individual option */
+.listbox-option {
+  padding: var(--nd-spacing-xs) var(--nd-spacing-sm);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--nd-spacing-sm);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.listbox-option:hover {
+  background-color: var(--nd-colors-link-hover);
+  color: var(--nd-colors-text);
+}
+
+.listbox-option.selected {
+  font-weight: bold;
+  background-color: var(--nd-colors-primary);
+  color: var(--nd-colors-text);
+}
+
+/* Icon for the selected option */
+.check-icon {
+  left: var(--nd-spacing-xs);
+}
+
+/* Larger Screens - Enhancements for Tablets and Desktops */
+@media (min-width: 768px) {
+  .listbox-container {
+    max-width: 400px; /* Restrict the width on larger screens */
+  }
+
+  .listbox-button {
+    padding: var(--nd-spacing-xs) var(--nd-spacing-sm); /* Slightly larger padding on bigger screens */
+  }
+
+  .listbox-option {
+    padding: var(--nd-spacing-xs) var(--nd-spacing-sm);
+  }
+}
+
+@media (min-width: 1024px) {
+  .listbox-button {
+    padding: var(--nd-spacing-xs) var(--nd-spacing-sm); /* More space on desktops */
+  }
+
+  .listbox-option {
+    padding: var(--nd-spacing-xs) var(--nd-spacing-sm);
+  }
+}

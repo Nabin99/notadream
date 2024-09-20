@@ -20,6 +20,8 @@ export default defineConfig({
         globals: {
           react: "React",
           "react-dom": "ReactDom",
+          "react-router-dom": "ReactRouterDom",
+          "@headlessui/react": "HeadlessUI",
         },
       },
     },

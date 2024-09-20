@@ -1,13 +1,38 @@
+import { HiSun } from "react-icons/hi";
+import { HiMiniMoon } from "react-icons/hi2";
+import { WiMoonAltThirdQuarter } from "react-icons/wi";
+
+import { Listbox } from "../../../ui";
 import { useThemeState, useSetThemeState } from "../../context";
+
+import type { ListboxOptionType } from "../../../ui";
+
+const themesOptions = [
+  {
+    id: 1,
+    name: <WiMoonAltThirdQuarter />,
+    value: "auto",
+  },
+  {
+    id: 2,
+    name: <HiSun />,
+    value: "light",
+  },
+  {
+    id: 3,
+    name: <HiMiniMoon />,
+    value: "dark",
+  },
+];
 
 export const ThemeToggle = () => {
   const setCurrentThemeState = useSetThemeState();
 
   const theme = useThemeState();
 
-  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleChange = (value: ListboxOptionType) => {
     const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
-    const mode = event.target.value as "light" | "dark" | "auto";
+    const mode = value.value as "light" | "dark" | "auto";
 
     setCurrentThemeState((pre) => ({
       ...pre,
@@ -18,17 +43,15 @@ export const ThemeToggle = () => {
   };
 
   return (
-    <div className="theme-toggle" data-theme={theme.currentColorScheme}>
-      <label htmlFor="theme-select">Theme:</label>
-      <select
-        id="theme-select"
-        value={theme.currentMode}
-        onChange={handleChange}
-      >
-        <option value="auto">Auto</option>
-        <option value="light">Light</option>
-        <option value="dark">Dark</option>
-      </select>
-    </div>
+    <Listbox
+      renderKey="name"
+      data={themesOptions}
+      selected={
+        themesOptions.find(
+          (option) => option.value === theme.currentMode
+        ) as ListboxOptionType
+      }
+      setSelected={handleChange}
+    />
   );
 };

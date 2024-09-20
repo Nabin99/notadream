@@ -1,0 +1,117 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--nd-spacing-xs);
+  background-color: var(--nd-colors-background);
+  color: var(--nd-colors-text);
+  position: relative;
+  flex-wrap: nowrap;
+}
+
+/* Brand Logo */
+.brand-logo-container {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.toggle-nav-menu {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--nd-colors-text);
+}
+
+/* Navbar Container - Mobile First */
+.navbar-container {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  z-index: var(--nd-z-index-dropdown);
+  padding: var(--nd-spacing-md);
+  background-color: var(--nd-colors-background);
+  flex-direction: column;
+}
+
+.navbar-container.open {
+  display: flex;
+}
+
+.navbar-container > .header-menu {
+  margin-top: var(--nd-spacing-lg);
+}
+
+.navigation-menu {
+  display: flex; /* Hidden by default for mobile */
+  flex-direction: column;
+  padding: var(--nd-spacing-xs);
+}
+
+.nav-list.nested-level {
+  margin-left: var(--nd-spacing-md);
+}
+
+header > .header-menu {
+  display: none;
+}
+
+.nav-list-item.active {
+  border-left: 2px solid var(--nd-colors-primary);
+}
+
+.nav-list-item a {
+  text-decoration: none;
+  color: var(--nd-colors-text);
+}
+
+@media screen and (min-width: 768px) {
+  .navbar-container {
+    display: flex;
+    flex-direction: row;
+    position: static;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navbar-container > .header-menu {
+    display: none;
+  }
+
+  header > .header-menu {
+    display: flex;
+  }
+
+  .toggle-nav-menu {
+    display: none;
+  }
+
+  .navigation-menu > .nav-list > .nav-list-item {
+    position: relative;
+  }
+
+  .navigation-menu > .nav-list > .nav-list-item > .nav-list.nested-level {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--nd-colors-background);
+    margin-left: 0;
+  }
+
+  .navigation-menu > .nav-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .navigation-menu > .nav-list > .nav-list-item.active {
+    border-bottom: 2px solid var(--nd-colors-primary);
+    border-left: none;
+  }
+}

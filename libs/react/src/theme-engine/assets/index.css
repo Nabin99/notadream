@@ -8,4 +8,5 @@
 
 .theme-toggle label {
   margin-right: 0.5rem;
+  color: var(--nd-colors-text);
 }

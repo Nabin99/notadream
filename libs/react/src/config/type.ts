@@ -3,6 +3,7 @@ export interface AppConfig {
   appName: string;
   appDescription: string;
   appKeywords: string;
+  appLogo: string;
   appPort: number;
   appTitle: string;
   copyright: {

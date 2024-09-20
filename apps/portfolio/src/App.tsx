@@ -1,22 +1,67 @@
-import { PageLayout, ThemeToggle, useThemeState } from "@notadream/react";
+import { Footer, Header, PageLayout, ThemeToggle } from "@notadream/react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import "@notadream/react/dist/index.css";
 
+import type { NavItemType } from "@notadream/react/dist/src/page-layouts/types";
+
 function App() {
-  const themeState = useThemeState();
+  const navItems: NavItemType[] = [
+    {
+      name: "Home",
+      path: "/",
+    },
+    {
+      name: "About",
+      path: "/about",
+      children: [
+        {
+          name: "Team",
+          path: "/about/team",
+          children: [
+            { name: "Consulting", path: "/services/consulting" },
+            { name: "Support", path: "/services/support" },
+          ],
+        },
+        { name: "Company", path: "/about/company" },
+      ],
+    },
+    {
+      name: "Services",
+      path: "fdkfsd",
+      children: [
+        { name: "Consulting2", path: "/services/consulting" },
+        { name: "Support2", path: "/services/support" },
+      ],
+    },
+  ];
+
   return (
     <>
-      <ThemeToggle />
-      {themeState.currentColorScheme}-{themeState.currentMode}
-      <PageLayout
-        layout="sidebar"
-        header={"Header"}
-        footer={"footer"}
-        main="Page content"
-        secondarySidebar="any thing"
-        sidebarOverlayExtended={true}
-        sidebar="Sidebar"
+      <RouterProvider
+        router={createBrowserRouter([
+          {
+            path: "/",
+            element: (
+              <>
+                <PageLayout
+                  layout="basic"
+                  header={<Header navItems={navItems} logo="logo"></Header>}
+                  footer={<Footer>footer</Footer>}
+                  main={<main>Page content</main>}
+                />
+              </>
+            ),
+            children: [
+              {
+                path: "/about/company",
+                element: <>child</>,
+              },
+            ],
+          },
+        ])}
       />
+      <ThemeToggle />
     </>
   );
 }

@@ -3,5 +3,5 @@ export interface FooterProperties {
 }
 
 export const Footer = ({ children }: FooterProperties) => {
-  return <footer>{children ? children : <></>}</footer>;
+  return <footer>{children}</footer>;
 };

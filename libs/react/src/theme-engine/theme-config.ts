@@ -95,7 +95,7 @@ const ThemeConfigProvider = (): ThemeConfigProvider => {
         const nonColorComponent = document.createElement("style");
         nonColorComponent.setAttribute("id", "css-non-color-variables");
         nonColorComponent.setAttribute("type", "text/css");
-        nonColorComponent.innerHTML = `{:root${generatedNonColorVariablesString}}`;
+        nonColorComponent.innerHTML = `:root{${generatedNonColorVariablesString}}`;
         document.head.appendChild(nonColorComponent);
       }
 
