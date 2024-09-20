@@ -1,10 +1,10 @@
 import { ReactNode, useState } from "react";
+import { NavLink } from "react-router-dom";
 
 import { Navbar } from "./nav";
 import { ThemeToggle } from "../../theme-engine";
 
 import type { NavItemType } from "../types";
-import { NavLink } from "react-router-dom";
 
 export interface HeaderProperties {
   navItems?: NavItemType[];
