@@ -1,3 +1,4 @@
+import { HiChevronDown } from "react-icons/hi";
 import { NavLink } from "react-router-dom";
 
 import type { NavItemProperties } from "../../types";
@@ -9,7 +10,7 @@ export const NavItem: React.FC<NavItemProperties> = ({
   iconOnly,
   isActive,
   hasChildren,
-  childIndicatorIcon,
+  childIndicatorIcon = <HiChevronDown />,
   children,
 }) => {
   return (

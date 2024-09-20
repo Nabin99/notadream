@@ -39,7 +39,6 @@ export const Header = ({ navItems, logo }: HeaderProperties) => {
           items={navItems || []}
           openItems={openItems}
           className={`${isMenuOpen ? "open" : ""}`}
-          childIndicatorIcon={"v"}
           setOpenItem={(name) => {
             if (openItems.includes(name)) {
               setOpenItems((pre) => pre.filter((item) => item !== name));
