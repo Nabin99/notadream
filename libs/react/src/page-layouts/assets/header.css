@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 header {
   display: flex;
   justify-content: space-between;
@@ -8,6 +7,7 @@ header {
   color: var(--nd-colors-text);
   position: relative;
   flex-wrap: nowrap;
+  box-shadow: var(--nd-box-shadow-lg);
 }
 
 /* Brand Logo */
@@ -25,6 +25,7 @@ header {
   font-size: 2rem;
   cursor: pointer;
   color: var(--nd-colors-text);
+  order: 5;
 }
 
 /* Navbar Container - Mobile First */
@@ -44,54 +45,25 @@ header {
   display: flex;
 }
 
-.navbar-container > .header-menu {
-  margin-top: var(--nd-spacing-lg);
-}
-
-=======
->>>>>>> Stashed changes
-.navigation-menu {
-  display: flex; /* Hidden by default for mobile */
-  flex-direction: column;
-  padding: var(--nd-spacing-xs);
-}
-
-.nav-list.nested-level {
-  margin-left: var(--nd-spacing-md);
-}
-
-.nav-list-item.active {
-  border-left: 2px solid var(--nd-colors-primary);
-}
-
-.nav-list-item a {
-  text-decoration: none;
-  color: var(--nd-colors-text);
+header > .header-menu {
+  display: flex;
+  margin-left: auto;
 }
 
 @media screen and (min-width: 768px) {
-  .navigation-menu > .nav-list > .nav-list-item {
-    position: relative;
-  }
-
-  .navigation-menu > .nav-list > .nav-list-item > .nav-list.nested-level {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: var(--nd-colors-background);
-    margin-left: 0;
-  }
-
-  .navigation-menu > .nav-list {
+  .navbar-container {
     display: flex;
     flex-direction: row;
+    position: static;
     justify-content: center;
     align-items: center;
-    position: relative;
   }
 
-  .navigation-menu > .nav-list > .nav-list-item.active {
-    border-bottom: 2px solid var(--nd-colors-primary);
-    border-left: none;
+  header > .header-menu {
+    margin-left: none;
+  }
+
+  .toggle-nav-menu {
+    display: none;
   }
 }
