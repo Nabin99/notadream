@@ -54,7 +54,6 @@ export const Header = ({ navItems, logo }: HeaderProperties) => {
             toggleMenuOpen={handleToggleMobileMenu}
           />
         ) : null}
-        Stashed changes
       </div>
 
       <div className="header-menu">

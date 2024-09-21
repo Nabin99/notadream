@@ -1,9 +1,10 @@
 import { Footer, Header, Logo, PageLayout } from "@notadream/react";
+import { ErrorPage } from "@notadream/react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import "@notadream/react/dist/index.css";
 
-import type { NavItemType } from "@notadream/react/dist/src/page-layouts/types";
+import type { NavItemType } from "@notadream/react";
 
 function App() {
   const navItems: NavItemType[] = [
@@ -42,6 +43,7 @@ function App() {
         router={createBrowserRouter([
           {
             path: "/",
+            errorElement: <ErrorPage />,
             element: (
               <>
                 <PageLayout

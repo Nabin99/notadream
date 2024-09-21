@@ -8,13 +8,13 @@ header {
   position: relative;
   flex-wrap: nowrap;
   box-shadow: var(--nd-box-shadow-lg);
+  font-size: var(--nd-font-sizes-base);
 }
 
 /* Brand Logo */
 .brand-logo-container {
   display: flex;
   align-items: center;
-  font-size: 1.5rem;
   font-weight: bold;
   padding: var(--nd-spacing-xs) var(--nd-spacing-md);
 }
@@ -22,7 +22,6 @@ header {
 .toggle-nav-menu {
   background: none;
   border: none;
-  font-size: 2rem;
   cursor: pointer;
   color: var(--nd-colors-text);
   order: 5;
@@ -57,10 +56,12 @@ header > .header-menu {
     position: static;
     justify-content: center;
     align-items: center;
+    padding: 0;
   }
 
   header > .header-menu {
     margin-left: none;
+    padding: 0 var(--nd-spacing-md);
   }
 
   .toggle-nav-menu {
