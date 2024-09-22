@@ -54,7 +54,9 @@ function App() {
                       logo={<Logo src={"/vite.svg"} size="medium" />}
                     ></Header>
                   }
-                  footer={<Footer>Footer</Footer>}
+                  footer={
+                    <Footer header={"Header"} body={"Body"} footer={"Footer"} />
+                  }
                   main={<Page>Page body</Page>}
                 />
               </>
