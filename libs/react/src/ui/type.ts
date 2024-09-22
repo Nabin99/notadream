@@ -44,3 +44,17 @@ export interface LogoProperties {
   size?: SizesType; // Size of the logo
   className?: string; // Additional custom classes
 }
+
+export interface LinkProperties
+  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+  to: string;
+  iconLeft?: React.ReactNode;
+  iconRight?: React.ReactNode;
+  iconOnly?: boolean;
+  children?: React.ReactNode;
+  variant?: "solid" | "outline" | "borderless";
+  size?: "small" | "medium" | "large";
+  disabled?: boolean;
+  className?: string;
+  label?: string;
+}

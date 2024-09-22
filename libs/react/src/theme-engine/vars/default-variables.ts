@@ -10,6 +10,10 @@ export const defaultThemingVariables: Theme = {
       dark: "#4b4f54",
       light: "#e2e3e5",
     },
+    accent: {
+      dark: "",
+      light: "",
+    },
     success: {
       dark: "#1e7e34",
       light: "#d4edda",
@@ -26,6 +30,22 @@ export const defaultThemingVariables: Theme = {
       dark: "#0c5460",
       light: "#d1ecf1",
     },
+    bodyBackground: {
+      dark: "#212529",
+      light: "#f8f9fa",
+    },
+    boxShadowSm: {
+      dark: "0px 2px 4px rgba(256, 256, 256, 0.01)",
+      light: "0px 2px 4px rgba(0, 0, 0, 0.1)",
+    },
+    boxShadowMd: {
+      dark: "0px 4px 8px rgba(256, 256, 256, 0.01)",
+      light: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+    },
+    boxShadowLg: {
+      dark: "0px 6px 12px rgba(256, 256, 256, 0.01)",
+      light: "0px 6px 12px rgba(0, 0, 0, 0.1)",
+    },
     background: {
       dark: "#212529",
       light: "#f8f9fa",
@@ -41,14 +61,6 @@ export const defaultThemingVariables: Theme = {
     textMuted: {
       dark: "#6c757d",
       light: "#6c757d",
-    },
-    link: {
-      dark: "#007bff",
-      light: "#007bff",
-    },
-    linkHover: {
-      dark: "#0056b3",
-      light: "#0056b3",
     },
     border: {
       dark: "#343a40",
@@ -118,10 +130,10 @@ export const defaultThemingVariables: Theme = {
     lg: "12px",
     pill: "9999px",
   },
-  boxShadow: {
-    sm: "0px 2px 4px rgba(0, 0, 0, 0.1)",
-    md: "0px 4px 8px rgba(0, 0, 0, 0.1)",
-    lg: "0px 6px 12px rgba(0, 0, 0, 0.1)",
+  borderWidth: {
+    sm: "1px",
+    md: "2px",
+    lg: "4px",
   },
   zIndex: {
     dropdown: "1000",

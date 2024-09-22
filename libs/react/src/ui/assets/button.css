@@ -32,7 +32,7 @@
 
 .btn-medium {
   padding: var(--nd-spacing-sm) var(--nd-spacing-md);
-  font-size: var(--nd-font-sizes-h3);
+  font-size: var(--nd-font-sizes-h4);
 }
 
 .btn-large {
@@ -44,7 +44,7 @@
 .btn-solid {
   background-color: var(--nd-colors-primary);
   color: var(--nd-colors-text);
-  border: 1px solid var(--nd-colors-primary);
+  border: var(--nd-border-width-sm) solid var(--nd-colors-primary);
 }
 
 .btn-solid:hover {
@@ -55,11 +55,11 @@
 .btn-outline {
   background-color: transparent;
   color: var(--nd-colors-primary);
-  border: 1px solid var(--nd-colors-primary);
+  border: var(--nd-border-width-sm) solid var(--nd-colors-primary);
 }
 
 .btn-outline:hover {
-  background-color: var(--nd-colors-background);
+  background-color: var(--nd-colors-body-background);
 }
 
 /* Borderless variant */
@@ -70,7 +70,7 @@
 }
 
 .btn-borderless:hover {
-  background-color: var(--nd-colors-background);
+  background-color: var(--nd-colors-body-background);
 }
 
 /* Full width option */

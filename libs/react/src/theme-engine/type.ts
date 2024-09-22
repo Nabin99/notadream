@@ -6,16 +6,19 @@ export interface ColorVariation {
 export interface Colors {
   primary: ColorVariation;
   secondary: ColorVariation;
+  accent: ColorVariation;
   success: ColorVariation;
   danger: ColorVariation;
   warning: ColorVariation;
   info: ColorVariation;
+  bodyBackground: ColorVariation;
   background: ColorVariation;
+  boxShadowSm: ColorVariation;
+  boxShadowMd: ColorVariation;
+  boxShadowLg: ColorVariation;
   text: ColorVariation;
   textLight: ColorVariation;
   textMuted: ColorVariation;
-  link: ColorVariation;
-  linkHover: ColorVariation;
   border: ColorVariation;
   placeholder: ColorVariation;
   disabled: ColorVariation;
@@ -58,7 +61,7 @@ export interface BorderRadius {
   pill: string;
 }
 
-export interface BoxShadow {
+export interface BorderWidth {
   sm: string;
   md: string;
   lg: string;
@@ -90,7 +93,7 @@ export interface Theme {
   lineHeight: LineHeight;
   spacing: Spacing;
   borderRadius: BorderRadius;
-  boxShadow: BoxShadow;
+  borderWidth: BorderWidth;
   zIndex: ZIndex;
   breakpoints: Breakpoints;
 }

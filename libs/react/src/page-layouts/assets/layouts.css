@@ -3,17 +3,13 @@
 }
 
 .page-layout header {
-  background-color: var(--nd-colors-background);
 }
 
 .page-layout main {
-  background-color: var(--nd-colors-primary);
 }
 
 .page-layout aside {
-  background-color: var(--nd-colors-secondary);
 }
 
 .page-layout footer {
-  background-color: var(--nd-colors-success);
 }

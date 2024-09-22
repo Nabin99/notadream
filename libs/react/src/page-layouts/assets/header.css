@@ -3,11 +3,11 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: var(--nd-spacing-xs);
-  background-color: var(--nd-colors-background);
+  background-color: var(--nd-colors-body-background);
   color: var(--nd-colors-text);
   position: relative;
   flex-wrap: nowrap;
-  box-shadow: var(--nd-box-shadow-lg);
+  box-shadow: var(--nd-colors-box-shadow-lg);
   font-size: var(--nd-font-sizes-base);
 }
 
@@ -36,7 +36,7 @@ header {
   width: 100%;
   z-index: var(--nd-z-index-dropdown);
   padding: var(--nd-spacing-md);
-  background-color: var(--nd-colors-background);
+  background-color: var(--nd-colors-body-background);
   flex-direction: column;
 }
 

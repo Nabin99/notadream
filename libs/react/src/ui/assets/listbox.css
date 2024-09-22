@@ -14,7 +14,7 @@
   gap: var(--nd-spacing-sm);
   align-items: center;
   background-color: inherit;
-  border: 1px solid var(--nd-colors-border);
+  border: var(--nd-border-width-sm) solid var(--nd-colors-border);
   border-radius: var(--nd-border-radius-sm);
   cursor: pointer;
   transition: border-color 0.2s;
@@ -45,10 +45,10 @@
   position: absolute;
   top: calc(100% + var(--nd-spacing-sm));
   width: 100%; /* Full width for dropdown on mobile */
-  background-color: var(--nd-colors-background);
-  border: 1px solid var(--nd-colors-border);
+  background-color: var(--nd-colors-body-background);
+  border: var(--nd-border-width-sm) solid var(--nd-colors-border);
   border-radius: var(--nd-border-radius-sm);
-  box-shadow: var(--nd-box-shadow-md);
+  box-shadow: var(--nd-colors-box-shadow-md);
   max-height: 200px;
   overflow-y: auto;
   z-index: var(--nd-z-index-dropdown);

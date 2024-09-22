@@ -1,9 +1,19 @@
 import React from "react";
+import { BiSolidMessageAltError } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
 
-// import { Button } from "../ui";
+import { Page } from "./Page";
+import { Button } from "../ui";
+import { ErrorPageProperties } from "./type";
 
-export const ErrorPage: React.FC = () => {
+export const ErrorPage: React.FC<ErrorPageProperties> = ({
+  title = "404",
+  subtitle = "Page Not Found",
+  errorMessage = "We can't seem to find the page you're looking for.",
+  children,
+  buttonLabel = ">> Back to Home ",
+  badges,
+}) => {
   const navigate = useNavigate();
 
   const handleGoHome = () => {
@@ -11,20 +21,33 @@ export const ErrorPage: React.FC = () => {
   };
 
   return (
-    <div className="error-page">
-      <div className="error-content">
-        <h1 className="error-title">404</h1>
-        <p className="error-subtitle">Page Not Found</p>
-        <p className="error-message">
-          {"We can't seem to find the page you're looking for."}
-        </p>
-        <button className="error-button" onClick={handleGoHome}>
-          Back to Home
-        </button>
-      </div>
-      <div className="error-graphic">
-        {/* Optionally, add an SVG or a decorative image */}
-      </div>
-    </div>
+    <Page
+      className="error-page"
+      title={title}
+      subtitle={subtitle}
+      badges={badges}
+    >
+      <>
+        {children ? (
+          children
+        ) : (
+          <>
+            <span className="error-icon">
+              <BiSolidMessageAltError />
+            </span>
+            <p className="error-message">{errorMessage}</p>
+
+            <Button
+              className="error-button"
+              onClick={handleGoHome}
+              size="medium"
+              variant="borderless"
+            >
+              {buttonLabel}
+            </Button>
+          </>
+        )}
+      </>
+    </Page>
   );
 };

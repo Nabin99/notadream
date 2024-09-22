@@ -1,4 +1,4 @@
-import { Footer, Header, Logo, PageLayout } from "@notadream/react";
+import { Footer, Header, Logo, Page, PageLayout } from "@notadream/react";
 import { ErrorPage } from "@notadream/react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -20,8 +20,8 @@ function App() {
           name: "Team",
           path: "/about/team",
           children: [
-            { name: "Consulting", path: "/services/consulting" },
-            { name: "Support", path: "/services/support" },
+            { name: "Consulting", path: "/about/consulting" },
+            { name: "Support", path: "/about/support" },
           ],
         },
         { name: "Company", path: "/about/company" },
@@ -54,8 +54,8 @@ function App() {
                       logo={<Logo src={"/vite.svg"} size="medium" />}
                     ></Header>
                   }
-                  footer={<Footer>footer</Footer>}
-                  main={<main>Page content</main>}
+                  footer={<Footer>Footer</Footer>}
+                  main={<Page>Page body</Page>}
                 />
               </>
             ),

@@ -44,9 +44,9 @@
     --nd-border-radius-md: 8px;
     --nd-border-radius-lg: 12px;
     --nd-border-radius-pill: 9999px;
-    --nd-box-shadow-sm: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    --nd-box-shadow-md: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    --nd-box-shadow-lg: 0px 6px 12px rgba(0, 0, 0, 0.1);
+    --nd-border-width-sm: 1px;
+    --nd-border-width-md: 2px;
+    --nd-border-width-lg: 4px;
     --nd-z-index-dropdown: 1000;
     --nd-z-index-sticky: 1020;
     --nd-z-index-fixed: 1030;
@@ -62,19 +62,22 @@
 }
 <style>
 :root {
-    --nd-colors-primary: #b8daff;
-    --nd-colors-secondary: #e2e3e5;
-    --nd-colors-success: #d4edda;
-    --nd-colors-danger: #f8d7da;
-    --nd-colors-warning: #fff3cd;
-    --nd-colors-info: #d1ecf1;
-    --nd-colors-background: #f8f9fa;
-    --nd-colors-text: #212529;
-    --nd-colors-text-light: #495057;
+    --nd-colors-primary: #0056b3;
+    --nd-colors-secondary: #4b4f54;
+    --nd-colors-accent: ;
+    --nd-colors-success: #1e7e34;
+    --nd-colors-danger: #721c24;
+    --nd-colors-warning: #856404;
+    --nd-colors-info: #0c5460;
+    --nd-colors-body-background: #212529;
+    --nd-colors-box-shadow-sm: 0px 2px 4px rgba(256, 256, 256, 0.1);
+    --nd-colors-box-shadow-md: 0px 4px 8px rgba(256, 256, 256, 0.1);
+    --nd-colors-box-shadow-lg: 0px 6px 12px rgba(256, 256, 256, 0.1);
+    --nd-colors-background: #212529;
+    --nd-colors-text: #adb5bd;
+    --nd-colors-text-light: #ced4da;
     --nd-colors-text-muted: #6c757d;
-    --nd-colors-link: #007bff;
-    --nd-colors-link-hover: #0056b3;
-    --nd-colors-border: #dee2e6;
+    --nd-colors-border: #343a40;
     --nd-colors-placeholder: #6c757d;
     --nd-colors-disabled: #6c757d;
     --nd-colors-white: #ffffff;
