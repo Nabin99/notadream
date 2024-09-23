@@ -15,6 +15,7 @@ export interface ListboxProperties {
 export type SizesType = "xsmall" | "small" | "medium" | "large";
 export type ButtonVariant = "solid" | "outline" | "borderless";
 export type ButtonType = "button" | "submit" | "reset";
+export type ButtonColor = "default" | "danger" | "warning" | "success" | "info";
 
 export interface ButtonProperties
   extends React.HTMLAttributes<HTMLButtonElement> {
@@ -29,6 +30,9 @@ export interface ButtonProperties
   type?: ButtonType;
   className?: string; // To allow additional custom styles
   isFullWidth?: boolean;
+  label?: string;
+  iconPosition?: "left" | "right";
+  color?: ButtonColor;
 }
 
 export interface SpinnerProperties {

@@ -1,4 +1,4 @@
-import { ErrorPage, Page } from "@notadream/react";
+import { Button, ErrorPage, Page } from "@notadream/react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import "@notadream/react/dist/index.css";
@@ -16,7 +16,19 @@ function App() {
             children: [
               {
                 index: true,
-                element: <Page>Home</Page>,
+                element: (
+                  <Page>
+                    Home
+                    <Button
+                      label="button"
+                      color="success"
+                      variant="borderless"
+                      icon="i"
+                      iconPosition="right"
+                      iconOnly={true}
+                    />
+                  </Page>
+                ),
               },
               {
                 path: "/about/company",
