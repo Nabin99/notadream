@@ -1,42 +1,10 @@
-import { Footer, Header, Logo, Page, PageLayout } from "@notadream/react";
-import { ErrorPage } from "@notadream/react";
+import { ErrorPage, Page } from "@notadream/react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import "@notadream/react/dist/index.css";
-
-import type { NavItemType } from "@notadream/react";
+import { PageLayout } from "./layouts/PageLayout";
 
 function App() {
-  const navItems: NavItemType[] = [
-    {
-      name: "Home",
-      path: "/",
-    },
-    {
-      name: "About",
-      path: "/about",
-      children: [
-        {
-          name: "Team",
-          path: "/about/team",
-          children: [
-            { name: "Consulting", path: "/about/consulting" },
-            { name: "Support", path: "/about/support" },
-          ],
-        },
-        { name: "Company", path: "/about/company" },
-      ],
-    },
-    {
-      name: "Services",
-      path: "fdkfsd",
-      children: [
-        { name: "Consulting2", path: "/services/consulting" },
-        { name: "Support2", path: "/services/support" },
-      ],
-    },
-  ];
-
   return (
     <>
       <RouterProvider
@@ -44,27 +12,15 @@ function App() {
           {
             path: "/",
             errorElement: <ErrorPage />,
-            element: (
-              <>
-                <PageLayout
-                  layout="basic"
-                  header={
-                    <Header
-                      navItems={navItems}
-                      logo={<Logo src={"/vite.svg"} size="medium" />}
-                    ></Header>
-                  }
-                  footer={
-                    <Footer header={"Header"} body={"Body"} footer={"Footer"} />
-                  }
-                  main={<Page>Page body</Page>}
-                />
-              </>
-            ),
+            element: <PageLayout />,
             children: [
               {
+                index: true,
+                element: <Page>Home</Page>,
+              },
+              {
                 path: "/about/company",
-                element: <>child</>,
+                element: <Page>About / Company</Page>,
               },
             ],
           },

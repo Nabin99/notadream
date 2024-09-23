@@ -6,11 +6,12 @@ footer {
   flex-direction: column;
   background: var(--nd-colors-body-background);
   color: var(--nd-colors-text);
+  padding: var(--nd-spacing-lg);
 }
 
-footer > .header,
-footer > .body,
-footer > .footer {
+footer > .footer-header,
+footer > .footer-body,
+footer > .footer-footer {
   display: flex;
   justify-content: center;
   align-items: center;

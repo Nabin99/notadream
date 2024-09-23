@@ -3,8 +3,8 @@ import { Theme } from "../type";
 export const defaultThemingVariables: Theme = {
   colors: {
     primary: {
-      dark: "#0056b3",
-      light: "#b8daff",
+      dark: "#16c7d5",
+      light: "#16c7d5",
     },
     secondary: {
       dark: "#4b4f54",
@@ -47,8 +47,8 @@ export const defaultThemingVariables: Theme = {
       light: "0px 6px 12px rgba(0, 0, 0, 0.1)",
     },
     background: {
-      dark: "#212529",
-      light: "#f8f9fa",
+      dark: "#ffffff1a",
+      light: "#00000021",
     },
     text: {
       dark: "#adb5bd",
