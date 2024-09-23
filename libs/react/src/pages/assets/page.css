@@ -4,9 +4,9 @@
   padding: var(--nd-spacing-md);
   display: flex;
   flex-direction: column;
-  background-color: var(--nd-colors-body-background);
+  background-color: var(--nd-colors-primary);
   min-height: 100vh;
-  color: var(--nd-colors-text);
+  color: var(--nd-colors-secondary);
 }
 
 .page-container.full-width {
@@ -27,7 +27,7 @@
 
 .page-subtitle {
   font-size: var(--nd-font-sizes-h4);
-  color: var(--nd-colors-text);
+  color: var(--nd-colors-secondary);
   margin-bottom: var(--nd-spacing-sm);
 }
 
@@ -40,20 +40,20 @@
 
 .badge {
   background-color: var(--nd-colors-white);
-  color: var(--nd-colors-text);
+  color: var(--nd-colors-secondary);
   padding: var(--nd-spacing-xs) var(--nd-spacing-sm);
   border-radius: 9999px;
   font-size: var(--nd-font-sizes-small);
 }
 
 .badge.primary {
-  background-color: var(--nd-colors-primary);
-  color: var(--nd-colors-text);
+  background-color: var(--nd-colors-accent);
+  color: var(--nd-colors-secondary);
 }
 
 .badge.secondary {
   background-color: var(--nd-colors-secondary);
-  color: var(--nd-colors-text);
+  color: var(--nd-colors-secondary);
 }
 
 /* Main content */

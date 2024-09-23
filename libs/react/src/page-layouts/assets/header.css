@@ -3,8 +3,8 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: var(--nd-spacing-xs);
-  background-color: var(--nd-colors-body-background);
-  color: var(--nd-colors-text);
+  background-color: var(--nd-colors-primary);
+  color: var(--nd-colors-secondary);
   position: relative;
   flex-wrap: nowrap;
   box-shadow: var(--nd-colors-box-shadow-lg);
@@ -23,7 +23,7 @@ header {
   background: none;
   border: none;
   cursor: pointer;
-  color: var(--nd-colors-text);
+  color: var(--nd-colors-secondary);
   order: 5;
 }
 
@@ -36,7 +36,7 @@ header {
   width: 100%;
   z-index: var(--nd-z-index-dropdown);
   padding: var(--nd-spacing-md);
-  background-color: var(--nd-colors-body-background);
+  background-color: var(--nd-colors-primary);
   flex-direction: column;
 }
 

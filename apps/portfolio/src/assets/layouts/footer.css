@@ -7,14 +7,14 @@ footer {
   align-items: center;
   justify-content: center;
   gap: var(--nd-spacing-md);
-  text-shadow: 2px 2px 12px var(--nd-colors-primary);
+  text-shadow: -70px 1px 80px var(--nd-colors-accent);
   flex-wrap: wrap;
 }
 
 .footer-header .app-name {
   font-size: var(--nd-font-sizes-h1);
   font-weight: var(--nd-font-weight-h1);
-  color: var(--nd-colors-primary);
+  color: var(--nd-colors-accent);
 }
 
 .footer-body {

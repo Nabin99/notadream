@@ -8,16 +8,16 @@
 }
 
 .nav-item.active {
-  color: var(--nd-colors-primary);
+  color: var(--nd-colors-accent);
 }
 
 /* a.nav-item.active {
-  border-left: 2px solid var(--nd-colors-primary);
+  border-left: 2px solid var(--nd-colors-accent);
 } */
 
 /* @media screen and (min-width: 768px) {
   a.nav-item.active {
-    border-bottom: 2px solid var(--nd-colors-primary);
+    border-bottom: 2px solid var(--nd-colors-accent);
     border-left: none;
   }
 } */

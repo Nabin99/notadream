@@ -62,19 +62,19 @@
 }
 <style>
 :root {
-    --nd-colors-primary: #0056b3;
+    --nd-colors-accent: #0056b3;
     --nd-colors-secondary: #4b4f54;
     --nd-colors-accent: ;
     --nd-colors-success: #1e7e34;
     --nd-colors-danger: #721c24;
     --nd-colors-warning: #856404;
     --nd-colors-info: #0c5460;
-    --nd-colors-body-background: #212529;
+    --nd-colors-primary: #212529;
     --nd-colors-box-shadow-sm: 0px 2px 4px rgba(256, 256, 256, 0.1);
     --nd-colors-box-shadow-md: 0px 4px 8px rgba(256, 256, 256, 0.1);
     --nd-colors-box-shadow-lg: 0px 6px 12px rgba(256, 256, 256, 0.1);
     --nd-colors-background: #212529;
-    --nd-colors-text: #adb5bd;
+    --nd-colors-secondary: #adb5bd;
     --nd-colors-text-light: #ced4da;
     --nd-colors-text-muted: #6c757d;
     --nd-colors-border: #343a40;

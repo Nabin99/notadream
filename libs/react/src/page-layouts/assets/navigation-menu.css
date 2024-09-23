@@ -9,12 +9,12 @@
 }
 
 .nav-list-item.active {
-  border-left: 2px solid var(--nd-colors-primary);
+  border-left: 2px solid var(--nd-colors-accent);
 }
 
 .nav-list-item a {
   text-decoration: none;
-  color: var(--nd-colors-text);
+  color: var(--nd-colors-secondary);
 }
 
 @media screen and (min-width: 768px) {
@@ -26,7 +26,7 @@
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: var(--nd-colors-body-background);
+    background-color: var(--nd-colors-primary);
     margin-left: 0;
   }
 
@@ -39,7 +39,7 @@
   }
 
   .navigation-menu > .nav-list > .nav-list-item.active {
-    border-bottom: 2px solid var(--nd-colors-primary);
+    border-bottom: 2px solid var(--nd-colors-accent);
     border-left: none;
   }
 }

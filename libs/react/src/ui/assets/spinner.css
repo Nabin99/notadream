@@ -4,8 +4,8 @@
   border-style: dotted;
   animation: spin 0.75s linear infinite;
   display: inline-block;
-  border-color: var(--nd-colors-secondary) var(--nd-colors-primary)
-    var(--nd-colors-primary) transparent;
+  border-color: var(--nd-colors-secondary) var(--nd-colors-accent)
+    var(--nd-colors-accent) transparent;
 }
 
 /* Spinner sizes */

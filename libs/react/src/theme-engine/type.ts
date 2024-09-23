@@ -11,12 +11,11 @@ export interface Colors {
   danger: ColorVariation;
   warning: ColorVariation;
   info: ColorVariation;
-  bodyBackground: ColorVariation;
-  background: ColorVariation;
+  gradientBackground: ColorVariation;
+  transBackground: ColorVariation;
   boxShadowSm: ColorVariation;
   boxShadowMd: ColorVariation;
   boxShadowLg: ColorVariation;
-  text: ColorVariation;
   textLight: ColorVariation;
   textMuted: ColorVariation;
   border: ColorVariation;

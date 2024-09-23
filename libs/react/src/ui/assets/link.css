@@ -11,8 +11,8 @@
 
 /* Variants */
 .link.solid {
-  background-color: var(--nd-colors-primary);
-  color: var(--nd-colors-text);
+  background-color: var(--nd-colors-accent);
+  color: var(--nd-colors-secondary);
   padding: var(--nd-spacing-sm) var(--nd-spacing-md);
   border-radius: var(--nd-border-radius-md);
 }
@@ -23,19 +23,19 @@
 
 .link.outline {
   background-color: transparent;
-  color: var(--nd-colors-primary);
-  border: var(--nd-border-width-sm) solid var(--nd-colors-primary);
+  color: var(--nd-colors-accent);
+  border: var(--nd-border-width-sm) solid var(--nd-colors-accent);
   padding: var(--nd-spacing-sm) var(--nd-spacing-md);
   border-radius: var(--nd-border-radius-md);
 }
 
 .link.outline:hover {
-  background-color: var(--nd-colors-text);
+  background-color: var(--nd-colors-secondary);
 }
 
 .link.borderless {
   background-color: transparent;
-  color: var(--nd-colors-primary);
+  color: var(--nd-colors-accent);
   padding: var(--nd-spacing-sm);
 }
 

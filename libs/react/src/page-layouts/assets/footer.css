@@ -4,8 +4,8 @@ footer {
   align-items: center;
   gap: var(--nd-spacing-md);
   flex-direction: column;
-  background: var(--nd-colors-body-background);
-  color: var(--nd-colors-text);
+  background: var(--nd-colors-primary);
+  color: var(--nd-colors-secondary);
   padding: var(--nd-spacing-lg);
 }
 

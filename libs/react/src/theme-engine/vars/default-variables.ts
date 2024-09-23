@@ -3,16 +3,16 @@ import { Theme } from "../type";
 export const defaultThemingVariables: Theme = {
   colors: {
     primary: {
-      dark: "#16c7d5",
-      light: "#16c7d5",
+      dark: "#212529",
+      light: "#f8f9fa",
     },
     secondary: {
-      dark: "#4b4f54",
-      light: "#e2e3e5",
+      dark: "#adb5bd",
+      light: "#212529",
     },
     accent: {
-      dark: "",
-      light: "",
+      dark: "#16c7d5",
+      light: "#16c7d5",
     },
     success: {
       dark: "#1e7e34",
@@ -30,7 +30,7 @@ export const defaultThemingVariables: Theme = {
       dark: "#0c5460",
       light: "#d1ecf1",
     },
-    bodyBackground: {
+    gradientBackground: {
       dark: "#212529",
       light: "#f8f9fa",
     },
@@ -46,13 +46,9 @@ export const defaultThemingVariables: Theme = {
       dark: "0px 6px 12px rgba(256, 256, 256, 0.01)",
       light: "0px 6px 12px rgba(0, 0, 0, 0.1)",
     },
-    background: {
+    transBackground: {
       dark: "#ffffff1a",
       light: "#00000021",
-    },
-    text: {
-      dark: "#adb5bd",
-      light: "#212529",
     },
     textLight: {
       dark: "#ced4da",
@@ -83,7 +79,10 @@ export const defaultThemingVariables: Theme = {
       dark: "#000000",
     },
   },
-  fontFamily: { text: "Arial, sans-serif", heading: "Arial, sans-serif" },
+  fontFamily: {
+    text: "Mitr, sans-serif, Arial, sans-serif",
+    heading: "Mitr, sans-serif, Arial, sans-serif",
+  },
   fontSizes: {
     base: "16px",
     h1: "2.5rem",
