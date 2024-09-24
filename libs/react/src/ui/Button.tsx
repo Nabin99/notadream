@@ -6,7 +6,7 @@ export const Button: React.FC<ButtonProperties> = ({
   iconOnly = false,
   loading = false,
   onClick,
-  size = "medium",
+  size = "small",
   variant = "solid",
   disabled = false,
   type = "button",
@@ -38,15 +38,13 @@ export const Button: React.FC<ButtonProperties> = ({
       onClick={onClick}
       disabled={isDisabled || loading}
     >
-      {loading ? (
-        <Spinner size={size} />
-      ) : (
-        <>
-          {icon && iconPosition === "left" && renderIcon()}
-          {label && !iconOnly && <span className="btn-label">{label}</span>}
-          {icon && iconPosition === "right" && renderIcon()}
-        </>
-      )}
+      {loading && <Spinner size={size} />}
+
+      <>
+        {icon && iconPosition === "left" && renderIcon()}
+        {label && !iconOnly && <span className="btn-label">{label}</span>}
+        {icon && iconPosition === "right" && renderIcon()}
+      </>
     </button>
   );
 };

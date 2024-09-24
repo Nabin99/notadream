@@ -3,7 +3,6 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: var(--nd-spacing-sm) var(--nd-spacing-md);
   border-radius: var(--nd-border-radius-sm);
   border: none;
   font-weight: var(--nd-font-weight-base);
@@ -28,6 +27,7 @@
 
 .btn:disabled,
 .btn-disabled:hover {
+  filter: brightness(1);
   opacity: 0.5;
   cursor: not-allowed;
   transform: none;
@@ -37,7 +37,7 @@
 
 /* Size variants */
 .btn-xsmall {
-  padding: var(--nd-spacing-xs) var(--nd-spacing-sm);
+  padding: var(--nd-spacing-xs) var(--nd-spacing-xs);
   font-size: var(--nd-font-sizes-small);
 }
 
@@ -64,21 +64,21 @@
 
 .btn-solid.btn-danger {
   background-color: var(--nd-colors-danger);
-  color: var(--nd-colors-secondary);
+  color: var(--nd-colors-primary);
 }
 .btn-solid.btn-success {
   background-color: var(--nd-colors-success);
-  color: var(--nd-colors-secondary);
+  color: var(--nd-colors-primary);
 }
 
 .btn-solid.btn-warning {
   background-color: var(--nd-colors-warning);
-  color: var(--nd-colors-secondary);
+  color: var(--nd-colors-primary);
 }
 
 .btn-solid.btn-info {
   background-color: var(--nd-colors-info);
-  color: var(--nd-colors-secondary);
+  color: var(--nd-colors-primary);
 }
 
 /* Outline variant */
@@ -132,12 +132,12 @@
 /* Borderless variant */
 .btn-borderless {
   background-color: transparent;
-  color: var(--nd-colors-secondary);
+  color: var(--nd-colors-accent);
   border: none;
 }
 
 .btn-borderless:hover {
-  color: var(--nd-colors-primary);
+  color: var(--nd-colors-accent);
 }
 
 .btn-borderless.btn-danger,

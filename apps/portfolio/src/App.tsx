@@ -21,11 +21,10 @@ function App() {
                     Home
                     <Button
                       label="button"
-                      color="success"
-                      variant="borderless"
+                      color="default"
+                      variant="solid"
                       icon="i"
-                      iconPosition="right"
-                      iconOnly={true}
+                      loading={false}
                     />
                   </Page>
                 ),

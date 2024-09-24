@@ -41,10 +41,10 @@ export const ErrorPage: React.FC<ErrorPageProperties> = ({
               className="error-button"
               onClick={handleGoHome}
               size="medium"
+              color="danger"
               variant="borderless"
-            >
-              {buttonLabel}
-            </Button>
+              label={buttonLabel}
+            ></Button>
           </>
         )}
       </>

@@ -117,11 +117,11 @@ export const defaultThemingVariables: Theme = {
     caption: "1.2",
   },
   spacing: {
-    xs: "4px",
-    sm: "8px",
-    md: "16px",
-    lg: "24px",
-    xl: "32px",
+    xs: "0.2rem",
+    sm: "0.5rem",
+    md: "0.8rem",
+    lg: "1.2rem",
+    xl: "1.5rem",
   },
   borderRadius: {
     sm: "4px",

@@ -14,5 +14,5 @@ export interface PageProperties {
 
 export interface ErrorPageProperties extends PageProperties {
   errorMessage?: React.ReactNode;
-  buttonLabel?: React.ReactNode;
+  buttonLabel?: string;
 }
