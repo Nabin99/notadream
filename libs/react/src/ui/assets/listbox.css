@@ -67,14 +67,12 @@
 }
 
 .listbox-option:hover {
-  background-color: var(--nd-colors-link-hover);
-  color: var(--nd-colors-secondary);
+  filter: brightness(1.2);
+  color: var(--nd-colors-accent);
 }
 
 .listbox-option.selected {
-  font-weight: bold;
-  background-color: var(--nd-colors-accent);
-  color: var(--nd-colors-secondary);
+  color: var(--nd-colors-accent);
 }
 
 /* Icon for the selected option */
