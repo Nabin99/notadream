@@ -2,10 +2,10 @@
 .spinner {
   border-radius: 50%;
   border-style: dotted;
-  animation: spin 0.75s linear infinite;
+  animation: spin 0.55s linear infinite;
   display: inline-block;
-  border-color: var(--nd-colors-secondary) var(--nd-colors-primary)
-    var(--nd-colors-primary) transparent;
+  border-color: var(--nd-colors-black) var(--nd-colors-white)
+    var(--nd-colors-black) var(--nd-colors-white);
 }
 
 /* Spinner sizes */

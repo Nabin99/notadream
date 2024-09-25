@@ -30,7 +30,7 @@
   margin: 0;
   padding: 1rem;
   background-color: rgba(var(--callout-rgb), 0.5);
-  border: 1px solid rgba(var(--callout-border-rgb), 0.3);
+  border: var(--nd-border-width-sm) solid rgba(var(--callout-border-rgb), 0.3);
   border-radius: var(--border-radius);
 }
 
@@ -50,7 +50,7 @@
   padding: 1rem 1.2rem;
   border-radius: var(--border-radius);
   background: rgba(var(--card-rgb), 0);
-  border: 1px solid rgba(var(--card-border-rgb), 0);
+  border: var(--nd-border-width-sm) solid rgba(var(--card-border-rgb), 0);
   transition: background 200ms, border 200ms;
 }
 
@@ -111,7 +111,7 @@
 @media (hover: hover) and (pointer: fine) {
   .card:hover {
     background: rgba(var(--card-rgb), 0.1);
-    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+    border: var(--nd-border-width-sm) solid rgba(var(--card-border-rgb), 0.15);
   }
 
   .card:hover span {

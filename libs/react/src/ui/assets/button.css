@@ -3,27 +3,43 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: var(--nd-spacing-sm) var(--nd-spacing-md);
   border-radius: var(--nd-border-radius-sm);
+  border: none;
   font-weight: var(--nd-font-weight-base);
-  transition: all 0.2s ease-in-out;
   cursor: pointer;
+  gap: var(--nd-spacing-sm);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .btn:hover {
   filter: brightness(1.2);
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+  transition: transform 0.2s ease;
 }
 
 .btn:disabled,
-.btn-disabled {
+.btn-disabled:hover {
+  filter: brightness(1);
   opacity: 0.5;
   cursor: not-allowed;
+  transform: none;
+  color: var(--nd-colors-disabled) !important;
+  border-color: var(--nd-colors-disabled) !important;
 }
 
+/* Size variants */
 .btn-xsmall {
-  padding: var(--nd-spacing-xs) var(--nd-spacing-sm);
+  padding: var(--nd-spacing-xs) var(--nd-spacing-xs);
   font-size: var(--nd-font-sizes-small);
-} /* Size variants */
+}
 
 .btn-small {
   padding: var(--nd-spacing-xs) var(--nd-spacing-sm);
@@ -32,7 +48,7 @@
 
 .btn-medium {
   padding: var(--nd-spacing-sm) var(--nd-spacing-md);
-  font-size: var(--nd-font-sizes-h3);
+  font-size: var(--nd-font-sizes-h4);
 }
 
 .btn-large {
@@ -42,35 +58,106 @@
 
 /* Solid variant */
 .btn-solid {
-  background-color: var(--nd-colors-primary);
-  color: var(--nd-colors-text);
-  border: 1px solid var(--nd-colors-primary);
+  background-color: var(--nd-colors-accent);
+  color: var(--nd-colors-primary);
 }
 
-.btn-solid:hover {
-  background-color: var(--nd-colors-primary);
+.btn-solid.btn-danger {
+  background-color: var(--nd-colors-danger);
+  color: var(--nd-colors-primary);
+}
+.btn-solid.btn-success {
+  background-color: var(--nd-colors-success);
+  color: var(--nd-colors-primary);
+}
+
+.btn-solid.btn-warning {
+  background-color: var(--nd-colors-warning);
+  color: var(--nd-colors-primary);
+}
+
+.btn-solid.btn-info {
+  background-color: var(--nd-colors-info);
+  color: var(--nd-colors-primary);
 }
 
 /* Outline variant */
 .btn-outline {
   background-color: transparent;
-  color: var(--nd-colors-primary);
-  border: 1px solid var(--nd-colors-primary);
+  color: var(--nd-colors-accent);
+  border: var(--nd-border-width-sm) solid var(--nd-colors-accent);
+}
+
+.btn-outline.btn-danger {
+  color: var(--nd-colors-danger);
+  border: var(--nd-border-width-sm) solid var(--nd-colors-danger);
+}
+
+.btn-outline.btn-success {
+  color: var(--nd-colors-success);
+  border: var(--nd-border-width-sm) solid var(--nd-colors-success);
+}
+
+.btn-outline.btn-warning {
+  color: var(--nd-colors-warning);
+  border: var(--nd-border-width-sm) solid var(--nd-colors-warning);
+}
+
+.btn-outline.btn-info {
+  color: var(--nd-colors-info);
+  border: var(--nd-border-width-sm) solid var(--nd-colors-info);
 }
 
 .btn-outline:hover {
-  background-color: var(--nd-colors-background);
+  background-color: var(--nd-colors-accent);
+  color: var(--nd-colors-primary);
+}
+
+.btn-outline.btn-danger:hover {
+  background-color: var(--nd-colors-danger);
+}
+
+.btn-outline.btn-success:hover {
+  background-color: var(--nd-colors-success);
+}
+
+.btn-outline.btn-warning:hover {
+  background-color: var(--nd-colors-warning);
+}
+
+.btn-outline.btn-info:hover {
+  background-color: var(--nd-colors-info);
 }
 
 /* Borderless variant */
 .btn-borderless {
   background-color: transparent;
-  color: var(--nd-colors-text);
+  color: var(--nd-colors-accent);
   border: none;
 }
 
 .btn-borderless:hover {
-  background-color: var(--nd-colors-background);
+  color: var(--nd-colors-accent);
+}
+
+.btn-borderless.btn-danger,
+.btn-borderless.btn-danger:hover {
+  color: var(--nd-colors-danger);
+}
+
+.btn-borderless.btn-warning,
+.btn-borderless.btn-warning:hover {
+  color: var(--nd-colors-warning);
+}
+
+.btn-borderless.btn-success,
+.btn-borderless.btn-success:hover {
+  color: var(--nd-colors-success);
+}
+
+.btn-borderless.btn-info,
+.btn-borderless.btn-info:hover {
+  color: var(--nd-colors-info);
 }
 
 /* Full width option */
@@ -83,8 +170,13 @@
   justify-content: center;
 }
 
-/* Button icon */
+/* Icon styling */
 .btn-icon {
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.btn-icon.rotate {
+  transform: rotate(180deg);
 }

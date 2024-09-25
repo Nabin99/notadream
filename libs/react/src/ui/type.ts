@@ -15,6 +15,7 @@ export interface ListboxProperties {
 export type SizesType = "xsmall" | "small" | "medium" | "large";
 export type ButtonVariant = "solid" | "outline" | "borderless";
 export type ButtonType = "button" | "submit" | "reset";
+export type ButtonColor = "default" | "danger" | "warning" | "success" | "info";
 
 export interface ButtonProperties
   extends React.HTMLAttributes<HTMLButtonElement> {
@@ -29,6 +30,9 @@ export interface ButtonProperties
   type?: ButtonType;
   className?: string; // To allow additional custom styles
   isFullWidth?: boolean;
+  label?: string;
+  iconPosition?: "left" | "right";
+  color?: ButtonColor;
 }
 
 export interface SpinnerProperties {
@@ -43,4 +47,18 @@ export interface LogoProperties {
   alt?: string; // Alt text for accessibility
   size?: SizesType; // Size of the logo
   className?: string; // Additional custom classes
+}
+
+export interface LinkProperties
+  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+  to: string;
+  iconLeft?: React.ReactNode;
+  iconRight?: React.ReactNode;
+  iconOnly?: boolean;
+  children?: React.ReactNode;
+  variant?: "solid" | "outline" | "borderless";
+  size?: "small" | "medium" | "large";
+  disabled?: boolean;
+  className?: string;
+  label?: string;
 }

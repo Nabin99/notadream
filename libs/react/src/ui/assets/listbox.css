@@ -14,20 +14,20 @@
   gap: var(--nd-spacing-sm);
   align-items: center;
   background-color: inherit;
-  border: 1px solid var(--nd-colors-border);
+  border: var(--nd-border-width-sm) solid var(--nd-colors-border);
   border-radius: var(--nd-border-radius-sm);
   cursor: pointer;
   transition: border-color 0.2s;
-  color: var(--nd-colors-text);
+  color: var(--nd-colors-secondary);
 }
 
 .listbox-button:hover {
-  border-color: var(--nd-colors-primary);
+  border-color: var(--nd-colors-accent);
 }
 
 .listbox-button:focus {
   outline: none;
-  border-color: var(--nd-colors-primary);
+  border-color: var(--nd-colors-accent);
 }
 
 /* Dropdown icon */
@@ -45,10 +45,10 @@
   position: absolute;
   top: calc(100% + var(--nd-spacing-sm));
   width: 100%; /* Full width for dropdown on mobile */
-  background-color: var(--nd-colors-background);
-  border: 1px solid var(--nd-colors-border);
+  background-color: var(--nd-colors-primary);
+  border: var(--nd-border-width-sm) solid var(--nd-colors-border);
   border-radius: var(--nd-border-radius-sm);
-  box-shadow: var(--nd-box-shadow-md);
+  box-shadow: var(--nd-colors-box-shadow-md);
   max-height: 200px;
   overflow-y: auto;
   z-index: var(--nd-z-index-dropdown);
@@ -67,14 +67,12 @@
 }
 
 .listbox-option:hover {
-  background-color: var(--nd-colors-link-hover);
-  color: var(--nd-colors-text);
+  filter: brightness(1.2);
+  color: var(--nd-colors-accent);
 }
 
 .listbox-option.selected {
-  font-weight: bold;
-  background-color: var(--nd-colors-primary);
-  color: var(--nd-colors-text);
+  color: var(--nd-colors-accent);
 }
 
 /* Icon for the selected option */
