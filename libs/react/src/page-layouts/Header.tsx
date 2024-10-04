@@ -2,6 +2,7 @@ import { ReactNode, useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 import { NavLink } from "react-router-dom";
 
+import { LocaleSwitcher } from "../i18n";
 import { ThemeToggle } from "../theme-engine";
 import { Button } from "../ui";
 import { NavigationMenu } from "./components/nav";
@@ -58,6 +59,7 @@ export const Header = ({ navItems, logo }: HeaderProperties) => {
 
       <div className="header-menu">
         <ThemeToggle />
+        <LocaleSwitcher />
       </div>
     </header>
   );

@@ -47,6 +47,7 @@ header {
 header > .header-menu {
   display: flex;
   margin-left: auto;
+  gap: var(--nd-spacing-md);
 }
 
 @media screen and (min-width: 768px) {
@@ -60,7 +61,7 @@ header > .header-menu {
   }
 
   header > .header-menu {
-    margin-left: none;
+    margin-left: unset;
     padding: 0 var(--nd-spacing-md);
   }
 

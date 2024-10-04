@@ -8,6 +8,10 @@ configureApp({
   appLogo: import.meta.env.VITE_APP_LOGO || "",
   apiBaseURL: import.meta.env.VITE_API_BASE_URL || "",
   appPort: Number(import.meta.env.VITE_APP_PORT) || 4003,
+  i18n: {
+    defaultLanguage: "en",
+    supportedLanguages: ["en", "np", "fr"],
+  },
   websiteDomain: window.location.hostname,
   copyright: {
     holder: import.meta.env.VITE_COPYRIGHT_HOLDER || "",

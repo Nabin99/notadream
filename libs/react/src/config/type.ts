@@ -10,6 +10,10 @@ export interface AppConfig {
     holder: string;
     url?: string;
   };
+  i18n: {
+    supportedLanguages: string[];
+    defaultLanguage: string;
+  };
   websiteDomain: string;
   version: string;
 }

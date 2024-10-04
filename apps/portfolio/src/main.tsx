@@ -1,4 +1,4 @@
-import { ThemeProvider, setThemeConfig } from "@notadream/react";
+import { I18nProvider, ThemeProvider, setThemeConfig } from "@notadream/react";
 import React from "react";
 import ReactDOM from "react-dom/client";
 
@@ -20,7 +20,9 @@ setThemeConfig({
 ReactDOM.createRoot(document.querySelector("#root")!).render(
   <React.StrictMode>
     <ThemeProvider>
-      <App />
+      <I18nProvider translations={{}}>
+        <App />
+      </I18nProvider>
     </ThemeProvider>
   </React.StrictMode>
 );
