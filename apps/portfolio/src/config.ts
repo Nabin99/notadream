@@ -9,8 +9,10 @@ configureApp({
   apiBaseURL: import.meta.env.VITE_API_BASE_URL || "",
   appPort: Number(import.meta.env.VITE_APP_PORT) || 4003,
   i18n: {
-    defaultLanguage: "en",
-    supportedLanguages: ["en", "np"],
+    defaultLanguage: import.meta.env.VITE_I18N_DEFAULT_LANGUAGE || "en",
+    supportedLanguages: (
+      import.meta.env.VITE_I18N_SUPPORTED_LANGUAGE || "en,np"
+    ).split(","),
   },
   websiteDomain: window.location.hostname,
   copyright: {
