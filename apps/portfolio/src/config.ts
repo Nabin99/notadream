@@ -10,7 +10,7 @@ configureApp({
   appPort: Number(import.meta.env.VITE_APP_PORT) || 4003,
   i18n: {
     defaultLanguage: "en",
-    supportedLanguages: ["en", "np", "fr"],
+    supportedLanguages: ["en", "np"],
   },
   websiteDomain: window.location.hostname,
   copyright: {

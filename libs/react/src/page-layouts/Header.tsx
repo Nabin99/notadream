@@ -2,7 +2,7 @@ import { ReactNode, useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 import { NavLink } from "react-router-dom";
 
-import { LocaleSwitcher } from "../i18n";
+import { LocaleSwitcher, useTranslation } from "../i18n";
 import { ThemeToggle } from "../theme-engine";
 import { Button } from "../ui";
 import { NavigationMenu } from "./components/nav";
@@ -17,6 +17,7 @@ export interface HeaderProperties {
 export const Header = ({ navItems, logo }: HeaderProperties) => {
   const [isMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openItems, setOpenItems] = useState<string[]>([]);
+  const { supportedLanguages } = useTranslation();
 
   const handleToggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMenuOpen);
@@ -59,7 +60,7 @@ export const Header = ({ navItems, logo }: HeaderProperties) => {
 
       <div className="header-menu">
         <ThemeToggle />
-        <LocaleSwitcher />
+        {supportedLanguages.length > 1 ? <LocaleSwitcher /> : null}
       </div>
     </header>
   );
