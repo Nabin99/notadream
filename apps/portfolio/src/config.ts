@@ -15,6 +15,9 @@ configureApp({
     ).split(","),
     localStorageName: "i18n",
   },
+  theme: {
+    localStorageName: "theme",
+  },
   websiteDomain: window.location.hostname,
   copyright: {
     holder: import.meta.env.VITE_COPYRIGHT_HOLDER || "",

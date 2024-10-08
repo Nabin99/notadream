@@ -15,6 +15,9 @@ export interface AppConfig {
     defaultLanguage: string;
     localStorageName: string;
   };
+  theme: {
+    localStorageName: string;
+  };
   websiteDomain: string;
   version: string;
 }

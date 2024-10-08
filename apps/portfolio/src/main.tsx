@@ -6,15 +6,9 @@ import App from "./App";
 
 import "./assets/index.css";
 import "./config";
-declare module "@notadream/react" {
-  interface ClassScheme {
-    secondaryButton: React.CSSProperties;
-  }
-}
 
 setThemeConfig({
-  defaultColorScheme: "light",
-  defaultTheme: "notadream",
+  defaultThemeKey: "notadream",
 }).initTheme();
 
 ReactDOM.createRoot(document.querySelector("#root")!).render(

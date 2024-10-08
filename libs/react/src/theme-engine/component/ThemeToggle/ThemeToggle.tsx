@@ -31,14 +31,11 @@ export const ThemeToggle = () => {
   const theme = useThemeState();
 
   const handleChange = (value: ListboxOptionType) => {
-    const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
     const mode = value.value as "light" | "dark" | "auto";
 
     setCurrentThemeState((pre) => ({
       ...pre,
       currentMode: mode,
-      currentColorScheme:
-        mode != "auto" ? mode : darkThemeMq.matches ? "dark" : "light",
     }));
   };
 
@@ -48,7 +45,7 @@ export const ThemeToggle = () => {
       data={themesOptions}
       selected={
         themesOptions.find(
-          (option) => option.value === theme.currentMode
+          (option) => option.value === theme?.currentMode
         ) as ListboxOptionType
       }
       setSelected={handleChange}
