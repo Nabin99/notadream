@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState, ReactNode } from "react";
 
 import { getAppConfig } from "../../config";
+import { useDidMountEffect } from "../../utils/custom-hooks";
 
 import type { I18nContextProperties } from "../types";
 
@@ -11,8 +12,9 @@ export const I18nProvider: React.FC<{
   children: ReactNode;
   translations: { [key: string]: string };
 }> = ({ children, translations }) => {
+  const localStorageName = getAppConfig().i18n.localStorageName;
   const defaultLanguage =
-    JSON.parse(localStorage.getItem("i18n") || "{}")?.language ||
+    JSON.parse(localStorage.getItem(localStorageName) || "{}")?.language ||
     getAppConfig().i18n.defaultLanguage;
 
   const [language, setLanguage] = useState(defaultLanguage);
@@ -44,6 +46,15 @@ export const I18nProvider: React.FC<{
 
     return replacePlaceholders(translation as string, parameters);
   };
+
+  useDidMountEffect(() => {
+    localStorage.setItem(
+      localStorageName,
+      JSON.stringify({
+        language,
+      })
+    );
+  }, [language]);
 
   return (
     <I18nContext.Provider

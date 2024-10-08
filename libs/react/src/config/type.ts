@@ -13,6 +13,7 @@ export interface AppConfig {
   i18n: {
     supportedLanguages: string[];
     defaultLanguage: string;
+    localStorageName: string;
   };
   websiteDomain: string;
   version: string;

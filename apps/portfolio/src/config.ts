@@ -13,6 +13,7 @@ configureApp({
     supportedLanguages: (
       import.meta.env.VITE_I18N_SUPPORTED_LANGUAGE || "EN,NP"
     ).split(","),
+    localStorageName: "i18n",
   },
   websiteDomain: window.location.hostname,
   copyright: {
