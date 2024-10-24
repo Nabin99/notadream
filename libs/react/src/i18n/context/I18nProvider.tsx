@@ -3,17 +3,21 @@ import React, { createContext, useContext, useState, ReactNode } from "react";
 import { getAppConfig } from "../../config";
 import { useDidMountEffect } from "../../utils/custom-hooks";
 
-import type { I18nContextProperties } from "../types";
+import type {
+  I18nContextProperties,
+  TranslationData,
+  Translations,
+} from "../types";
 
 const I18nContext = createContext<I18nContextProperties | undefined>(undefined);
 
 // I18nProvider component
 export const I18nProvider: React.FC<{
   children: ReactNode;
-  translations: { [key: string]: string };
+  translations: Translations;
 }> = ({ children, translations }) => {
   const localStorageName = getAppConfig().i18n.localStorageName;
-  const defaultLanguage =
+  const defaultLanguage: string =
     JSON.parse(localStorage.getItem(localStorageName) || "{}")?.language ||
     getAppConfig().i18n.defaultLanguage;
 
@@ -34,11 +38,14 @@ export const I18nProvider: React.FC<{
   // Translation function
   const t = (key: string, parameters?: { [key: string]: string }): string => {
     const keys = key.split(".");
-    let translation = translations[language];
+    let translation = translations[language as keyof Translations];
 
     for (const k of keys) {
-      if (typeof translation === "object" && translation[k]) {
-        translation = translation[k] as string;
+      if (
+        typeof translation === "object" &&
+        typeof translation[k as keyof TranslationData]
+      ) {
+        translation = translation[k as keyof TranslationData] as string;
       } else {
         return key; // return the key itself if not found
       }
@@ -82,13 +89,13 @@ export const useTranslation = (nameSpaceKey?: string) => {
     ...context,
     t: (
       key: string,
-      options: { parameters?: { [key: string]: string }; use?: string }
+      options?: { parameters?: { [key: string]: string }; use?: string }
     ) => {
       return context.t(
-        nameSpaceKey || options.use
-          ? `${options.use ? options.use : nameSpaceKey}.${key}`
+        nameSpaceKey || options?.use
+          ? `${options?.use ? options?.use : nameSpaceKey}.${key}`
           : key,
-        options.parameters
+        options?.parameters
       );
     },
   };

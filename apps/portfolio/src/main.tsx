@@ -3,6 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 import App from "./App";
+import { TranslationsEntry } from "./i18n";
 
 import "./assets/index.css";
 import "./config";
@@ -14,7 +15,7 @@ setThemeConfig({
 ReactDOM.createRoot(document.querySelector("#root")!).render(
   <React.StrictMode>
     <ThemeProvider>
-      <I18nProvider translations={{}}>
+      <I18nProvider translations={TranslationsEntry}>
         <App />
       </I18nProvider>
     </ThemeProvider>

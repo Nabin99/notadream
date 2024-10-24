@@ -1,7 +1,7 @@
 export interface TranslationData {}
 
 export interface Translations {
-  [key: string | "EN"]: TranslationData;
+  EN: TranslationData;
 }
 
 export interface I18nContextProperties {
