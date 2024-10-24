@@ -8,6 +8,7 @@
 /* Button to open the Listbox */
 .listbox-button {
   width: 100%;
+  min-width: 3.8rem;
   padding: var(--nd-spacing-xs) var(--nd-spacing-sm);
   display: flex;
   justify-content: space-between;

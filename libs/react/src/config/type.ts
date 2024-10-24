@@ -10,6 +10,14 @@ export interface AppConfig {
     holder: string;
     url?: string;
   };
+  i18n: {
+    supportedLanguages: string[];
+    defaultLanguage: string;
+    localStorageName: string;
+  };
+  theme: {
+    localStorageName: string;
+  };
   websiteDomain: string;
   version: string;
 }

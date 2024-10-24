@@ -102,20 +102,17 @@ export interface Themes {
 }
 
 export type ThemeMode = "dark" | "light" | "auto";
-export type ColorScheme = "dark" | "light";
 
 export interface ThemeConfig {
-  defaultTheme: keyof Themes;
+  defaultThemeKey: keyof Themes;
   themes: Themes;
-  defaultColorScheme: ColorScheme;
-  defaultThemeMode: ThemeMode;
+  defaultMode: ThemeMode;
   cssVariablePrefix: string;
   generatedCSS: string;
 }
 
 export interface ThemeState {
-  currentThemeName: keyof Themes;
+  currentThemeKey: keyof Themes;
   currentTheme: Theme;
-  currentColorScheme: ColorScheme;
   currentMode: ThemeMode;
 }

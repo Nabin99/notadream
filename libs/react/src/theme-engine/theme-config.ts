@@ -2,42 +2,32 @@ import {
   defaultThemingVariables,
   generateCSSVariableFromThemeKey,
 } from "./vars";
+import { getAppConfig } from "../config";
 import { deepUpdateObject } from "../utils";
 
-import type {
-  ColorScheme,
-  ThemeConfig,
-  Themes,
-  ThemeMode,
-  Theme,
-} from "./type";
+import type { ThemeConfig, Themes, ThemeMode, Theme } from "./type";
 
 interface ThemeConfigProvider {
-  getDefaultTheme: () => keyof Themes;
+  getDefaultThemeKey: () => keyof Themes;
   getThemes: () => Readonly<Themes>;
-  getDefaultColorScheme: () => ColorScheme;
   getDefaultThemeMode: () => ThemeMode;
   getThemeConfig: () => Readonly<ThemeConfig>;
   getGeneratedCSS: () => Readonly<string>;
-  setDefaultTheme: (defaultTheme: keyof Themes) => ThemeConfigProvider;
+  setDefaultTheme: (defaultThemeKey: keyof Themes) => ThemeConfigProvider;
   setThemes: (themes: Themes) => ThemeConfigProvider;
-  setDefaultColorScheme: (
-    defaultColorScheme: ColorScheme
-  ) => ThemeConfigProvider;
   setThemeConfig: (themeConfig: Partial<ThemeConfig>) => ThemeConfigProvider;
   initTheme: () => void;
   updateTheme: (
     themeToLoad: Theme,
-    colorScheme: ColorScheme,
+    mode: ThemeMode,
     onlyColor: boolean
   ) => void;
 }
 
 const ThemeConfigProvider = (): ThemeConfigProvider => {
   const themeConfig: ThemeConfig = {
-    defaultColorScheme: "light",
-    defaultTheme: "notadream",
-    defaultThemeMode: "auto",
+    defaultThemeKey: "notadream",
+    defaultMode: "auto",
     themes: {
       notadream: { ...defaultThemingVariables },
     },
@@ -46,19 +36,13 @@ const ThemeConfigProvider = (): ThemeConfigProvider => {
   };
 
   const themeConfigMethods: ThemeConfigProvider = {
-    getDefaultColorScheme: () => themeConfig.defaultColorScheme,
-    getDefaultTheme: () => themeConfig.defaultTheme,
-    getDefaultThemeMode: () => themeConfig.defaultThemeMode,
+    getDefaultThemeKey: () => themeConfig.defaultThemeKey,
+    getDefaultThemeMode: () => themeConfig.defaultMode,
     getThemeConfig: () => themeConfig,
     getThemes: () => themeConfig.themes,
     getGeneratedCSS: () => themeConfig.generatedCSS,
-    setDefaultColorScheme: (defaultColorScheme: ColorScheme) => {
-      themeConfig.defaultColorScheme = defaultColorScheme;
-
-      return themeConfigMethods;
-    },
-    setDefaultTheme: (defaultTheme: keyof Themes) => {
-      themeConfig.defaultTheme = defaultTheme;
+    setDefaultTheme: (defaultThemeKey: keyof Themes) => {
+      themeConfig.defaultThemeKey = defaultThemeKey;
 
       return themeConfigMethods;
     },
@@ -73,14 +57,44 @@ const ThemeConfigProvider = (): ThemeConfigProvider => {
       return themeConfigMethods;
     },
     initTheme: () => {
+      const localStorageName = getAppConfig().theme.localStorageName;
+
+      if (!localStorage.getItem(localStorageName)) {
+        localStorage.setItem(
+          localStorageName,
+          JSON.stringify({
+            themeKey: themeConfig.defaultThemeKey,
+            mode: themeConfig.defaultMode,
+          })
+        );
+      }
+
+      const themeStored = JSON.parse(
+        localStorage.getItem(localStorageName) || "{}"
+      );
+
+      let colorScheme: Omit<ThemeMode, "auto">;
+
+      if (themeStored?.mode !== "auto") {
+        colorScheme = themeStored?.mode;
+      } else if (themeConfig.defaultMode !== "auto") {
+        colorScheme = themeConfig.defaultMode;
+      } else {
+        colorScheme = window.matchMedia("(prefers-color-scheme: dark)")
+          ? "dark"
+          : "light";
+      }
+
       const {
         generatedColorVariablesString,
         generatedNonColorVariablesString,
       } = generateCSSVariableFromThemeKey(
-        themeConfig.themes[themeConfig.defaultTheme],
+        themeConfig.themes[
+          (themeStored?.themeKey as keyof Themes) || themeConfig.defaultThemeKey
+        ],
         themeConfig.cssVariablePrefix,
         themeConfig.cssVariablePrefix,
-        themeConfig.defaultColorScheme
+        colorScheme
       );
 
       themeConfig.generatedCSS = `:root{${generatedColorVariablesString}${generatedNonColorVariablesString}}`;
@@ -102,7 +116,13 @@ const ThemeConfigProvider = (): ThemeConfigProvider => {
       return;
     },
 
-    updateTheme: (themeToLoad, colorScheme, onlyColor) => {
+    updateTheme: (themeToLoad, mode, onlyColor) => {
+      const colorScheme =
+        mode !== "auto"
+          ? mode
+          : window.matchMedia("(prefers-color-scheme: dark)")
+            ? "dark"
+            : "light";
       const {
         generatedColorVariablesString,
         generatedNonColorVariablesString,
@@ -128,6 +148,19 @@ const ThemeConfigProvider = (): ThemeConfigProvider => {
               `:root{${generatedNonColorVariablesString}}` || "");
         }
       }
+
+      const localStorageName = getAppConfig().theme.localStorageName;
+      const themeStored = JSON.parse(
+        localStorage.getItem(localStorageName) || "{}"
+      );
+
+      localStorage.setItem(
+        localStorageName,
+        JSON.stringify({
+          mode: mode,
+          themeKey: themeStored?.themeKey,
+        })
+      );
     },
   };
 
@@ -135,12 +168,10 @@ const ThemeConfigProvider = (): ThemeConfigProvider => {
 };
 
 export const {
-  getDefaultColorScheme,
-  getDefaultTheme,
+  getDefaultThemeKey,
   getDefaultThemeMode,
   getThemeConfig,
   getThemes,
-  setDefaultColorScheme,
   setDefaultTheme,
   setThemeConfig,
   setThemes,

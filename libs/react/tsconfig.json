@@ -1,12 +1,12 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "Notadream React",
-  "_version": "0.1.0",
   "extends": "./tsconfig.node.json",
   "exclude": ["node_modules", "dist"],
   "include": ["src/"],
   "compilerOptions": {
-    "composite": true,
+    "allowSyntheticDefaultImports": true,
+    "composite": false,
+    "declaration": true,
+    "declarationMap": true,
     "types": ["vite/client", "node", "react"],
     "target": "ESNext",
     "useDefineForClassFields": true,
@@ -22,6 +22,7 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "esModuleInterop": true,
+    "sourceMap": true,
 
     /* Linting */
     "strict": true,

@@ -1,21 +1,17 @@
 import React, { createContext, useContext, useState } from "react";
 
+import { getAppConfig } from "../../config";
 import { useDidMountEffect } from "../../utils/custom-hooks";
 import {
-  getDefaultTheme,
+  getDefaultThemeKey,
   getDefaultThemeMode,
   getThemes,
   updateTheme,
 } from "../theme-config";
 
-import type { ThemeState } from "../type";
+import type { Themes, ThemeState } from "../type";
 
-const ThemeStateContext = createContext<ThemeState>({
-  currentThemeName: "notadream",
-  currentTheme: getThemes()["notadream"],
-  currentColorScheme: "light",
-  currentMode: "auto",
-});
+const ThemeStateContext = createContext<ThemeState | undefined>(undefined);
 
 const ThemeDispatchContext = createContext<
   React.Dispatch<React.SetStateAction<ThemeState>> | undefined
@@ -24,25 +20,24 @@ const ThemeDispatchContext = createContext<
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const themeStore: ThemeState = {
-    currentColorScheme: window.matchMedia("(prefers-color-scheme: dark)")
-      .matches
-      ? "dark"
-      : "light",
-    currentThemeName: getDefaultTheme(),
-    currentTheme: getThemes()["notadream"],
-    currentMode: getDefaultThemeMode(),
+  const storedTheme = JSON.parse(
+    localStorage.getItem(getAppConfig().theme.localStorageName) || "{}"
+  );
+
+  const themeStore = {
+    currentThemeKey: storedTheme?.themeKey || getDefaultThemeKey(),
+    currentTheme:
+      getThemes()[
+        (storedTheme?.themeKey as keyof Themes) || getDefaultThemeKey()
+      ],
+    currentMode: storedTheme?.mode || getDefaultThemeMode(),
   };
 
   const [themeState, setThemeState] = useState<ThemeState>(themeStore);
 
   useDidMountEffect(() => {
-    updateTheme(themeState.currentTheme, themeState.currentColorScheme, true);
-  }, [themeState.currentColorScheme]);
-
-  useDidMountEffect(() => {
-    updateTheme(themeState.currentTheme, themeState.currentColorScheme, true);
-  }, [themeState.currentTheme]);
+    updateTheme(themeState.currentTheme, themeState.currentMode, true);
+  }, [themeState.currentMode]);
 
   return (
     <ThemeStateContext.Provider value={{ ...themeState }}>
@@ -53,7 +48,8 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
   );
 };
 
-export const useThemeState = (): ThemeState => useContext(ThemeStateContext);
+export const useThemeState = (): ThemeState | undefined =>
+  useContext(ThemeStateContext);
 
 export const useSetThemeState = (): React.Dispatch<
   React.SetStateAction<ThemeState>

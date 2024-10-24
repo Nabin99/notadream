@@ -1,10 +1,10 @@
+import { ThemeMode } from "../type";
+
 export const generateCSSVariableFromThemeKey = <T>(
   object: T,
   concatinatedPrefix: string,
   prefix: string,
-  mode = window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : ("light" as "dark" | "light"),
+  colorScheme: Omit<ThemeMode, "auto">,
   onlyColor = false
 ): {
   generatedColorVariablesString: string;
@@ -17,7 +17,7 @@ export const generateCSSVariableFromThemeKey = <T>(
     object: T,
     concatinatedPrefix: string,
     prefix: string,
-    mode: "dark" | "light"
+    colorScheme: Omit<ThemeMode, "auto">
   ) => {
     for (const key in object) {
       if (Object.prototype.hasOwnProperty.call(object, key)) {
@@ -26,14 +26,14 @@ export const generateCSSVariableFromThemeKey = <T>(
           .toLowerCase()}`;
         if (modifiedKey.includes("colors-")) {
           generatedColorVariablesString += `--${modifiedKey}:${
-            object[key][mode as keyof object]
+            object[key][colorScheme as keyof object]
           };`;
         } else if (typeof object[key] === "object") {
           cssVariableGenerator(
             object[key as keyof object],
             modifiedKey,
             prefix,
-            mode
+            colorScheme
           );
         } else {
           !onlyColor &&
@@ -43,7 +43,7 @@ export const generateCSSVariableFromThemeKey = <T>(
     }
   };
 
-  cssVariableGenerator(object, concatinatedPrefix, prefix, mode);
+  cssVariableGenerator(object, concatinatedPrefix, prefix, colorScheme);
 
   return { generatedColorVariablesString, generatedNonColorVariablesString };
 };

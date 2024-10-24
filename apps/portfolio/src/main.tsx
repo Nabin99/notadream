@@ -1,26 +1,23 @@
-import { ThemeProvider, setThemeConfig } from "@notadream/react";
+import { I18nProvider, ThemeProvider, setThemeConfig } from "@notadream/react";
 import React from "react";
 import ReactDOM from "react-dom/client";
 
 import App from "./App";
+import { TranslationsEntry } from "./i18n";
 
 import "./assets/index.css";
 import "./config";
-declare module "@notadream/react" {
-  interface ClassScheme {
-    secondaryButton: React.CSSProperties;
-  }
-}
 
 setThemeConfig({
-  defaultColorScheme: "light",
-  defaultTheme: "notadream",
+  defaultThemeKey: "notadream",
 }).initTheme();
 
 ReactDOM.createRoot(document.querySelector("#root")!).render(
   <React.StrictMode>
     <ThemeProvider>
-      <App />
+      <I18nProvider translations={TranslationsEntry}>
+        <App />
+      </I18nProvider>
     </ThemeProvider>
   </React.StrictMode>
 );
