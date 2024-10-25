@@ -3,21 +3,23 @@ import "@notadream/react";
 declare module "@notadream/react" {
   interface TranslationData {
     app: {
+      description: string;
       name: string;
       title: string;
-      description: string;
     };
     header: {
       navigationList: {
-        home: string;
         about: string;
-        services: string;
+        blogs: string;
+        contact: string;
+        home: string;
+        portfolio: string;
       };
     };
     footer: {
+      buildMessage: string;
       copyRight: string;
       thankYouMessage: string;
-      buildMessage: string;
     };
   }
 

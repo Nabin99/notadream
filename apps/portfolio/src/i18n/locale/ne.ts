@@ -2,20 +2,22 @@ import type { TranslationData } from "@notadream/react";
 
 export const ne: TranslationData = {
   app: {
-    name: "Nabin Dhital [ne]",
     description: "A professional full stack developer [ne]",
+    name: "Nabin Dhital [ne]",
     title: "Nabin Dhital [ne]",
   },
   header: {
     navigationList: {
-      home: "Home [ne]",
       about: "About [ne]",
-      services: "Services [ne]",
+      blogs: "Blogs [ne]",
+      contact: "Contact [ne]",
+      home: "Home [ne]",
+      portfolio: "Portfolio [ne]",
     },
   },
   footer: {
-    copyRight: "Copyright {{year}} {{name}}. All Rights Reserved. [ne]",
     buildMessage: "Build from [ne]",
+    copyRight: "Copyright {{year}} {{name}}. All Rights Reserved. [ne]",
     thankYouMessage: "Thanks for scrolling, that's all folks. [ne]",
   },
 };
