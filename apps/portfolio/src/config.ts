@@ -9,10 +9,12 @@ configureApp({
   apiBaseURL: import.meta.env.VITE_API_BASE_URL || "",
   appPort: Number(import.meta.env.VITE_APP_PORT) || 4003,
   i18n: {
-    defaultLanguage: import.meta.env.VITE_I18N_DEFAULT_LANGUAGE || "EN",
+    defaultLanguage: import.meta.env.VITE_I18N_DEFAULT_LANGUAGE || "en",
     supportedLanguages: (
-      import.meta.env.VITE_I18N_SUPPORTED_LANGUAGE || "EN,NP"
-    ).split(","),
+      import.meta.env.VITE_I18N_SUPPORTED_LANGUAGE || "en, ne"
+    )
+      .replaceAll(", ", ",")
+      .split(","),
     localStorageName: "i18n",
   },
   theme: {
