@@ -2,8 +2,8 @@ import React from "react";
 
 import type { LinkProperties } from "./type";
 
-export const BrowserLink: React.FC<LinkProperties> = ({
-  to,
+export const BrowserLink: React.FC<Omit<LinkProperties, "to">> = ({
+  href,
   iconLeft,
   iconRight,
   iconOnly,
@@ -17,7 +17,7 @@ export const BrowserLink: React.FC<LinkProperties> = ({
 }) => {
   return (
     <a
-      href={disabled ? "#" : to}
+      href={disabled ? "#" : href}
       className={`link ${variant} ${size} ${disabled ? "disabled" : ""} ${className}`}
       aria-disabled={disabled}
       target={target}

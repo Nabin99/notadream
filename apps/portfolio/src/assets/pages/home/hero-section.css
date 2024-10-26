@@ -1,0 +1,42 @@
+.hero-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--nd-spacing-md);
+  flex-wrap: wrap;
+  position: relative;
+  min-height: 100vh;
+}
+
+.hero-section > div {
+  max-width: 40rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  color: var(--nd-colors-text-muted);
+}
+
+.hero-section > div > p:first-of-type {
+  font-size: var(--nd-font-sizes-h4);
+}
+
+.hero-section > div > h1 {
+  color: var(--nd-colors-accent);
+  text-transform: uppercase;
+  font-size: var(--nd-font-sizes-h1);
+}
+
+.hero-section .hero-buttons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--nd-spacing-md);
+  margin-top: var(--nd-spacing-xl);
+}
+
+.hero-section .social-links {
+  position: absolute;
+  bottom: var(--nd-spacing-xl);
+  left: 0;
+}

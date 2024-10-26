@@ -1,5 +1,7 @@
 import { Footer as FooterLayout, Logo, useTranslation } from "@notadream/react";
 
+import SocialLinks from "../../components/SocialLinks";
+
 const FooterHeader = () => {
   const { t } = useTranslation("app");
 
@@ -12,16 +14,17 @@ const FooterHeader = () => {
 };
 
 const FooterBody = () => {
-  const { t } = useTranslation("footer");
+  const { t } = useTranslation("app.footer");
   return (
     <>
       <span>{t("thankYouMessage")}</span>
+      <SocialLinks />
     </>
   );
 };
 
 const FooterFooter = () => {
-  const { t } = useTranslation("footer");
+  const { t } = useTranslation("app.footer");
   return (
     <>
       <span>

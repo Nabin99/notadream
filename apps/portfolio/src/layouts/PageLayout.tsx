@@ -11,7 +11,7 @@ import { Footer } from "./components";
 import type { NavItemType } from "@notadream/react";
 
 export const PageLayout = () => {
-  const { t } = useTranslation("header");
+  const { t } = useTranslation("app.header");
 
   const navItems: NavItemType[] = [
     {
@@ -19,27 +19,20 @@ export const PageLayout = () => {
       path: "/",
     },
     {
-      name: t("navigationList.about"),
-      path: "/about",
-      children: [
-        {
-          name: "Team",
-          path: "/about/team",
-          children: [
-            { name: "Consulting", path: "/about/consulting" },
-            { name: "Support", path: "/about/support" },
-          ],
-        },
-        { name: "Company", path: "/about/company" },
-      ],
+      name: t("navigationList.portfolio"),
+      path: "/portfolio",
     },
     {
-      name: t("navigationList.services"),
-      path: "fdkfsd",
-      children: [
-        { name: "Consulting2", path: "/services/consulting" },
-        { name: "Support2", path: "/services/support" },
-      ],
+      name: t("navigationList.blogs"),
+      path: "/blogs",
+    },
+    {
+      name: t("navigationList.about"),
+      path: "/about",
+    },
+    {
+      name: t("navigationList.contact"),
+      path: "/contact",
     },
   ];
 
