@@ -12,7 +12,7 @@ const FooterHeader = () => {
 };
 
 const FooterBody = () => {
-  const { t } = useTranslation("footer");
+  const { t } = useTranslation("app.footer");
   return (
     <>
       <span>{t("thankYouMessage")}</span>
@@ -21,7 +21,7 @@ const FooterBody = () => {
 };
 
 const FooterFooter = () => {
-  const { t } = useTranslation("footer");
+  const { t } = useTranslation("app.footer");
   return (
     <>
       <span>

@@ -6,20 +6,32 @@ declare module "@notadream/react" {
       description: string;
       name: string;
       title: string;
-    };
-    header: {
-      navigationList: {
-        about: string;
-        blogs: string;
-        contact: string;
-        home: string;
-        portfolio: string;
+      header: {
+        navigationList: {
+          about: string;
+          blogs: string;
+          contact: string;
+          home: string;
+          portfolio: string;
+        };
+      };
+      footer: {
+        buildMessage: string;
+        copyRight: string;
+        thankYouMessage: string;
       };
     };
-    footer: {
-      buildMessage: string;
-      copyRight: string;
-      thankYouMessage: string;
+    homePage: {
+      heroSection: {
+        buttons: {
+          connect: string;
+          explore: string;
+        };
+        greetings: string;
+        introduction: string;
+        title: string;
+        subtitle: string;
+      };
     };
   }
 

@@ -11,7 +11,7 @@ import { Footer } from "./components";
 import type { NavItemType } from "@notadream/react";
 
 export const PageLayout = () => {
-  const { t } = useTranslation("header");
+  const { t } = useTranslation("app.header");
 
   const navItems: NavItemType[] = [
     {

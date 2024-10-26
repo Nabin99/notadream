@@ -7,6 +7,7 @@
   transition: all 0.2s ease-in-out;
   cursor: pointer;
   font-size: var(--nd-font-sizes-small);
+  transition: all 0.5s ease-in-out;
 }
 
 /* Variants */
