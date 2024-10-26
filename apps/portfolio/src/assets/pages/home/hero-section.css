@@ -19,14 +19,11 @@
 
 .hero-section > div > p:first-of-type {
   font-size: var(--nd-font-sizes-h4);
-  /* text-transform: uppercase; */
-  /* color: var(--nd-colors-secondary); */
 }
 
 .hero-section > div > h1 {
   color: var(--nd-colors-accent);
   text-transform: uppercase;
-  /* font-weight: normal; */
   font-size: var(--nd-font-sizes-h1);
 }
 
