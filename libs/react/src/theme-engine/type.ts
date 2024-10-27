@@ -84,6 +84,10 @@ export interface Breakpoints {
   xl: string;
 }
 
+export interface Miscellaneous {
+  maxPageWidth: string;
+}
+
 export interface Theme {
   colors: Colors;
   fontFamily: FontFamily;
@@ -95,6 +99,7 @@ export interface Theme {
   borderWidth: BorderWidth;
   zIndex: ZIndex;
   breakpoints: Breakpoints;
+  miscellaneous: Miscellaneous;
 }
 
 export interface Themes {
