@@ -150,4 +150,7 @@ export const defaultThemingVariables: Theme = {
     lg: "992px",
     xl: "1200px",
   },
+  miscellaneous: {
+    maxPageWidth: "1200px",
+  },
 };

@@ -1,1 +1,11 @@
 @import "./home/index.css";
+
+.page-layout {
+  position: relative;
+  margin: auto;
+  max-width: var(--nd-miscellaneous-max-page-width);
+}
+
+body {
+  background-color: var(--nd-colors-primary);
+}
