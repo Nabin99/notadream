@@ -2,7 +2,7 @@ import { useTranslation } from "@notadream/react";
 import { FaSquareCheck } from "react-icons/fa6";
 
 import { Card } from "./Card";
-import { ContentBox } from "../../../components/ContentBox";
+import { HomepageSection } from "./HomepageSection";
 
 const whyList = [
   {
@@ -37,32 +37,27 @@ const whyList = [
   },
 ];
 
-export default function ServiceSection() {
+export const WhySection = () => {
   const { t } = useTranslation("homePage.whySection");
 
   const headings = t("title").split("$$$");
 
   return (
-    <section className="why-section">
-      <ContentBox>
-        <h2>
-          {headings[0]} <span>{headings[1]}</span>
-        </h2>
-
-        <p>{t("description")}</p>
-        <hr />
-
-        <div className="why-content">
-          {whyList.map((why) => (
-            <Card
-              key={why.title}
-              icon={<FaSquareCheck />}
-              title={why.title}
-              description={why.description}
-            />
-          ))}
-        </div>
-      </ContentBox>
-    </section>
+    <HomepageSection
+      className="why-section"
+      headings={headings}
+      description={t("description")}
+    >
+      <>
+        {whyList.map((why) => (
+          <Card
+            key={why.title}
+            icon={<FaSquareCheck />}
+            title={why.title}
+            description={why.description}
+          />
+        ))}
+      </>
+    </HomepageSection>
   );
-}
+};

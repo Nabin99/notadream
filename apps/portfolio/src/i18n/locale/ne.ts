@@ -37,5 +37,15 @@ export const ne: TranslationData = {
       description:
         "Choosing a developer is about more than technical skills – it’s about finding a partner dedicated to helping you succeed. Here’s why I’m the right choice for your web, mobile, and SEO needs. [ne]",
     },
+    serviceSection: {
+      title: "My Awesome$$$Services For You [ne]",
+      description:
+        "I offer a full-service approach, combining web and mobile development with SEO to create holistic digital experiences. This combination not only builds a solid online presence but also ensures your website or app is optimized for search engines, engaging users and enhancing visibility from day one. [ne]",
+    },
+    howSection: {
+      title: "How Do$$$I Work? [ne]",
+      description:
+        "Combining design, development, SEO, and ongoing support, I offer comprehensive solutions that cover each phase of your digital project. This holistic approach ensures your platform remains optimized, secure, and engaging from launch through every update. [ne]",
+    },
   },
 };

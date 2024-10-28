@@ -2,7 +2,7 @@ import { ErrorPage, Page } from "@notadream/react";
 import { createBrowserRouter } from "react-router-dom";
 
 import { PageLayout } from "./layouts/PageLayout";
-import { Home } from "./pages/Home";
+import { Home } from "./pages";
 
 const mainLayoutRoutes = [
   {

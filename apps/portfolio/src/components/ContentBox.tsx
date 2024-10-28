@@ -1,6 +1,6 @@
 export const ContentBox: React.FC<React.HtmlHTMLAttributes<HTMLDivElement>> = ({
   children,
-  className,
+  className = "",
   ...properties
 }) => {
   return (

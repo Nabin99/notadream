@@ -2,7 +2,7 @@ import React, { ReactNode } from "react";
 
 interface WhyCardProperties {
   title: string;
-  description: string;
+  description?: string;
   icon: ReactNode;
 }
 
@@ -17,7 +17,7 @@ export const Card: React.FC<WhyCardProperties> = ({
         <span>{icon}</span>
         {title}
       </h3>
-      <p>{description}</p>
+      {description && <p>{description}</p>}
     </div>
   );
 };

@@ -1,0 +1,35 @@
+.service-section .main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--nd-spacing-lg);
+  flex-wrap: wrap;
+  margin-top: var(--nd-spacing-xl);
+}
+
+.service-section .main-content .why-card {
+  min-width: 100%;
+  max-width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .service-section .main-content .why-card:nth-child(odd) {
+    margin-top: var(--nd-miscellaneous-section-separator);
+  }
+
+  .service-section .main-content .why-card {
+    min-width: 40%;
+    max-width: 40%;
+  }
+
+  .service-section .main-content .why-card:nth-child(even) {
+    margin-bottom: var(--nd-miscellaneous-section-separator);
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .service-section .main-content .why-card {
+    min-width: 360px;
+    max-width: 460px;
+  }
+}
