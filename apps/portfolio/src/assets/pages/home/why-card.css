@@ -1,0 +1,24 @@
+.why-card {
+  padding: var(--nd-spacing-md) var(--nd-spacing-lg);
+  border-radius: var(--nd-border-radius-md);
+  background-color: var(--nd-colors-primary);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: var(--nd-spacing-md);
+  box-shadow: var(--nd-colors-box-shadow-lg);
+}
+
+.why-card h3 {
+  font-weight: var(--nd-font-weight-base);
+}
+
+.why-card h3 span {
+  color: var(--nd-colors-accent);
+  margin-right: var(--nd-spacing-md);
+}
+
+.why-card p {
+  color: var(--nd-colors-text-muted);
+  font-size: var(--nd-font-sizes-small);
+}

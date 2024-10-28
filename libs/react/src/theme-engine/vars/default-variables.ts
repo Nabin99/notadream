@@ -152,6 +152,6 @@ export const defaultThemingVariables: Theme = {
   },
   miscellaneous: {
     maxPageWidth: "1200px",
-    sectionSeparator: "10rem",
+    sectionSeparator: "6rem",
   },
 };

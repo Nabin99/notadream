@@ -32,7 +32,7 @@ declare module "@notadream/react" {
         title: string;
         subtitle: string;
       };
-      serviceSection: {
+      whySection: {
         title: string;
         description: string;
       };
