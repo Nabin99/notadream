@@ -1,6 +1,6 @@
 import { Footer as FooterLayout, Logo, useTranslation } from "@notadream/react";
 
-import SocialLinks from "../../components/SocialLinks";
+import { SocialLinks } from "../../components/SocialLinks";
 
 const FooterHeader = () => {
   const { t } = useTranslation("app");

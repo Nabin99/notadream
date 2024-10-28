@@ -86,6 +86,7 @@ export interface Breakpoints {
 
 export interface Miscellaneous {
   maxPageWidth: string;
+  sectionSeparator: string;
 }
 
 export interface Theme {

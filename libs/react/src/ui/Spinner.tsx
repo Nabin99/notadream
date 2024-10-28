@@ -6,7 +6,9 @@ export const Spinner: React.FC<SpinnerProperties> = ({
   size = "small",
   className = "",
 }) => {
-  return <div className={`spinner spinner-${size} ${className}`}></div>;
+  return (
+    <div className={`spinner spinner-${size} ${className}`.trimEnd()}></div>
+  );
 };
 
 export default Spinner;

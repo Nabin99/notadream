@@ -1,0 +1,42 @@
+.homepage-section {
+  padding-top: var(--nd-miscellaneous-section-separator);
+  width: 100%;
+}
+
+.homepage-section:nth-child(even) {
+  backdrop-filter: brightness(1.05);
+}
+
+.homepage-section hr {
+  border-width: var(--nd-border-width-sm);
+  border-color: var(--nd-colors-accent);
+  border-style: solid;
+  width: 40%;
+  border-radius: var(--nd-border-radius-lg);
+}
+
+.homepage-section > .content-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--nd-spacing-md);
+  text-align: center;
+  font-size: var(--nd-font-sizes-base);
+  padding: var(--nd-spacing-xl) var(--nd-spacing-sm);
+}
+
+.homepage-section h2 {
+  font-size: var(--nd-font-sizes-h2);
+  text-transform: capitalize;
+}
+
+.homepage-section h2 span {
+  color: var(--nd-colors-accent);
+}
+
+@media screen and (min-width: 768px) {
+  .homepage-section > .content-box {
+    padding: var(--nd-spacing-xl) var(--nd-spacing-md);
+  }
+}

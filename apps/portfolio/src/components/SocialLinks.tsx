@@ -28,7 +28,7 @@ const socialLinkList = [
   },
 ];
 
-export default function SocialLinks() {
+export const SocialLinks = () => {
   return (
     <div className="social-links">
       {socialLinkList.map((link, i) => (
@@ -45,4 +45,4 @@ export default function SocialLinks() {
       ))}
     </div>
   );
-}
+};

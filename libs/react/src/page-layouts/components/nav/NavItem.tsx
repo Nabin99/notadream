@@ -18,7 +18,7 @@ export const NavItem: React.FC<NavItemProperties> = ({
       {/* If the item has children, render a non-clickable parent item */}
       {hasChildren ? (
         <div
-          className={`nav-item ${isActive ? "active" : ""}`}
+          className={`nav-item ${isActive ? "active" : ""}`.trimEnd()}
           title={name}
           aria-label={name}
         >

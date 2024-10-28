@@ -18,7 +18,7 @@ export const BrowserLink: React.FC<Omit<LinkProperties, "to">> = ({
   return (
     <a
       href={disabled ? "#" : href}
-      className={`link ${variant} ${size} ${disabled ? "disabled" : ""} ${className}`}
+      className={`link ${variant} ${size} ${disabled ? "disabled" : ""} ${className}`.trimEnd()}
       aria-disabled={disabled}
       target={target}
     >

@@ -23,6 +23,10 @@ export const Header = ({ navItems, logo }: HeaderProperties) => {
     setIsMobileMenuOpen(!isMenuOpen);
   };
 
+  const handleCloseMobileView = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <header>
       <div className="brand-logo-container">
@@ -31,7 +35,7 @@ export const Header = ({ navItems, logo }: HeaderProperties) => {
         </NavLink>
       </div>
       <Button
-        size="medium"
+        size="large"
         variant="borderless"
         onClick={handleToggleMobileMenu}
         aria-expanded={isMenuOpen}
@@ -53,7 +57,7 @@ export const Header = ({ navItems, logo }: HeaderProperties) => {
                 setOpenItems((pre) => [...pre, name]);
               }
             }}
-            toggleMenuOpen={handleToggleMobileMenu}
+            toggleMenuOpen={handleCloseMobileView}
           />
         ) : null}
       </div>

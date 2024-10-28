@@ -18,7 +18,7 @@ export const RouterLink: React.FC<LinkProperties> = ({
   return (
     <NavLink
       to={disabled ? "#" : to}
-      className={`link ${variant} ${size} ${disabled ? "disabled" : ""} ${className}`}
+      className={`link ${variant} ${size} ${disabled ? "disabled" : ""} ${className}`.trimEnd()}
       aria-disabled={disabled}
       target={target}
     >

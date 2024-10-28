@@ -29,7 +29,9 @@ export const Button: React.FC<ButtonProperties> = ({
   ].join(" ");
 
   const renderIcon = () =>
-    icon && <span className={`btn-icon ${iconPosition}`}>{icon}</span>;
+    icon && (
+      <span className={`btn-icon ${iconPosition}`.trimEnd()}>{icon}</span>
+    );
 
   return (
     <button

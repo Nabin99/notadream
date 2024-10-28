@@ -1,0 +1,5 @@
+.content-box {
+  margin: auto;
+  width: 100%;
+  max-width: var(--nd-miscellaneous-max-page-width);
+}
