@@ -1,8 +1,12 @@
-header {
+.header-wrapper {
   position: fixed;
   top: 0;
-  margin: auto;
-  max-width: var(--nd-miscellaneous-max-page-width);
-  z-index: var(--nd-z-index-fixed);
   width: 100%;
+  z-index: var(--nd-z-index-fixed);
+}
+
+header {
+  margin: auto;
+  width: 100%;
+  max-width: var(--nd-miscellaneous-max-page-width);
 }

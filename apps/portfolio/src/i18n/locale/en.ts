@@ -32,5 +32,10 @@ export const en: TranslationData = {
       subtitle:
         "Focused on Scalable, User-Centric Solutions. Creating efficient, reliable, and engaging web/mobile experiences with expertise in full-stack development.",
     },
+    serviceSection: {
+      title: "Why you hire me for $$$your next project?",
+      description:
+        "Choosing a developer is about more than technical skills – it’s about finding a partner dedicated to helping you succeed. Here’s why I’m the right choice for your web, mobile, and SEO needs.",
+    },
   },
 };

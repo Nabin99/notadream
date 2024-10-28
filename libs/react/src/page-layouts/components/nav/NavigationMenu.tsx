@@ -34,7 +34,10 @@ export const NavigationMenu: React.FC<NavigationMenuProperties> = ({
   };
 
   const renderNavItems = (navItems: NavItemType[], level = 0) => (
-    <ul className={`nav-list ${level > 0 ? "nested-level" : ""}`} role="list">
+    <ul
+      className={`nav-list ${level > 0 ? "nested-level" : ""}`.trimEnd()}
+      role="list"
+    >
       {navItems.map((item, index) => {
         const isActive = isPathActive(item);
         const hasChildren = item.children && item.children.length > 0;
@@ -43,7 +46,7 @@ export const NavigationMenu: React.FC<NavigationMenuProperties> = ({
         return (
           <li
             key={index}
-            className={`nav-list-item ${isActive ? "active" : ""} ${hasChildren ? "has-children" : ""}`}
+            className={`nav-list-item ${isActive ? "active" : ""} ${hasChildren ? "has-children" : ""}`.trimEnd()}
             onClick={
               hasChildren
                 ? (event) => {

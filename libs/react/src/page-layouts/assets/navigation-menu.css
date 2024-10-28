@@ -1,7 +1,7 @@
 .navigation-menu {
   display: flex; /* Hidden by default for mobile */
   flex-direction: column;
-  padding: var(--nd-spacing-xs);
+  /* padding: var(--nd-spacing-sm); */
 }
 
 .nav-list.nested-level {

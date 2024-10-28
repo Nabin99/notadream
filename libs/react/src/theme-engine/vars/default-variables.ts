@@ -84,7 +84,7 @@ export const defaultThemingVariables: Theme = {
     heading: "Mitr, sans-serif, Arial, sans-serif",
   },
   fontSizes: {
-    base: "16px",
+    base: "1rem",
     h1: "2.5rem",
     h2: "2rem",
     h3: "1.75rem",
@@ -152,5 +152,6 @@ export const defaultThemingVariables: Theme = {
   },
   miscellaneous: {
     maxPageWidth: "1200px",
+    sectionSeparator: "10rem",
   },
 };

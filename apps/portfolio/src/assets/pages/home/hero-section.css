@@ -1,27 +1,39 @@
 .hero-section {
+  width: 100%;
+}
+.hero-section > .content-box {
+  max-width: var(--nd-miscellaneous-max-page-width);
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: var(--nd-spacing-md);
   flex-wrap: wrap;
   position: relative;
-  min-height: 100vh;
+  height: 100vh;
+  min-height: 500px;
+  max-height: 1080px;
+  padding: var(--nd-spacing-sm);
 }
 
-.hero-section > div {
+.hero-section > div > div {
   max-width: 40rem;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: flex-start;
-  color: var(--nd-colors-text-muted);
 }
 
-.hero-section > div > p:first-of-type {
+.hero-section > div > div > p:last-of-type {
+  font-size: var(--nd-font-sizes-base);
+}
+
+.hero-section > div > div > p:first-of-type,
+.hero-section > div > div > span {
   font-size: var(--nd-font-sizes-h4);
+  text-transform: uppercase;
 }
 
-.hero-section > div > h1 {
+.hero-section > div > div > h1 {
   color: var(--nd-colors-accent);
   text-transform: uppercase;
   font-size: var(--nd-font-sizes-h1);
@@ -38,5 +50,15 @@
 .hero-section .social-links {
   position: absolute;
   bottom: var(--nd-spacing-xl);
-  left: 0;
+  left: var(--nd-spacing-sm);
+}
+
+@media screen and (min-width: 768px) {
+  .hero-section > .content-box {
+    margin: auto;
+    padding: var(--nd-spacing-md);
+  }
+  .hero-section .social-links {
+    left: var(--nd-spacing-md);
+  }
 }

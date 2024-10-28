@@ -9,6 +9,10 @@ export const Logo: React.FC<LogoProperties> = ({
   className = "",
 }) => {
   return (
-    <img src={src} alt={alt} className={`logo logo-${size} ${className}`} />
+    <img
+      src={src}
+      alt={alt}
+      className={`logo logo-${size} ${className}`.trimEnd()}
+    />
   );
 };

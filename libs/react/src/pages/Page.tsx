@@ -8,12 +8,9 @@ export const Page: React.FC<PageProperties> = ({
   badges = [],
   children,
   className = "",
-  fullWidth = false,
 }) => {
   return (
-    <main
-      className={`page-container ${fullWidth ? "full-width" : ""} ${className}`}
-    >
+    <main className={`page-container ${className}`.trimEnd()}>
       {/* Page Title, Subtitle, and Badges */}
       {(title || subtitle || badges.length > 0) && (
         <div className="page-header">

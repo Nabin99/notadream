@@ -1,0 +1,31 @@
+.service-section {
+  margin-top: var(--nd-miscellaneous-section-separator);
+  backdrop-filter: brightness(1.05);
+  width: 100%;
+}
+
+.service-section > .content-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--nd-spacing-md);
+  text-align: center;
+  font-size: var(--nd-font-sizes-base);
+  padding: var(--nd-spacing-xl) var(--nd-spacing-sm);
+}
+
+.service-section h2 {
+  font-size: var(--nd-font-sizes-h2);
+  text-transform: capitalize;
+}
+
+.service-section h2 span {
+  color: var(--nd-colors-accent);
+}
+
+@media screen and (min-width: 768px) {
+  .service-section > .content-box {
+    padding: var(--nd-spacing-xl) var(--nd-spacing-md);
+  }
+}

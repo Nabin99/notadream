@@ -24,7 +24,7 @@ export const Listbox: React.FC<ListboxProperties> = ({
           <>
             <ListboxButton className="listbox-button">
               <span>{selected?.[renderKey]}</span>
-              <span className={`icon ${open ? "rotate" : ""}`}>
+              <span className={`icon ${open ? "rotate" : ""}`.trimEnd()}>
                 {buttonIcon}
               </span>
             </ListboxButton>
@@ -40,7 +40,7 @@ export const Listbox: React.FC<ListboxProperties> = ({
                   <ListboxOption key={dataObject?.id} value={dataObject}>
                     {({ selected }) => (
                       <div
-                        className={`listbox-option ${selected ? "selected" : ""}`}
+                        className={`listbox-option ${selected ? "selected" : ""}`.trimEnd()}
                       >
                         {selected && (
                           <HiCheck className="check-icon" aria-hidden="true" />

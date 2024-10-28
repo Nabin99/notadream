@@ -40,10 +40,14 @@ export const PageLayout = () => {
     <PageLayoutSkeleton
       layout="basic"
       header={
-        <Header
-          navItems={navItems}
-          logo={<Logo src={"/vite.svg"} size="medium" />}
-        ></Header>
+        <>
+          <div className="header-wrapper">
+            <Header
+              navItems={navItems}
+              logo={<Logo src={"/vite.svg"} size="medium" />}
+            ></Header>
+          </div>
+        </>
       }
       footer={<Footer />}
       main={<Outlet />}

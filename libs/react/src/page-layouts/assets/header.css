@@ -2,7 +2,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--nd-spacing-xs);
+  padding: var(--nd-spacing-sm);
   background-color: var(--nd-colors-primary);
   color: var(--nd-colors-secondary);
   position: relative;
@@ -16,7 +16,6 @@ header {
   display: flex;
   align-items: center;
   font-weight: bold;
-  padding: var(--nd-spacing-xs) var(--nd-spacing-md);
 }
 
 .toggle-nav-menu {
@@ -25,6 +24,8 @@ header {
   cursor: pointer;
   color: var(--nd-colors-secondary);
   order: 5;
+  padding: 0;
+  margin-left: var(--nd-spacing-md);
 }
 
 /* Navbar Container - Mobile First */
@@ -35,13 +36,13 @@ header {
   left: 0;
   width: 100%;
   z-index: var(--nd-z-index-dropdown);
-  padding: var(--nd-spacing-md);
   background-color: var(--nd-colors-primary);
   flex-direction: column;
 }
 
 .navbar-container.open {
   display: flex;
+  padding: var(--nd-spacing-sm);
 }
 
 header > .header-menu {
@@ -51,6 +52,15 @@ header > .header-menu {
 }
 
 @media screen and (min-width: 768px) {
+  header {
+    padding: var(--nd-spacing-sm) var(--nd-spacing-md);
+  }
+
+  header .brand-logo-container .logo {
+    min-width: var(--nd-font-sizes-h1);
+    max-width: var(--nd-font-sizes-h1);
+  }
+
   .navbar-container {
     display: flex;
     flex-direction: row;
@@ -59,10 +69,12 @@ header > .header-menu {
     align-items: center;
     padding: 0;
   }
+  .navbar-container.open {
+    padding: 0;
+  }
 
   header > .header-menu {
     margin-left: unset;
-    padding: 0 var(--nd-spacing-md);
   }
 
   .toggle-nav-menu {

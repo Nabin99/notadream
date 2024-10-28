@@ -6,21 +6,21 @@
 
 /* Size variants in rem */
 .logo-xsmall {
-  width: var(--nd-font-sizes-small);
-  height: var(--nd-font-sizes-small);
+  min-width: var(--nd-font-sizes-small);
+  max-width: var(--nd-font-sizes-small);
 }
 
 .logo-small {
-  width: var(--nd-font-sizes-h4);
-  height: var(--nd-font-sizes-h4);
+  min-width: var(--nd-font-sizes-h4);
+  max-width: var(--nd-font-sizes-h4);
 }
 
 .logo-medium {
-  width: var(--nd-font-sizes-h3);
-  height: var(--nd-font-sizes-h3);
+  min-width: var(--nd-font-sizes-h3);
+  max-width: var(--nd-font-sizes-h3);
 }
 
 .logo-large {
-  width: var(--nd-font-sizes-h1);
-  height: var(--nd-font-sizes-h1);
+  min-width: var(--nd-font-sizes-h1);
+  max-width: var(--nd-font-sizes-h1);
 }
