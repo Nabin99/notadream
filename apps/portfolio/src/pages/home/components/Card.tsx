@@ -14,7 +14,7 @@ export const Card: React.FC<WhyCardProperties> = ({
   return (
     <div className="why-card">
       <h3>
-        <span>{icon}</span>
+        <span className="icon">{icon}</span>
         {title}
       </h3>
       {description && <p>{description}</p>}
