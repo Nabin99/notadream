@@ -1,4 +1,5 @@
 @import "./home/index.css";
+@import "./about/index.css";
 
 body {
   background-color: var(--nd-colors-primary);

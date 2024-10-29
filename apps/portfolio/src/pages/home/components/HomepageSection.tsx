@@ -1,4 +1,4 @@
-import { ContentBox } from "../../../components/ContentBox";
+import { ContentBox } from "../../../components";
 
 export const HomepageSection: React.FC<{
   className: string;

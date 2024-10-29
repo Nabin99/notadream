@@ -8,6 +8,15 @@
   flex-direction: column;
   gap: var(--nd-spacing-md);
   box-shadow: var(--nd-colors-box-shadow-lg);
+  cursor: default;
+  transition:
+    transform 0.5s ease-out,
+    box-shadow 0.5s ease-out;
+}
+
+.why-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 0px 10px var(--nd-colors-accent);
 }
 
 .why-card h3 {

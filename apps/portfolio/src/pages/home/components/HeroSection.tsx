@@ -1,5 +1,6 @@
 import { Button, useTranslation } from "@notadream/react";
 
+import { RippleEffect } from "../../../components";
 import { ContentBox } from "../../../components/ContentBox";
 import { SocialLinks } from "../../../components/SocialLinks";
 
@@ -9,7 +10,8 @@ export const HeroSection = () => {
   return (
     <section className="hero-section">
       <ContentBox>
-        <div>
+        <RippleEffect />
+        <div className="heading">
           <span>{t("greetings")}</span>
           <p>{t("introduction")}</p>
           <h1>{t("title")}</h1>

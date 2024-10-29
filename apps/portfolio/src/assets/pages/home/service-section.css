@@ -1,3 +1,7 @@
+.service-section {
+  position: relative;
+}
+
 .service-section .main-content {
   display: flex;
   justify-content: center;
@@ -20,7 +24,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .service-section .main-content .why-card:nth-child(odd) {
+  .service-section .main-content .why-card:nth-child(even) {
     margin-top: var(--nd-miscellaneous-section-separator);
   }
 
@@ -29,7 +33,7 @@
     max-width: 40%;
   }
 
-  .service-section .main-content .why-card:nth-child(even) {
+  .service-section .main-content .why-card:nth-child(odd) {
     margin-bottom: var(--nd-miscellaneous-section-separator);
   }
 }

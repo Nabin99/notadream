@@ -1,0 +1,71 @@
+/* Headings */
+.about.page-container {
+  color: var(--nd-colors-secondary);
+  margin-top: var(--nd-miscellaneous-section-separator);
+}
+
+h2 {
+}
+
+h3 {
+}
+
+/* Paragraphs */
+p {
+}
+
+/* About Stats */
+.about-stats {
+  display: flex;
+  gap: var(--nd-spacing-lg);
+  justify-content: center;
+  margin: var(--nd-spacing-xl) 0;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  flex: 1;
+  padding: var(--nd-spacing-xl);
+  border-radius: var(--nd-border-radius-md);
+  text-align: center;
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: scale(1.05);
+}
+
+.stat-item h4 {
+  font-size: 1.2rem;
+}
+
+.stat-item p {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Section Styling */
+.about-intro,
+.about-philosophy,
+.about-values,
+.about-personal {
+  margin-bottom: 2rem;
+  border-left: 4px solid var(--nd-colors-primary);
+  border-radius: 8px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

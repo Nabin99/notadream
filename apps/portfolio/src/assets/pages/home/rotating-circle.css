@@ -61,11 +61,14 @@
   text-align: center;
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 1444px) {
   .circle-container {
-    min-width: 14vw;
-    min-height: 14vw;
-    max-width: 16vw;
-    max-height: 16vw;
+    min-width: 300px;
+    min-height: 300px;
+    max-width: 300px;
+    max-height: 300px;
+  }
+  .circle-text {
+    font-size: var(--nd-font-sizes-h2);
   }
 }

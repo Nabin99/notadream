@@ -14,9 +14,10 @@ export const ne: TranslationData = {
       },
     },
     footer: {
-      buildMessage: "Build from [ne]",
+      buildMessage: "Designed and Build from scratch with all my [ne]",
       copyRight: "Copyright {{year}} {{name}}. All Rights Reserved. [ne]",
-      thankYouMessage: "Thanks for scrolling, that's all folks. [ne]",
+      thankYouMessage:
+        "These are all the words my heart could share—thank you for visiting and taking the time to be here. [ne]",
     },
     title: "Nabin Dhital [ne]",
   },

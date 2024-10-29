@@ -14,9 +14,10 @@ export const en: TranslationData = {
       },
     },
     footer: {
-      buildMessage: "Build from",
+      buildMessage: "Designed and Build from scratch with all my ",
       copyRight: "Copyright {{year}} {{name}}. All Rights Reserved.",
-      thankYouMessage: "Thanks for scrolling, that's all folks.",
+      thankYouMessage:
+        "These are all the words my heart could share—thank you for visiting and taking the time to be here.",
     },
     title: "Nabin Dhital",
   },

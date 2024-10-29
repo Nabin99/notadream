@@ -13,9 +13,10 @@
   min-height: 500px;
   max-height: 1080px;
   padding: var(--nd-spacing-sm);
+  position: relative;
 }
 
-.hero-section > div > div {
+.hero-section .heading {
   max-width: 40rem;
   display: flex;
   justify-content: center;
@@ -23,17 +24,17 @@
   align-items: flex-start;
 }
 
-.hero-section > div > div > p:last-of-type {
+.hero-section .heading > p:last-of-type {
   font-size: var(--nd-font-sizes-base);
 }
 
-.hero-section > div > div > p:first-of-type,
-.hero-section > div > div > span {
+.hero-section .heading > p:first-of-type,
+.hero-section .heading > span {
   font-size: var(--nd-font-sizes-h4);
   text-transform: uppercase;
 }
 
-.hero-section > div > div > h1 {
+.hero-section .heading > h1 {
   color: var(--nd-colors-accent);
   text-transform: uppercase;
   font-size: var(--nd-font-sizes-h1);
