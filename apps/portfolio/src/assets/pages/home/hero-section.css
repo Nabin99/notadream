@@ -10,10 +10,11 @@
   flex-wrap: wrap;
   position: relative;
   height: 100vh;
-  min-height: 500px;
+  min-height: 600px;
   max-height: 1080px;
   padding: var(--nd-spacing-sm);
   position: relative;
+  z-index: 1;
 }
 
 .hero-section .heading {
@@ -30,14 +31,14 @@
 
 .hero-section .heading > p:first-of-type,
 .hero-section .heading > span {
-  font-size: var(--nd-font-sizes-h4);
+  font-size: var(--nd-font-sizes-h1);
   text-transform: uppercase;
 }
 
 .hero-section .heading > h1 {
   color: var(--nd-colors-accent);
   text-transform: uppercase;
-  font-size: var(--nd-font-sizes-h1);
+  font-size: 3rem;
 }
 
 .hero-section .hero-buttons {
@@ -55,11 +56,44 @@
 }
 
 @media screen and (min-width: 768px) {
+  .hero-section .heading {
+    max-width: 60rem;
+  }
+
+  .hero-section .heading > p:last-of-type {
+    font-size: var(--nd-font-sizes-h4);
+  }
+
+  .hero-section .heading > p:first-of-type,
+  .hero-section .heading > span {
+    font-size: 3rem;
+  }
+
+  .hero-section .heading > h1 {
+    color: var(--nd-colors-accent);
+    text-transform: uppercase;
+    font-size: 4rem;
+  }
   .hero-section > .content-box {
     margin: auto;
     padding: var(--nd-spacing-md);
   }
   .hero-section .social-links {
     left: var(--nd-spacing-md);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .hero-section .heading {
+    max-width: 60rem;
+  }
+
+  .hero-section .heading > p:last-of-type {
+    font-size: var(--nd-font-sizes-h4);
+  }
+
+  .hero-section .heading > p:first-of-type,
+  .hero-section .heading > span {
+    font-size: 3rem;
   }
 }

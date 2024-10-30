@@ -25,8 +25,8 @@
   position: relative;
   min-width: 18vw;
   min-height: 18vw;
-  max-width: 20vw;
-  max-height: 20vw;
+  max-width: 18vw;
+  max-height: 18vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -63,10 +63,10 @@
 
 @media screen and (min-width: 1444px) {
   .circle-container {
-    min-width: 300px;
-    min-height: 300px;
-    max-width: 300px;
-    max-height: 300px;
+    min-width: 265px;
+    min-height: 265px;
+    max-width: 265px;
+    max-height: 265px;
   }
   .circle-text {
     font-size: var(--nd-font-sizes-h2);
