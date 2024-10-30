@@ -16,8 +16,16 @@ export const HeroSection = () => {
           <h1>{t("title")}</h1>
           <p>{t("subtitle")}</p>
           <div className="hero-buttons">
-            <Button label={t("buttons.explore")} variant="solid" />
-            <Button label={t("buttons.connect")} variant="outline" />
+            <Button
+              label={t("buttons.explore")}
+              variant="solid"
+              size="medium"
+            />
+            <Button
+              label={t("buttons.connect")}
+              variant="outline"
+              size="medium"
+            />
           </div>
           <SocialLinks />
         </div>
