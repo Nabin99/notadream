@@ -1,25 +1,11 @@
-/* Headings */
-.about.page-container {
-  color: var(--nd-colors-secondary);
-  margin-top: var(--nd-miscellaneous-section-separator);
-}
-
-h2 {
-}
-
-h3 {
-}
-
-/* Paragraphs */
-p {
-}
+@import "./about-intro.css";
 
 /* About Stats */
 .about-stats {
   display: flex;
-  gap: var(--nd-spacing-lg);
+  gap: var(--nd-spacing-md);
   justify-content: center;
-  margin: var(--nd-spacing-xl) 0;
+  align-items: center;
   flex-wrap: wrap;
 }
 
@@ -37,24 +23,16 @@ p {
   transform: scale(1.05);
 }
 
-.stat-item h4 {
-  font-size: 1.2rem;
-}
-
 .stat-item p {
-  font-size: 1.5rem;
+  font-size: var(--nd-font-sizes-base);
   font-weight: bold;
 }
 
 /* Section Styling */
-.about-intro,
 .about-philosophy,
 .about-values,
 .about-personal {
-  margin-bottom: 2rem;
-  border-left: 4px solid var(--nd-colors-primary);
-  border-radius: 8px;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: var(--nd-spacing-xl);
   animation: fadeIn 1s ease;
 }
 
@@ -67,5 +45,12 @@ p {
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .about-stats {
+    flex-direction: column;
+    align-items: center;
   }
 }

@@ -49,12 +49,12 @@
 
 .btn-medium {
   padding: var(--nd-spacing-sm) var(--nd-spacing-md);
-  font-size: var(--nd-font-sizes-h4);
+  font-size: var(--nd-font-sizes-h6);
 }
 
 .btn-large {
   padding: var(--nd-spacing-md) var(--nd-spacing-lg);
-  font-size: var(--nd-font-sizes-h2);
+  font-size: var(--nd-font-sizes-h4);
 }
 
 /* Solid variant */

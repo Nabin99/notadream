@@ -12,7 +12,7 @@ export const defaultThemingVariables: Theme = {
     },
     accent: {
       dark: "#16c7d5",
-      light: "#16c7d5",
+      light: "#00becd",
     },
     success: {
       dark: "#1e7e34",
