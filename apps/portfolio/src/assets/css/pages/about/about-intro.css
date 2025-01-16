@@ -50,21 +50,6 @@
   color: var(--nd-colors-accent);
 }
 
-/* .about h2 + hr {
-  border-color: var(--nd-colors-accent);
-  border-width: var(--nd-border-width-md);
-  border-style: solid;
-  max-width: 80px;
-} */
-
-.about .content-box section {
-  /* text-align: center; */
-}
-
-/* .about h2 + hr {
-  margin: 0 auto;
-} */
-
 @media screen and (max-width: 768px) {
   .about-intro .content-box {
     flex-direction: column-reverse;
