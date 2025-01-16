@@ -29,7 +29,7 @@
 }
 
 .why-card p {
-  color: var(--nd-colors-text-muted);
+  /* color: var(--nd-colors-text-muted); */
   font-size: var(--nd-font-sizes-small);
 }
 
