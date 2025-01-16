@@ -47,8 +47,8 @@ export const defaultThemingVariables: Theme = {
       light: "0px 6px 12px rgba(0, 0, 0, 0.1)",
     },
     transBackground: {
-      dark: "#ffffff1a",
-      light: "#00000021",
+      dark: "#ffffff0d",
+      light: "#00000005",
     },
     textLight: {
       dark: "#ced4da",
