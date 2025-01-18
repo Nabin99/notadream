@@ -1,0 +1,87 @@
+.portfolio-timeline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.portfolio-timeline h2 {
+  font-size: 3rem;
+  border-bottom: var(--nd-border-width-md) solid var(--nd-colors-border);
+  width: 100%;
+  margin-bottom: var(--nd-spacing-md);
+  color: var(--nd-colors-accent);
+}
+
+.portfolio-timeline > div {
+  margin-left: var(--nd-spacing-md);
+  padding-left: var(--nd-spacing-md);
+  padding-top: var(--nd-spacing-lg);
+  padding-bottom: var(--nd-spacing-lg);
+  border-left: var(--nd-border-width-lg) solid var(--nd-colors-border);
+  width: 100%;
+  max-width: 1000px;
+}
+
+.portfolio-timeline > div:first-of-type {
+  margin-top: 2rem;
+}
+
+.portfolio-timeline > div > h3 {
+  font-size: var(--nd-font-sizes-h5);
+  /* color: var(--nd-colors-accent); */
+  width: 100%;
+  font-weight: normal;
+  position: relative;
+}
+
+.portfolio-timeline > div > h3::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: var(--nd-colors-accent);
+  position: absolute;
+  top: 50%;
+  left: -1.5rem;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.portfolio-timeline > div > p {
+  width: 100%;
+  font-size: var(--nd-font-sizes-base);
+}
+
+.portfolio-timeline > div > p:not(.description) {
+  color: var(--nd-colors-accent);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.portfolio-timeline > div > p:not(.description) > span {
+  color: var(--nd-colors-text);
+  font-size: var(--nd-font-sizes-caption);
+  font-style: italic;
+}
+
+.portfolio-timeline > div > p:not(.description) > span:hover {
+  background-color: var(--nd-colors-background);
+}
+
+.portfolio-timeline > div > p.description {
+  margin-top: var(--nd-spacing-md);
+  border-left: var(--nd-border-width-md) solid var(--nd-colors-accent);
+  padding-left: var(--nd-spacing-md);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.portfolio-timeline > div > p.description > span::before {
+  content: "✔";
+  margin-right: var(--nd-spacing-sm);
+  color: var(--nd-colors-accent);
+}

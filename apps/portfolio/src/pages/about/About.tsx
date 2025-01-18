@@ -14,7 +14,7 @@ export const About = () => {
           />
           <div className="about-intro-content">
             <h1>
-              A Developer with a <span>Vision</span>
+              A Developer with a <span>a Vision</span>
             </h1>
             <p>
               Hi, I{"'"}m Nabin Dhital, a dedicated Full-Stack Developer with a

@@ -4,6 +4,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { PageLayout } from "./layouts/PageLayout";
 import { Home } from "./pages";
 import { About } from "./pages/about";
+import { Portfolio } from "./pages/portfolio";
 
 const mainLayoutRoutes = [
   {
@@ -12,7 +13,7 @@ const mainLayoutRoutes = [
   },
   {
     path: "/portfolio",
-    element: <Page>Portfolio</Page>,
+    element: <Portfolio />,
   },
   {
     path: "/blogs",

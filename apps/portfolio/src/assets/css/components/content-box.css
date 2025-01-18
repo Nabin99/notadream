@@ -2,4 +2,11 @@
   margin: auto;
   width: 100%;
   max-width: var(--nd-miscellaneous-max-page-width);
+  padding: var(--nd-spacing-md);
+}
+
+@media screen and (max-width: 768px) {
+  .content-box {
+    padding: var(--nd-spacing-sm);
+  }
 }
