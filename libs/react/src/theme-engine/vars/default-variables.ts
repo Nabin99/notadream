@@ -19,7 +19,7 @@ export const defaultThemingVariables: Theme = {
       light: "#d4edda",
     },
     danger: {
-      dark: "#721c24",
+      dark: "#e44957",
       light: "#f8d7da",
     },
     warning: {

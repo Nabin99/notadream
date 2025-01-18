@@ -12,7 +12,7 @@ interface FormProviderConfigured {
   defaultValues: object;
 }
 
-const FormProviderConfigured: React.FC<FormProviderConfigured> = ({
+export const FormProviderConfigured: React.FC<FormProviderConfigured> = ({
   onSubmit,
   validationSchema,
   children,

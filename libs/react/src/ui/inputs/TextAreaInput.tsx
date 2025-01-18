@@ -1,12 +1,11 @@
-import { ErrorMessage } from "../../forms";
+import { ErrorMessage } from "../../forms/ErrorMessage";
 
-export type TextInputProperties = React.HTMLProps<HTMLInputElement> & {
+export type TextAreaInputProperties = React.HTMLProps<HTMLTextAreaElement> & {
   label?: string;
   placeholder?: string;
   value?: string;
   defaultValue?: string;
   onChange?: (value: string) => void;
-  type?: "text" | "email" | "password";
   variant?: "default" | "outlined" | "filled";
   fieldSize?: "small" | "medium" | "large";
   error?: string;
@@ -14,16 +13,17 @@ export type TextInputProperties = React.HTMLProps<HTMLInputElement> & {
   iconLeft?: React.ReactNode;
   iconRight?: React.ReactNode;
   className?: string;
+  resize?: "none" | "both" | "horizontal" | "vertical";
   name: string;
 };
 
-export const TextInput: React.FC<TextInputProperties> = ({
+export const TextAreaInput: React.FC<TextAreaInputProperties> = ({
   label,
   placeholder = "Enter text",
   value,
   defaultValue,
   onChange,
-  type = "text",
+  resize = "none",
   variant = "default",
   fieldSize = "medium",
   error,
@@ -34,7 +34,7 @@ export const TextInput: React.FC<TextInputProperties> = ({
   name,
   ...properties
 }) => {
-  const handleChange = (error: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (error: React.ChangeEvent<HTMLTextAreaElement>) => {
     if (!disabled && onChange) {
       onChange(error.target.value);
     }
@@ -44,11 +44,15 @@ export const TextInput: React.FC<TextInputProperties> = ({
     <div
       className={`text-input ${variant} ${fieldSize} ${disabled ? "disabled" : ""} ${error ? "error" : ""} ${className}`.trimEnd()}
     >
-      {label && <label className="text-input-label">{label}</label>}
+      {label && (
+        <label htmlFor="" className="text-input-label">
+          {label}
+        </label>
+      )}
       <div className="text-input-wrapper">
         {iconLeft && <span className="icon-left">{iconLeft}</span>}
-        <input
-          type={type}
+        <textarea
+          style={{ resize }}
           placeholder={placeholder}
           value={value}
           defaultValue={defaultValue}

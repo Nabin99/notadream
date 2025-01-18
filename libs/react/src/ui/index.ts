@@ -5,3 +5,5 @@ export * from "./Button";
 export * from "./Logo";
 export * from "./RouterLink";
 export * from "./BrowserLink";
+
+export * from "./inputs";

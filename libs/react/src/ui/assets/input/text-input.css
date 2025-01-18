@@ -1,0 +1,110 @@
+/* General Styles */
+.text-input {
+  display: flex;
+  flex-direction: column;
+  gap: var(--nd-spacing-sm);
+  width: 100%;
+}
+
+.text-input-label {
+  font-variant: var(--nd-font-sizes-base);
+  color: var(--nd-colors-accent);
+}
+
+.text-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.text-input-field {
+  width: 100%;
+  padding: var(--nd-spacing-md) var(--nd-spacing-sm);
+  font-size: var(--nd-font-sizes-base);
+  color: var(--nd-colors-text);
+  border: var(--nd-border-width-sm) solid var(--nd-colors-border);
+  border-radius: var(--nd-border-radius-md);
+  outline: none;
+  transition:
+    border 0.3s,
+    box-shadow 0.3s;
+  background-color: var(--nd-colors-trans-background);
+}
+
+.text-input-field:focus {
+  border-color: var(--nd-colors-accent);
+  box-shadow: 0 0 10px var(--nd-colors-accent);
+}
+
+/* Variants */
+.text-input.default .text-input-field {
+  background: var(--nd-colors-primary);
+}
+
+.text-input.outlined .text-input-field {
+  border: var(--nd-border-width-sm) solid var(--nd-colors-border);
+  background: transparent;
+}
+
+.text-input.filled .text-input-field {
+  background: var(--nd-colors-accent);
+  color: var(--nd-colors-secondary);
+  border: none;
+}
+
+/* Sizes */
+.text-input.small .text-input-field {
+  padding: var(--nd-spacing-xs) var(--nd-spacing-sm);
+  font-size: var(--nd-font-sizes-small);
+}
+
+.text-input.medium .text-input-field {
+  padding: var(--nd-spacing-sm) var(--nd-spacing-md);
+  font-size: var(--nd-font-sizes-base);
+}
+
+.text-input.large .text-input-field {
+  padding: 0.7rem 1.2rem;
+  font-size: var(--nd-font-sizes-h5);
+}
+
+/* Error State */
+.text-input.error .text-input-field {
+  border-color: var(--nd-colors-danger);
+}
+
+/* Disabled State */
+.text-input.disabled .text-input-field {
+  background: var(--nd-colors-disabled);
+  color: var(--nd-colors-primary);
+  cursor: not-allowed;
+}
+
+.text-input.disabled .text-input-field::placeholder {
+  color: var(--nd-colors-primary);
+}
+
+/* Icons */
+.icon-left,
+.icon-right {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  /* color: var; */
+}
+
+.icon-left {
+  left: var(--nd-spacing-sm);
+}
+
+.icon-right {
+  right: var(--nd-spacing-sm);
+}
+
+.text-input-field.icon-left {
+  padding-left: var(--nd-spacing-lg);
+}
+
+.text-input-field.icon-right {
+  padding-right: var(--nd-spacing-lg);
+}
