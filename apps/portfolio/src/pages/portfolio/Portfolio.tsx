@@ -1,4 +1,4 @@
-import { BrowserLink, Page, useTranslation } from "@notadream/react";
+import { Page, RouterLink, useTranslation } from "@notadream/react";
 
 import { Project } from "./projects";
 import { ContentBox } from "../../components";
@@ -369,9 +369,9 @@ export const Portfolio = () => {
           </h2>
           <p className="text-quote">
             {t("contact.description")}
-            <BrowserLink href="/contact" variant="borderless">
+            <RouterLink to="/contact" variant="borderless">
               {t("contact.link")}
-            </BrowserLink>
+            </RouterLink>
           </p>
         </section>
       </ContentBox>
