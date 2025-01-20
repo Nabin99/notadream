@@ -126,7 +126,6 @@
 .about-drive,
 .about-personal {
   margin-bottom: var(--nd-spacing-xl);
-  animation: fadeIn 1s ease;
 }
 
 .about-drive-personal {
@@ -220,18 +219,6 @@
 .text-quote::after {
   bottom: -6rem;
   right: -1rem;
-}
-
-/* Animation */
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 @media screen and (max-width: 768px) {
