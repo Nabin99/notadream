@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /admin/
 Disallow: /login/
-Sitemap: https://yourwebsite.com/sitemap.xml
+Sitemap: https://nabindhital.com.np/sitemap.xml

@@ -15,7 +15,7 @@
   margin-left: var(--nd-spacing-xl);
 }
 
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
   .why-section .main-content .why-card:nth-child(odd) {
     margin-right: var(--nd-miscellaneous-section-separator);
   }
@@ -23,4 +23,4 @@
   .why-section .main-content .why-card:nth-child(even) {
     margin-left: var(--nd-miscellaneous-section-separator);
   }
-}
+} */

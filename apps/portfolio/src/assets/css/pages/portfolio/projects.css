@@ -11,9 +11,9 @@
   transform-style: preserve-3d;
   transform: rotateY(0deg);
   transition: transform 0.8s;
-  box-shadow: var(--nd-colors-box-shadow-md);
+  box-shadow: var(--nd-colors-box-shadow-lg);
   border-radius: var(--nd-border-radius-md);
-  backface-visibility: hidden;
+  border: var(--nd-border-width-sm) solid var(--nd-colors-border);
 }
 
 .card-container:hover .card {
@@ -39,15 +39,16 @@
 
 .card .front {
   text-align: left;
-  background: var(--nd-colors-trans-background);
+  background: var(--nd-colors-primary);
   color: var(--nd-colors-text);
   font-size: var(--nd-font-sizes-h2);
   font-weight: var(--nd-font-weight-base);
   padding: var(--nd-spacing-xl);
+  backdrop-filter: brightness(2);
 }
 
 .card .back {
-  background: var(--nd-colors-trans-background);
+  background: var(--nd-colors-primary);
   color: var(--nd-colors-secondary);
   text-align: center;
   padding: var(--nd-spacing-md);
@@ -56,6 +57,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  backdrop-filter: brightness(2);
 }
 
 .back p {
@@ -71,12 +73,11 @@
   gap: var(--nd-spacing-md);
   flex-wrap: wrap;
   position: relative;
-  z-index: 0;
+  z-index: 1;
 }
 
 .portfolio-projects .background-art {
   z-index: -1;
-  opacity: 0.08 !important;
 }
 
 .portfolio-projects > h2 {
@@ -92,7 +93,7 @@
 
 .portfolio-projects > div {
   display: flex;
-  gap: var(--nd-spacing-md);
+  gap: var(--nd-spacing-lg);
   justify-content: center;
   align-items: center;
   width: 100%;

@@ -31,7 +31,7 @@
 
 .why-card p {
   /* color: var(--nd-colors-text-muted); */
-  font-size: var(--nd-font-sizes-small);
+  font-size: var(--nd-font-sizes-base);
 }
 
 .why-card .icon {

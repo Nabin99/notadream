@@ -5,6 +5,7 @@ import {
   TextAreaInput,
   TextInput,
   BrowserLink,
+  useTranslation,
 } from "@notadream/react";
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
@@ -12,6 +13,8 @@ import { ToastContainer, toast } from "react-toastify";
 import { ContentBox, SocialLinks } from "../../components";
 
 export const Contact = () => {
+  const { t } = useTranslation("contactPage");
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -58,27 +61,27 @@ export const Contact = () => {
 
     // First Name Validation
     if (!formData.firstName.trim()) {
-      newErrors.firstName = "First name is required.";
+      newErrors.firstName = t("form.fieldsError.firstName.required");
     }
 
     // Last Name Validation
     if (!formData.lastName.trim()) {
-      newErrors.lastName = "Last name is required.";
+      newErrors.lastName = t("form.fieldsError.lastName.required");
     }
 
     // Email Validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!formData.email.trim()) {
-      newErrors.email = "Email is required.";
+      newErrors.email = t("form.fieldsError.email.required");
     } else if (!emailRegex.test(formData.email)) {
-      newErrors.email = "Please enter a valid email address.";
+      newErrors.email = t("form.fieldsError.email.invalidFormat");
     }
 
     // Message Validation
     if (!formData.message.trim()) {
-      newErrors.message = "Message is required.";
+      newErrors.message = t("form.fieldsError.message.required");
     } else if (formData.message.trim().length < 10) {
-      newErrors.message = "Message should be at least 10 characters long.";
+      newErrors.message = t("form.fieldsError.message.insufficient");
     }
 
     setErrors(newErrors);
@@ -111,7 +114,7 @@ export const Contact = () => {
       );
 
       if (response.status === 200) {
-        toast.success("Message sent successfully!", {
+        toast.success(t("form.toastMessage.success"), {
           position: "bottom-right",
         });
         setFormData({
@@ -127,7 +130,7 @@ export const Contact = () => {
           hasError: false,
         });
       } else {
-        toast.error("Message sent Failed!", {
+        toast.error(t("form.toastMessage.failed"), {
           position: "bottom-right",
         });
         setSubmissionStatus({
@@ -151,20 +154,16 @@ export const Contact = () => {
         <section className="contact-details">
           <div className="contact-info">
             <h1>
-              Contact <span>Me</span>
+              {t("title").split("$$$")[0]}
+              <span>{t("title").split("$$$")[1]}</span>
             </h1>
             <p className="contact-title">
-              Let&apos;s Build Something <span>Amazing Together</span>
+              {t("subtitle").split("$$$")[0]}
+              <span>{t("subtitle").split("$$$")[1]}</span>
             </p>
-            <p className="contact-description">
-              Thank you for taking the time to explore my portfolio. Whether
-              you&apos;re looking to collaborate, have a project in mind, or
-              just want to say hello, I&apos;d be delighted to connect with you.
-              Please feel free to use the form below, email me directly, or find
-              me on social media.
-            </p>
+            <p className="contact-description">{t("description")}</p>
             <p className="contact-email">
-              Reach me directly at:
+              {t("directContact")}
               <BrowserLink
                 variant="borderless"
                 size="small"
@@ -183,17 +182,15 @@ export const Contact = () => {
           <div className="contact-form">
             <form className="contact-form" onSubmit={handleSubmit}>
               <h2>
-                Have a question or want to <span>work together?</span>
+                {t("form.title").split("$$$")[0]}{" "}
+                <span>{t("form.title").split("$$$")[1]}</span>
               </h2>
-              <p>
-                I&apos;d love to hear from you! Feel free to drop a message, and
-                I&apos;ll respond promptly.
-              </p>
+              <p>{t("form.caption")}</p>
 
               <TextInput
                 name="firstName"
                 fieldSize="medium"
-                placeholder="First Name..."
+                placeholder={t("form.fields.firstName")}
                 value={formData.firstName}
                 onChange={handleChange}
                 error={errors.firstName}
@@ -202,7 +199,7 @@ export const Contact = () => {
               <TextInput
                 name="lastName"
                 fieldSize="medium"
-                placeholder="Last Name..."
+                placeholder={t("form.fields.lastName")}
                 value={formData.lastName}
                 onChange={handleChange}
                 error={errors.lastName}
@@ -211,7 +208,7 @@ export const Contact = () => {
               <TextInput
                 name="email"
                 fieldSize="medium"
-                placeholder="Your Email..."
+                placeholder={t("form.fields.email")}
                 value={formData.email}
                 onChange={handleChange}
                 error={errors.email}
@@ -220,7 +217,7 @@ export const Contact = () => {
               <TextInput
                 name="subject"
                 fieldSize="medium"
-                placeholder="Subject..."
+                placeholder={t("form.fields.subject")}
                 value={formData.subject}
                 onChange={handleChange}
               />
@@ -228,24 +225,24 @@ export const Contact = () => {
               <TextAreaInput
                 name="message"
                 fieldSize="medium"
-                rows={8}
-                placeholder="Tell me about your project, query, or idea here..."
+                rows={5}
+                placeholder={t("form.fields.message")}
                 value={formData.message}
                 onChange={handleChange}
                 error={errors.message}
               />
-
+              {/* 
               {submissionStatus.hasError && (
                 <p className="error-message">
                   There was an error sending your message. Please try again
                   later.
                 </p>
-              )}
+              )} */}
 
               <Button
                 size="medium"
                 type="submit"
-                label="Send Message"
+                label={t("form.button.submit")}
                 loading={submissionStatus.isSubmitting}
               />
             </form>
