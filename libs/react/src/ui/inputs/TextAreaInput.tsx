@@ -1,11 +1,14 @@
 import { ErrorMessage } from "../../forms/ErrorMessage";
 
-export type TextAreaInputProperties = React.HTMLProps<HTMLTextAreaElement> & {
+export type TextAreaInputProperties = Omit<
+  React.HTMLProps<HTMLTextAreaElement>,
+  "onChange"
+> & {
   label?: string;
   placeholder?: string;
   value?: string;
   defaultValue?: string;
-  onChange?: (value: string) => void;
+  onChange?: (value: React.ChangeEvent<HTMLTextAreaElement>) => void;
   variant?: "default" | "outlined" | "filled";
   fieldSize?: "small" | "medium" | "large";
   error?: string;
@@ -34,9 +37,9 @@ export const TextAreaInput: React.FC<TextAreaInputProperties> = ({
   name,
   ...properties
 }) => {
-  const handleChange = (error: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const handleChange = (event_: React.ChangeEvent<HTMLTextAreaElement>) => {
     if (!disabled && onChange) {
-      onChange(error.target.value);
+      onChange(event_);
     }
   };
 

@@ -6,6 +6,8 @@
   gap: var(--nd-spacing-md);
   flex-wrap: wrap;
   /* max-width: 1000px; */
+  position: relative;
+  z-index: 1;
 }
 
 .portfolio-skills div ul {

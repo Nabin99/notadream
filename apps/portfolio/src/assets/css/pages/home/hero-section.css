@@ -14,7 +14,7 @@
   max-height: 1080px;
   padding: var(--nd-spacing-sm);
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .hero-section .heading {

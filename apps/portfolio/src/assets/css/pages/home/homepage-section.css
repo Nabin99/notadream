@@ -3,6 +3,11 @@
   width: 100%;
 }
 
+.homepage-section > .content-box {
+  position: relative;
+  z-index: 2;
+}
+
 .homepage-section:nth-child(even) {
   backdrop-filter: brightness(1.05);
 }

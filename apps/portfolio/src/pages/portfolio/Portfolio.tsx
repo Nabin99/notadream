@@ -267,10 +267,12 @@ export const Portfolio = () => {
               intuitive and impactful digital experiences.
             </p>
           </div>
+          <div className="background-art left"></div>
+          <div className="background-art right"></div>
         </section>
 
         {/* Experience Section */}
-        <section className="portfolio-timeline">
+        <section className="portfolio-timeline experience">
           <h2>Experience</h2>
           {experience.map((exp, index) => (
             <div key={index}>
@@ -292,7 +294,7 @@ export const Portfolio = () => {
         </section>
 
         {/* Education Section */}
-        <section className="portfolio-timeline">
+        <section className="portfolio-timeline education">
           <h2>Education</h2>
           {education.map((edu, index) => (
             <div key={index}>
@@ -308,6 +310,8 @@ export const Portfolio = () => {
               </p>
             </div>
           ))}
+          <div className="background-art left"></div>
+          <div className="background-art right"></div>
         </section>
 
         {/* Skills Section */}
@@ -353,6 +357,8 @@ export const Portfolio = () => {
               />
             ))}
           </div>
+          <div className="background-art left"></div>
+          <div className="background-art right"></div>
         </section>
 
         <section className="portfolio-connect">

@@ -14,7 +14,7 @@ export const About = () => {
           />
           <div className="about-intro-content">
             <h1>
-              A Developer with a <span>a Vision</span>
+              A Developer with <span>a Vision</span>
             </h1>
             <p>
               Hi, I{"'"}m Nabin Dhital, a dedicated Full-Stack Developer with a
@@ -29,6 +29,8 @@ export const About = () => {
               thrill of building something impactful...
             </p>
           </div>
+          <div className="background-art left"></div>
+          <div className="background-art right"></div>
         </ContentBox>
       </section>
 
@@ -55,6 +57,7 @@ export const About = () => {
             where I honed my skills in developing seamless user interfaces and
             robust backend systems.
           </p>
+          <div className="background-art left"></div>
         </section>
         <div className="about-accomplishments">
           <section className="about-achievements">
@@ -128,6 +131,8 @@ export const About = () => {
               storm in the kitchen, experimenting with new recipes and cuisines.
             </p>
           </section>
+          <div className="background-art left"></div>
+          <div className="background-art right"></div>
         </div>
         <section className="about-connect">
           <h2>

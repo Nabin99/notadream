@@ -1,4 +1,4 @@
-import { ErrorPage, Page } from "@notadream/react";
+import { ErrorPage } from "@notadream/react";
 import { createBrowserRouter } from "react-router-dom";
 
 import { PageLayout } from "./layouts/PageLayout";
@@ -16,10 +16,10 @@ const mainLayoutRoutes = [
     path: "/portfolio",
     element: <Portfolio />,
   },
-  {
-    path: "/blogs",
-    element: <Page>Blogs</Page>,
-  },
+  // {
+  //   path: "/blogs",
+  //   element: <Page>Blogs</Page>,
+  // },
   {
     path: "/about",
     element: <About />,

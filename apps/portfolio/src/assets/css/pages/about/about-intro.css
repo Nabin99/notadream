@@ -1,6 +1,19 @@
+.about {
+  overflow: hidden;
+}
+
+.about .content-box {
+  position: relative;
+}
+
 .about-intro {
-  margin: 4rem 0;
+  margin: 3rem 0;
   animation: fadeIn 1s ease;
+}
+
+.about .background-art {
+  opacity: 0.2;
+  z-index: -1;
 }
 
 .about-intro .content-box {
@@ -12,6 +25,8 @@
   margin: var(--nd-spacing-xl) auto;
   flex-wrap: wrap-reverse;
   padding: var(--nd-spacing-md);
+  z-index: 2;
+  position: relative;
 }
 
 .about-intro .content-box img {

@@ -1,7 +1,7 @@
 .why-section .main-content {
   display: flex;
   justify-content: center;
-  align-items: stretch;
+  align-items: center;
   gap: var(--nd-spacing-lg);
   flex-wrap: wrap;
   margin-top: var(--nd-spacing-md);

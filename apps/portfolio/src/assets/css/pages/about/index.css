@@ -8,6 +8,8 @@
   gap: 4rem;
   margin: 6rem 0;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 0;
 }
 
 .about-who h2 {
@@ -35,6 +37,8 @@
   margin: 6rem 0;
   flex-wrap: wrap;
   overflow: hidden;
+  z-index: 3;
+  position: relative;
 }
 
 .about-accomplishments .about-achievements {
@@ -112,6 +116,11 @@
   color: var(--nd-colors-accent);
 }
 
+.about-philosophy {
+  position: relative;
+  z-index: 1;
+}
+
 /* Section Styling */
 .about-philosophy,
 .about-drive,
@@ -127,6 +136,8 @@
   gap: var(--nd-spacing-lg);
   flex-wrap: wrap;
   margin: 6rem 0;
+  position: relative;
+  z-index: 2;
 }
 
 .about-drive-personal section {

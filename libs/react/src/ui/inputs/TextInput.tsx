@@ -1,11 +1,14 @@
 import { ErrorMessage } from "../../forms";
 
-export type TextInputProperties = React.HTMLProps<HTMLInputElement> & {
+export type TextInputProperties = Omit<
+  React.HTMLProps<HTMLInputElement>,
+  "onChange"
+> & {
   label?: string;
   placeholder?: string;
   value?: string;
   defaultValue?: string;
-  onChange?: (value: string) => void;
+  onChange?: (value: React.ChangeEvent<HTMLInputElement>) => void;
   type?: "text" | "email" | "password";
   variant?: "default" | "outlined" | "filled";
   fieldSize?: "small" | "medium" | "large";
@@ -34,9 +37,9 @@ export const TextInput: React.FC<TextInputProperties> = ({
   name,
   ...properties
 }) => {
-  const handleChange = (error: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event_: React.ChangeEvent<HTMLInputElement>) => {
     if (!disabled && onChange) {
-      onChange(error.target.value);
+      onChange(event_);
     }
   };
 

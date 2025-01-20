@@ -3,12 +3,14 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: var(--nd-spacing-sm);
-  background-color: var(--nd-colors-primary);
+  /* background-color: var(--nd-colors-primary); */
+  /* background-color: var(--nd-colors-trans-background); */
   color: var(--nd-colors-secondary);
   position: relative;
   flex-wrap: nowrap;
   box-shadow: var(--nd-colors-box-shadow-lg);
   font-size: var(--nd-font-sizes-base);
+  backdrop-filter: blur(10px);
 }
 
 /* Brand Logo */
@@ -68,7 +70,9 @@ header > .header-menu {
     justify-content: center;
     align-items: center;
     padding: 0;
+    background-color: transparent;
   }
+
   .navbar-container.open {
     padding: 0;
   }

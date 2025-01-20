@@ -22,10 +22,10 @@ export const PageLayout = () => {
       name: t("navigationList.portfolio"),
       path: "/portfolio",
     },
-    {
-      name: t("navigationList.blogs"),
-      path: "/blogs",
-    },
+    // {
+    //   name: t("navigationList.blogs"),
+    //   path: "/blogs",
+    // },
     {
       name: t("navigationList.about"),
       path: "/about",
