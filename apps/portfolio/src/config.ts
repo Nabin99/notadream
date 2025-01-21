@@ -3,6 +3,11 @@ import { configureApp } from "@notadream/react";
 declare module "@notadream/react" {
   interface AppConfig {
     appEmail: string;
+    secrets: {
+      emailJsServiceId: string;
+      emailJsTemplateId: string;
+      emailJsUserId: string;
+    };
   }
 }
 
@@ -23,6 +28,11 @@ configureApp({
       .replaceAll(", ", ",")
       .split(","),
     localStorageName: "i18n",
+  },
+  secrets: {
+    emailJsServiceId: import.meta.env.VITE_EMAILJS_SERVICE_ID || "",
+    emailJsTemplateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "",
+    emailJsUserId: import.meta.env.VITE_EMAILJS_USER_ID || "",
   },
   theme: {
     localStorageName: "theme",

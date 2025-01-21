@@ -36,7 +36,6 @@ export default defineConfig(({ mode }) => {
         },
       }),
     ],
-    base: "/notadream/",
     resolve: {
       alias: {
         "@": fileURLToPath(new URL("./src", import.meta.url)),
