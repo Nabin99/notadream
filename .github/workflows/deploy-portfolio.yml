@@ -1,0 +1,41 @@
+name: Deploy Portfolio
+
+on:
+  push:
+    branches:
+      - development # Adjust to your default branch
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repo
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      # Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16 # Ensure compatibility with your project
+          cache: "npm"
+
+      # Navigate to the portfolio directory
+      - name: Navigate to Portfolio
+        run: cd apps/portfolio
+
+      # Install dependencies
+      - name: Install Dependencies
+        run: pnpm install
+
+      # Build the project
+      - name: Build Portfolio
+        run: pnpm run build
+
+      # Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: apps/portfolio/build

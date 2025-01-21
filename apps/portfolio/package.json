@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
+  "homepage": "https://nabin99.github.io/notadream",
   "scripts": {
     "dev": "vite --host",
     "build": "tsc && vite build",

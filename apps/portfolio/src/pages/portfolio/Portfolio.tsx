@@ -6,7 +6,7 @@ import { Profile } from "../../components/Profile";
 
 const experience = [
   {
-    role: "Software Engineer Freelancer",
+    role: "Software Developer Freelancer",
     company: "Freelance",
     start: "Apr 2024",
     end: "Present",
@@ -24,11 +24,13 @@ const experience = [
     start: "Nov 2022 ",
     end: "Apr 2024",
     description: [
-      "Designed scalable applications, implemented CI/CD pipelines, and worked with Fastify, Express, and React.",
-      "Collaborated with clients to deliver custom solutions, including e-commerce platforms, web applications, and mobile apps.",
-      "Optimized websites for SEO, improving search rankings and increasing organic traffic.",
-      "Provided ongoing support and maintenance for clients, ensuring optimal performance and user experience.",
-      "Managed project timelines, budgets, and resources to deliver high-quality solutions on time and within budget.",
+      "Led development of critical product features, ensuring software quality through comprehensive design and documentation standards, while optimizing scalability using modern frameworks.",
+      "Built robust back-end services with Node.js and PostgreSQL, resolving customer issues by creating scalable solutions supporting business growth and operational reliability.",
+      "Exhibited problem-solving and critical thinking by resolving complex issues related to integration of secure authentication systems, using Supertokens and enhancing team productivity by 10%.",
+      "Developed and maintained reusable JavaScript packages and modules, contributing to npm registry.",
+      "Deployed containerized applications and established CI/CD pipelines with GitLab CI, improving workflow efficiency by 30% and displaying time management and attention to detail.",
+      "Promoted for leadership abilities, mentoring 5-6 team members, and driving collaboration across departments to provide high-quality results on time.",
+      "Created and deployed different fastify and react library packages to npm registry",
     ],
   },
   {
@@ -37,11 +39,13 @@ const experience = [
     start: "Aug 2022",
     end: "Oct 2022",
     description: [
-      "Worked on developing responsive web applications, maintained in-house NPM packages, and collaborated on a fintech solution project.",
-      "Implemented SEO optimization strategies to improve website visibility and increase organic traffic.",
-      "Collaborated with cross-functional teams to deliver high-quality solutions on time and within budget.",
+      'Collaborated with 3 cross-functional teams to develop the "iSend" Money Transfer application, implementing teamwork and problem-solving to ensure scalability of solution.',
+      "Applied advanced React concepts, utilizing creativity and attention to detail to improve performance and responsiveness of web applications built with javascript.",
+      "Maintained communication with stakeholders, achieving tailored solutions while adhering to project requirements and demonstrating adaptability in fast-paced 24/7 environments.",
       "Provided ongoing support and maintenance for clients, ensuring optimal performance and user experience.",
       "Managed project timelines, budgets, and resources to deliver high-quality solutions on time and within budget.",
+      "Showcased strong conflict resolution and teamwork skills in an Agile environment, ensuring hundreds of customer issues were fixed promptly and efficiently during project lifecycle.",
+      "Delivered an optimized one frontend application successfully",
     ],
   },
   {
@@ -50,10 +54,8 @@ const experience = [
     start: "Apr 2022",
     end: "Jul 2022",
     description: [
-      "Awarded Best Performer of the Intern Award for contributing to key projects with innovative solutions.",
-      "Developed and maintained web applications, implemented CI/CD pipelines, and worked with Fastify, Express, and React.",
-      "Collaborated with cross-functional teams to deliver high-quality solutions on time and within budget.",
-      "Provided ongoing support and maintenance for clients, ensuring optimal performance and user experience.",
+      "Work with a team of 11 trainees in developing an HR and Event Management System, utilizing leadership and collaboration to meet tight project deadlines.",
+      "Displayed continuous learning by applying TypeScript and React in developing dynamic, scalable systems while managing state efficiently within frameworks.",
       "Managed project timelines, budgets, and resources to deliver high-quality solutions on time and within budget.",
     ],
   },
@@ -63,7 +65,8 @@ const education = [
   {
     title: "Full Stack Software Development",
     degree: "Diploma",
-    description: "Diploma in Full Stack Software Development",
+    description:
+      "In-depth program focusing on full-stack software development, encompassing front-end technologies, back-end frameworks, database management, and deployment strategies. Highlights include mastering modern development tools, version control systems, and software testing methodologies, with an emphasis on building scalable and efficient applications.",
     institution: "Lambton College",
     start: "May 2024",
     end: "Expected Graduation: Jan 2026",
@@ -72,9 +75,9 @@ const education = [
     title: "Bachelor of Science in Computer Science and Information Technology",
     degree: "Bachelor's Degree",
     description:
-      "Bachelor of Science in Computer Science and Information Technology",
+      "Comprehensive foundation in computer science, covering key areas such as Data Structures and Algorithms, Object-Oriented Programming (C++ and Java), Software Engineering, Artificial Intelligence, and Numerical Methods. Additional focus on Probability and Statistics, Discrete Mathematics, Linear Algebra, and Design and Analysis of Algorithms to develop problem-solving and analytical skills.",
     institution: "Tribhuvan University",
-    start: "November 2017 ",
+    start: "November 2017",
     end: "November 2021",
   },
 ];
@@ -212,40 +215,58 @@ const softSkills = [
 
 const projects = [
   {
-    name: "Computer Games Website",
-    site: "https://games-website.com",
+    name: "Fastify Package Library",
+    site: "https://github.com/dzangolab/fastify",
     description:
-      "A responsive platform for game enthusiasts with dynamic content, user authentication, and interactive features using HTML, CSS, JavaScript, and Express.",
+      "Developed and maintained NPM libraries for reusable methods, utilities and functions , streamlining development processes.",
   },
   {
-    name: "In-House NPM Package Library",
-    site: "https://npm-library.com",
+    name: "React Package Library",
+    site: "https://github.com/dzangolab/react",
     description:
       "Developed and maintained NPM libraries for reusable components, streamlining development processes.",
   },
   {
-    name: "Computer Games Website",
-    site: "https://games-website.com",
+    name: "iSend Money Transfer Application",
+    site: "https://isendremit.com",
     description:
-      "A responsive platform for game enthusiasts with dynamic content, user authentication, and interactive features using HTML, CSS, JavaScript, and Express.",
+      "A modern and simple website for iSend Money Transfer with a responsive design using Nextjs and Reactjs.",
   },
   {
-    name: "In-House NPM Package Library",
-    site: "https://npm-library.com",
+    name: "Flavor Fusion Web Application",
+    site: "https://github.com/Nabin99/FlavourFusion",
     description:
-      "Developed and maintained NPM libraries for reusable components, streamlining development processes.",
+      "A responsive platform for food enthusiasts with dynamic content, user authentication, and interactive features using HTML, CSS, JavaScript, and Python.",
   },
   {
-    name: "Computer Games Website",
-    site: "https://games-website.com",
+    name: "Dumpling Mobile Application",
+    site: "https://github.com/Nabin99/Dumpling-App",
     description:
-      "A responsive platform for game enthusiasts with dynamic content, user authentication, and interactive features using HTML, CSS, JavaScript, and Express.",
+      "A mobile app for food lovers to discover and share recipes, featuring real-time updates, user profiles, and social sharing using React Native and Firebase.",
   },
   {
-    name: "In-House NPM Package Library",
-    site: "https://npm-library.com",
+    name: "Dumpling API Application",
+    site: "https://github.com/Nabin99/DumplingStoreAPI",
     description:
-      "Developed and maintained NPM libraries for reusable components, streamlining development processes.",
+      "A mobile app for food lovers to discover and share recipes, featuring real-time updates, user profiles, and social sharing using React Native and Firebase.",
+  },
+  {
+    name: "Nepal Express Website",
+    site: "https://focused-dijkstra-857903.netlify.app/",
+    description:
+      "A comprehensive website for a fictional courier service, featuring real-time tracking, user authentication, and responsive design using React and Node.js. build from scratch for my college major project.",
+  },
+  {
+    name: "Pashupatinath Films Production Website",
+    site: "https://pashupatinathfilmsproduction.com/",
+    description:
+      "A modern and simple website for Pashupatinath Films Production with a responsive design using html, css, and javascript.",
+  },
+  {
+    name: "Ace Events Website",
+    site: "https://ace-events.ca",
+    description:
+      "A modern and simple website for ace events with a responsive design using html, css, and javascript.",
   },
 ];
 
