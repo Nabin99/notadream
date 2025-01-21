@@ -48,4 +48,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: packages/portfolio/build # Adjust to your portfolio's build output
+          publish_dir: apps/portfolio/dist # Adjust to your portfolio's build output
