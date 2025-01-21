@@ -1,5 +1,5 @@
 import { ErrorPage } from "@notadream/react";
-import { createBrowserRouter } from "react-router-dom";
+import { createHashRouter } from "react-router-dom";
 
 import { PageLayout } from "./layouts/PageLayout";
 import { Home } from "./pages";
@@ -30,7 +30,7 @@ const mainLayoutRoutes = [
   },
 ];
 
-export const browserRouter = createBrowserRouter([
+export const browserRouter = createHashRouter([
   {
     path: "/",
     errorElement: <ErrorPage />,
