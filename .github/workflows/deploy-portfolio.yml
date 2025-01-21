@@ -42,6 +42,18 @@ jobs:
         working-directory: apps/portfolio # Adjust to your portfolio's directory
         run: |
           pnpm run build
+        env:
+          VITE_APP_NAME: ${{ vars.VITE_APP_NAME }}
+          VITE_APP_TITLE: ${{ vars.VITE_APP_TITLE }}
+          VITE_APP_DESCRIPTION: ${{ vars.VITE_APP_DESCRIPTION }}
+          VITE_APP_KEYWORDS: ${{ vars.VITE_APP_KEYWORDS }}
+          VITE_APP_AUTHOR: ${{ vars.VITE_APP_AUTHOR }}
+          VITE_COPYRIGHT_HOLDER: ${{ vars.VITE_COPYRIGHT_HOLDER }}
+
+          VITE_APP_EMAIL: ${{ secrets.VITE_APP_EMAIL }}
+          VITE_EMAILJS_SERVICE_ID: ${{ secrets.VITE_EMAILJS_SERVICE_ID }}
+          VITE_EMAILJS_TEMPLATE_ID: ${{ secrets.VITE_EMAILJS_TEMPLATE_ID }}
+          VITE_EMAILJS_USER_ID: ${{ secrets.VITE_EMAILJS_USER_ID }}
 
       # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
