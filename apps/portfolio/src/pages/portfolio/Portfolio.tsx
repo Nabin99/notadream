@@ -1,6 +1,7 @@
 import { Page, RouterLink, useTranslation } from "@notadream/react";
 
 import { Project } from "./projects";
+import portfolioImage from "../../assets/images/admin.webp";
 import { ContentBox } from "../../components";
 import { Profile } from "../../components/Profile";
 
@@ -247,8 +248,7 @@ const projects = [
   {
     name: "Dumpling API Application",
     site: "https://github.com/Nabin99/DumplingStoreAPI",
-    description:
-      "A mobile app for food lovers to discover and share recipes, featuring real-time updates, user profiles, and social sharing using React Native and Firebase.",
+    description: "",
   },
   {
     name: "Nepal Express Website",
@@ -277,7 +277,7 @@ export const Portfolio = () => {
     <Page className="portfolio">
       <ContentBox>
         <section className="portfolio-intro">
-          <Profile src="/images/admin.webp" alt="Nabin Dhital" />
+          <Profile src={portfolioImage} alt="Nabin Dhital" />
           <div className="portfolio-intro-content">
             <h1>
               {t("title").split("$$$")[0]}{" "}

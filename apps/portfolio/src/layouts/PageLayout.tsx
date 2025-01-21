@@ -7,6 +7,7 @@ import {
 import { Outlet } from "react-router-dom";
 
 import { Footer } from "./components";
+import logo from "../assets/images/logo.svg";
 
 import type { NavItemType } from "@notadream/react";
 
@@ -44,7 +45,7 @@ export const PageLayout = () => {
           <div className="header-wrapper">
             <Header
               navItems={navItems}
-              logo={<Logo src={"/vite.svg"} size="medium" />}
+              logo={<Logo src={logo} size="medium" />}
             ></Header>
           </div>
         </>

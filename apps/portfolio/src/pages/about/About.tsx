@@ -1,5 +1,6 @@
 import { Page, RouterLink, useTranslation } from "@notadream/react";
 
+import aboutImage from "../../assets/images/aboutme-intro.webp";
 import { ContentBox } from "../../components";
 
 export const About = () => {
@@ -11,8 +12,9 @@ export const About = () => {
         <ContentBox>
           <img
             className="about-intro-image"
-            src="/images/aboutme-intro.webp"
+            src={aboutImage}
             alt="Nabin Dhital"
+            loading="lazy"
           />
           <div className="about-intro-content">
             <h1>

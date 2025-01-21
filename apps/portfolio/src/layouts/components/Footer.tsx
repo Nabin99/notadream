@@ -1,5 +1,6 @@
 import { Footer as FooterLayout, Logo, useTranslation } from "@notadream/react";
 
+import logo from "../../assets/images/logo.svg";
 import { SocialLinks } from "../../components/SocialLinks";
 
 const FooterHeader = () => {
@@ -7,7 +8,7 @@ const FooterHeader = () => {
 
   return (
     <>
-      <Logo src="/vite.svg" size="large" alt="Logo" />
+      <Logo src={logo} size="large" alt="Logo" />
       <span className="app-name">{t("name")}</span>
     </>
   );

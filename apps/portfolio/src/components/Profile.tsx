@@ -6,7 +6,7 @@ interface ProfileProperties {
 export const Profile: React.FC<ProfileProperties> = ({ src, alt }) => {
   return (
     <div className="profile-image-container">
-      <img src={src} alt={alt} />
+      <img src={src} alt={alt} loading="lazy" />
     </div>
   );
 };
