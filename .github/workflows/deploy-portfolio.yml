@@ -1,41 +1,51 @@
-name: Deploy Portfolio
+name: Deploy Portfolio to GitHub Pages
 
 on:
   push:
     branches:
-      - development # Adjust to your default branch
+      - development
 
 jobs:
-  build-deploy:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout the repo
-      - name: Checkout Repository
+      # Checkout the repository
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Set up Node.js
-      - name: Set up Node.js
+      # Set up Node.js with pnpm
+      - name: Set up Node.js and pnpm
         uses: actions/setup-node@v3
         with:
-          node-version: 16 # Ensure compatibility with your project
-          cache: "npm"
+          node-version: 18
+          cache: "pnpm" # Cache dependencies for faster builds
 
-      # Navigate to the portfolio directory
-      - name: Navigate to Portfolio
-        run: cd apps/portfolio
+      # Install pnpm
+      - name: Install pnpm
+        run: |
+          npm install -g pnpm
 
-      # Install dependencies
-      - name: Install Dependencies
-        run: pnpm install
+      # Install dependencies in the monorepo
+      - name: Install dependencies
+        run: |
+          pnpm install
 
-      # Build the project
-      - name: Build Portfolio
-        run: pnpm run build
+      # Build the library package
+      - name: Build library package
+        working-directory: libs/react # Adjust to your library's directory
+        run: |
+          pnpm run build
+
+      # Build the portfolio app
+      - name: Build portfolio
+        working-directory: apps/portfolio # Adjust to your portfolio's directory
+        run: |
+          pnpm run build
 
       # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: apps/portfolio/build
+          publish_dir: packages/portfolio/build # Adjust to your portfolio's build output
