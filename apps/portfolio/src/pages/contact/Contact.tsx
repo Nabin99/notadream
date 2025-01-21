@@ -6,6 +6,7 @@ import {
   TextInput,
   BrowserLink,
   useTranslation,
+  getAppConfig,
 } from "@notadream/react";
 import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
@@ -13,6 +14,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { ContentBox, SocialLinks } from "../../components";
 
 export const Contact = () => {
+  const email = getAppConfig().appEmail;
   const { t } = useTranslation("contactPage");
 
   const [formData, setFormData] = useState({
@@ -167,9 +169,9 @@ export const Contact = () => {
               <BrowserLink
                 variant="borderless"
                 size="small"
-                href="mailto:dhitalnabin224@gmail.com"
+                href={`mailto:${email}`}
               >
-                dhitalnabin224@gmail.com
+                {email}
               </BrowserLink>
             </p>
 
@@ -231,13 +233,6 @@ export const Contact = () => {
                 onChange={handleChange}
                 error={errors.message}
               />
-              {/* 
-              {submissionStatus.hasError && (
-                <p className="error-message">
-                  There was an error sending your message. Please try again
-                  later.
-                </p>
-              )} */}
 
               <Button
                 size="medium"
