@@ -13,7 +13,7 @@
 /* Variants */
 .link.solid {
   background-color: var(--nd-colors-accent);
-  color: var(--nd-colors-secondary);
+  color: var(--nd-colors-primary);
   padding: var(--nd-spacing-sm) var(--nd-spacing-md);
   border-radius: var(--nd-border-radius-md);
 }

@@ -16,12 +16,13 @@
 }
 
 .btn:hover {
-  filter: brightness(1.2);
+  filter: brightness(1.1);
   transform: translateY(-1px);
 }
 
 .btn:active {
   transform: translateY(0);
+  filter: brightness(1.2);
   transition: transform 0.2s ease;
 }
 
@@ -48,12 +49,12 @@
 
 .btn-medium {
   padding: var(--nd-spacing-sm) var(--nd-spacing-md);
-  font-size: var(--nd-font-sizes-h4);
+  font-size: var(--nd-font-sizes-h6);
 }
 
 .btn-large {
   padding: var(--nd-spacing-md) var(--nd-spacing-lg);
-  font-size: var(--nd-font-sizes-h2);
+  font-size: var(--nd-font-sizes-h4);
 }
 
 /* Solid variant */

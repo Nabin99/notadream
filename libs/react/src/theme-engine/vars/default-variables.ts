@@ -12,15 +12,15 @@ export const defaultThemingVariables: Theme = {
     },
     accent: {
       dark: "#16c7d5",
-      light: "#16c7d5",
+      light: "#00becd",
     },
     success: {
       dark: "#1e7e34",
       light: "#d4edda",
     },
     danger: {
-      dark: "#721c24",
-      light: "#f8d7da",
+      dark: "#e44957",
+      light: "#ff0017",
     },
     warning: {
       dark: "#856404",
@@ -47,8 +47,8 @@ export const defaultThemingVariables: Theme = {
       light: "0px 6px 12px rgba(0, 0, 0, 0.1)",
     },
     transBackground: {
-      dark: "#ffffff1a",
-      light: "#00000021",
+      dark: "#ffffff0d",
+      light: "#00000005",
     },
     textLight: {
       dark: "#ced4da",

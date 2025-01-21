@@ -31,7 +31,7 @@
 }
 
 /* Error Message */
-.error-message {
+.error-page .error-message {
   font-size: var(--nd-font-sizes-base);
   color: var(--nd-colors-secondary);
   margin-bottom: var(--nd-spacing-lg);

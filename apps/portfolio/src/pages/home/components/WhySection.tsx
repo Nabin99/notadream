@@ -58,6 +58,8 @@ export const WhySection = () => {
           />
         ))}
       </>
+      <div className="background-art left"></div>
+      <div className="background-art right"></div>
     </HomepageSection>
   );
 };

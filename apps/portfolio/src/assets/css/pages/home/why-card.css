@@ -8,6 +8,16 @@
   flex-direction: column;
   gap: var(--nd-spacing-md);
   box-shadow: var(--nd-colors-box-shadow-lg);
+  cursor: default;
+  transition:
+    transform 0.5s ease-out,
+    box-shadow 0.5s ease-out;
+  max-width: 600px;
+}
+
+.why-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 0px 10px var(--nd-colors-accent);
 }
 
 .why-card h3 {
@@ -20,8 +30,8 @@
 }
 
 .why-card p {
-  color: var(--nd-colors-text-muted);
-  font-size: var(--nd-font-sizes-small);
+  /* color: var(--nd-colors-text-muted); */
+  font-size: var(--nd-font-sizes-base);
 }
 
 .why-card .icon {

@@ -5,7 +5,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import { TranslationsEntry } from "./i18n";
 
-import "./assets/index.css";
+import "./assets/css/index.css";
 import "./config";
 
 setThemeConfig({

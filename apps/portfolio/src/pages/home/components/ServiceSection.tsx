@@ -69,6 +69,8 @@ export const ServiceSection = () => {
           />
         ))}
       </>
+      <div className="background-art left"></div>
+      <div className="background-art right"></div>
     </HomepageSection>
   );
 };

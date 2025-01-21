@@ -14,10 +14,64 @@
       href="https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&family=Sofadi+One&display=swap"
       rel="stylesheet"
     />
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#16c7d5" />
+
+    <meta property="og:title" content="<%- author %> | Full-Stack Developer" />
+    <meta
+      property="og:description"
+      content="Discover my portfolio featuring innovative web and mobile app projects, along with SEO-based services."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://nabindhital.com.np" />
+    <meta
+      property="og:image"
+      content="https://nabindhital.com.np/images/preview.jpg"
+    />
+    <meta property="og:image:alt" content="Nabin Dhital Portfolio" />
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="<%- author %> | Full-Stack Developer" />
+    <meta
+      name="twitter:description"
+      content="Explore my portfolio showcasing web and mobile app projects and innovative SEO services."
+    />
+    <meta
+      name="twitter:image"
+      content="https://nabindhital.com.np/images/preview.jpg"
+    />
+    <meta name="twitter:image:alt" content="Preview of Your Portfolio" />
+    <meta name="twitter:site" content="@YourTwitterHandle" />
+    <meta name="twitter:creator" content="@YourTwitterHandle" />
+
+    <link rel="canonical" href="https://nabindhital.com.np" />
+
     <title><%- title %></title>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Nabin Dhital",
+        "jobTitle": "Full-Stack Developer",
+        "description": "A creative and dynamic Full-Stack Developer portfolio showcasing expertise in web development, mobile app development, and SEO-based services.",
+        "url": "https://nabindhital.com.np",
+        "sameAs": [
+          "https://www.linkedin.com/in/dhitalnabin",
+          "https://github.com/Nabin99",
+          "https://twitter.com/nabin11"
+        ],
+        "image": "https://nabindhital.com.np/images/preview.jpg",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Freelance Developer"
+        }
+      }
+    </script>
   </body>
 </html>
