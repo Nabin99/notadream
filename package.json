@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "description": "DESCRIPTION",
+  "homepage": "https://nabin99.github.io/notadream",
   "license": "UNLICENSED",
   "scripts": {
     "build": "turbo run build",
