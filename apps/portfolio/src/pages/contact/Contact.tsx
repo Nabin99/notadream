@@ -14,6 +14,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { ContentBox, SocialLinks } from "../../components";
 
 export const Contact = () => {
+  const secrets = getAppConfig().secrets;
   const email = getAppConfig().appEmail;
   const { t } = useTranslation("contactPage");
 
@@ -40,7 +41,7 @@ export const Contact = () => {
 
   useEffect(() => {
     emailjs.init({
-      publicKey: "xjbCaLkYMZiZzQOp0",
+      publicKey: secrets.emailJsUserId,
       // Do not allow headless browsers
       blockHeadless: true,
       blockList: {
@@ -110,8 +111,8 @@ export const Contact = () => {
 
     if (validateForm()) {
       const response = await emailjs.send(
-        "service_8ydegqh",
-        "template_tuc61gb",
+        secrets.emailJsServiceId,
+        secrets.emailJsTemplateId,
         formData
       );
 

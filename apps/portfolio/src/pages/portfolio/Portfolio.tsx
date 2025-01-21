@@ -248,7 +248,8 @@ const projects = [
   {
     name: "Dumpling API Application",
     site: "https://github.com/Nabin99/DumplingStoreAPI",
-    description: "",
+    description:
+      " A RESTful API for a food delivery service, enabling users to browse, order, and track deliveries using Node.js, Express, and MongoDB.",
   },
   {
     name: "Nepal Express Website",
