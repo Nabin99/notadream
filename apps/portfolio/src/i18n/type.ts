@@ -18,7 +18,7 @@ declare module "@notadream/react" {
       footer: {
         buildMessage: string;
         copyRight: string;
-        thankYouMessage: string;
+        message: string;
       };
     };
     homePage: {

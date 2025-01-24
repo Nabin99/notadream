@@ -153,7 +153,6 @@ const softSkills = [
   // Communication Skills
   "Communication",
   "Active Listening",
-  "Public Speaking",
   "Non-verbal Communication",
   "Empathy",
 
@@ -161,20 +160,16 @@ const softSkills = [
   "Teamwork",
   "Collaboration",
   "Conflict Resolution",
-  "Networking",
   "Relationship Building",
 
   // Leadership Skills
   "Decision-Making",
-  "Delegation",
-  "Motivation",
   "Coaching and Mentoring",
   "Vision Setting",
 
   // Problem-Solving and Critical Thinking
   "Analytical Thinking",
   "Creativity",
-  "Resourcefulness",
   "Adaptability",
   "Logical Reasoning",
 
@@ -183,35 +178,26 @@ const softSkills = [
   "Reliability",
   "Accountability",
   "Goal Setting",
-  "Resilience",
 
   // Adaptability and Flexibility
   "Open-Mindedness",
   "Ability to Learn New Skills",
   "Handling Ambiguity",
-  "Staying Calm Under Pressure",
   "Growth Mindset",
 
   // Technical Collaboration
-  "Translating Technical Concepts",
   "Cross-Functional Collaboration",
   "Customer-Centric Thinking",
-  "Process Optimization",
   "Understanding Feedback",
 
   // Creativity and Innovation
   "Brainstorming",
   "Design Thinking",
-  "Experimentation",
-  "Visionary Thinking",
-  "Storytelling",
 
   // Emotional Intelligence
   "Self-Awareness",
-  "Empathy",
   "Relationship Management",
   "Stress Management",
-  "Conflict De-escalation",
 ];
 
 const projects = [

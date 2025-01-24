@@ -2,8 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/nabin-logo.svg" />
     <meta name="description" content="<%- description %>" />
     <meta name="keywords" content="<%- keywords %>" />
     <meta name="author" content="<%- author %>" />
@@ -14,36 +13,32 @@
       href="https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&family=Sofadi+One&display=swap"
       rel="stylesheet"
     />
-    <meta charset="UTF-8" />
     <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#16c7d5" />
+    <meta name="theme-color" content="<%- themeColor %>" />
 
-    <meta property="og:title" content="<%- author %> | Full-Stack Developer" />
-    <meta
-      property="og:description"
-      content="Discover my portfolio featuring innovative web and mobile app projects, along with SEO-based services."
-    />
+    <meta property="og:title" content="<%- title %>" />
+    <meta property="og:description" content="<%- description %>" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://nabin99.github.io/notadream" />
-    <meta property="og:image" content="https://nabin99.github.io/notadream/admin.webp" />
-    <meta property="og:image:alt" content="Nabin Dhital Portfolio" />
+    <meta property="og:url" content="<%- appURL %>" />
+    <meta property="og:image" content="<%- appURL %>/preview.png" />
+    <meta
+      property="og:image:alt"
+      content="Preview of <%- author %>'s Portfolio"
+    />
     <meta property="og:locale" content="en_US" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="<%- author %> | Full-Stack Developer" />
+    <meta name="twitter:title" content="<%- title %>" />
+    <meta name="twitter:description" content="<%- description %>" />
+    <meta name="twitter:image" content="<%- appURL %>/preview.png" />
     <meta
-      name="twitter:description"
-      content="Explore my portfolio showcasing web and mobile app projects and innovative SEO services."
+      name="twitter:image:alt"
+      content="Preview of <%- author %>'s  Portfolio"
     />
-    <meta
-      name="twitter:image"
-      content="https://nabin99.github.io/notadream/admin.webp"
-    />
-    <meta name="twitter:image:alt" content="Preview of Your Portfolio" />
-    <meta name="twitter:site" content="@YourTwitterHandle" />
-    <meta name="twitter:creator" content="@YourTwitterHandle" />
+    <meta name="twitter:site" content="<%- appTwitterHandle %>" />
+    <meta name="twitter:creator" content="<%- appTwitterHandle %>" />
 
-    <link rel="canonical" href="https://nabin99.github.io/notadream" />
+    <link rel="canonical" href="<%- appURL %>" />
 
     <title><%- title %></title>
   </head>
@@ -54,19 +49,19 @@
       {
         "@context": "https://schema.org",
         "@type": "Person",
-        "name": "Nabin Dhital",
-        "jobTitle": "Full-Stack Developer",
-        "description": "A creative and dynamic Full-Stack Developer portfolio showcasing expertise in web development, mobile app development, and SEO-based services.",
-        "url": "https://nabin99.github.io/notadream",
+        "name": "<%- author %>",
+        "jobTitle": "Full Stack Developer",
+        "description": "<%- description %>",
+        "url": "<%- appURL %>",
         "sameAs": [
-          "https://www.linkedin.com/in/dhitalnabin",
-          "https://github.com/Nabin99",
-          "https://twitter.com/dhitalnabin111"
+          "<%- appLinkedInURL %>",
+          "<%- appGitHubURL %>",
+          "<%- appTwitterURL %>"
         ],
-        "image": "https://nabin99.github.io/notadream/images/preview.jpg",
+        "image": "<%- appURL %>/preview.png",
         "worksFor": {
           "@type": "Organization",
-          "name": "Freelance Developer"
+          "name": "Freelance Full Stack Developer"
         }
       }
     </script>
