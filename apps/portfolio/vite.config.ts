@@ -27,7 +27,7 @@ export default defineConfig(({ mode }) => {
               "Software developer, React, NodeJs, MERN stack",
             author: process.env.VITE_APP_AUTHOR || "Nabin Dhital",
             themeColor: process.env.VITE_APP_THEME_COLOR || "#000000",
-            appURL: process.env.VITE_APP_URL || "http://localhost:4003",
+            appURL: process.env.VITE_BASE_APP_URL || "",
             appLinkedInURL: process.env.VITE_APP_LINKEDIN_URL || "",
             appGitHubURL: process.env.VITE_APP_GITHUB_URL || "",
             appTwitterURL: process.env.VITE_APP_TWITTER_URL || "",
