@@ -30,17 +30,18 @@ footer {
   max-width: var(--nd-miscellaneous-max-page-width);
 }
 
-.footer-footer {
-  flex-direction: column;
-  margin: auto;
-  width: 100%;
-  max-width: var(--nd-miscellaneous-max-page-width);
-}
-
 .heart-symbol {
   color: red;
   /* font-size: var(--nd-font-sizes-h4); */
   font-weight: bold;
+}
+
+footer .footer-body > p {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--nd-spacing-xs);
 }
 
 @keyframes pulse-text-shadow {

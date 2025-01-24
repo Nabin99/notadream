@@ -16,8 +16,8 @@ export const ne: TranslationData = {
     footer: {
       buildMessage: "Designed and Build from scratch with all my [ne]",
       copyRight: "Copyright {{year}} {{name}}. All Rights Reserved. [ne]",
-      thankYouMessage:
-        "These are all the words my heart could share, thank you for visiting and taking the time to be here. [ne]",
+      message:
+        "The best way to predict the future is to create it. Let’s turn your ideas into reality. $$$Ready to build it together?[ne]",
     },
     title: "Nabin Dhital [ne]",
   },

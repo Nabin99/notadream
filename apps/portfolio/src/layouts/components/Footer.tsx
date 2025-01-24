@@ -1,4 +1,9 @@
-import { Footer as FooterLayout, Logo, useTranslation } from "@notadream/react";
+import {
+  Footer as FooterLayout,
+  Logo,
+  RouterLink,
+  useTranslation,
+} from "@notadream/react";
 
 import logo from "../../assets/images/logo.svg";
 import { SocialLinks } from "../../components/SocialLinks";
@@ -18,7 +23,12 @@ const FooterBody = () => {
   const { t } = useTranslation("app.footer");
   return (
     <>
-      <span>{t("thankYouMessage")}</span>
+      <p>
+        <span>{t("message").split("$$$")[0]}</span>
+        <RouterLink variant="borderless" to="/contact">
+          {t("message").split("$$$")[1]}
+        </RouterLink>
+      </p>
       <SocialLinks />
     </>
   );
