@@ -1,4 +1,3 @@
-/* Container Styling */
 .ripple-background {
   position: absolute;
   overflow: hidden;
@@ -11,9 +10,9 @@
   max-width: 800px;
   width: 100%;
   z-index: -1;
+  pointer-events: none;
 }
 
-/* Ripple Styling */
 .ripple-background .ripple {
   position: absolute;
   border-radius: 50%;
@@ -21,22 +20,24 @@
   width: 40px;
   height: 40px;
   opacity: 0;
+  will-change: transform, opacity;
   animation: ripple-animation 7s ease-in-out infinite;
 }
 
-/* Ripple Animation */
 @keyframes ripple-animation {
   0% {
-    transform: scale(0);
-    opacity: 0.15;
+    transform: scale(0.1); /* Smaller starting scale */
+    opacity: 0.2; /* Slightly higher initial opacity */
+  }
+  80% {
+    transform: scale(14); /* Reduce final scale */
+    opacity: 0.05; /* Keep some visibility */
   }
   100% {
-    transform: scale(18);
     opacity: 0;
   }
 }
 
-/* Staggered Animation Delays for Each Ripple */
 .ripple-background .ripple:nth-child(1) {
   animation-delay: 0s;
 }
@@ -52,7 +53,4 @@
 }
 .ripple-background .ripple:nth-child(5) {
   animation-delay: 5.3s;
-}
-.ripple-background .ripple:nth-child(6) {
-  animation-delay: 6s;
 }
