@@ -13,6 +13,7 @@ export const Logo: React.FC<LogoProperties> = ({
       src={src}
       alt={alt}
       className={`logo logo-${size} ${className}`.trimEnd()}
+      loading="lazy"
     />
   );
 };

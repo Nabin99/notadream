@@ -39,6 +39,7 @@ export const Button: React.FC<ButtonProperties> = ({
       className={buttonClasses}
       onClick={onClick}
       disabled={isDisabled || loading}
+      aria-label={label}
     >
       {loading && <Spinner size={size} />}
 

@@ -13,22 +13,27 @@ export const SocialLinks = () => {
     {
       href: appConfig.socialLinks.linkedin,
       icon: <FaLinkedin />,
+      label: "LinkedIn",
     },
     {
       href: appConfig.socialLinks.github,
       icon: <FaGithubSquare />,
+      label: "GitHub",
     },
     {
       href: appConfig.socialLinks.instagram,
       icon: <FaSquareInstagram />,
+      label: "Instagram",
     },
     {
       href: appConfig.socialLinks.facebook,
       icon: <FaFacebookSquare />,
+      label: "Facebook",
     },
     {
       href: appConfig.socialLinks.twitter,
       icon: <FaSquareXTwitter />,
+      label: "Twitter",
     },
   ];
 
@@ -44,6 +49,7 @@ export const SocialLinks = () => {
           iconOnly
           size="large"
           variant="borderless"
+          label={link.label}
         />
       ))}
     </div>
