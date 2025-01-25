@@ -1,12 +1,11 @@
 export const RippleEffect: React.FC = () => {
   return (
     <div className="ripple-background">
-      <span className="ripple"></span>
-      <span className="ripple"></span>
-      <span className="ripple"></span>
-      <span className="ripple"></span>
-      <span className="ripple"></span>
-      <span className="ripple"></span>
+      <div className="ripple"></div>
+      <div className="ripple"></div>
+      <div className="ripple"></div>
+      <div className="ripple"></div>
+      <div className="ripple"></div>
     </div>
   );
 };

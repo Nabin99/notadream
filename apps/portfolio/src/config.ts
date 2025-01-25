@@ -1,6 +1,10 @@
 import { configureApp } from "@notadream/react";
 
 declare module "@notadream/react" {
+  interface ThemeOptions {
+    multiColorMode: boolean;
+  }
+
   interface AppConfig {
     appEmail: string;
     secrets: {
@@ -50,6 +54,7 @@ configureApp({
   },
   theme: {
     localStorageName: "theme",
+    multiColorMode: import.meta.env.VITE_APP_THEME_MULTI_COLOR_MODE === "true",
   },
   websiteDomain: window.location.hostname,
   copyright: {

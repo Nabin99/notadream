@@ -44,6 +44,13 @@ footer .footer-body > p {
   gap: var(--nd-spacing-xs);
 }
 
+.footer-footer {
+  flex-direction: column;
+  margin: auto;
+  width: 100%;
+  max-width: var(--nd-miscellaneous-max-page-width);
+}
+
 @keyframes pulse-text-shadow {
   0%,
   100% {
