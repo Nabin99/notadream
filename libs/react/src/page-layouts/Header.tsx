@@ -39,7 +39,7 @@ export const Header = ({ navItems, logo }: HeaderProperties) => {
         variant="borderless"
         onClick={handleToggleMobileMenu}
         aria-expanded={isMenuOpen}
-        aria-label="Toggle navigation menu"
+        label="Toggle navigation menu"
         icon={isMenuOpen ? <HiX /> : <HiMenu />}
         iconOnly={true}
         className="toggle-nav-menu"

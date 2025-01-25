@@ -386,3 +386,5 @@ export const Portfolio = () => {
     </Page>
   );
 };
+
+export default Portfolio;

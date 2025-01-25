@@ -21,6 +21,7 @@ export const RouterLink: React.FC<LinkProperties> = ({
       className={`link ${variant} ${size} ${disabled ? "disabled" : ""} ${className}`.trimEnd()}
       aria-disabled={disabled}
       target={target}
+      aria-label={label}
     >
       {iconLeft && !iconOnly && <span className="icon-left">{iconLeft}</span>}
       {iconOnly && iconLeft && <span className="icon-only">{iconLeft}</span>}

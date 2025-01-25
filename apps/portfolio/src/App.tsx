@@ -1,5 +1,5 @@
 import { getAppConfig } from "@notadream/react";
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import { RouterProvider } from "react-router-dom";
 
 import { browserRouter } from "./Routes";
@@ -36,15 +36,15 @@ function App() {
 
     return () => {
       if (appConfig.theme.multiColorMode) {
-        return cancelIdleCallback(idleCallbackId);
+        cancelIdleCallback(idleCallbackId);
       }
-    }; // Cleanup on unmount
+    };
   }, []);
 
   return (
-    <>
+    <Suspense fallback={<div>Loading...</div>}>
       <RouterProvider router={browserRouter} />
-    </>
+    </Suspense>
   );
 }
 

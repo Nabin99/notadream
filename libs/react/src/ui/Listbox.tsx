@@ -22,7 +22,10 @@ export const Listbox: React.FC<ListboxProperties> = ({
       <HeadlessListbox value={selected} onChange={setSelected}>
         {({ open }) => (
           <>
-            <ListboxButton className="listbox-button">
+            <ListboxButton
+              className="listbox-button"
+              aria-label="listbox-button"
+            >
               <span>{selected?.[renderKey]}</span>
               <span className={`icon ${open ? "rotate" : ""}`.trimEnd()}>
                 {buttonIcon}
@@ -35,9 +38,16 @@ export const Listbox: React.FC<ListboxProperties> = ({
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
-              <ListboxOptions className="listbox-options">
+              <ListboxOptions
+                className="listbox-options"
+                aria-label="listbox-options"
+              >
                 {data.map((dataObject) => (
-                  <ListboxOption key={dataObject?.id} value={dataObject}>
+                  <ListboxOption
+                    key={dataObject?.id}
+                    value={dataObject}
+                    aria-label="listbox-option"
+                  >
                     {({ selected }) => (
                       <div
                         className={`listbox-option ${selected ? "selected" : ""}`.trimEnd()}
