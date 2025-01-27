@@ -15,29 +15,25 @@ function App() {
     const saturation = 79;
     const lightness = 47;
     let currentHue = initialHue;
-
-    const updatePrimaryColor: IdleRequestCallback = (deadline) => {
-      if (deadline.timeRemaining() > 0) {
-        currentHue = (currentHue + 1) % 360; // Increment and loop hue
-        const newColor = `hsl(${currentHue}, ${saturation}%, ${lightness}%)`;
-        (
-          document.getElementsByClassName("page-layout")[0] as HTMLElement
-        ).style.setProperty("--nd-colors-accent", newColor);
-      }
-      requestIdleCallback(updatePrimaryColor, {
-        timeout: 10000, // Increase timeout to decrease update frequency
-      });
-    };
-
     let idleCallbackId: number;
 
+    const updatePrimaryColor: FrameRequestCallback = () => {
+      currentHue = (currentHue + 1) % 360; // Increment and loop hue
+      const newColor = `hsl(${currentHue}, ${saturation}%, ${lightness}%)`;
+      (
+        document.getElementsByClassName("page-layout")[0] as HTMLElement
+      ).style.setProperty("--nd-colors-accent", newColor);
+      // }
+      idleCallbackId = requestAnimationFrame(updatePrimaryColor);
+    };
+
     if (appConfig.theme.multiColorMode) {
-      idleCallbackId = requestIdleCallback(updatePrimaryColor);
+      idleCallbackId = requestAnimationFrame(updatePrimaryColor);
     }
 
     return () => {
       if (appConfig.theme.multiColorMode) {
-        cancelIdleCallback(idleCallbackId);
+        cancelAnimationFrame(idleCallbackId);
       }
     };
   }, []);
