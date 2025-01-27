@@ -4,6 +4,7 @@ footer {
 }
 
 .footer-header {
+  will-change: text-shadow;
   animation: pulse-text-shadow 2s ease-in-out infinite;
   display: flex;
   align-items: center;

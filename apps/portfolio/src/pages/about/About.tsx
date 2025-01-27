@@ -3,6 +3,8 @@ import { Page, RouterLink, useTranslation } from "@notadream/react";
 import aboutImage from "../../assets/images/aboutme-intro.webp";
 import { ContentBox } from "../../components";
 
+import "../../assets/css/pages/about/index.css";
+
 export const About = () => {
   const { t } = useTranslation("aboutPage");
 
