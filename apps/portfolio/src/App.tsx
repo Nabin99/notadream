@@ -1,10 +1,11 @@
 import { getAppConfig } from "@notadream/react";
-import { Suspense, useEffect } from "react";
+import { useEffect } from "react";
 import { RouterProvider } from "react-router-dom";
 
 import { browserRouter } from "./Routes";
 
 import "@notadream/react/dist/index.css";
+import "./assets/css/index.css";
 
 function App() {
   const appConfig = getAppConfig();
@@ -41,11 +42,7 @@ function App() {
     };
   }, []);
 
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <RouterProvider router={browserRouter} />
-    </Suspense>
-  );
+  return <RouterProvider router={browserRouter} />;
 }
 
 export default App;

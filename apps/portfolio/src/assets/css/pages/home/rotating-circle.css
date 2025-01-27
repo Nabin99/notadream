@@ -33,6 +33,7 @@
   border: var(--nd-border-width-md) solid var(--nd-colors-border);
   animation: pulse 3s ease-in-out infinite;
   border-radius: 100%;
+  will-change: box-shadow, color;
 }
 
 .circle-container:nth-child(odd),
@@ -54,6 +55,7 @@
   border-color: transparent transparent var(--nd-colors-accent)
     var(--nd-colors-accent);
   animation: rotate 6s linear infinite;
+  will-change: transform;
 }
 
 .circle-text {

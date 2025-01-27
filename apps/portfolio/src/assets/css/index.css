@@ -1,3 +1,8 @@
 @import "./layouts/index.css";
-@import "./pages/index.css";
+@import "./pages/home/index.css";
 @import "./components/index.css";
+
+body {
+  background-color: var(--nd-colors-primary);
+  will-change: background-color, color, box-shadow;
+}

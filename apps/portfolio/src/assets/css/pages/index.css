@@ -2,9 +2,3 @@
 @import "./about/index.css";
 @import "./portfolio/index.css";
 @import "./contact/index.css";
-
-body {
-  background-color: var(--nd-colors-primary);
-  will-change: background-color, color, transform, opacity, border-color,
-    box-shadow, text-shadow, border-radius, filter, backdrop-filter;
-}

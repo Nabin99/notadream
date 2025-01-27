@@ -1,7 +1,8 @@
 import { ErrorPage } from "@notadream/react";
-import { lazy } from "react";
+import { lazy, Suspense } from "react";
 import { createHashRouter } from "react-router-dom";
 
+import { LoadingAnimation } from "./components/LoadingAnimation";
 import { PageLayout } from "./layouts/PageLayout";
 import { Home } from "./pages";
 
@@ -19,7 +20,11 @@ const mainLayoutRoutes = [
   },
   {
     path: "/portfolio",
-    element: <Portfolio />,
+    element: (
+      <Suspense fallback={<LoadingAnimation></LoadingAnimation>}>
+        <Portfolio />
+      </Suspense>
+    ),
   },
   // {
   //   path: "/blogs",
@@ -27,11 +32,19 @@ const mainLayoutRoutes = [
   // },
   {
     path: "/about",
-    element: <About />,
+    element: (
+      <Suspense fallback={<LoadingAnimation></LoadingAnimation>}>
+        <About />
+      </Suspense>
+    ),
   },
   {
     path: "/contact",
-    element: <Contact />,
+    element: (
+      <Suspense fallback={<LoadingAnimation></LoadingAnimation>}>
+        <Contact />
+      </Suspense>
+    ),
   },
 ];
 

@@ -37,8 +37,6 @@ export interface ButtonProperties
 
 export interface SpinnerProperties {
   size?: SizesType;
-  color?: string; // Option to customize the color
-  thickness?: string; // Option to customize the thickness of the spinner
   className?: string; // For additional custom styles
 }
 

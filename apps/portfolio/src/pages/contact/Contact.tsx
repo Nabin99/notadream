@@ -13,6 +13,8 @@ import { ToastContainer, toast } from "react-toastify";
 
 import { ContentBox, SocialLinks } from "../../components";
 
+import "../../assets/css/pages/contact/index.css";
+
 export const Contact = () => {
   const secrets = getAppConfig().secrets;
   const email = getAppConfig().appEmail;

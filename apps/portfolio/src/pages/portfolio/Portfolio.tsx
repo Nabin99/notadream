@@ -5,6 +5,8 @@ import portfolioImage from "../../assets/images/admin.webp";
 import { ContentBox } from "../../components";
 import { Profile } from "../../components/Profile";
 
+import "../../assets/css/pages/portfolio/index.css";
+
 const experience = [
   {
     role: "Software Developer Freelancer",
