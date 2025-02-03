@@ -20,52 +20,62 @@ export const Listbox: React.FC<ListboxProperties> = ({
   return (
     <div className="listbox-container">
       <HeadlessListbox value={selected} onChange={setSelected}>
-        {({ open }) => (
-          <>
-            <ListboxButton
-              className="listbox-button"
-              aria-label="listbox-button"
-            >
-              <span>{selected?.[renderKey]}</span>
-              <span className={`icon ${open ? "rotate" : ""}`.trimEnd()}>
-                {buttonIcon}
-              </span>
-            </ListboxButton>
+        {({ open }) => {
+          if (open) {
+            document.documentElement.style.removeProperty("overflow");
+            document.documentElement.style.removeProperty("padding-right");
+          }
 
-            <Transition
-              as={Fragment}
-              leave="transition ease-in duration-100"
-              leaveFrom="opacity-100"
-              leaveTo="opacity-0"
-            >
-              <ListboxOptions
-                className="listbox-options"
-                aria-label="listbox-options"
+          return (
+            <div>
+              <ListboxButton
+                className="listbox-button"
+                aria-label="listbox-button"
               >
-                {data.map((dataObject) => (
-                  <ListboxOption
-                    key={dataObject?.id}
-                    value={dataObject}
-                    aria-label="listbox-option"
-                  >
-                    {({ selected }) => (
-                      <div
-                        className={`listbox-option ${selected ? "selected" : ""}`.trimEnd()}
-                      >
-                        {selected && (
-                          <HiCheck className="check-icon" aria-hidden="true" />
-                        )}
-                        <span className="option-text">
-                          {dataObject?.[renderKey]}
-                        </span>
-                      </div>
-                    )}
-                  </ListboxOption>
-                ))}
-              </ListboxOptions>
-            </Transition>
-          </>
-        )}
+                <span>{selected?.[renderKey]}</span>
+                <span className={`icon ${open ? "rotate" : ""}`.trimEnd()}>
+                  {buttonIcon}
+                </span>
+              </ListboxButton>
+
+              <Transition
+                as={Fragment}
+                leave="transition ease-in duration-100"
+                leaveFrom="opacity-100"
+                leaveTo="opacity-0"
+              >
+                <ListboxOptions
+                  className="listbox-options"
+                  aria-label="listbox-options"
+                >
+                  {data.map((dataObject) => (
+                    <ListboxOption
+                      key={dataObject?.id}
+                      value={dataObject}
+                      aria-label="listbox-option"
+                    >
+                      {({ selected }) => (
+                        <div
+                          className={`listbox-option ${selected ? "selected" : ""}`.trimEnd()}
+                        >
+                          {selected && (
+                            <HiCheck
+                              className="check-icon"
+                              aria-hidden="true"
+                            />
+                          )}
+                          <span className="option-text">
+                            {dataObject?.[renderKey]}
+                          </span>
+                        </div>
+                      )}
+                    </ListboxOption>
+                  ))}
+                </ListboxOptions>
+              </Transition>
+            </div>
+          );
+        }}
       </HeadlessListbox>
     </div>
   );
