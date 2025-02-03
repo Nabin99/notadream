@@ -6,11 +6,8 @@ import { LoadingAnimation } from "./components/LoadingAnimation";
 import { PageLayout } from "./layouts/PageLayout";
 import { Home } from "./pages";
 
-// eslint-disable-next-line react-refresh/only-export-components
 const About = lazy(() => import("./pages/about/About"));
-// eslint-disable-next-line react-refresh/only-export-components
 const Contact = lazy(() => import("./pages/contact/Contact"));
-// eslint-disable-next-line react-refresh/only-export-components
 const Portfolio = lazy(() => import("./pages/portfolio/Portfolio"));
 
 const mainLayoutRoutes = [
