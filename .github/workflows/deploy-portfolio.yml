@@ -19,13 +19,13 @@ jobs:
       - name: Set up Node.js and pnpm
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 20
           # cache: "pnpm" # Cache dependencies for faster builds
 
       # Install pnpm
       - name: Install pnpm
         run: |
-          npm install -g pnpm
+          npm install -g pnpm@9.2.0
 
       # Install dependencies in the monorepo
       - name: Install dependencies
