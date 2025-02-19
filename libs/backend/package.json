@@ -21,6 +21,7 @@
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --ignore-path .eslintignore ",
     "lint:fix": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\" --ignore-path .eslintignore "
   },
+  "dependencies": {},
   "devDependencies": {
     "@types/node": "22.13.0",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
