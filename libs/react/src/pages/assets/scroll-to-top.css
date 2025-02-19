@@ -1,11 +1,10 @@
 .scroll-to-top {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: var(--nd-spacing-sm);
+  right: var(--nd-spacing-sm);
   width: 40px;
   height: 40px;
   background-color: var(--nd-colors-primary);
-  backdrop-filter: brightness(1.2);
   color: var(--nd-colors-secondary);
   border: none;
   border-radius: 50%;
