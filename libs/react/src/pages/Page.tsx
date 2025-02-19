@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
+
+import ScrollToTop from "./ScrollToTop";
 
 import type { PageProperties } from "./type";
 
@@ -9,6 +11,10 @@ export const Page: React.FC<PageProperties> = ({
   children,
   className = "",
 }) => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <main className={`page-container ${className}`.trimEnd()}>
       {/* Page Title, Subtitle, and Badges */}
@@ -30,6 +36,7 @@ export const Page: React.FC<PageProperties> = ({
 
       {/* Main Content */}
       <div className="page-content">{children}</div>
+      <ScrollToTop />
     </main>
   );
 };
