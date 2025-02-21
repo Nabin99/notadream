@@ -1,0 +1,28 @@
+.profile-image-container {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  box-shadow: 0 0 40px var(--nd-colors-accent);
+  overflow: hidden;
+  animation: pulse 3s ease-in-out infinite;
+}
+.profile-image-container:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  border-radius: 50%;
+  border: var(--nd-border-width-lg) dashed var(--nd-colors-accent);
+  /* border-bottom-color: var(--nd-colors-border); */
+  /* border-right-color: var(--nd-colors-border); */
+  animation: rotate 6s linear infinite;
+}

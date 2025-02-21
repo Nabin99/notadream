@@ -1,0 +1,203 @@
+main {
+  overflow: hidden;
+}
+
+.contact-page .content-box .background-art {
+  opacity: 0.3;
+  /* z-index: -1; */
+}
+
+.contact-page .content-box {
+  margin: 3rem auto;
+  margin-bottom: 8rem;
+  padding-bottom: var(--nd-miscellaneous-section-separator);
+}
+
+.contact-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: var(--nd-miscellaneous-section-separator);
+  min-height: 80vh;
+  position: relative;
+  flex-wrap: wrap;
+  gap: var(--nd-spacing-xl);
+  max-width: 100%;
+  /* overflow: hidden; */
+}
+
+.contact-details .contact-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+.background-art {
+  width: 840px;
+  height: 840px;
+  position: absolute;
+  background-color: var(--nd-colors-trans-background);
+  z-index: 0;
+  border-radius: var(--nd-border-radius-md);
+  box-shadow: 0 0 20px 0 var(--nd-colors-accent);
+}
+
+.background-art.right {
+  top: -20%;
+  right: -20%;
+  transform: rotate(50deg);
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.background-art.left {
+  bottom: -20%;
+  left: -20%;
+  transform: rotate(-40deg);
+  animation: pulse 3s 1s ease-in-out infinite;
+}
+
+.contact-details .contact-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--nd-spacing-md);
+  max-width: 550px;
+  /* width: 60%; */
+  min-width: 290px;
+  z-index: 1;
+  backdrop-filter: blur(10px);
+  border-radius: var(--nd-border-radius-md);
+}
+
+.contact-details .contact-form h2 {
+  font-size: var(--nd-font-sizes-h4);
+  color: var(--nd-colors-text);
+  width: 100%;
+  text-align: center;
+  padding: var(--nd-spacing-md);
+  border-bottom: var(--nd-border-width-sm) solid var(--nd-colors-border);
+}
+
+.contact-details .contact-form h2 span {
+  color: var(--nd-colors-accent);
+}
+
+.contact-details .contact-form button {
+  width: 100%;
+}
+
+.contact-details .contact-form form {
+  padding: var(--nd-spacing-md);
+  border-radius: var(--nd-border-radius-md);
+  border: var(--nd-border-width-sm) solid var(--nd-colors-border);
+  box-shadow: var(--nd-colors-box-shadow-lg);
+  text-align: center;
+}
+
+.contact-details .contact-info {
+  width: 40%;
+  min-width: 290px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: start;
+  gap: var(--nd-spacing-xl);
+}
+
+.contact-details .contact-info h1 {
+  font-size: var(--nd-font-sizes-h4);
+  color: var(--nd-colors-text);
+  font-weight: normal;
+}
+
+.contact-details .contact-info h1 span {
+  color: var(--nd-colors-accent);
+}
+
+.contact-details .contact-info p.contact-title {
+  font-size: var(--nd-font-sizes-h1);
+  font-weight: var(--nd-font-weight-h1);
+  color: var(--nd-colors-secondary);
+}
+
+.contact-details .contact-info p.contact-title span {
+  color: var(--nd-colors-accent);
+}
+
+.contact-details .contact-info .contact-email {
+  font-size: var(--nd-font-sizes-small);
+  /* font-weight: var(--nd-font-weight-h1); */
+  color: var(--nd-colors-secondary);
+  padding: var(--nd-spacing-md);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--nd-spacing-xs);
+  width: fit-content;
+  background-color: var(--nd-colors-trans-background);
+  border-radius: var(--nd-border-radius-md);
+  flex-wrap: wrap;
+  margin: var(--nd-spacing-xl) 0;
+  border: var(--nd-border-width-sm) solid var(--nd-colors-border);
+  /* box-shadow: var(--nd-colors-box-shadow-md); */
+  line-height: 0.5;
+}
+
+.contact-details .contact-info div {
+  width: fit-content;
+}
+
+.contact-details .contact-form .error-message {
+  text-align: left;
+}
+
+@media screen and (max-width: 1024px) {
+  .contact-details {
+    gap: var(--nd-spacing-xl);
+  }
+
+  .contact-details .contact-form {
+    max-width: 720px;
+  }
+
+  .contact-details .contact-info {
+    width: 50%;
+  }
+
+  .background-art {
+    width: 50vmax;
+    height: 50vmax;
+  }
+
+  .background-art.left {
+    bottom: 0%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .contact-page .content-box {
+    margin: 3rem 0;
+  }
+  .contact-details {
+    gap: var(--nd-spacing-xl);
+  }
+
+  .contact-details .contact-form {
+    max-width: 720px;
+  }
+
+  .contact-details .contact-info {
+    width: 100%;
+  }
+
+  .background-art {
+    width: 400px;
+    height: 400px;
+  }
+
+  .background-art.left {
+    bottom: -3%;
+  }
+}
