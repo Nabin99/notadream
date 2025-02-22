@@ -1,14 +1,11 @@
 import { ErrorPage } from "@notadream/react";
-import { lazy, Suspense } from "react";
 import { createHashRouter } from "react-router-dom";
 
-import { LoadingAnimation } from "./components/LoadingAnimation";
 import { PageLayout } from "./layouts/PageLayout";
 import { Home } from "./pages";
-
-const About = lazy(() => import("./pages/about/About"));
-const Contact = lazy(() => import("./pages/contact/Contact"));
-const Portfolio = lazy(() => import("./pages/portfolio/Portfolio"));
+import AboutLazy from "./pages/about/AboutLazy";
+import ContactLazy from "./pages/contact/ContactLazy";
+import PortfolioLazy from "./pages/portfolio/PortfolioLazy";
 
 const mainLayoutRoutes = [
   {
@@ -17,11 +14,7 @@ const mainLayoutRoutes = [
   },
   {
     path: "/portfolio",
-    element: (
-      <Suspense fallback={<LoadingAnimation></LoadingAnimation>}>
-        <Portfolio />
-      </Suspense>
-    ),
+    element: <PortfolioLazy />,
   },
   // {
   //   path: "/blogs",
@@ -29,19 +22,11 @@ const mainLayoutRoutes = [
   // },
   {
     path: "/about",
-    element: (
-      <Suspense fallback={<LoadingAnimation></LoadingAnimation>}>
-        <About />
-      </Suspense>
-    ),
+    element: <AboutLazy />,
   },
   {
     path: "/contact",
-    element: (
-      <Suspense fallback={<LoadingAnimation></LoadingAnimation>}>
-        <Contact />
-      </Suspense>
-    ),
+    element: <ContactLazy />,
   },
 ];
 
