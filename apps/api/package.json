@@ -10,7 +10,7 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@notadream/backend": "workspace:^",
+    "@notadream/fastify": "workspace:^",
     "dotenv": "^16.4.7",
     "fastify": "^5.2.1"
   },

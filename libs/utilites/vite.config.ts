@@ -1,0 +1,36 @@
+import { resolve, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
+
+import { defineConfig } from "vite";
+import dts from "vite-plugin-dts";
+
+import { devDependencies, dependencies } from "./package.json";
+
+export default defineConfig({
+  build: {
+    lib: {
+      entry: resolve(dirname(fileURLToPath(import.meta.url)), "src/index.ts"),
+      name: "NotadreamUtilities",
+      fileName: "notadream-utilities",
+    },
+    rollupOptions: {
+      external: [...Object.keys(devDependencies), ...Object.keys(dependencies)],
+      output: {
+        exports: "named",
+        globals: {},
+      },
+    },
+    target: "esnext",
+  },
+  resolve: {
+    alias: {
+      "@/": new URL("src/", import.meta.url).pathname,
+    },
+  },
+  plugins: [
+    dts({
+      insertTypesEntry: true,
+      include: ["src/"],
+    }),
+  ],
+});

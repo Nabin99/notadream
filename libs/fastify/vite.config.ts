@@ -10,8 +10,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(dirname(fileURLToPath(import.meta.url)), "src/index.ts"),
-      name: "NotadreamBackend",
-      fileName: "notadream-backend",
+      name: "NotadreamFastify",
+      fileName: "notadream-fastify",
     },
     rollupOptions: {
       external: [...Object.keys(devDependencies), ...Object.keys(dependencies)],
