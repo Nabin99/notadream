@@ -9,19 +9,20 @@ export function errorHandler(
 ) {
   if (error instanceof APIError) {
     reply.code(error.statusCode).send({
-      success: false,
       message: error.message,
-      error: {
-        code: error.code,
-      },
+      code: error.code,
     });
+  } else if (error.validation) {
+    // Handle Zod validation errors
+    reply
+      .status(400)
+      .send({ code: "VALIDATION_ERROR", message: error.message });
   } else {
-    reply.code(500).send({
-      success: false,
+    console.error(error); // Log unknown errors
+
+    reply.status(500).send({
+      code: "INTERNAL_SERVER_ERROR",
       message: "Something went wrong",
-      error: {
-        code: "UNKNOWN_ERROR",
-      },
     });
   }
 }

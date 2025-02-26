@@ -11,6 +11,7 @@
     "dev": "turbo dev",
     "dev:portfolio": "pnpm run dev --filter=@notadream/portfolio",
     "dev:nepalex-admin": "pnpm run dev --filter=nepalex-admin",
+    "dev:api": "pnpm run dev --filter=@notadream/api",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
     "lint:fix:staged": "pnpm run --parallel -r --filter !@notadream/blogs lint:fix",

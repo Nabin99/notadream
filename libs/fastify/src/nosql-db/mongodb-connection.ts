@@ -7,17 +7,22 @@ import { MongoClient, Db } from "mongodb";
 
 import { NoSQLDatabaseConfig } from "../config";
 
+import type { FastifyInstance } from "fastify";
+
 class MongoDBConnection {
   private static instance: MongoDBConnection;
   private client: MongoClient;
   private db?: Db;
+  private fastify: FastifyInstance;
 
-  private constructor(config: NoSQLDatabaseConfig) {
+  private constructor(fastify: FastifyInstance, config: NoSQLDatabaseConfig) {
     const mongoOptions = config.options;
+    this.fastify = fastify;
 
     if (!config?.uri) {
       throw new Error("MongoDB URI is required in the configuration.");
     }
+
     this.client = new MongoClient(config.uri, {
       connectTimeoutMS: 10000,
       serverSelectionTimeoutMS: 5000,
@@ -31,10 +36,12 @@ class MongoDBConnection {
   public async connect(): Promise<void> {
     try {
       await this.client.connect();
+
       this.db = this.client.db();
-      console.log("MongoDB connected successfully");
+      this.fastify.log.info("MongoDB connected successfully");
     } catch (error) {
-      console.error("MongoDB connection error:", error);
+      this.fastify.log.error("MongoDB connection error:", error);
+
       throw error;
     }
   }
@@ -48,6 +55,7 @@ class MongoDBConnection {
         "Database connection is not established. Call connect() first."
       );
     }
+
     return this.db;
   }
 
@@ -58,6 +66,7 @@ class MongoDBConnection {
     if (!this.client) {
       throw new Error("Database client not created.");
     }
+
     return this.client;
   }
 
@@ -67,17 +76,22 @@ class MongoDBConnection {
   public async disconnect(): Promise<void> {
     if (this.client) {
       await this.client.close();
-      console.log("MongoDB connection closed");
+
+      this.fastify.log.info("MongoDB connection closed");
     }
   }
 
   /**
    * Singleton Instance
    */
-  public static getInstance(config: NoSQLDatabaseConfig): MongoDBConnection {
+  public static getInstance(
+    fastify: FastifyInstance,
+    config: NoSQLDatabaseConfig
+  ): MongoDBConnection {
     if (!MongoDBConnection.instance) {
-      MongoDBConnection.instance = new MongoDBConnection(config);
+      MongoDBConnection.instance = new MongoDBConnection(fastify, config);
     }
+
     return MongoDBConnection.instance;
   }
 }

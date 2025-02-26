@@ -1,11 +1,7 @@
-export interface ApiResponse<T> {
-  success: boolean;
-  message: string;
-  data?: T;
-  error?: ApiErrorResponse;
-}
+import { APIError } from "./apiError";
 
-export interface ApiErrorResponse {
-  code: string;
-  details?: string;
+export interface ApiResponse<T> {
+  message?: string;
+  data?: T;
+  error?: APIError;
 }

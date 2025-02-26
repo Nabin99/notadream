@@ -22,15 +22,14 @@
     "lint:fix": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\" --ignore-path .eslintignore "
   },
   "dependencies": {
-    "@fastify/jwt": "^9.0.4",
-    "bcryptjs": "^3.0.2",
-    "jsonwebtoken": "^9.0.2"
+    "@fastify/jwt": "^9.0.4"
   },
   "devDependencies": {
     "@types/jsonwebtoken": "^9.0.9",
     "@types/node": "22.13.0",
     "@typescript-eslint/eslint-plugin": "^6.21.0",
     "@typescript-eslint/parser": "^6.21.0",
+    "bcryptjs": "^3.0.2",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^8.10.0",
     "eslint-plugin-prettier": "^5.2.3",
@@ -38,17 +37,22 @@
     "eslint-plugin-unicorn": "^47.0.0",
     "fastify": "^5.2.1",
     "fastify-plugin": "^5.0.1",
+    "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.13.1",
     "path": "^0.12.7",
     "prettier": "^3.5.1",
     "typescript": "^5.7.3",
     "vite": "^6.1.1",
-    "vite-plugin-dts": "^4.5.0"
+    "vite-plugin-dts": "^4.5.0",
+    "zod": "^3.24.2"
   },
   "peerDependencies": {
+    "bcryptjs": "^3.0.2",
     "fastify": "^5.2.1",
     "fastify-plugin": "^5.0.1",
-    "mongodb": "^6.13.1"
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.13.1",
+    "zod": "^3.24.2"
   },
   "description": "A notadream utility library",
   "keywords": [
