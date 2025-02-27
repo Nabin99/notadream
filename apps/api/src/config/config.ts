@@ -17,9 +17,9 @@ export const config: APIConfig = {
     type: "nosql",
     nosql: [
       {
-        name: "1",
+        name: "main",
         options: {},
-        uri: "",
+        uri: "mongodb+srv://dhitalnabin11:KBHBDAVRLFmE9B1F@cluster0.xkkg7.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
       },
     ],
   },
