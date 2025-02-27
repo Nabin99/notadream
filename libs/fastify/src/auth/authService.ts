@@ -9,7 +9,7 @@ export class AuthService {
   private jwtExpiration: string;
   private refreshExpiration: string;
   private saltRounds: number;
-  private revokedTokens: Set<string>;
+  private static revokedTokens: Set<string>;
 
   constructor(config: APIConfig) {
     this.jwtSecret = config.auth.jwtSecret;
@@ -17,7 +17,7 @@ export class AuthService {
     this.jwtExpiration = config.auth.jwtExpiration;
     this.refreshExpiration = config.auth.refreshExpiration;
     this.saltRounds = config.auth.passwordSaltRounds;
-    this.revokedTokens = new Set();
+    AuthService.revokedTokens = new Set();
   }
 
   async hashPassword(password: string): Promise<string> {
@@ -47,7 +47,7 @@ export class AuthService {
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   verifyToken(token: string): any {
-    if (this.revokedTokens.has(token)) {
+    if (AuthService.revokedTokens.has(token)) {
       throw new Error("Token has been revoked");
     }
 
@@ -60,7 +60,7 @@ export class AuthService {
   }
 
   revokeToken(token: string) {
-    this.revokedTokens.add(token);
+    AuthService.revokedTokens.add(token);
   }
 
   // hasPermission(userRole: string, requiredPermission: string): boolean {
