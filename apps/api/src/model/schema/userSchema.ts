@@ -25,7 +25,7 @@ const businessUserSchema = z.object({
 });
 
 // Base user fields that apply to all user types
-const userSchema = z
+export const userSchema = z
   .object({
     _id: z.instanceof(ObjectId).optional(),
     email: z.string().email(),

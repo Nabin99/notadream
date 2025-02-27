@@ -5,7 +5,7 @@ import { ZodSchema } from "zod";
 import { UserType } from "../schema";
 
 export class UserModel extends BaseModel<UserType> {
-  constructor(db: Db, collectionName: string, schema: ZodSchema<UserType>) {
+  constructor(db: Db, collectionName: string, schema: ZodSchema) {
     super(db, collectionName, schema);
   }
 }
