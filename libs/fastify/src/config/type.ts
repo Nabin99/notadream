@@ -80,10 +80,10 @@ export interface APIConfig {
    * CORS Configuration
    */
   cors: {
-    allowedOrigins: string[]; // List of allowed origins
-    allowedMethods: string[]; // List of allowed HTTP methods
-    allowedHeaders: string[]; // List of allowed headers
-    credentials: boolean; // Allow credentials (cookies, authorization headers)
+    allowedOrigins?: string[]; // List of allowed origins
+    allowedMethods?: string[]; // List of allowed HTTP methods
+    allowedHeaders?: string[]; // List of allowed headers
+    credentials?: boolean; // Allow credentials (cookies, authorization headers)
   };
 
   /**

@@ -2,13 +2,11 @@ import { ObjectId } from "mongodb";
 import { z } from "zod";
 
 import { addressSchema } from "./addressSchema";
-
-export enum EmployeeRoleEnum {
-  Admin = "Admin",
-  Manager = "Manager",
-  WarehouseStaff = "WarehouseStaff",
-  CustomerSupport = "CustomerSupport",
-}
+import {
+  ACTIVE_STATUS_ENUM,
+  CONTACT_METHOD,
+  EMPLOYEE_ROLE_ENUM,
+} from "../../constant";
 
 export const employeeSchema = z.object({
   _id: z.instanceof(ObjectId).optional(),
@@ -19,12 +17,14 @@ export const employeeSchema = z.object({
   alternateEmails: z.array(z.string().email()).optional().default([]),
   alternatePhoneNumbers: z.array(z.string()).optional().default([]),
   address: addressSchema,
-  role: z.array(z.nativeEnum(EmployeeRoleEnum)),
-  preferredContactMethod: z.enum(["Email", "Phone", "SMS"]),
+  role: z.array(z.nativeEnum(EMPLOYEE_ROLE_ENUM)),
+  preferredContactMethod: z
+    .nativeEnum(CONTACT_METHOD)
+    .default(CONTACT_METHOD.EMAIL),
   taxID: z.string().optional(),
-  status: z.enum(["Active", "Inactive", "Blacklisted"]).default("Active"),
+  status: z.nativeEnum(ACTIVE_STATUS_ENUM).default(ACTIVE_STATUS_ENUM.ACTIVE),
   dateOfBirth: z.date().optional(),
-  passwordHash: z.string(),
+  password: z.string(),
   dateJoined: z.date().default(() => new Date()),
 });
 

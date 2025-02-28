@@ -1,3 +1,4 @@
+import cors from "@fastify/cors";
 import {
   AuthPlugin,
   configFastifyPlugin,
@@ -7,6 +8,7 @@ import {
 import fastify from "fastify";
 
 import { config } from "./config/config";
+import { userAuthRoutes } from "./routes/authRoutes";
 
 const app = async () => {
   const fastifyApp = await fastify({
@@ -16,6 +18,7 @@ const app = async () => {
   });
 
   fastifyApp.register(configFastifyPlugin, { apiConfig: config });
+  fastifyApp.register(cors, config.cors);
   fastifyApp.register(mongoDBPlugin);
   fastifyApp.register(AuthPlugin);
 
@@ -34,6 +37,8 @@ const app = async () => {
 
     reply.send(appInfo);
   });
+
+  fastifyApp.register(userAuthRoutes);
 
   //authorized routes
   // users routes

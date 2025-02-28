@@ -2,6 +2,12 @@ import { ObjectId } from "mongodb";
 import { z } from "zod";
 
 import { addressSchema } from "./addressSchema";
+import {
+  ACTIVE_STATUS_ENUM,
+  BUSINESS_TYPE_ENUM,
+  CONTACT_METHOD,
+  USER_ROLE_ENUM,
+} from "../../constant";
 
 export enum UserTypeEnum {
   personal = "personal",
@@ -17,11 +23,10 @@ const personalUserSchema = z.object({
 
 // Business user schema - completely separate from personal
 const businessUserSchema = z.object({
-  type: z.literal("Business"),
-  businessName: z.string(),
-  businessType: z.enum(["E-commerce", "Retail", "Logistics", "Other"]),
+  name: z.string(),
+  type: z.nativeEnum(BUSINESS_TYPE_ENUM).default(BUSINESS_TYPE_ENUM.OTHER),
   establishedAt: z.date().optional(),
-  businessWebsite: z.string().url().optional(),
+  website: z.string().url().optional(),
 });
 
 // Base user fields that apply to all user types
@@ -35,16 +40,14 @@ export const userSchema = z
     address: addressSchema,
     shippingAddress: addressSchema.optional(),
     dateJoined: z.date().default(() => new Date()),
-    preferredContactMethod: z.enum(["Email", "Phone", "SMS"]),
+    preferredContactMethod: z.nativeEnum(CONTACT_METHOD),
     taxID: z.string().optional(),
-    status: z.enum(["Active", "Inactive", "Blacklisted"]).default("Active"),
+    status: z.nativeEnum(ACTIVE_STATUS_ENUM).default(ACTIVE_STATUS_ENUM.ACTIVE),
     type: z.nativeEnum(UserTypeEnum),
-    // eslint-disable-next-line unicorn/no-null
-    personal: personalUserSchema.nullable().optional().default(null),
-    // eslint-disable-next-line unicorn/no-null
-    business: businessUserSchema.nullable().optional().default(null),
-    passwordHash: z.string(),
-    role: z.literal("User"),
+    personal: personalUserSchema.nullable().optional(),
+    business: businessUserSchema.nullable().optional(),
+    password: z.string(),
+    role: z.nativeEnum(USER_ROLE_ENUM),
   })
   .superRefine((user, context) => {
     if (user.type == UserTypeEnum.personal && user[user.type]) {

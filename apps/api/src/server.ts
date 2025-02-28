@@ -9,7 +9,7 @@ export const startServer = async (app: () => Promise<FastifyInstance>) => {
       if (err) {
         server.log.error(err);
         // eslint-disable-next-line unicorn/no-process-exit, no-process-exit
-        process.exit(0);
+        process.exit(1);
       }
 
       server.log.info(`Server listening at ${address}`);

@@ -7,10 +7,7 @@ export const config: APIConfig = {
   appName: "Notadream",
   baseUrl: "localhost",
   cors: {
-    allowedHeaders: [""],
-    allowedMethods: [""],
-    allowedOrigins: [],
-    credentials: true,
+    allowedOrigins: ["d"],
   },
   database: {
     enablePooling: true,

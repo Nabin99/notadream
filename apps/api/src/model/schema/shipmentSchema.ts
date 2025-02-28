@@ -2,6 +2,7 @@ import { ObjectId } from "mongodb";
 import { z } from "zod";
 
 import { addressSchema } from "./addressSchema";
+import { SHIPMENT_STATUS } from "../../constant";
 
 // Define nested schemas first
 // const geolocationSchema = z.object({
@@ -26,17 +27,7 @@ export const shipmentSchema = z
     shipmentID: z.string(),
     orderID: z.string(), // Reference to Order
     customerID: z.string(), // Reference to Customer
-    status: z
-      .enum([
-        "Pending",
-        "Processing",
-        "Shipped",
-        "In Transit",
-        "Out for Delivery",
-        "Delivered",
-        "Failed",
-      ])
-      .default("Pending"),
+    status: z.nativeEnum(SHIPMENT_STATUS).default(SHIPMENT_STATUS.PENDING),
 
     ///////////////
     remoteArea: z.boolean().default(false),

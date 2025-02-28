@@ -10,6 +10,7 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@fastify/cors": "^11.0.0",
     "@notadream/fastify": "workspace:^",
     "bcryptjs": "^3.0.2",
     "dotenv": "^16.4.7",

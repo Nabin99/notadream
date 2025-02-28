@@ -73,3 +73,10 @@ export const AuthPlugin = fp(async (fastify: FastifyInstance) => {
     }
   );
 });
+
+declare module "fastify" {
+  interface FastifyInstance {
+    authenticate: (request: FastifyRequest) => Promise<void>;
+    authorize: (roles: string[]) => (request: FastifyRequest) => Promise<void>;
+  }
+}
