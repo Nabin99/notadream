@@ -48,5 +48,6 @@ async function fastifyMongoDB(fastify: FastifyInstance) {
 }
 
 export const mongoDBPlugin = fp(fastifyMongoDB, {
-  name: "fastify-mongodb",
+  name: "fastify-mongodb-plugin",
+  fastify: "5.x",
 });

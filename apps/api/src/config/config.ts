@@ -29,6 +29,22 @@ export const config: APIConfig = {
     passwordSaltRounds: 12,
     refreshExpiration: "1h",
     refreshSecret: "R#fr#$hS#(r#t",
+    cookieOptions: {
+      secret: "change-me-in-production",
+      httpOnly: true,
+      secure: true,
+      sameSite: "strict" as const,
+      path: "/auth",
+      maxAge: 7 * 24 * 60 * 60, // 7 days
+    },
+    routes: {
+      prefix: "/auth",
+      login: "/user/login",
+      signup: "/user/signup",
+      refresh: "/user/refresh",
+      logout: "/user/logout",
+      disable: [],
+    },
   },
   port: Number(process.env.PORT) || 4000,
 };

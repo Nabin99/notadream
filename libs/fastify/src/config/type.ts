@@ -24,6 +24,24 @@ export interface NoSQLDatabaseConfig {
   name: string;
 }
 
+export interface AuthCookieOptions {
+  secret?: string;
+  httpOnly?: boolean;
+  secure?: boolean;
+  sameSite?: "strict" | "lax" | "none";
+  path?: string;
+  maxAge?: number;
+}
+
+export interface AuthRoutes {
+  prefix?: string;
+  login?: string;
+  signup?: string;
+  refresh?: string;
+  logout?: string;
+  disable?: (keyof Omit<AuthRoutes, "disable" | "prefix">)[];
+}
+
 export interface APIConfig {
   /**
    * General API settings
@@ -44,6 +62,8 @@ export interface APIConfig {
     allowGuestAccess: boolean; // Allow guest access to certain endpoints
     passwordSaltRounds: number; // Bcrypt salt rounds for password hashing
     refreshExpiration: string;
+    cookieOptions: AuthCookieOptions;
+    routes: AuthRoutes;
   };
 
   /**

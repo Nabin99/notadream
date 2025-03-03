@@ -12,7 +12,6 @@ export const paymentSchema = z.object({
   method: z.nativeEnum(PAYMENT_METHOD),
   transactionID: z.string().optional(),
   status: z.nativeEnum(PAYMENT_STATUS).default(PAYMENT_STATUS.PENDING),
-  // eslint-disable-next-line unicorn/no-null
   discount: discountSchema,
   fees: z.number().default(0),
   tax: z.number().default(0),
