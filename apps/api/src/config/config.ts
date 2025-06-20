@@ -14,7 +14,7 @@ export const config: APIConfig = {
     type: "nosql",
     nosql: [
       {
-        name: "main",
+        name: "nepalex",
         options: {},
         uri: "mongodb+srv://dhitalnabin11:KBHBDAVRLFmE9B1F@cluster0.xkkg7.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
       },

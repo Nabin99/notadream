@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
 export interface PageLayoutProperties {
-  layout: "basic" | "sidebar" | "sidebarOverlay";
+  layout: "basic" | "sidebar" | "dashboard";
   header?: React.ReactNode;
   footer?: React.ReactNode;
   sidebar?: React.ReactNode;

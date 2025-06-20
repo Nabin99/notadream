@@ -1,5 +1,5 @@
 import { BasicPageLayout } from "./BasicPageLayout";
-import { SidebarOverlayPageLayout } from "./SidebarOverlayPageLayout";
+import { DashboardLayout } from "./dashboard-layout";
 import { SidebarPageLayout } from "./SidebarPageLayout";
 
 import type { PageLayoutProperties } from "../types";
@@ -10,7 +10,6 @@ export const PageLayout: React.FC<PageLayoutProperties> = ({
   footer,
   sidebar,
   secondarySidebar,
-  sidebarOverlayExtended,
   main,
 }) => {
   switch (layout) {
@@ -32,17 +31,12 @@ export const PageLayout: React.FC<PageLayoutProperties> = ({
           />
         </>
       );
-    case "sidebarOverlay":
+    case "dashboard":
       return (
         <>
-          <SidebarOverlayPageLayout
-            header={header}
-            footer={footer}
-            main={main}
-            secondarySidebar={secondarySidebar}
-            sidebar={sidebar}
-            sidebarOverlayExtended={sidebarOverlayExtended}
-          />
+          <DashboardLayout headerContent={header} sidebarContent={sidebar}>
+            {main}
+          </DashboardLayout>
         </>
       );
     default:

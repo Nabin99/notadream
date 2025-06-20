@@ -1,47 +1,30 @@
 import { ErrorPage } from "@notadream/react";
 // import { lazy, Suspense } from "react";
-import { createHashRouter } from "react-router-dom";
+import { createBrowserRouter, RouteObject } from "react-router-dom";
 
 // import { LoadingAnimation } from "./components/LoadingAnimation";
 import { PageLayout } from "./layouts/PageLayout";
 import { Home } from "./pages";
 
-const mainLayoutRoutes = [
+const mainLayoutRoutes: RouteObject[] = [
   {
     index: true,
     element: <Home />,
   },
-  // {
-  //   path: "/portfolio",
-  //   element: (
-  //     <Suspense fallback={<LoadingAnimation></LoadingAnimation>}>
-  //       <Portfolio />
-  //     </Suspense>
-  //   ),
-  // },
-  // {
-  //   path: "/about",
-  //   element: (
-  //     <Suspense fallback={<LoadingAnimation></LoadingAnimation>}>
-  //       <About />
-  //     </Suspense>
-  //   ),
-  // },
-  // {
-  //   path: "/contact",
-  //   element: (
-  //     <Suspense fallback={<LoadingAnimation></LoadingAnimation>}>
-  //       <Contact />
-  //     </Suspense>
-  //   ),
-  // },
 ];
 
-export const browserRouter = createHashRouter([
+const authRoutes: RouteObject[] = [];
+
+export const browserRouter = createBrowserRouter([
   {
-    path: "/",
+    index: "/",
     errorElement: <ErrorPage />,
     element: <PageLayout />,
     children: [...mainLayoutRoutes],
+  },
+  {
+    path: "/auth",
+    errorElement: <ErrorPage />,
+    children: [...authRoutes],
   },
 ]);

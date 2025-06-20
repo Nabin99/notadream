@@ -1,4 +1,5 @@
 import {
+  DashboardLayout,
   Header,
   Logo,
   PageLayout as PageLayoutSkeleton,
@@ -14,28 +15,12 @@ import type { NavItemType } from "@notadream/react";
 export const PageLayout = () => {
   const { t } = useTranslation("app.header");
 
-  const navItems: NavItemType[] = [
-    {
-      name: t("navigationList.home"),
-      path: "/",
-    },
-  ];
+  // const navItems: NavItemType[] = [
+  //   {
+  //     name: t("navigationList.home"),
+  //     path: "/",
+  //   },
+  // ];
 
-  return (
-    <PageLayoutSkeleton
-      layout="sidebarOverlay"
-      header={
-        <>
-          <div className="header-wrapper">
-            <Header
-              navItems={navItems}
-              logo={<Logo src={logo} size="medium" />}
-            ></Header>
-          </div>
-        </>
-      }
-      footer={<Footer />}
-      main={<Outlet />}
-    />
-  );
+  return <DashboardLayout>{<Outlet />}</DashboardLayout>;
 };
