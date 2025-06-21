@@ -31,7 +31,7 @@
 
 .hero-section .heading > p:first-of-type,
 .hero-section .heading > span {
-  font-size: var(--nd-font-sizes-h2);
+  font-size: var(--nd-font-sizes-h4);
   text-transform: uppercase;
 }
 
