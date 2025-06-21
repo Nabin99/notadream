@@ -34,7 +34,7 @@ configureApp({
   i18n: {
     defaultLanguage: import.meta.env.VITE_I18N_DEFAULT_LANGUAGE || "en",
     supportedLanguages: (
-      import.meta.env.VITE_I18N_SUPPORTED_LANGUAGE || "en, ne"
+      import.meta.env.VITE_I18N_SUPPORTED_LANGUAGE || "en, fr"
     )
       .replaceAll(", ", ",")
       .split(","),
