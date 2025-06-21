@@ -1,2 +1,2 @@
 export * from "./PageLayout";
-export * from "./Sidebar";
+export * from "./dashboard-layout";

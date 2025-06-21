@@ -1,0 +1,39 @@
+.why-card {
+  padding: var(--nd-spacing-md) var(--nd-spacing-lg);
+  border-radius: var(--nd-border-radius-md);
+  background-color: var(--nd-colors-primary);
+  text-align: left;
+  vertical-align: middle;
+  display: flex;
+  flex-direction: column;
+  gap: var(--nd-spacing-md);
+  box-shadow: var(--nd-colors-box-shadow-lg);
+  cursor: default;
+  transition:
+    transform 0.5s ease-out,
+    box-shadow 0.5s ease-out;
+  max-width: 600px;
+}
+
+.why-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 0px 10px var(--nd-colors-accent);
+}
+
+.why-card h3 {
+  font-weight: var(--nd-font-weight-base);
+}
+
+.why-card h3 span {
+  color: var(--nd-colors-accent);
+  margin-right: var(--nd-spacing-md);
+}
+
+.why-card p {
+  /* color: var(--nd-colors-text-muted); */
+  font-size: var(--nd-font-sizes-base);
+}
+
+.why-card .icon {
+  font-size: var(--nd-font-sizes-h3);
+}

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/nepalex-logo.svg" />
+    <meta name="description" content="<%- description %>" />
+    <meta name="keywords" content="<%- keywords %>" />
+    <meta name="author" content="<%- author %>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mitr:wght@200;300;400;500;600;700&family=Sofadi+One&display=swap"
+      rel="stylesheet"
+      media="none"
+      onload="if(media!=='all')media='all'"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="<%- themeColor %>" />
+
+    <meta property="og:title" content="<%- title %>" />
+    <meta property="og:description" content="<%- description %>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<%- appURL %>" />
+    <meta property="og:image" content="<%- appURL %>/preview.png" />
+    <meta
+      property="og:image:alt"
+      content="Preview of <%- author %>'s Portfolio"
+    />
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="<%- title %>" />
+    <meta name="twitter:description" content="<%- description %>" />
+    <meta name="twitter:image" content="<%- appURL %>/preview.png" />
+    <meta
+      name="twitter:image:alt"
+      content="Preview of <%- author %>'s  Portfolio"
+    />
+    <meta name="twitter:site" content="<%- appTwitterHandle %>" />
+    <meta name="twitter:creator" content="<%- appTwitterHandle %>" />
+
+    <link rel="canonical" href="<%- appURL %>" />
+
+    <title><%- title %></title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "<%- author %>",
+        "jobTitle": "Full Stack Developer",
+        "description": "<%- description %>",
+        "url": "<%- appURL %>",
+        "sameAs": [
+          "<%- appLinkedInURL %>",
+          "<%- appGitHubURL %>",
+          "<%- appTwitterURL %>"
+        ],
+        "image": "<%- appURL %>/preview.png",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Freelance Full Stack Developer"
+        }
+      }
+    </script>
+  </body>
+</html>
