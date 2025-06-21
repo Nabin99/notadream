@@ -80,7 +80,7 @@ const ThemeConfigProvider = (): ThemeConfigProvider => {
       } else if (themeConfig.defaultMode !== "auto") {
         colorScheme = themeConfig.defaultMode;
       } else {
-        colorScheme = window.matchMedia("(prefers-color-scheme: dark)")
+        colorScheme = window.matchMedia("(prefers-color-scheme: dark)").matches
           ? "dark"
           : "light";
       }
@@ -120,9 +120,10 @@ const ThemeConfigProvider = (): ThemeConfigProvider => {
       const colorScheme =
         mode !== "auto"
           ? mode
-          : window.matchMedia("(prefers-color-scheme: dark)")
+          : window.matchMedia("(prefers-color-scheme: dark)").matches
             ? "dark"
             : "light";
+
       const {
         generatedColorVariablesString,
         generatedNonColorVariablesString,
