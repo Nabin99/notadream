@@ -8,7 +8,7 @@ RUN npm install -g pnpm@8 \
 
 WORKDIR /apps/notadream/
 
-# Copy package.json and pnpm files
+# Copy package.json and pnpm files from main machine to the docker workspace
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 
 # Install dependencies
