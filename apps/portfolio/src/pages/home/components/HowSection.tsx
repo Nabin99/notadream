@@ -4,8 +4,13 @@ import { HomepageSection } from "./HomepageSection";
 
 import { RotatingCircle } from ".";
 
+const workflow = {
+  en: ["Planning", "Research", "Design", "Iteration", "Result"],
+  fr: ["Planification", "Recherche", "Design", "Itération", "Résultat"],
+};
+
 export const HowSection = () => {
-  const { t } = useTranslation("homePage.howSection");
+  const { t, language } = useTranslation("homePage.howSection");
 
   return (
     <HomepageSection
@@ -13,11 +18,9 @@ export const HowSection = () => {
       description={t("description")}
       headings={t("title").split("$$$")}
     >
-      <RotatingCircle word="Planning" />
-      <RotatingCircle word="Research" />
-      <RotatingCircle word="Design" />
-      <RotatingCircle word="Iteration" />
-      <RotatingCircle word="Result" />
+      {workflow[language as keyof typeof workflow]?.map((word, i) => (
+        <RotatingCircle key={word + i} word={word} />
+      ))}
     </HomepageSection>
   );
 };

@@ -36,17 +36,17 @@ export const en: TranslationData = {
     whySection: {
       title: "Why you hire me for $$$your next project?",
       description:
-        "Choosing a developer is about more than technical skills – it’s about finding a partner dedicated to helping you succeed. Here’s why I’m the right choice for your web, mobile, and SEO needs.",
+        "Choosing a developer is about more than just technical skills – it’s about partnering with someone who’s committed to driving real results. With expertise in full-stack web and mobile development, cloud platforms like Azure, and data-driven tools like Power BI and Azure AI, I bring a holistic approach to building scalable, intelligent, and optimized solutions. I'm here to help your project succeed—through clean code, smart automation, and a deep understanding of both technology and user experience.",
     },
     serviceSection: {
       title: "My Awesome$$$Services For You",
       description:
-        "I offer a full-service approach, combining web and mobile development with SEO to create holistic digital experiences. This combination not only builds a solid online presence but also ensures your website or app is optimized for search engines, engaging users and enhancing visibility from day one.",
+        "I offer a full-service approach that blends web and mobile development with SEO, cloud capabilities (Azure, AWS etc), and data insights through Power BI and different AI approaches. This holistic strategy ensures your digital experience is not only beautifully built and scalable, but also optimized for search engines, intelligently automated, and ready to deliver measurable impact from day one.",
     },
     howSection: {
       title: "How Do$$$I Work?",
       description:
-        "Combining design, development, SEO, and ongoing support, I offer comprehensive solutions that cover each phase of your digital project. This holistic approach ensures your platform remains optimized, secure, and engaging from launch through every update.",
+        "Combining design, development, SEO, AI and ongoing support, I offer comprehensive solutions that cover each phase of your digital project. This holistic approach ensures your platform remains optimized, secure, and engaging from launch through every update.",
     },
   },
   contactPage: {
@@ -94,7 +94,7 @@ export const en: TranslationData = {
   aboutPage: {
     title: "A Developer with  $$$a Vision",
     description1:
-      "Hi, I'm Nabin Dhital, a dedicated Full-Stack Developer with a knack for building seamless web and mobile experiences.With experience in React, Express, Fastify, Docker, CI/CD pipelines, and databases, My mission is to craft solutions that not only look stunning but also deliver functionality and scalability.",
+      "Hi, I'm Nabin Dhital, a dedicated Full-Stack Developer passionate about crafting seamless web and mobile experiences. With hands-on experience in React, Express, Fastify, Docker, CI/CD pipelines, and modern databases, I focus on building scalable and performance-driven applications. I also bring proficiency in Microsoft Azure—including Azure DevOps and Azure AI—to deliver intelligent cloud-integrated solutions. My skill set extends to Power BI for data visualization and AI tools that enhance automation and user insights. My mission is to build solutions that not only look great but are secure, efficient, and built for long-term success.",
     description2:
       "From my early days of exploring computers to mastering Full Stack web development, my journey has been fueled by curiosity and the thrill of building something impactful...",
 
@@ -122,7 +122,7 @@ export const en: TranslationData = {
     },
     experience: {
       title: "Years of $$$Experience",
-      description: "3+",
+      description: "4+",
     },
     drive: {
       title: "What Drives $$$Me",
@@ -144,7 +144,7 @@ export const en: TranslationData = {
   portfolioPage: {
     title: "My Work – $$$Crafting Solutions with Impact",
     description:
-      "Explore my latest projects, skills, and experience to see how I can help bring your ideas to life. Below is a selection of projects that demonstrate my expertise in web and mobile app development and SEO optimization. Each project reflects my commitment to creating intuitive and impactful digital experiences.",
+      "Explore my latest projects, technical skills, and hands-on experience to see how I can help bring your digital ideas to life. I specialize in full-stack web and mobile app development, SEO optimization, and cloud integrations using tools like Azure and Power BI. Each project featured here reflects my commitment to building fast, scalable, and user-friendly solutions that solve real-world problems and enhance user experience.",
     experience: {
       title: "Experience",
     },

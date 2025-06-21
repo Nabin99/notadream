@@ -141,6 +141,6 @@ declare module "@notadream/react" {
   }
 
   interface Translations {
-    ne: TranslationData;
+    fr: TranslationData;
   }
 }
