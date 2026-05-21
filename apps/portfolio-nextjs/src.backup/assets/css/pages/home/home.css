@@ -1,0 +1,9 @@
+.page-container.home {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.home .background-art {
+  z-index: -1;
+  opacity: 0.2;
+}

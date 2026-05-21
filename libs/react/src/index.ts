@@ -6,5 +6,6 @@ export * from "./forms";
 export * from "./i18n";
 export * from "./ui";
 export * from "./pages";
+export * from "./routing";
 
 export * from "./config";

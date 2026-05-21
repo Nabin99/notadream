@@ -36,4 +36,5 @@ export interface NavigationMenuProperties
   setOpenItem?: (itemName: string) => void;
   toggleMenuOpen?: () => void;
   iconOnly?: boolean;
+  pathname?: string;
 }

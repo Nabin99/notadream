@@ -1,7 +1,8 @@
-import { HiChevronDown } from "react-icons/hi";
-import { NavLink } from "react-router-dom";
+import { HiChevronDown } from 'react-icons/hi';
 
-import type { NavItemProperties } from "../../types";
+import { useRouting } from '../../../routing';
+
+import type { NavItemProperties } from '../../types';
 
 export const NavItem: React.FC<NavItemProperties> = ({
   name,
@@ -13,6 +14,8 @@ export const NavItem: React.FC<NavItemProperties> = ({
   childIndicatorIcon = <HiChevronDown />,
   children,
 }) => {
+  const { Link } = useRouting();
+
   return (
     <>
       {/* If the item has children, render a non-clickable parent item */}
@@ -30,16 +33,16 @@ export const NavItem: React.FC<NavItemProperties> = ({
           {children}
         </div>
       ) : (
-        <NavLink
-          to={path || "#"}
-          className="nav-item"
+        <Link
+          href={path || "#"}
+          className={`nav-item ${isActive ? "active" : ""}`.trimEnd()}
           title={name}
           aria-label={name}
         >
           {icon && <span className="link-icon">{icon}</span>}
           {!iconOnly && <span className="link-name">{name}</span>}
           {children}
-        </NavLink>
+        </Link>
       )}
     </>
   );

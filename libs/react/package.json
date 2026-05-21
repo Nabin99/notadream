@@ -18,7 +18,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc --incremental && vite build",
+    "build": "vite build",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --ignore-path .eslintignore ",
     "lint:fix": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\" --ignore-path .eslintignore ",
     "typecheck": "tsc"
