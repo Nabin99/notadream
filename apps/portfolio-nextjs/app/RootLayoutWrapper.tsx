@@ -1,18 +1,13 @@
-"use client";
+'use client';
 
-import {
-  Header,
-  Logo,
-  PageLayout as PageLayoutSkeleton,
-  useTranslation,
-} from "@notadream/react";
-import { ReactNode } from "react";
+import Image from 'next/image';
+import { ReactNode } from 'react';
 
-import logo from "./assets/images/logo.svg";
-import { Footer } from "./layouts/components";
+import { Header, Logo, PageLayout as PageLayoutSkeleton, useTranslation } from '@notadream/react';
+import type { NavItemType } from '@notadream/react';
 
-import type { NavItemType } from "@notadream/react";
-import Image from "next/image";
+import logo from './assets/images/logo.svg';
+import { Footer } from './layouts/components';
 
 export default function RootLayoutWrapper({
   children,

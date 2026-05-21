@@ -1,4 +1,4 @@
-import { PortfolioContent } from './portfolio-content';
+import { Portfolio } from './Portfolio';
 
 export const dynamic = 'force-dynamic';
 
@@ -8,5 +8,5 @@ export const metadata = {
 };
 
 export default function PortfolioPage() {
-  return <PortfolioContent />;
+  return <Portfolio />;
 }

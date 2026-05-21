@@ -1,11 +1,32 @@
-import { Page, RouterLink, useTranslation } from "@notadream/react";
+'use client';
 
-import { Project } from "./projects";
-import portfolioImage from "../assets/images/admin.webp";
-import { ContentBox } from "../components";
-import { Profile } from "../components/Profile";
+import { Page, RouterLink, useTranslation } from '@notadream/react';
 
-import "../assets/css/pages/portfolio/index.css";
+import portfolioImage from '../assets/images/admin.webp';
+import { ContentBox } from '../components';
+import { Profile } from '../components/Profile';
+
+import '../assets/css/pages/portfolio/index.css';
+
+interface ProjectProps {
+  name: string;
+  description: string;
+  site: string;
+}
+
+const Project: React.FC<ProjectProps> = ({ name, description, site }) => {
+  return (
+    <div className="project-card">
+      <h3>{name}</h3>
+      <p>{description}</p>
+      {site && (
+        <a href={site} target="_blank" rel="noopener noreferrer">
+          View Project
+        </a>
+      )}
+    </div>
+  );
+};
 
 const experience = {
   en: [

@@ -1,16 +1,12 @@
 import { Logo } from "@notadream/react";
 
-import logo from "../assets/images/logo.svg";
-import Image from "next/image";
-
 export const LoadingAnimation = () => {
   return (
     <div className="loading-animation">
-      <Image
-        src={logo}
-        width="40"
-        height="40"
+      <Logo
+        src={"/nabin-logo.svg"}
         alt="Loading logo..."
+        size="large"
         className="loader-logo"
       />
     </div>

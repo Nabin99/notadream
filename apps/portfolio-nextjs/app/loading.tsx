@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { LoadingAnimation } from './components';
+import { LoadingAnimation } from "./components";
 
 /**
  * Loading component - Displayed while the page is loading

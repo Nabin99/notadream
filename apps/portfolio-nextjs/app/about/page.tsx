@@ -1,4 +1,4 @@
-import { AboutContent } from './about-content';
+import { About } from './About';
 
 export const dynamic = 'force-dynamic';
 
@@ -8,5 +8,5 @@ export const metadata = {
 };
 
 export default function AboutPage() {
-  return <AboutContent />;
+  return <About />;
 }
