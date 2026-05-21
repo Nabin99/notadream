@@ -20,16 +20,16 @@ export const SocialLinks = () => {
       icon: <FaGithubSquare />,
       label: "GitHub",
     },
-    {
-      href: appConfig.socialLinks.instagram,
-      icon: <FaSquareInstagram />,
-      label: "Instagram",
-    },
-    {
-      href: appConfig.socialLinks.facebook,
-      icon: <FaFacebookSquare />,
-      label: "Facebook",
-    },
+    // {
+    //   href: appConfig.socialLinks.instagram,
+    //   icon: <FaSquareInstagram />,
+    //   label: "Instagram",
+    // },
+    // {
+    //   href: appConfig.socialLinks.facebook,
+    //   icon: <FaFacebookSquare />,
+    //   label: "Facebook",
+    // },
     {
       href: appConfig.socialLinks.twitter,
       icon: <FaSquareXTwitter />,

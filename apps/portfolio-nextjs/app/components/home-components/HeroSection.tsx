@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { Button, useTranslation } from "@notadream/react";
 import { useRouter } from "next/navigation";
@@ -36,8 +36,8 @@ export const HeroSection = () => {
                 router.push("/contact");
               }}
             />
+            <SocialLinks />
           </div>
-          <SocialLinks />
         </div>
         <RippleEffect />
         {/* <div className="background-art left"></div> */}
