@@ -556,7 +556,7 @@ export const Portfolio = () => {
                   ))}
                 </p>
               </div>
-            )
+            ),
           )}
         </section>
 
@@ -590,7 +590,7 @@ export const Portfolio = () => {
           <div>
             <ul>
               {technicalSkills[language as keyof typeof technicalSkills]?.map(
-                (skill, index) => <li key={index}>{skill}</li>
+                (skill, index) => <li key={index}>{skill}</li>,
               )}
             </ul>
           </div>
@@ -605,7 +605,7 @@ export const Portfolio = () => {
           <div>
             <ul>
               {softSkills[language as keyof typeof softSkills]?.map(
-                (skill, index) => <li key={index}>{skill}</li>
+                (skill, index) => <li key={index}>{skill}</li>,
               )}
             </ul>
           </div>
@@ -626,7 +626,7 @@ export const Portfolio = () => {
                   description={project.description}
                   site={project.site}
                 />
-              )
+              ),
             )}
           </div>
           <div className="background-art left"></div>

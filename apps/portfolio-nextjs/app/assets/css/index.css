@@ -6,3 +6,37 @@ body {
   background-color: var(--nd-colors-primary);
   will-change: background-color, color, box-shadow;
 }
+
+/* Global styles for the portfolio app text quote */
+.text-quote {
+  position: relative;
+  max-width: 900px;
+  width: 88%;
+  padding: var(--nd-spacing-xl) !important;
+  margin: var(--nd-spacing-xl) auto;
+  background: var(--nd-colors-trans-background);
+  border-radius: var(--nd-border-radius-lg);
+  transition: box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.text-quote:hover {
+  box-shadow: 0 0 10px 0 var(--nd-colors-accent);
+}
+
+.text-quote::before,
+.text-quote::after {
+  content: '"';
+  color: var(--nd-colors-accent);
+  font-size: 6rem;
+  position: absolute;
+}
+.text-quote::before {
+  top: -3rem;
+  left: -1rem;
+}
+
+.text-quote::after {
+  bottom: -6rem;
+  right: -1rem;
+}

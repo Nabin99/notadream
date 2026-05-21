@@ -4,6 +4,7 @@ import {
   RouterLink,
   useTranslation,
 } from "@notadream/react";
+import Image from "next/image";
 
 import logo from "../../assets/images/logo.svg";
 import { SocialLinks } from "../../components/SocialLinks";
@@ -13,7 +14,7 @@ const FooterHeader = () => {
 
   return (
     <>
-      <Logo src={logo} size="large" alt="Logo" />
+      <Image src={logo} width="40" height="40" alt="Logo" />
       <span className="app-name">{t("name")}</span>
     </>
   );
