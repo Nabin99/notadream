@@ -1,4 +1,5 @@
 import { Mitr, Sofadi_One } from "next/font/google";
+
 import { Providers } from "./providers";
 
 import type { Metadata, Viewport } from "next";
@@ -32,30 +33,29 @@ export const metadata: Metadata = {
   title: {
     default:
       process.env.NEXT_PUBLIC_APP_TITLE ||
-      "Nabin Dhital | Full-Stack Developer & SEO Specialist",
+      "Nabin Dhital — Full-Stack Engineer | TypeScript · Node.js · React",
     template: `%s | ${process.env.NEXT_PUBLIC_APP_TITLE || "Nabin Dhital"}`,
   },
   description:
     process.env.NEXT_PUBLIC_APP_DESCRIPTION ||
-    "A creative and dynamic Full-Stack Developer portfolio showcasing expertise in web development, mobile app development, and SEO-based services.",
+    "Full-Stack Engineer in Greater Toronto Area. Experienced with TypeScript, Node.js, React, PostgreSQL. Open to software development roles in the GTA.",
   keywords: [
-    "Full-Stack Developer",
-    "Web Development",
-    "Mobile App Development",
-    "SEO Services",
-    "React",
-    "JavaScript",
-    "CSS",
-    "HTML",
-    "Node.js",
+    "Full Stack Developer Toronto",
+    "TypeScript Developer GTA",
+    "Node.js Engineer Canada",
+    "React Developer Ontario",
+    "Software Engineer Ontario",
+    "Full-Stack Engineer",
     "TypeScript",
-    "Fastify",
-    "Express",
+    "Node.js",
+    "React",
     "PostgreSQL",
-    "MongoDB",
-    "Portfolio",
-    "Freelance Developer",
-    "Software Engineer",
+    "API Development",
+    "Backend Development",
+    "Frontend Development",
+    "Fintech Developer",
+    "Docker",
+    "CI/CD",
   ],
   authors: [{ name: process.env.NEXT_PUBLIC_APP_AUTHOR || "Nabin Dhital" }],
   creator: process.env.NEXT_PUBLIC_APP_AUTHOR || "Nabin Dhital",
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
       "Nabin Dhital | Full-Stack Developer & SEO Specialist",
     description:
       process.env.NEXT_PUBLIC_APP_DESCRIPTION ||
-      "A creative and dynamic Full-Stack Developer portfolio showcasing expertise in web development, mobile app development, and SEO-based services.",
+      "A creative and dynamic Full-Stack Developer portfolio showcasing expertise in web development and mobile app development.",
     type: "website",
     url: baseUrl,
     siteName: process.env.NEXT_PUBLIC_APP_AUTHOR || "Nabin Dhital",
@@ -98,7 +98,7 @@ export const metadata: Metadata = {
       "Nabin Dhital | Full-Stack Developer & SEO Specialist",
     description:
       process.env.NEXT_PUBLIC_APP_DESCRIPTION ||
-      "A creative and dynamic Full-Stack Developer portfolio showcasing expertise in web development, mobile app development, and SEO-based services.",
+      "A creative and dynamic Full-Stack Developer portfolio showcasing expertise in web development and mobile app development.",
     images: ["/preview.png"],
     creator: process.env.NEXT_PUBLIC_APP_TWITTER_HANDLE || "@dhitalnabin111",
     site: process.env.NEXT_PUBLIC_APP_TWITTER_HANDLE || "@dhitalnabin111",
@@ -154,10 +154,16 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       "SEO",
       "Mobile Development",
     ],
-    alumniOf: {
-      "@type": "EducationalOrganization",
-      name: "Tribhuvan University",
-    },
+    alumniOf: [
+      {
+        "@type": "EducationalOrganization",
+        name: "Lambton College",
+      },
+      {
+        "@type": "EducationalOrganization",
+        name: "Tribhuvan University",
+      },
+    ],
   };
 
   return (

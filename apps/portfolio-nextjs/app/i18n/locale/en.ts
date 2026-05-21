@@ -2,7 +2,7 @@ import type { TranslationData } from "@notadream/react";
 
 export const en: TranslationData = {
   app: {
-    description: "A professional full stack developer",
+    description: "Full-Stack Engineer | TypeScript · Node.js · React",
     name: "Nabin Dhital",
     header: {
       navigationList: {
@@ -14,51 +14,53 @@ export const en: TranslationData = {
       },
     },
     footer: {
-      buildMessage: "Designed and Build from scratch with ",
+      buildMessage: "Designed and built from scratch with ",
       copyRight: "Copyright {{year}} {{name}}. All Rights Reserved.",
       message:
-        "The best way to predict the future is to create it. Let’s turn your ideas into reality. $$$Ready to build it together?",
+        "Open to full-stack engineering roles in the Greater Toronto Area. $$$Let's connect.",
     },
-    title: "Nabin Dhital",
+    title: "Nabin Dhital — Full-Stack Engineer | TypeScript · Node.js · React",
   },
   homePage: {
     heroSection: {
       buttons: {
         connect: "Let's Connect",
-        explore: "Explore My Portfolio",
+        explore: "View Portfolio",
+        download: "Download CV",
       },
-      greetings: "Hello there, ",
-      introduction: "It's me Nabin Dhital",
-      title: "A Full Stack Developer ",
+      greetings: "Hi, I am",
+      introduction: "Nabin Dhital",
+      title: "Full-Stack Engineer",
       subtitle:
-        "Focused on Scalable, User-Centric Solutions. Creating efficient, reliable, and engaging web/mobile experiences with expertise in full-stack development.",
+        "TypeScript · Node.js · React · PostgreSQL | 3+ years building scalable APIs and fintech applications | Based in Brampton, ON | Open to work in the GTA",
     },
     whySection: {
-      title: "Why you hire me for $$$your next project?",
+      title: "What I $$$Bring to a Team",
       description:
-        "Choosing a developer is about more than just technical skills – it’s about partnering with someone who’s committed to driving real results. With expertise in full-stack web and mobile development, cloud platforms like Azure, and data-driven tools like Power BI and Azure AI, I bring a holistic approach to building scalable, intelligent, and optimized solutions. I'm here to help your project succeed—through clean code, smart automation, and a deep understanding of both technology and user experience.",
+        "I build production-grade systems that scale. My approach combines clean architecture, rigorous testing, and modern DevOps practices to deliver reliable solutions. From fintech APIs to open-source packages, I've shipped code that engineers trust and users depend on.",
     },
     serviceSection: {
-      title: "My Awesome$$$Services For You",
+      title: "Core $$$Tech Stack",
       description:
-        "I offer a full-service approach that blends web and mobile development with SEO, cloud capabilities (Azure, AWS etc), and data insights through Power BI and different AI approaches. This holistic strategy ensures your digital experience is not only beautifully built and scalable, but also optimized for search engines, intelligently automated, and ready to deliver measurable impact from day one.",
+        "TypeScript | Node.js (Fastify, Express) | React · Next.js | PostgreSQL · MongoDB | Docker · AWS · GitHub Actions | Git · Postman · Redux · GraphQL",
     },
     howSection: {
-      title: "How Do$$$I Work?",
+      title: "Engineering $$$Process",
       description:
-        "Combining design, development, SEO, AI and ongoing support, I offer comprehensive solutions that cover each phase of your digital project. This holistic approach ensures your platform remains optimized, secure, and engaging from launch through every update.",
+        "Requirements & Architecture → API Development (REST/GraphQL) → Frontend Integration → Testing & CI/CD → Deployment & Monitoring. Every system is built for reliability, tested rigorously, and deployed with confidence.",
     },
   },
   contactPage: {
-    title: "Contact $$$Me",
-    subtitle: "Let's Build Something $$$Amazing Together",
+    title: "Let's $$$Connect",
+    subtitle:
+      "📍 GTA, ON · Available for full-stack roles · $$$Open to hybrid and remote",
     description:
-      "Thank you for taking the time to explore my portfolio. Whether you're looking to collaborate, have a project in mind, or just want to say hello, I'd be delighted to connect with you. Please feel free to use the form below, email me directly, or find me on social media.",
+      "I'm actively looking for full-stack engineering roles in the Greater Toronto Area. If you're hiring or know someone who is, I'd love to chat. Reach out directly via email or LinkedIn, or use the form below.",
     directContact: "Reach me directly at:",
     form: {
-      title: "Have a question or want to $$$work together?",
+      title: "Project $$$Inquiry",
       caption:
-        "I'd love to hear from you! Feel free to drop a message, and I'll respond promptly.",
+        "Share details about your project requirements, technical goals, or development challenges. I'll review and respond promptly with insights on approach and feasibility.",
       fields: {
         firstName: "First Name...",
         lastName: "Last Name...",
@@ -92,59 +94,59 @@ export const en: TranslationData = {
     },
   },
   aboutPage: {
-    title: "A Developer with  $$$a Vision",
+    title: "Full-Stack Engineer $$$Greater Toronto Area, ON",
     description1:
-      "Hi, I'm Nabin Dhital, a dedicated Full-Stack Developer passionate about crafting seamless web and mobile experiences. With hands-on experience in React, Express, Fastify, Docker, CI/CD pipelines, and modern databases, I focus on building scalable and performance-driven applications. I also bring proficiency in Microsoft Azure—including Azure DevOps and Azure AI—to deliver intelligent cloud-integrated solutions. My skill set extends to Power BI for data visualization and AI tools that enhance automation and user insights. My mission is to build solutions that not only look great but are secure, efficient, and built for long-term success.",
+      "I'm Nabin Dhital, a full-stack engineer focused on building reliable, scalable systems. With hands-on experience in TypeScript, Node.js (Fastify, Express), React, PostgreSQL, and Docker, I ship production code that teams trust. My professional background includes fintech development at Dzango Technologies and frontend work at Fintech Solutions. I'm based in Brampton, ON and actively open to full-stack engineering roles in the GTA.",
     description2:
-      "From my early days of exploring computers to mastering Full Stack web development, my journey has been fueled by curiosity and the thrill of building something impactful...",
+      "I recently completed my Full Stack Software Development diploma at Lambton College (2025). My journey has been shaped by building real systems under deadline, learning from experienced engineers, and shipping code that users depend on.",
 
     philosophy:
-      "I believe in clean, maintainable code, and solutions that grow with your business. My approach is collaborative, ensuring that the end product aligns with your vision and goals.",
+      "I write code for the next engineer who reads it. Clean architecture, comprehensive testing, and thoughtful design make systems maintainable and scalable. Every deployment is a confidence statement.",
     whoIAm: {
-      title: "Who $$$I Am",
+      title: "who I $$$am",
       description:
-        "I’m currently pursuing Full-Stack Software Development at Lambton College and hold a Bachelor’s degree in Computer Science and Information Technology from Tribhuvan University. My professional journey includes working as a Frontend Developer at Fintech Solutions and a Software Developer at Dzango Technologies, where I honed my skills in developing seamless user interfaces and robust backend systems.",
+        "Full Stack Software Development Diploma — Lambton College, Mississauga, ON (2025). Bachelor's in Computer Science · Tribhuvan University. Professional experience: Frontend Developer at Fintech Solutions, Software Developer at Dzango Technologies building scalable backend systems and modern UIs.",
     },
     achievements: {
-      title: "Achievements$$$ and$$$ Skills",
+      title: "Highlights",
       list: {
         bestPerformer:
-          "Awarded Best Performer of the Intern Award during my internship, showcasing my commitment to excellence.",
+          "Best Performer Award during internship — recognized for technical execution and collaboration.",
         npmRegistry:
-          "Maintained an NPM registry application and package library for in-house projects at my last job.",
+          "Published 2 open-source npm packages (@dzangolab/fastify, @dzangolab/react) used by the developer community.",
         proficientIn:
-          "Proficient in React, Express, Fastify, Docker, and Azure, and adaptable to new tools and technologies.",
+          "Built production fintech platform (iSend Remit) handling real user transactions with payment integrations and secure API design.",
       },
     },
     projects: {
-      title: "Projects $$$Completed",
-      description: "8+",
-    },
-    experience: {
-      title: "Years of $$$Experience",
+      title: "Projects $$$Shipped",
       description: "4+",
     },
+    experience: {
+      title: "Years of $$$Professional Experience",
+      description: "3+",
+    },
     drive: {
-      title: "What Drives $$$Me",
+      title: "What Matters to $$$Me",
       description:
-        "Innovation, creativity, and user-centric design are at the core of my work. Whether it's building responsive web platforms, optimizing applications for performance, or enhancing search engine visibility, I aim to solve challenges with elegance and efficiency.",
+        "Building systems that are fast, reliable, and understandable. Whether it's designing API architecture, optimizing database queries, or crafting responsive UI, I aim to solve technical challenges with clarity and precision.",
     },
     personal: {
-      title: "Outside of $$$Work",
+      title: "Beyond $$$Code",
       description:
-        "When I’m not coding, I enjoy photography, exploring new creative tools like Photoshop and After Effects, and brainstorming unique solutions to everyday challenges. Also a fan of hiking, I love to be in nature and explore new trails. Currently, I am cooking up a storm in the kitchen, experimenting with new recipes and cuisines.",
+        "When I'm not coding, I'm into photography and exploring nature on hiking trails. I also enjoy experimenting with new recipes and cuisines in the kitchen.",
     },
     connect: {
-      title: "Get$$$ in $$$Touch",
+      title: "Open $$$to $$$Opportunities",
       description:
-        "Feel free to reach out—I’d love to discuss how I can help bring your ideas to reality!",
-      link: "Let’s Connect",
+        "I'm actively seeking full-stack engineering roles in the Greater Toronto Area. If you're hiring or know someone who is, let's connect.",
+      link: "Download CV",
     },
   },
   portfolioPage: {
-    title: "My Work – $$$Crafting Solutions with Impact",
+    title: "Full-Stack $$$Projects & Experience",
     description:
-      "Explore my latest projects, technical skills, and hands-on experience to see how I can help bring your digital ideas to life. I specialize in full-stack web and mobile app development, SEO optimization, and cloud integrations using tools like Azure and Power BI. Each project featured here reflects my commitment to building fast, scalable, and user-friendly solutions that solve real-world problems and enhance user experience.",
+      "Explore comprehensive projects showcasing full-stack architecture, from responsive frontends to scalable backends. My portfolio demonstrates expertise in React, Node.js, cloud deployments on Azure, Docker containerization, and CI/CD automation. Each project reflects my dedication to building production-grade solutions with clean architecture, optimal performance, and maintainability. These case studies show how strategic technical decisions deliver measurable business outcomes.",
     experience: {
       title: "Experience",
     },
@@ -167,10 +169,10 @@ export const en: TranslationData = {
       title: "Explore $$$My Projects",
     },
     contact: {
-      title: "Call $$$to $$$Action",
+      title: "Open$$$ to $$$Opportunities",
       description:
-        "Have a project idea or need a skilled developer for your team? Let’s create something remarkable together!",
-      link: "Let’s Connect",
+        "Actively seeking full-stack engineering roles in the GTA. Let's talk about how my experience in fintech systems, API architecture, and clean code practices can add value to your team.",
+      link: "Download CV",
     },
   },
 };

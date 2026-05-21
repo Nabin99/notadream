@@ -2,7 +2,7 @@ import type { TranslationData } from "@notadream/react";
 
 export const fr: TranslationData = {
   app: {
-    description: "Un développeur full stack professionnel",
+    description: "Ingénieur Full-Stack | TypeScript · Node.js · React",
     name: "Nabin Dhital",
     header: {
       navigationList: {
@@ -10,142 +10,143 @@ export const fr: TranslationData = {
         blogs: "Blogs",
         contact: "Contact",
         home: "Accueil",
-        portfolio: "Portfolio",
+        portfolio: "Portefeuille",
       },
     },
     footer: {
       buildMessage: "Conçu et construit de zéro avec ",
-      copyRight: "Copyright {{year}} {{name}}. Tous droits réservés.",
+      copyRight: "Droits d'auteur {{year}} {{name}}. Tous droits réservés.",
       message:
-        "La meilleure façon de prédire l'avenir est de le créer. Transformons vos idées en réalité. $$$Prêt à construire ensemble ?",
+        "Ouvert aux postes d'ingénierie full-stack dans la région du Grand Toronto. $$$Connectons-nous.",
     },
-    title: "Nabin Dhital",
+    title: "Nabin Dhital — Ingénieur Full-Stack | TypeScript · Node.js · React",
   },
   homePage: {
     heroSection: {
       buttons: {
         connect: "Connectons-nous",
-        explore: "Explorez mon Portfolio",
+        explore: "Voir le portefeuille",
+        download: "Télécharger le CV",
       },
-      greetings: "Bonjour, ",
-      introduction: "C'est moi, Nabin Dhital",
-      title: "Un Développeur Full Stack ",
+      greetings: "Bonjour, je suis",
+      introduction: "Nabin Dhital",
+      title: "Ingénieur Full-Stack",
       subtitle:
-        "Axé sur des solutions évolutives et centrées sur l'utilisateur. Créant des expériences web/mobiles efficaces, fiables et engageantes avec une expertise en développement full-stack.",
+        "TypeScript · Node.js · React · PostgreSQL | 3+ ans de création d'APIs évolutives et d'applications fintech | Basé à Brampton, ON | Ouvert aux opportunités dans la région du Grand Toronto",
     },
     whySection: {
-      title: "Pourquoi m'embaucher pour $$$votre prochain projet ?",
+      title: "Ce que je $$$apporte à une équipe",
       description:
-        "Choisir un développeur, c'est plus que des compétences techniques – c'est s'associer avec quelqu'un qui s'engage à générer de vrais résultats. Avec une expertise en développement web et mobile full-stack, les plateformes cloud comme Azure, et des outils axés sur les données comme Power BI et Azure AI, j'apporte une approche holistique pour construire des solutions évolutives, intelligentes et optimisées. Je suis là pour aider votre projet à réussir – grâce à un code propre, une automatisation intelligente, et une compréhension approfondie de la technologie et de l'expérience utilisateur.",
+        "Je construis des systèmes de qualité production qui évoluent. Mon approche combine une architecture épurée, des tests rigoureux et des pratiques DevOps modernes pour livrer des solutions fiables. Des APIs fintech aux packages open-source, j'ai livré du code en lequel les ingénieurs ont confiance et sur lequel les utilisateurs comptent.",
     },
     serviceSection: {
-      title: "Mes Services$$$Formidables Pour Vous",
+      title: "Stack $$$Technologique Essentiel",
       description:
-        "J'offre une approche de service complet qui combine le développement web et mobile avec le SEO, les capacités cloud (Azure, AWS etc), et les insights de données via Power BI et différentes approches d'IA. Cette stratégie holistique garantit que votre expérience numérique est non seulement magnifiquement construite et évolutive, mais aussi optimisée pour les moteurs de recherche, intelligemment automatisée, et prête à livrer un impact mesurable dès le premier jour.",
+        "TypeScript | Node.js (Fastify, Express) | React · Next.js | PostgreSQL · MongoDB | Docker · AWS · GitHub Actions | Git · Postman · Redux · GraphQL",
     },
     howSection: {
-      title: "Comment$$$Je Travaille ?",
+      title: "Processus $$$d'Ingénierie",
       description:
-        "Combinant design, développement, SEO, IA et support continu, j'offre des solutions complètes qui couvrent chaque phase de votre projet numérique. Cette approche holistique garantit que votre plateforme reste optimisée, sécurisée et engageante du lancement jusqu'à chaque mise à jour.",
+        "Exigences et Architecture → Développement d'API (REST/GraphQL) → Intégration Frontend → Tests et CI/CD → Déploiement et Surveillance. Chaque système est construit pour la fiabilité, testé rigoureusement et déployé en confiance.",
     },
   },
   contactPage: {
-    title: "Contactez-$$$Moi",
-    subtitle: "Construisons Quelque Chose$$$d'Incroyable Ensemble",
+    title: "Connectons$$$ -$$$nous",
+    subtitle:
+      "📍 Région du Grand Toronto, ON · Disponible pour les rôles full-stack · $$$Ouvert au hybride et télétravail",
     description:
-      "Merci d'avoir pris le temps d'explorer mon portfolio. Que vous cherchiez à collaborer, ayez un projet en tête, ou souhaitiez simplement dire bonjour, je serais ravi de me connecter avec vous. N'hésitez pas à utiliser le formulaire ci-dessous, à m'envoyer un email directement, ou à me trouver sur les réseaux sociaux.",
+      "Je suis activement à la recherche de postes d'ingénierie full-stack dans la région du Grand Toronto. Si vous embauchez ou connaissez quelqu'un qui embauche, j'aimerais discuter. Contactez-moi directement par email ou LinkedIn, ou utilisez le formulaire ci-dessous.",
     directContact: "Contactez-moi directement à :",
     form: {
-      title: "Avez-vous une question ou voulez-vous $$$travailler ensemble ?",
+      title: "Demande de $$$Projet",
       caption:
-        "J'aimerais avoir de vos nouvelles ! N'hésitez pas à laisser un message, et je répondrai rapidement.",
+        "Partagez les détails de vos exigences de projet, objectifs techniques ou défis de développement. Je vais examiner et répondre rapidement avec des perspectives sur l'approche et la faisabilité.",
       fields: {
         firstName: "Prénom...",
         lastName: "Nom de famille...",
-        email: "Votre Email...",
+        email: "Votre email...",
         subject: "Sujet...",
-        message: "Parlez-moi de votre projet, question, ou idée ici...",
+        message: "Parlez-moi de votre projet, question ou idée ici...",
       },
       fieldsError: {
         firstName: {
-          required: "Le prénom est requis.",
+          required: "Le prénom est obligatoire.",
         },
         lastName: {
-          required: "Le nom de famille est requis.",
+          required: "Le nom de famille est obligatoire.",
         },
         email: {
-          required: "L'email est requis.",
-          invalidFormat: "Veuillez saisir une adresse email valide.",
+          required: "L'email est obligatoire.",
+          invalidFormat: "Veuillez entrer une adresse email valide.",
         },
         message: {
-          required: "Le message est requis",
+          required: "Le message est obligatoire",
           insufficient: "Le message doit contenir au moins 10 caractères.",
         },
       },
       button: {
-        submit: "Envoyer le Message",
+        submit: "Envoyer le message",
       },
       toastMessage: {
         success: "Message envoyé avec succès.",
-        failed:
-          "Le message n'a pas pu être envoyé. Veuillez réessayer plus tard.",
+        failed: "Le message n'a pas pu être envoyé. Veuillez réessayer plus tard.",
       },
     },
   },
   aboutPage: {
-    title: "Un Développeur avec $$$une Vision",
+    title: "Ingénieur Full-Stack $$$Région du Grand Toronto, ON",
     description1:
-      "Salut, je suis Nabin Dhital, un Développeur Full-Stack dévoué passionné par la création d'expériences web et mobiles fluides. Avec une expérience pratique en React, Express, Fastify, Docker, pipelines CI/CD, et bases de données modernes, je me concentre sur la construction d'applications évolutives et axées sur la performance. J'apporte également une maîtrise de Microsoft Azure – incluant Azure DevOps et Azure AI – pour livrer des solutions intelligentes intégrées au cloud. Mon ensemble de compétences s'étend à Power BI pour la visualisation de données et aux outils d'IA qui améliorent l'automatisation et les insights utilisateur. Ma mission est de construire des solutions qui non seulement sont magnifiques mais aussi sécurisées, efficaces, et conçues pour un succès à long terme.",
+      "Je suis Nabin Dhital, un ingénieur full-stack spécialisé dans la construction de systèmes fiables et évolutifs. Avec une expérience pratique en TypeScript, Node.js (Fastify, Express), React, PostgreSQL et Docker, je livre du code de production en lequel les équipes ont confiance. Mon expérience professionnelle comprend le développement fintech chez Dzango Technologies et le travail frontend chez Fintech Solutions. Je suis basé à Brampton, ON et ouvert aux postes d'ingénierie full-stack dans la région du Grand Toronto.",
     description2:
-      "Depuis mes premiers jours d'exploration des ordinateurs jusqu'à la maîtrise du développement web Full Stack, mon parcours a été alimenté par la curiosité et le frisson de construire quelque chose d'impactant...",
+      "J'ai récemment terminé mon diplôme en Développement Full Stack Logiciel au Lambton College (2025). Mon parcours a été façonné par la construction de vrais systèmes sous délai, l'apprentissage auprès d'ingénieurs expérimentés et la livraison de code sur lequel les utilisateurs comptent.",
 
     philosophy:
-      "Je crois en un code propre et maintenable, et en des solutions qui grandissent avec votre entreprise. Mon approche est collaborative, garantissant que le produit final s'aligne avec votre vision et vos objectifs.",
+      "J'écris du code pour le prochain ingénieur qui le lira. Une architecture épurée, des tests complets et une conception réfléchie rendent les systèmes maintenables et évolutifs. Chaque déploiement est une affirmation de confiance.",
     whoIAm: {
-      title: "Qui $$$Je Suis",
+      title: "qui je $$$suis",
       description:
-        "Je poursuis actuellement un cursus en Développement Logiciel Full-Stack au Lambton College et détiens un diplôme de licence en Informatique et Technologie de l'Information de l'Université Tribhuvan. Mon parcours professionnel inclut un poste de Développeur Frontend chez Fintech Solutions et de Développeur Logiciel chez Dzango Technologies, où j'ai affiné mes compétences dans le développement d'interfaces utilisateur fluides et de systèmes backend robustes.",
+        "Diplôme en Développement Full Stack Logiciel — Lambton College, Mississauga, ON (2025). Licence en Informatique · Université Tribhuvan. Expérience professionnelle : Développeur Frontend chez Fintech Solutions, Développeur Logiciel chez Dzango Technologies construisant des systèmes backend évolutifs et des interfaces utilisateur modernes.",
     },
     achievements: {
-      title: "Réalisations$$$ et$$$ Compétences",
+      title: "Points forts",
       list: {
         bestPerformer:
-          "Récompensé du Prix du Meilleur Stagiaire pendant mon stage, démontrant mon engagement envers l'excellence.",
+          "Prix du Meilleur Performant lors du stage — reconnu pour l'exécution technique et la collaboration.",
         npmRegistry:
-          "Maintenu une application de registre NPM et une bibliothèque de packages pour les projets internes dans mon dernier emploi.",
+          "Publié 2 packages npm open-source (@dzangolab/fastify, @dzangolab/react) utilisés par la communauté des développeurs.",
         proficientIn:
-          "Compétent en React, Express, Fastify, Docker, et Azure, et adaptable aux nouveaux outils et technologies.",
+          "Construit une plateforme fintech de production (iSend Remit) gérant les transactions réelles des utilisateurs avec intégrations de paiement et conception d'API sécurisée.",
       },
     },
     projects: {
-      title: "Projets $$$Terminés",
-      description: "8+",
-    },
-    experience: {
-      title: "Années d'$$$Expérience",
+      title: "Projets $$$Livrés",
       description: "4+",
     },
+    experience: {
+      title: "Années d'Expérience $$$Professionnelle",
+      description: "3+",
+    },
     drive: {
-      title: "Ce Qui Me $$$Motive",
+      title: "Ce qui compte pour $$$moi",
       description:
-        "L'innovation, la créativité et le design centré sur l'utilisateur sont au cœur de mon travail. Que ce soit pour construire des plateformes web responsives, optimiser des applications pour la performance, ou améliorer la visibilité sur les moteurs de recherche, je vise à résoudre les défis avec élégance et efficacité.",
+        "Construire des systèmes qui sont rapides, fiables et compréhensibles. Qu'il s'agisse de concevoir une architecture d'API, d'optimiser les requêtes de base de données ou de créer une interface utilisateur réactive, je vise à résoudre les défis techniques avec clarté et précision.",
     },
     personal: {
-      title: "En Dehors du $$$Travail",
+      title: "Au-delà du $$$Code",
       description:
-        "Quand je ne code pas, j'aime la photographie, explorer de nouveaux outils créatifs comme Photoshop et After Effects, et réfléchir à des solutions uniques aux défis quotidiens. Fan de randonnée aussi, j'aime être dans la nature et explorer de nouveaux sentiers. Actuellement, je cuisine avec passion, expérimentant de nouvelles recettes et cuisines.",
+        "Quand je ne suis pas en train de coder, je fais de la photographie et j'explore la nature sur les sentiers de randonnée. J'aime aussi expérimenter de nouvelles recettes et cuisines en cuisine.",
     },
     connect: {
-      title: "Restons$$$ en $$$Contact",
+      title: "Ouvert $$$aux $$$Opportunités",
       description:
-        "N'hésitez pas à me contacter – j'aimerais discuter de comment je peux aider à concrétiser vos idées !",
-      link: "Connectons-nous",
+        "Je suis activement à la recherche de postes d'ingénierie full-stack dans la région du Grand Toronto. Si vous embauchez ou connaissez quelqu'un qui embauche, connectons-nous.",
+      link: "Télécharger le CV",
     },
   },
   portfolioPage: {
-    title: "Mon Travail – $$$Créer des Solutions à Impact",
+    title: "Projets Full-Stack $$$et Expérience",
     description:
-      "Explorez mes derniers projets, compétences techniques, et expérience pratique pour voir comment je peux aider à donner vie à vos idées numériques. Je me spécialise dans le développement d'applications web et mobiles full-stack, l'optimisation SEO, et les intégrations cloud utilisant des outils comme Azure et Power BI. Chaque projet présenté ici reflète mon engagement à construire des solutions rapides, évolutives et conviviales qui résolvent des problèmes du monde réel et améliorent l'expérience utilisateur.",
+      "Explorez des projets complets montrant l'architecture full-stack, des interfaces frontales réactives aux backends évolutifs. Mon portefeuille démontre l'expertise en React, Node.js, déploiements cloud sur Azure, conteneurisation Docker et automatisation CI/CD. Chaque projet reflète mon engagement à construire des solutions de qualité production avec une architecture épurée, des performances optimales et de la maintenabilité. Ces études de cas montrent comment les décisions techniques stratégiques livrent des résultats commerciaux mesurables.",
     experience: {
       title: "Expérience",
     },
@@ -153,19 +154,25 @@ export const fr: TranslationData = {
       title: "Éducation",
     },
     skillsTechnical: {
-      title: "Compétences - $$$Techniques",
+      title: "Compétences $$$Techniques",
+      //   description:
+      //     "With expertise in React, Express, Fastify, Docker, and Azure, I offer a comprehensive skill set that can help you build scalable, user-centric solutions.",
+      // },
     },
     skillsSoft: {
-      title: "Compétences - $$$Relationnelles",
+      title: "Compétences $$$Relationnelles",
+      //   description:
+      //     "In addition to technical expertise, I bring a range of soft skills to the table, including communication, collaboration, and problem-solving. These skills ensure a seamless project experience from start to finish.",
+      // },
     },
     projects: {
       title: "Explorez $$$Mes Projets",
     },
     contact: {
-      title: "Appel $$$à $$$l'Action",
+      title: "Ouvert$$$ aux $$$Opportunités",
       description:
-        "Avez-vous une idée de projet ou besoin d'un développeur compétent pour votre équipe ? Créons quelque chose de remarquable ensemble !",
-      link: "Connectons-nous",
+        "À la recherche active de postes d'ingénierie full-stack dans la région du Grand Toronto. Parlons de la façon dont mon expérience dans les systèmes fintech, l'architecture d'API et les pratiques de code épuré peuvent ajouter de la valeur à votre équipe.",
+      link: "Télécharger le CV",
     },
   },
 };

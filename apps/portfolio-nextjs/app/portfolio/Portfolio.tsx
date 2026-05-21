@@ -1,12 +1,17 @@
-'use client';
+"use client";
 
-import { Page, RouterLink, useTranslation } from '@notadream/react';
+import {
+  BrowserLink,
+  Page,
+  RouterLink,
+  useTranslation,
+} from "@notadream/react";
 
-import portfolioImage from '../assets/images/admin.webp';
-import { ContentBox } from '../components';
-import { Profile } from '../components/Profile';
+import portfolioImage from "../assets/images/admin.webp";
+import { ContentBox } from "../components";
+import { Profile } from "../components/Profile";
 
-import '../assets/css/pages/portfolio/index.css';
+import "../assets/css/pages/portfolio/index.css";
 
 interface ProjectProps {
   name: string;
@@ -16,14 +21,16 @@ interface ProjectProps {
 
 const Project: React.FC<ProjectProps> = ({ name, description, site }) => {
   return (
-    <div className="project-card">
-      <h3>{name}</h3>
-      <p>{description}</p>
-      {site && (
-        <a href={site} target="_blank" rel="noopener noreferrer">
-          View Project
-        </a>
-      )}
+    <div className="card-container">
+      <div className="card">
+        <div className="side front">{name}</div>
+        <div className="side back">
+          <p>{description}</p>
+          <BrowserLink href={site} target="_blank">
+            View Project
+          </BrowserLink>
+        </div>
+      </div>
     </div>
   );
 };

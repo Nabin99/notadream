@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { configureApp } from "@notadream/react";
 
@@ -56,9 +56,11 @@ configureApp({
   },
   theme: {
     localStorageName: "theme",
-    multiColorMode: process.env.NEXT_PUBLIC_APP_THEME_MULTI_COLOR_MODE === "true",
+    multiColorMode:
+      process.env.NEXT_PUBLIC_APP_THEME_MULTI_COLOR_MODE === "true",
   },
-  websiteDomain: typeof window !== 'undefined' ? window.location.hostname : "localhost",
+  websiteDomain:
+    typeof window !== "undefined" ? window.location.hostname : "localhost",
   copyright: {
     holder: process.env.NEXT_PUBLIC_APP_AUTHOR || "",
   },

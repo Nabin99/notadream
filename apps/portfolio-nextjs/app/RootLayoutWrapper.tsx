@@ -1,13 +1,19 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { ReactNode } from 'react';
+import Image from "next/image";
+import { ReactNode } from "react";
 
-import { Header, Logo, PageLayout as PageLayoutSkeleton, useTranslation } from '@notadream/react';
-import type { NavItemType } from '@notadream/react';
+import {
+  Header,
+  Logo,
+  PageLayout as PageLayoutSkeleton,
+  useTranslation,
+} from "@notadream/react";
+import type { NavItemType } from "@notadream/react";
 
-import logo from './assets/images/logo.svg';
-import { Footer } from './layouts/components';
+import logo from "./assets/images/logo.svg";
+import { Footer } from "./layouts/components";
+import { useRotateCSSColorValue } from "./utils";
 
 export default function RootLayoutWrapper({
   children,
@@ -34,6 +40,8 @@ export default function RootLayoutWrapper({
       path: "/contact",
     },
   ];
+
+  useRotateCSSColorValue();
 
   return (
     <PageLayoutSkeleton

@@ -26,6 +26,7 @@ declare module "@notadream/react" {
         buttons: {
           connect: string;
           explore: string;
+          download: string;
         };
         greetings: string;
         introduction: string;
