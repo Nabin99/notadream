@@ -29,7 +29,12 @@ services:
     ports:
       - "4003:4003"
 
-networks:
+  portfolio-nextjs:
+    build:
+      context: .
+      dockerfile: ./apps/portfolio-nextjs/docker/Dockerfile
+    ports:
+      - "3000:3000"
   # Define a network for services that need to communicate with each other
   public:
     driver: bridge

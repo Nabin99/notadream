@@ -1,13 +1,13 @@
-import { ReactNode, useState } from "react";
-import { HiMenu, HiX } from "react-icons/hi";
-import { NavLink } from "react-router-dom";
+import { ReactNode, useState } from 'react';
+import { HiMenu, HiX } from 'react-icons/hi';
 
-import { LocaleSwitcher, useTranslation } from "../i18n";
-import { ThemeToggle } from "../theme-engine";
-import { Button } from "../ui";
-import { NavigationMenu } from "./components/nav";
+import { LocaleSwitcher, useTranslation } from '../i18n';
+import { useRouting } from '../routing';
+import { ThemeToggle } from '../theme-engine';
+import { Button } from '../ui';
+import { NavigationMenu } from './components/nav';
 
-import type { NavItemType } from "./types";
+import type { NavItemType } from './types';
 
 export interface HeaderProperties {
   navItems?: NavItemType[];
@@ -15,6 +15,7 @@ export interface HeaderProperties {
 }
 
 export const Header = ({ navItems, logo }: HeaderProperties) => {
+  const { Link } = useRouting();
   const [isMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openItems, setOpenItems] = useState<string[]>([]);
   const { supportedLanguages } = useTranslation();
@@ -30,9 +31,9 @@ export const Header = ({ navItems, logo }: HeaderProperties) => {
   return (
     <header>
       <div className="brand-logo-container">
-        <NavLink to={"/"} aria-label="logo">
+        <Link href={"/"} aria-label="logo">
           {logo}
-        </NavLink>
+        </Link>
       </div>
       <Button
         size="large"

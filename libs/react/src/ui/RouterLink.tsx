@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { useRouting } from "../routing";
 
 import type { LinkProperties } from "./type";
 
@@ -15,9 +15,11 @@ export const RouterLink: React.FC<LinkProperties> = ({
   target = "_self",
   label,
 }) => {
+  const { Link } = useRouting();
+
   return (
-    <NavLink
-      to={disabled ? "#" : to}
+    <Link
+      href={disabled ? "#" : to}
       className={`link ${variant} ${size} ${disabled ? "disabled" : ""} ${className}`.trimEnd()}
       aria-disabled={disabled}
       target={target}
@@ -30,6 +32,6 @@ export const RouterLink: React.FC<LinkProperties> = ({
         <span className="icon-right">{iconRight}</span>
       )}
       {children}
-    </NavLink>
+    </Link>
   );
 };

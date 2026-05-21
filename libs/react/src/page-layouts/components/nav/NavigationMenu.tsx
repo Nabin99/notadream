@@ -1,6 +1,5 @@
-import { useLocation } from "react-router-dom";
-
 import { NavItem } from "./NavItem";
+import { useRouting } from "../../../routing";
 
 import type { NavigationMenuProperties, NavItemType } from "../../types";
 
@@ -12,9 +11,12 @@ export const NavigationMenu: React.FC<NavigationMenuProperties> = ({
   openItems = [],
   setOpenItem,
   toggleMenuOpen,
+  pathname,
   ...properties
 }) => {
-  const location = useLocation();
+  const { usePathname, isActive: checkActive } = useRouting();
+  // Use provided pathname or get current pathname from routing context
+  const currentPathname = pathname || usePathname();
 
   const handleToggleItem = (name: string) => {
     setOpenItem?.(name);
@@ -22,11 +24,26 @@ export const NavigationMenu: React.FC<NavigationMenuProperties> = ({
 
   // Helper function to check if the current path is active
   const isPathActive = (item: NavItemType): boolean => {
-    if (item.path && location.pathname == item.path) {
-      return true;
+    if (item.path) {
+      // Use the isActive function from routing context if available
+      if (checkActive) {
+        if (checkActive(currentPathname, item.path)) {
+          return true;
+        }
+      } else {
+        // Fallback comparison
+        if (currentPathname === item.path) {
+          return true;
+        }
+      }
     }
 
-    if (item.children?.some((child) => child.path == location.pathname)) {
+    if (item.children?.some((child) => {
+      if (checkActive) {
+        return checkActive(currentPathname, child.path || "");
+      }
+      return currentPathname === child.path;
+    })) {
       return true;
     }
 
