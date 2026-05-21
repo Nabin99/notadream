@@ -1,6 +1,7 @@
 import { ErrorPage } from "@notadream/react";
 import { createHashRouter } from "react-router-dom";
 
+import { ReactRouterAdapter } from "./routing-adapter";
 import { PageLayout } from "./layouts/PageLayout";
 import { Home } from "./pages";
 import AboutLazy from "./pages/about/AboutLazy";
@@ -9,7 +10,7 @@ import PortfolioLazy from "./pages/portfolio/PortfolioLazy";
 
 const mainLayoutRoutes = [
   {
-    index: true,
+    path: "/",
     element: <Home />,
   },
   {
@@ -34,7 +35,11 @@ export const browserRouter = createHashRouter([
   {
     path: "/",
     errorElement: <ErrorPage />,
-    element: <PageLayout />,
-    children: [...mainLayoutRoutes],
+    element: (
+      <ReactRouterAdapter>
+        <PageLayout />
+      </ReactRouterAdapter>
+    ),
+    children: mainLayoutRoutes,
   },
 ]);
