@@ -2,7 +2,7 @@
 FROM node:20-alpine as build
 
 # Use a specific version of pnpm and set configurations
-RUN npm install -g pnpm@8 \
+RUN npm install -g pnpm@7.21.1 \
     && pnpm config set store-dir .pnpm-store \
     && pnpm config set auto-install-peers true
 

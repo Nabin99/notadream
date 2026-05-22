@@ -2,7 +2,7 @@
 FROM node:20-alpine as build
 
 # Use a specific version of pnpm and set configurations
-RUN npm install -g pnpm@8 \
+RUN npm install -g pnpm@7.21.1 \
     && pnpm config set store-dir .pnpm-store \
     && pnpm config set auto-install-peers true
 
@@ -26,9 +26,11 @@ RUN pnpm --filter ./apps/portfolio-nextjs/ install && \
 COPY apps/portfolio-nextjs apps/portfolio-nextjs
 COPY libs/react libs/react
 
-# Build the "portfolio" app
+# Build the "portfolio-nextjs" app with static export
 RUN pnpm --filter ./libs/react/ build && \
-    pnpm --filter ./apps/portfolio-nextjs/ build
+    pnpm --filter ./apps/portfolio-nextjs/ build && \
+    cd apps/portfolio-nextjs && \
+    pnpm next export -o out || true
 
 # Stage 2: Production stage
 FROM nginx:1.23-alpine as production
@@ -37,6 +39,6 @@ FROM nginx:1.23-alpine as production
 COPY apps/portfolio-nextjs/docker/nginx.conf /etc/nginx/conf.d/default.conf
 
 # Copy the built app from the build stage to the production image
-COPY --from=build /apps/notadream/apps/portfolio-nextjs/dist /usr/share/nginx/html
+COPY --from=build /apps/notadream/apps/portfolio-nextjs/out /usr/share/nginx/html
 
 EXPOSE 4003
