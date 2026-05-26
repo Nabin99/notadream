@@ -1,44 +1,134 @@
 version: "3.8"
 
-services:
-  admin:
-    build:
-      context: .
-      dockerfile: ./apps/admin/docker/Dockerfile
-    ports:
-      - "4001:4001"
+# ============================================
+# NotADream Monorepo - Docker Compose
+# Development & Production Ready
+# ============================================
 
+services:
+  # ==========================================
+  # Backend API (Fastify)
+  # ==========================================
   api:
     build:
       context: .
       dockerfile: ./apps/api/docker/Dockerfile
+    container_name: notadream-api
     ports:
       - "4000:4000"
+    environment:
+      NODE_ENV: ${NODE_ENV:-development}
+      PORT: 4000
+    networks:
+      - notadream-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:4000', (r) => {if (r.statusCode !== 200) throw new Error(r.statusCode)})"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+    labels:
+      - "com.notadream.service=api"
+      - "com.notadream.version=0.1.0"
 
+  # ==========================================
+  # Admin Dashboard (React + Nginx)
+  # ==========================================
+  admin:
+    build:
+      context: .
+      dockerfile: ./apps/admin/docker/Dockerfile
+    container_name: notadream-admin
+    ports:
+      - "4001:4001"
+    depends_on:
+      - api
+    networks:
+      - notadream-network
+    restart: unless-stopped
+    labels:
+      - "com.notadream.service=admin"
+      - "com.notadream.version=0.1.0"
+
+  # ==========================================
+  # Blog Platform (Next.js)
+  # ==========================================
   blogs:
     build:
       context: .
       dockerfile: ./apps/blogs/docker/Dockerfile
+    container_name: notadream-blogs
     ports:
       - "4002:4002"
+    environment:
+      NODE_ENV: ${NODE_ENV:-development}
+      PORT: 4002
+      HOSTNAME: localhost
+    depends_on:
+      - api
+    networks:
+      - notadream-network
+    restart: unless-stopped
+    labels:
+      - "com.notadream.service=blogs"
+      - "com.notadream.version=0.1.0"
 
+  # ==========================================
+  # Portfolio (Vite + Nginx)
+  # ==========================================
   portfolio:
     build:
       context: .
       dockerfile: ./apps/portfolio/docker/Dockerfile
+    container_name: notadream-portfolio
     ports:
       - "4003:4003"
+    depends_on:
+      - api
+    networks:
+      - notadream-network
+    restart: unless-stopped
+    labels:
+      - "com.notadream.service=portfolio"
+      - "com.notadream.version=0.1.0"
 
+  # ==========================================
+  # Portfolio (Next.js + Nginx)
+  # ==========================================
   portfolio-nextjs:
     build:
       context: .
       dockerfile: ./apps/portfolio-nextjs/docker/Dockerfile
+    container_name: notadream-portfolio-nextjs
     ports:
       - "3000:3000"
-  # Define a network for services that need to communicate with each other
-  public:
-    driver: bridge
+    environment:
+      NODE_ENV: ${NODE_ENV:-development}
+    depends_on:
+      - api
+    networks:
+      - notadream-network
+    restart: unless-stopped
+    labels:
+      - "com.notadream.service=portfolio-nextjs"
+      - "com.notadream.version=0.1.0"
 
+# ============================================
+# Networks
+# ============================================
+networks:
+  notadream-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.0.0/16
+
+# ============================================
+# Volumes (for future use with databases)
+# ============================================
 volumes:
-  # Define named volumes here if needed
-  local:
+  postgres-data:
+    driver: local
+  mongodb-data:
+    driver: local
