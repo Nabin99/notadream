@@ -1,0 +1,224 @@
+name: Deploy Portfolio NextJS (Vercel + GitHub Pages)
+
+on:
+  push:
+    branches:
+      - development
+      - main
+    paths:
+      - apps/portfolio-nextjs/**
+      - libs/react/**
+      - package.json
+      - pnpm-lock.yaml
+  pull_request:
+    branches:
+      - development
+      - main
+    paths:
+      - apps/portfolio-nextjs/**
+      - libs/react/**
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # ==========================================
+  # Build Job
+  # ==========================================
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      build-success: ${{ steps.build.outcome }}
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7.21.1
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build React library
+        run: pnpm --filter ./libs/react/ build
+
+      - name: Build Next.js portfolio
+        id: build
+        run: pnpm --filter ./apps/portfolio-nextjs/ build
+        env:
+          NEXT_PUBLIC_APP_TITLE: ${{ vars.NEXT_PUBLIC_APP_TITLE }}
+          NEXT_PUBLIC_APP_DESCRIPTION: ${{ vars.NEXT_PUBLIC_APP_DESCRIPTION }}
+          NEXT_PUBLIC_APP_KEYWORDS: ${{ vars.NEXT_PUBLIC_APP_KEYWORDS }}
+          NEXT_PUBLIC_APP_AUTHOR: ${{ vars.NEXT_PUBLIC_APP_AUTHOR }}
+          NEXT_PUBLIC_APP_NAME: ${{ vars.NEXT_PUBLIC_APP_NAME }}
+          NEXT_PUBLIC_BASE_APP_URL: ${{ vars.NEXT_PUBLIC_BASE_APP_URL }}
+          NEXT_PUBLIC_API_BASE_URL: ${{ vars.NEXT_PUBLIC_API_BASE_URL }}
+          NEXT_PUBLIC_APP_LINKEDIN_URL: ${{ vars.NEXT_PUBLIC_APP_LINKEDIN_URL }}
+          NEXT_PUBLIC_APP_GITHUB_URL: ${{ vars.NEXT_PUBLIC_APP_GITHUB_URL }}
+          NEXT_PUBLIC_APP_TWITTER_URL: ${{ vars.NEXT_PUBLIC_APP_TWITTER_URL }}
+          NEXT_PUBLIC_APP_FACEBOOK_URL: ${{ vars.NEXT_PUBLIC_APP_FACEBOOK_URL }}
+          NEXT_PUBLIC_APP_INSTAGRAM_URL: ${{ vars.NEXT_PUBLIC_APP_INSTAGRAM_URL }}
+          NEXT_PUBLIC_APP_YOUTUBE_URL: ${{ vars.NEXT_PUBLIC_APP_YOUTUBE_URL }}
+          NEXT_PUBLIC_APP_TWITTER_HANDLE: ${{ vars.NEXT_PUBLIC_APP_TWITTER_HANDLE }}
+          NEXT_PUBLIC_APP_THEME_COLOR: ${{ vars.NEXT_PUBLIC_APP_THEME_COLOR }}
+          NEXT_PUBLIC_EMAILJS_SERVICE_ID: ${{ secrets.NEXT_PUBLIC_EMAILJS_SERVICE_ID }}
+          NEXT_PUBLIC_EMAILJS_TEMPLATE_ID: ${{ secrets.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID }}
+          NEXT_PUBLIC_EMAILJS_USER_ID: ${{ secrets.NEXT_PUBLIC_EMAILJS_USER_ID }}
+          NEXT_PUBLIC_APP_EMAIL: ${{ secrets.NEXT_PUBLIC_APP_EMAIL }}
+
+      - name: Export to static (for GitHub Pages fallback)
+        if: github.event_name == 'push'
+        continue-on-error: true
+        run: |
+          cd apps/portfolio-nextjs
+          pnpm next export -o out || true
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: nextjs-build
+          path: apps/portfolio-nextjs/.next
+          retention-days: 1
+
+      - name: Upload export artifacts (GitHub Pages)
+        if: github.event_name == 'push'
+        uses: actions/upload-artifact@v4
+        with:
+          name: github-pages-export
+          path: apps/portfolio-nextjs/out
+          retention-days: 1
+
+  # ==========================================
+  # Vercel Deployment Job
+  # ==========================================
+  deploy-vercel:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/development')
+    environment:
+      name: vercel-portfolio
+      url: https://${{ steps.vercel-deploy.outputs.url }}
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Vercel CLI
+        run: npm install -g vercel@latest
+
+      - name: Pull Vercel environment information
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }} --cwd=apps/portfolio-nextjs
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+      - name: Build on Vercel
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }} --cwd=apps/portfolio-nextjs
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+      - name: Deploy production to Vercel
+        id: vercel-deploy
+        if: github.ref == 'refs/heads/main'
+        run: |
+          DEPLOYMENT_URL=$(vercel deploy --prod --token=${{ secrets.VERCEL_TOKEN }} --cwd=apps/portfolio-nextjs 2>&1 | tail -1)
+          echo "url=${DEPLOYMENT_URL}" >> $GITHUB_OUTPUT
+          echo "Deployed to: $DEPLOYMENT_URL"
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+      - name: Deploy preview to Vercel
+        id: vercel-preview
+        if: github.ref == 'refs/heads/development'
+        run: |
+          DEPLOYMENT_URL=$(vercel deploy --token=${{ secrets.VERCEL_TOKEN }} --cwd=apps/portfolio-nextjs 2>&1 | tail -1)
+          echo "url=${DEPLOYMENT_URL}" >> $GITHUB_OUTPUT
+          echo "Preview deployed to: $DEPLOYMENT_URL"
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+      - name: Comment PR with deployment URL
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '🚀 Preview deployed to Vercel: ${{ steps.vercel-preview.outputs.url }}'
+            })
+
+  # ==========================================
+  # GitHub Pages Deployment (Fallback)
+  # ==========================================
+  deploy-github-pages:
+    needs: build
+    runs-on: ubuntu-latest
+    if: failure() && github.event_name == 'push'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
+    steps:
+      - name: Download GitHub Pages export
+        uses: actions/download-artifact@v4
+        with:
+          name: github-pages-export
+          path: ./out
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './out'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
+        with:
+          auto_noJekyll: true
+
+  # ==========================================
+  # Status Check
+  # ==========================================
+  deployment-status:
+    runs-on: ubuntu-latest
+    needs: [build, deploy-vercel]
+    if: always()
+    
+    steps:
+      - name: Check deployment status
+        run: |
+          if [ "${{ needs.deploy-vercel.result }}" = "success" ]; then
+            echo "✅ Vercel deployment successful"
+          elif [ "${{ needs.build.result }}" = "success" ]; then
+            echo "⚠️  Build successful but Vercel deployment had issues"
+          else
+            echo "❌ Build failed"
+          fi
