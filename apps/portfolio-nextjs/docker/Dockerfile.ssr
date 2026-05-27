@@ -1,0 +1,81 @@
+# ============================================
+# Server-Side Rendering (SSR) Dockerfile
+# For future Next.js SSR implementation
+# ============================================
+# Usage: docker build -f Dockerfile.ssr -t portfolio-nextjs-ssr .
+# Run: docker run -p 3000:3000 portfolio-nextjs-ssr
+# ============================================
+
+# Stage 1: Build stage
+FROM node:20-alpine as build
+
+# Use a specific version of pnpm and set configurations
+RUN npm install -g pnpm@7.21.1 \
+    && pnpm config set store-dir .pnpm-store \
+    && pnpm config set auto-install-peers true
+
+WORKDIR /apps/notadream/
+
+# Copy package.json and pnpm files from main machine to the docker workspace
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+
+# Install dependencies
+RUN pnpm i
+
+# Copy app and library package.json files
+COPY apps/portfolio-nextjs/package.json apps/portfolio-nextjs/
+COPY libs/react/package.json libs/react/
+
+# Install dependencies for the workspace-specific packages
+RUN pnpm --filter ./apps/portfolio-nextjs/ install && \
+    pnpm --filter ./libs/react/ install
+
+# Copy app and library source code
+COPY apps/portfolio-nextjs apps/portfolio-nextjs
+COPY libs/react libs/react
+
+# Build the "portfolio-nextjs" app for SSR
+# Note: Ensure next.config.mjs does NOT have "output: 'export'"
+RUN pnpm --filter ./libs/react/ build && \
+    pnpm --filter ./apps/portfolio-nextjs/ build
+
+# Stage 2: Production stage (Node.js runtime for SSR)
+FROM node:20-alpine as production
+
+# Install pnpm in production image
+RUN npm install -g pnpm@7.21.1
+
+# Create app directory
+WORKDIR /apps/notadream/
+
+# Copy workspace root files
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+
+# Install only production dependencies
+RUN pnpm i --prod
+
+# Copy built Next.js app from build stage
+COPY --from=build /apps/notadream/apps/portfolio-nextjs/.next ./apps/portfolio-nextjs/.next
+
+# Copy public assets
+COPY --from=build /apps/notadream/apps/portfolio-nextjs/public ./apps/portfolio-nextjs/public
+
+# Copy package.json for the app
+COPY --from=build /apps/notadream/apps/portfolio-nextjs/package.json ./apps/portfolio-nextjs/
+
+# Set working directory to the app
+WORKDIR /apps/notadream/apps/portfolio-nextjs
+
+# Expose port 3000 (Next.js default)
+EXPOSE 3000
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD node -e "require('http').get('http://localhost:3000', (r) => {if (r.statusCode !== 200) throw new Error(r.statusCode)})"
+
+# Environment variables (can be overridden at runtime)
+ENV NODE_ENV=production
+ENV PORT=3000
+
+# Start the Next.js application in production mode
+CMD ["pnpm", "start"]

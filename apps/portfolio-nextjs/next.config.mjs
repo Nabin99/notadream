@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export', // Static export for Docker/nginx deployment
   reactStrictMode: true,
   compress: true,
   transpilePackages: ['@notadream/react'],

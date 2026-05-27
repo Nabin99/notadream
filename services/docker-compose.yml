@@ -1,42 +1,136 @@
 version: "3.8"
 
-services:
-  db:
-    image: postgres:16.3
-    restart: always
-    # set shared memory limit when using docker-compose
-    shm_size: 128mb
-    # or set shared memory limit when deploy via swarm stack
-    #volumes:
-    #  - type: tmpfs
-    #    target: /dev/shm
-    #    tmpfs:
-    #      size: 134217728 # 128*2^20 bytes = 128Mb
-    environment:
-      POSTGRES_PASSWORD: Password123
-      POSTGRES_USER: admin
-      POSTGRES_DB: notadream
-    networks:
-      - private
+# ============================================
+# NotADream Supporting Services
+# PostgreSQL, Adminer, Mailhog
+# ============================================
 
+services:
+  # ==========================================
+  # PostgreSQL Database
+  # ==========================================
+  postgres:
+    image: postgres:16.3-alpine
+    container_name: notadream-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${DB_USER:-admin}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-Password123}
+      POSTGRES_DB: ${DB_NAME:-notadream}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - notadream-services
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-admin} -d ${DB_NAME:-notadream}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    labels:
+      - "com.notadream.service=postgres"
+      - "com.notadream.version=16.3"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # ==========================================
+  # MongoDB (Optional)
+  # ==========================================
+  mongodb:
+    image: mongo:7.0-alpine
+    container_name: notadream-mongodb
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER:-admin}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD:-Password123}
+      MONGO_INITDB_DATABASE: ${MONGO_DB:-notadream}
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb-data:/data/db
+    networks:
+      - notadream-services
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    labels:
+      - "com.notadream.service=mongodb"
+      - "com.notadream.version=7.0"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # ==========================================
+  # Adminer - Database Admin UI
+  # ==========================================
   adminer:
     image: adminer:4.8.1-standalone
-    restart: always
+    container_name: notadream-adminer
+    restart: unless-stopped
     depends_on:
-      - db
+      postgres:
+        condition: service_healthy
     ports:
-      - ${ADMINER_PORT}:8080
+      - "${ADMINER_PORT:-8080}:8080"
+    environment:
+      ADMINER_DEFAULT_SERVER: postgres
     networks:
-      - private
-      - public
+      - notadream-services
+    labels:
+      - "com.notadream.service=adminer"
+      - "com.notadream.version=4.8.1"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "5m"
+        max-file: "3"
 
+  # ==========================================
+  # Mailhog - Email Testing
+  # ==========================================
   mailhog:
-    image: mailhog/mailhog
+    image: mailhog/mailhog:latest
+    container_name: notadream-mailhog
+    restart: unless-stopped
     ports:
-      - ${MAILHOG_PORT}:8025
+      - "${MAILHOG_SMTP_PORT:-1025}:1025"  # SMTP
+      - "${MAILHOG_UI_PORT:-8025}:8025"    # Web UI
     networks:
-      - public
+      - notadream-services
+    labels:
+      - "com.notadream.service=mailhog"
+      - "com.notadream.version=latest"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "5m"
+        max-file: "3"
 
+# ============================================
+# Networks
+# ============================================
 networks:
-  private:
-  public:
+  notadream-services:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.29.0.0/16
+
+# ============================================
+# Volumes
+# ============================================
+volumes:
+  postgres-data:
+    driver: local
+  mongodb-data:
+    driver: local
