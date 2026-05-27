@@ -13,6 +13,7 @@ The Next.js-based portfolio is a modern, server-side rendered portfolio with exc
 - **Language**: TypeScript 5.6
 - **Styling**: Tailwind CSS
 - **Internationalization**: i18n
+- **Backend-as-a-Service**: Firebase (Firestore, Authentication, Hosting)
 - **Package Manager**: pnpm 9.15.9
 - **Runtime**: Node.js 20+
 - **Server**: Node.js standalone + Nginx (production)
@@ -23,6 +24,7 @@ The Next.js-based portfolio is a modern, server-side rendered portfolio with exc
 - `next`: ^15.0 - React framework
 - `react`: ^19.0 - UI library
 - `react-dom`: ^19.0 - React DOM rendering
+- `firebase`: ^11.0 - Backend-as-a-Service (Firestore, Authentication)
 
 ### Libraries
 - `@notadream/react`: - Shared React components, hooks, routing, i18n, theme engine
@@ -67,6 +69,20 @@ NEXT_PUBLIC_APP_DESCRIPTION=Full-stack developer portfolio
 NEXT_PUBLIC_APP_KEYWORDS=portfolio, developer, full-stack
 NEXT_PUBLIC_API_URL=http://localhost:4000
 NEXT_PUBLIC_APP_LOGO=/logo.svg
+
+# Firebase Configuration (See FIREBASE_SETUP_GUIDE.md for setup)
+NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
+
+# Feature Flags
+NEXT_PUBLIC_ENABLE_ANALYTICS=false
+NEXT_PUBLIC_ENABLE_COMMENTS=false
+NEXT_PUBLIC_ENABLE_BLOG=true
+NEXT_PUBLIC_API_TIMEOUT=30000
 ```
 
 ### Development
@@ -209,6 +225,10 @@ pnpm --filter @notadream/portfolio-nextjs test:watch
 - ✅ Dynamic sitemap generation
 - ✅ Standalone production build for Docker
 - ✅ PWA support
+- ✅ Firebase Firestore integration for portfolio data
+- ✅ Firebase contact form submissions
+- ✅ Real-time portfolio data updates
+- ✅ Custom React hooks for Firebase data fetching
 
 ## 🔄 Rendering Modes
 
@@ -341,6 +361,75 @@ The portfolio connects to the Fastify API service:
 
 Ensure the API service is running before starting the portfolio.
 
+## 🔥 Firebase Integration
+
+### Overview
+
+The portfolio integrates with Firebase for real-time data management and content delivery:
+
+- **Firestore Database** - Store portfolio data (projects, experiences, skills)
+- **Contact Forms** - Save contact form submissions to Firestore
+- **Real-time Updates** - Automatic UI updates when data changes
+- **Authentication** - Optional Firebase authentication support
+
+### Features
+
+- ✅ Real-time portfolio data synchronization
+- ✅ Contact form submission handling
+- ✅ Type-safe Firestore queries
+- ✅ Custom React hooks for data fetching (`usePortfolioData`, `useMessages`)
+- ✅ Error handling and loading states
+- ✅ Environment-based configuration
+
+### Configuration
+
+1. **Set Firebase Credentials**: Add Firebase config to `.env.local` (see Environment Variables section)
+2. **Initialize Database**: Create collections in Firebase Console (see [FIREBASE_SETUP_GUIDE.md](../../instructions/FIREBASE_SETUP_GUIDE.md))
+3. **Configure Security Rules**: Set up Firestore security rules to control access
+
+### Usage Examples
+
+**Fetching Portfolio Data**
+```typescript
+import { usePortfolioData } from '@notadream/react';
+
+export function Portfolio() {
+  const { data, loading, error } = usePortfolioData();
+  
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
+  
+  return <div>{data?.name}</div>;
+}
+```
+
+**Submitting Contact Messages**
+```typescript
+import { useMessages } from '@notadream/react';
+
+export function ContactForm() {
+  const { addMessage, loading } = useMessages();
+  
+  const handleSubmit = async (data) => {
+    await addMessage({
+      name: data.name,
+      email: data.email,
+      message: data.message,
+    });
+  };
+  
+  return <form onSubmit={handleSubmit}>...</form>;
+}
+```
+
+### Setup
+
+See [FIREBASE_SETUP_GUIDE.md](../../instructions/FIREBASE_SETUP_GUIDE.md) for detailed setup instructions including:
+- Firebase project creation
+- Firestore database setup
+- Security rules configuration
+- Environment variable configuration
+
 ## 📖 Environment Variables
 
 | Variable | Purpose | Example |
@@ -349,9 +438,20 @@ Ensure the API service is running before starting the portfolio.
 | `NEXT_PUBLIC_APP_DESCRIPTION` | Meta description | Full-stack developer |
 | `NEXT_PUBLIC_API_URL` | API URL | http://localhost:4000 |
 | `NEXT_PUBLIC_APP_LOGO` | Logo path | /logo.svg |
+| `NEXT_PUBLIC_FIREBASE_API_KEY` | Firebase API key | your_api_key |
+| `NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN` | Firebase auth domain | your_project.firebaseapp.com |
+| `NEXT_PUBLIC_FIREBASE_PROJECT_ID` | Firebase project ID | your_project_id |
+| `NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET` | Firebase storage bucket | your_project.appspot.com |
+| `NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID` | Firebase sender ID | your_sender_id |
+| `NEXT_PUBLIC_FIREBASE_APP_ID` | Firebase app ID | your_app_id |
+| `NEXT_PUBLIC_ENABLE_ANALYTICS` | Enable Firebase Analytics | false |
+| `NEXT_PUBLIC_ENABLE_COMMENTS` | Enable comments | false |
+| `NEXT_PUBLIC_ENABLE_BLOG` | Enable blog | true |
+| `NEXT_PUBLIC_API_TIMEOUT` | API timeout (ms) | 30000 |
 
 ## 📚 Related Documentation
 
+- [Firebase Setup Guide](../../instructions/FIREBASE_SETUP_GUIDE.md)
 - [SSR Implementation Guide](./NEXTJS_SSR_GUIDE.md)
 - [SEO Implementation Guide](./SEO_IMPLEMENTATION.md)
 - [Docker Compose Guide](../../instructions/DOCKER_COMPOSE_GUIDE.md)
@@ -360,6 +460,7 @@ Ensure the API service is running before starting the portfolio.
 - [React Library](../../libs/react/README.md)
 - [Portfolio Vite](../portfolio/README.md)
 - [Next.js Official Docs](https://nextjs.org/docs)
+- [Firebase Documentation](https://firebase.google.com/docs)
 
 ## 📄 License
 
