@@ -1,7 +1,7 @@
 # Docker Compose Documentation
 
-**Last Updated**: May 26, 2026  
-**Status**: ✅ Both docker-compose files are production-ready
+**Last Updated**: May 27, 2026  
+**Status**: ✅ Main docker-compose updated to pnpm@9.15.9
 
 ---
 

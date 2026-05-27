@@ -2,7 +2,7 @@
 FROM node:20-alpine as build
 
 # Use a specific version of pnpm and set configurations
-RUN npm install -g pnpm@7.21.1 \
+RUN npm install -g pnpm@9.15.9 \
     && pnpm config set store-dir .pnpm-store \
     && pnpm config set auto-install-peers true
 
@@ -34,7 +34,7 @@ RUN pnpm  --filter ./libs/backend/ build && \
 FROM node:20-alpine as production
 
 # Install pnpm
-RUN npm install -g pnpm@7.21.1
+RUN npm install -g pnpm@9.15.9
 
 WORKDIR /apps/notadream/
 
@@ -44,7 +44,7 @@ COPY apps/api/package.json apps/api/
 COPY libs/backend/package.json libs/backend/
 
 # Install production dependencies only
-RUN pnpm i --prod
+RUN pnpm i --prod --ignore-scripts
 
 # Copy built application
 COPY --from=build /apps/notadream/apps/api/dist ./apps/api/dist/

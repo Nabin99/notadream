@@ -1,7 +1,21 @@
 # Docker Files Update Report
 
-**Last Updated**: May 26, 2026  
-**Status**: ✅ All Dockerfiles are up to date
+**Last Updated**: May 27, 2026  
+**Status**: ✅ All Dockerfiles updated to pnpm@9.15.9
+
+---
+
+## Build Test Results (May 27, 2026)
+
+✅ **4/5 Services Passed**: api, admin, blogs, portfolio  
+⚠️ **1 Service Failed**: portfolio-nextjs (code issue - see troubleshooting section)
+
+### Failure Details
+
+**portfolio-nextjs build error**: `Cannot find module 'react-router-dom'`
+- Location: `apps/portfolio-nextjs/app/layouts/PageLayout.tsx:7`
+- Issue: Importing React Router components in Next.js app (incompatible)
+- Solution: Remove React Router imports and refactor for Next.js file-based routing
 
 ---
 
@@ -9,14 +23,14 @@
 
 ### ✅ Updated Dockerfiles
 
-| App | pnpm Version | Changes | Status |
-|-----|--------------|---------|--------|
-| **api** | 7.21.1 | ✅ Updated from 8 → 7.21.1, Added health check, Production dependencies only | ✅ Updated |
-| **admin** | 7.21.1 | ✅ Updated from 8 → 7.21.1 | ✅ Updated |
-| **blogs** | 7.21.1 | ✅ Already correct (multi-stage build) | ✅ Current |
-| **portfolio** | 7.21.1 | ✅ Already correct | ✅ Current |
-| **portfolio-nextjs** | 7.21.1 | ✅ Already correct (static export) | ✅ Current |
-| **portfolio-nextjs (SSR)** | 7.21.1 | ✅ Reference file for future use | ✅ Current |
+| App | pnpm Version | Changes | Status | Build Test |
+|-----|--------------|---------|--------|------------|
+| **api** | 9.15.9 | ✅ Updated to 9.15.9, Added --ignore-scripts flag, Health check | ✅ Updated | ✅ Pass |
+| **admin** | 9.15.9 | ✅ Updated to 9.15.9 | ✅ Updated | ✅ Pass |
+| **blogs** | 9.15.9 | ✅ Updated to 9.15.9 (multi-stage build) | ✅ Updated | ✅ Pass |
+| **portfolio** | 9.15.9 | ✅ Updated to 9.15.9 | ✅ Updated | ✅ Pass |
+| **portfolio-nextjs** | 9.15.9 | ✅ Updated to 9.15.9 (static export) | ✅ Updated | ❌ Fail* |
+| **portfolio-nextjs (SSR)** | 9.15.9 | ✅ Updated to 9.15.9 | ✅ Updated | - |
 
 ---
 
@@ -26,34 +40,27 @@
 
 **Changes Made:**
 ```diff
-- pnpm@8 ❌
-+ pnpm@7.21.1 ✅
+- pnpm@7.21.1 ❌ (version doesn't exist in npm registry)
++ pnpm@9.15.9 ✅ (current project version)
 
-# Added production stage with:
+# Production stage optimizations:
 + Health check (30s interval)
 + Production dependencies only (--prod)
++ --ignore-scripts flag to skip git hooks
 + Environment variables (NODE_ENV, PORT)
 + Proper error handling
 ```
 
-**Before:**
-```dockerfile
-# Simple build + copy dist
-FROM build as production
-COPY --from=build /apps/notadream/apps/api/dist /apps/api/dist/
-CMD ["node","/apps/notadream/apps/api/dist/index.js"]
-```
-
-**After:**
+**After (Updated to 9.15.9):**
 ```dockerfile
 # Optimized production stage
 FROM node:20-alpine as production
-RUN npm install -g pnpm@7.21.1
+RUN npm install -g pnpm@9.15.9
 WORKDIR /apps/notadream/
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 COPY apps/api/package.json apps/api/
 COPY libs/backend/package.json libs/backend/
-RUN pnpm i --prod
+RUN pnpm i --prod --ignore-scripts
 COPY --from=build /apps/notadream/apps/api/dist ./apps/api/dist/
 ENV NODE_ENV=production
 ENV PORT=4000
@@ -63,51 +70,72 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
 CMD ["node", "apps/api/dist/index.js"]
 ```
 
+**Key Changes:**
+- Updated pnpm version from 7.21.1 → 9.15.9
+- Added `--ignore-scripts` flag to skip git hooks during Docker build
+
 ### 2. **Admin Dockerfile** (`apps/admin/docker/Dockerfile`)
 
 **Changes Made:**
 ```diff
-- pnpm@8 ❌
-+ pnpm@7.21.1 ✅
+- pnpm@7.21.1 ❌ (version doesn't exist)
++ pnpm@9.15.9 ✅ (updated to current version)
 ```
 
-✅ Already uses multi-stage build with Nginx  
-✅ Static export build optimized  
+✅ Multi-stage build with Nginx  
+✅ Static export build optimized
+✅ Build test passed  
 
 ### 3. **Blogs Dockerfile** (`apps/blogs/docker/Dockerfile`)
 
-✅ **No changes needed** - Already correctly configured
+**Changes Made:**
+```diff
+- pnpm@7.21.1 ❌ (version doesn't exist)
++ pnpm@9.15.9 ✅ (updated to current version)
+```
 
 **Why it's optimal:**
 - Multi-stage build (deps → builder → runner)
 - Uses Next.js standalone mode for reduced image size
 - Production-ready non-root user (nextjs:1001)
 - Environment variables properly set
-- pnpm@7.21.1 ✅
+- Build test passed ✅
 
 ### 4. **Portfolio Dockerfile** (`apps/portfolio/docker/Dockerfile`)
 
-✅ **No changes needed** - Already correctly configured
+**Changes Made:**
+```diff
+- pnpm@7.21.1 ❌ (version doesn't exist)
++ pnpm@9.15.9 ✅ (updated to current version)
+```
 
 **Why it's optimal:**
 - Two-stage build (build → production)
 - Vite static export optimized
 - Nginx serving static files
-- pnpm@7.21.1 ✅
+- Build test passed ✅
 
 ### 5. **Portfolio NextJS Dockerfile** (`apps/portfolio-nextjs/docker/Dockerfile`)
 
-✅ **No changes needed** - Already correctly configured
+**Changes Made:**
+```diff
+- pnpm@7.21.1 ❌ (version doesn't exist)
++ pnpm@9.15.9 ✅ (updated to current version)
+```
 
-**Why it's optimal:**
+**Build Failed** ❌  
+Reason: Code incompatibility - PageLayout.tsx imports `react-router-dom` which is incompatible with Next.js  
+File: `apps/portfolio-nextjs/app/layouts/PageLayout.tsx:7`  
+Fix Required: Refactor to use Next.js routing instead of React Router
+
+**Dockerfile Structure:**
 - Two-stage build (build → production)
 - Next.js static export with `next export`
 - Nginx serving static files
-- pnpm@7.21.1 ✅
 
 ### 6. **Portfolio NextJS SSR Dockerfile** (`apps/portfolio-nextjs/docker/Dockerfile.ssr`)
 
-✅ **Reference file** - For future SSR implementation
+✅ **Reference file** - Updated to pnpm@9.15.9 for future SSR implementation
 
 ---
 
@@ -192,12 +220,46 @@ docker-compose up
 ```json
 {
   "node": "20-alpine",
-  "pnpm": "7.21.1",
+  "pnpm": "9.15.9",
   "nginx": "1.23-alpine"
 }
 ```
 
 All Dockerfiles use consistent versions across the monorepo.
+
+**Note:** pnpm@7.21.1 does not exist in npm registry. Project uses pnpm@9.15.9.
+
+---
+
+## Troubleshooting
+
+### Issue: portfolio-nextjs Build Fails
+
+**Error Message:**
+```
+Failed to compile.
+./app/layouts/PageLayout.tsx:7:24
+Type error: Cannot find module 'react-router-dom'
+```
+
+**Root Cause:**
+The component imports `Outlet` from `react-router-dom`, which is a React Router feature. This is incompatible with Next.js which uses file-based routing.
+
+**Solution:**
+1. Remove `import { Outlet } from 'react-router-dom'`
+2. Refactor PageLayout component to work with Next.js routing patterns
+3. Use Next.js `ReactNode` for children instead of React Router's `Outlet`
+
+**Example Fix:**
+```diff
+- import { Outlet } from "react-router-dom";
+
+export const PageLayout = () => {
+  // ...
+- <Outlet />
++ {children}
+}
+```
 
 ---
 

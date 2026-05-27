@@ -8,7 +8,7 @@ RUN apk add --no-cache libc6-compat
 WORKDIR /apps/notadream/
 
 # Use a specific version of pnpm and set configurations
-RUN npm install -g pnpm@7.21.1 \
+RUN npm install -g pnpm@9.15.9 \
     && pnpm config set store-dir .pnpm-store \
     && pnpm config set auto-install-peers true
 
@@ -28,7 +28,7 @@ RUN pnpm --filter ./apps/blogs/ install && \
 
 # 2. Rebuild the source code only when needed
 FROM base AS builder
-RUN npm install -g pnpm@7.21.1 \
+RUN npm install -g pnpm@9.15.9 \
     && pnpm config set store-dir .pnpm-store \
     && pnpm config set auto-install-peers true
 

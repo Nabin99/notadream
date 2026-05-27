@@ -2,7 +2,7 @@
 
 ![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
 ![Node Version](https://img.shields.io/badge/node-%3E%3D%2020-brightgreen)
-![pnpm](https://img.shields.io/badge/pnpm-7.21.1-blue)
+![pnpm](https://img.shields.io/badge/pnpm-9.15.9-blue)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.6-blue)
 ![License](https://img.shields.io/badge/license-UNLICENSED-red)
 
@@ -84,7 +84,7 @@ notadream/
 
 ### **DevOps & Tools**
 - **Turbo 2.5** - Monorepo build orchestration
-- **pnpm 7.21** - Fast package manager
+- **pnpm 9.15** - Fast package manager
 - **Docker & Docker Compose** - Containerization
 - **GitHub Actions** - CI/CD automation
 - **Vercel** - Production deployment
@@ -103,7 +103,7 @@ notadream/
 ### **Prerequisites**
 
 - **Node.js**: `>= 20.x`
-- **pnpm**: `7.21.1` (or run `npm install -g pnpm@7.21.1`)
+- **pnpm**: `9.15.9` (or run `npm install -g pnpm@9.15.9`)
 - **Docker**: (optional, for containerized development)
 
 ### **Installation**
