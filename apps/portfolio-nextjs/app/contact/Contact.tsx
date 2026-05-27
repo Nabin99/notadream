@@ -1,4 +1,5 @@
 import emailjs from "@emailjs/browser";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import {
   Button,
   Page,
@@ -12,12 +13,14 @@ import { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 
 import { ContentBox, SocialLinks } from "../components";
+import { ContactSubmission } from "../types/portfolio";
 
 import "../assets/css/pages/contact/index.css";
 
 export const Contact = () => {
   const secrets = getAppConfig().secrets;
   const email = getAppConfig().appEmail;
+  const db = getAppConfig().database?.firebase?.db;
   const { t } = useTranslation("contactPage");
 
   const [formData, setFormData] = useState({
@@ -112,29 +115,69 @@ export const Contact = () => {
     event_.preventDefault();
 
     if (validateForm()) {
-      const response = await emailjs.send(
-        secrets.emailJsServiceId,
-        secrets.emailJsTemplateId,
-        formData
-      );
+      try {
+        // Send email via EmailJS
+        const emailResponse = await emailjs.send(
+          secrets.emailJsServiceId,
+          secrets.emailJsTemplateId,
+          formData
+        );
 
-      if (response.status === 200) {
-        toast.success(t("form.toastMessage.success"), {
-          position: "bottom-right",
-        });
-        setFormData({
-          firstName: "",
-          lastName: "",
-          email: "",
-          subject: "",
-          message: "",
-        });
-        setSubmissionStatus({
-          isSubmitting: false,
-          successful: true,
-          hasError: false,
-        });
-      } else {
+        let firebaseSuccess = false;
+
+        // Save submission to Firestore (if Firebase is configured)
+        if (db) {
+          try {
+            const submission: ContactSubmission = {
+              name: `${formData.firstName} ${formData.lastName}`,
+              email: formData.email,
+              message: `Subject: ${formData.subject || "No subject"}\n\n${formData.message}`,
+              timestamp: Date.now(),
+              read: false,
+              archived: false,
+            };
+
+            await addDoc(collection(db, "submissions"), submission);
+            firebaseSuccess = true;
+          } catch (firebaseError) {
+            console.error("[Contact] Error saving to Firestore:", firebaseError);
+            // Don't fail the whole submission if Firestore fails
+            firebaseSuccess = false;
+          }
+        }
+
+        if (emailResponse.status === 200) {
+          const firebaseMessage = firebaseSuccess
+            ? t("form.toastMessage.success")
+            : `${t("form.toastMessage.success")} (Note: local database save failed)`;
+
+          toast.success(firebaseMessage, {
+            position: "bottom-right",
+          });
+          setFormData({
+            firstName: "",
+            lastName: "",
+            email: "",
+            subject: "",
+            message: "",
+          });
+          setSubmissionStatus({
+            isSubmitting: false,
+            successful: true,
+            hasError: false,
+          });
+        } else {
+          toast.error(t("form.toastMessage.failed"), {
+            position: "bottom-right",
+          });
+          setSubmissionStatus({
+            isSubmitting: false,
+            successful: false,
+            hasError: true,
+          });
+        }
+      } catch (error) {
+        console.error("[Contact] Submission error:", error);
         toast.error(t("form.toastMessage.failed"), {
           position: "bottom-right",
         });

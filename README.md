@@ -76,6 +76,7 @@ notadream/
 - **Tailwind CSS** - Utility-first CSS
 - **React Hook Form** - Form management
 - **Zod** - Schema validation
+- **Firebase 11** - Real-time database, authentication, and hosting
 
 ### **Backend**
 - **Fastify 5** - High-performance server framework
@@ -230,6 +231,19 @@ NEXT_PUBLIC_EMAILJS_SERVICE_ID="service_xxxxx"
 NEXT_PUBLIC_EMAILJS_TEMPLATE_ID="template_xxxxx"
 NEXT_PUBLIC_EMAILJS_USER_ID="user_xxxxx"
 
+# Firebase Configuration
+NEXT_PUBLIC_FIREBASE_API_KEY="your_api_key"
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN="your_project.firebaseapp.com"
+NEXT_PUBLIC_FIREBASE_PROJECT_ID="your_project_id"
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET="your_project.appspot.com"
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID="your_sender_id"
+NEXT_PUBLIC_FIREBASE_APP_ID="your_app_id"
+
+# Feature Flags
+NEXT_PUBLIC_ENABLE_ANALYTICS="false"
+NEXT_PUBLIC_ENABLE_COMMENTS="false"
+NEXT_PUBLIC_ENABLE_BLOG="true"
+
 # Social Links
 NEXT_PUBLIC_APP_LINKEDIN_URL="https://linkedin.com/in/your-profile"
 NEXT_PUBLIC_APP_GITHUB_URL="https://github.com/your-profile"
@@ -274,6 +288,8 @@ docker run -p 3000:3000 \
 ### **Project Guides**
 
 - [GITHUB_ACTIONS_SETUP.md](GITHUB_ACTIONS_SETUP.md) - CI/CD deployment guide
+- [FIREBASE_SETUP_GUIDE.md](instructions/FIREBASE_SETUP_GUIDE.md) - Firebase configuration and setup
+- [DOCKER_COMPOSE_GUIDE.md](instructions/DOCKER_COMPOSE_GUIDE.md) - Docker deployment guide
 - [NEXTJS_SSR_GUIDE.md](apps/portfolio-nextjs/NEXTJS_SSR_GUIDE.md) - SSR migration guide
 - [.env.example](.env.example) - Environment variables reference
 

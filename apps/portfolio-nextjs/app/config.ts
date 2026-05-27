@@ -1,6 +1,7 @@
 "use client";
 
 import { configureApp } from "@notadream/react";
+import { app, db, firebaseConfig } from "./config/dbconfig";
 
 declare module "@notadream/react" {
   interface ThemeOptions {
@@ -9,6 +10,13 @@ declare module "@notadream/react" {
 
   interface AppConfig {
     appEmail: string;
+    database: {
+      firebase: {
+        app: typeof app;
+        db: typeof db;
+        firebaseConfig: typeof firebaseConfig;
+      };
+    };
     secrets: {
       emailJsServiceId: string;
       emailJsTemplateId: string;
@@ -33,6 +41,13 @@ configureApp({
   apiBaseURL: process.env.NEXT_PUBLIC_API_BASE_URL || "",
   appPort: Number(process.env.NEXT_PUBLIC_APP_PORT) || 3000,
   appEmail: process.env.NEXT_PUBLIC_APP_EMAIL || "dhitalnabin224@gmail.com",
+  database: {
+    firebase: {
+      app,
+      db,
+      firebaseConfig,
+    },
+  },
   i18n: {
     defaultLanguage: process.env.NEXT_PUBLIC_I18N_DEFAULT_LANGUAGE || "en",
     supportedLanguages: (
