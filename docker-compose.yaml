@@ -15,15 +15,28 @@ services:
       dockerfile: ./apps/api/docker/Dockerfile
     container_name: notadream-api
     ports:
-      - "4000:4000"
+      - "${API_PORT:-4000}:${API_PORT:-4000}"
     environment:
       NODE_ENV: ${NODE_ENV:-development}
-      PORT: 4000
+      PORT: ${API_PORT:-4000}
+      API_HOST: ${API_HOST:-localhost}
+      API_BASE_URL: ${API_BASE_URL:-http://localhost:4000}
+      API_TIMEOUT: ${API_TIMEOUT:-30000}
+      CORS_ORIGIN: ${CORS_ORIGIN:-http://localhost:3000,http://localhost:3001,http://localhost:4001,http://localhost:4003}
+      JWT_SECRET: ${JWT_SECRET:-your-super-secret-jwt-key-change-in-production}
+      JWT_EXPIRY: ${JWT_EXPIRY:-7d}
+      JWT_REFRESH_EXPIRY: ${JWT_REFRESH_EXPIRY:-30d}
+      SESSION_SECRET: ${SESSION_SECRET:-your-session-secret-key}
+      DATABASE_URL: ${DATABASE_URL:-postgresql://postgres:postgres@localhost:5432/notadream}
+      MONGODB_URL: ${MONGODB_URL:-mongodb://localhost:27017/notadream}
+      EMAILJS_SERVICE_ID: ${EMAILJS_SERVICE_ID:-}
+      EMAILJS_TEMPLATE_ID: ${EMAILJS_TEMPLATE_ID:-}
+      EMAILJS_USER_ID: ${EMAILJS_USER_ID:-}
     networks:
       - notadream-network
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "node", "-e", "require('http').get('http://localhost:4000', (r) => {if (r.statusCode !== 200) throw new Error(r.statusCode)})"]
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:${API_PORT:-4000}', (r) => {if (r.statusCode !== 200) throw new Error(r.statusCode)})"]
       interval: 30s
       timeout: 3s
       retries: 3
@@ -41,7 +54,10 @@ services:
       dockerfile: ./apps/admin/docker/Dockerfile
     container_name: notadream-admin
     ports:
-      - "4001:4001"
+      - "${ADMIN_PORT:-4001}:${ADMIN_PORT:-4001}"
+    environment:
+      NODE_ENV: ${NODE_ENV:-development}
+      VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://localhost:4000}
     depends_on:
       - api
     networks:
@@ -60,11 +76,16 @@ services:
       dockerfile: ./apps/blogs/docker/Dockerfile
     container_name: notadream-blogs
     ports:
-      - "4002:4002"
+      - "${BLOGS_PORT:-4002}:${BLOGS_PORT:-4002}"
     environment:
       NODE_ENV: ${NODE_ENV:-development}
-      PORT: 4002
-      HOSTNAME: localhost
+      PORT: ${BLOGS_PORT:-4002}
+      HOSTNAME: ${BLOGS_HOSTNAME:-localhost}
+      NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:4000}
+      NEXT_PUBLIC_BLOG_TITLE: ${NEXT_PUBLIC_BLOG_TITLE:-NotADream Blogs}
+      NEXT_PUBLIC_BLOG_DESCRIPTION: ${NEXT_PUBLIC_BLOG_DESCRIPTION:-Articles and insights}
+      DATABASE_URL: ${DATABASE_URL:-postgresql://postgres:postgres@localhost:5432/notadream}
+      MONGODB_URL: ${MONGODB_URL:-mongodb://localhost:27017/notadream}
     depends_on:
       - api
     networks:
@@ -81,9 +102,48 @@ services:
     build:
       context: .
       dockerfile: ./apps/portfolio/docker/Dockerfile
+      args:
+        VITE_APP_NAME: ${VITE_APP_NAME:-NotADream Portfolio}
+        VITE_APP_TITLE: ${VITE_APP_TITLE:-Portfolio - Nabin Dhital}
+        VITE_APP_DESCRIPTION: ${VITE_APP_DESCRIPTION:-Full-stack developer portfolio}
+        VITE_APP_KEYWORDS: ${VITE_APP_KEYWORDS:-portfolio, developer, full-stack}
+        VITE_APP_LOGO: ${VITE_APP_LOGO:-/logo.svg}
+        VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://localhost:4000}
+        VITE_APP_PORT: ${PORTFOLIO_PORT:-4003}
+        VITE_APP_EMAIL: ${VITE_APP_EMAIL:-dhitalnabin224@gmail.com}
+        VITE_I18N_DEFAULT_LANGUAGE: ${VITE_I18N_DEFAULT_LANGUAGE:-en}
+        VITE_I18N_SUPPORTED_LANGUAGE: ${VITE_I18N_SUPPORTED_LANGUAGE:-en,fr}
+        VITE_EMAILJS_SERVICE_ID: ${VITE_EMAILJS_SERVICE_ID:-}
+        VITE_EMAILJS_TEMPLATE_ID: ${VITE_EMAILJS_TEMPLATE_ID:-}
+        VITE_EMAILJS_PUBLIC_KEY: ${VITE_EMAILJS_PUBLIC_KEY:-}
+        VITE_SOCIAL_FACEBOOK: ${VITE_SOCIAL_FACEBOOK:-}
+        VITE_SOCIAL_GITHUB: ${VITE_SOCIAL_GITHUB:-https://github.com}
+        VITE_SOCIAL_INSTAGRAM: ${VITE_SOCIAL_INSTAGRAM:-}
+        VITE_SOCIAL_LINKEDIN: ${VITE_SOCIAL_LINKEDIN:-}
+        VITE_SOCIAL_TWITTER: ${VITE_SOCIAL_TWITTER:-}
     container_name: notadream-portfolio
     ports:
-      - "4003:4003"
+      - "${PORTFOLIO_PORT:-4003}:${PORTFOLIO_PORT:-4003}"
+    environment:
+      NODE_ENV: ${NODE_ENV:-development}
+      VITE_API_BASE_URL: ${VITE_API_BASE_URL:-http://localhost:4000}
+      VITE_APP_NAME: ${VITE_APP_NAME:-NotADream Portfolio}
+      VITE_APP_TITLE: ${VITE_APP_TITLE:-Portfolio - Nabin Dhital}
+      VITE_APP_DESCRIPTION: ${VITE_APP_DESCRIPTION:-Full-stack developer portfolio}
+      VITE_APP_KEYWORDS: ${VITE_APP_KEYWORDS:-portfolio, developer, full-stack}
+      VITE_APP_LOGO: ${VITE_APP_LOGO:-/logo.svg}
+      VITE_APP_PORT: ${PORTFOLIO_PORT:-4003}
+      VITE_APP_EMAIL: ${VITE_APP_EMAIL:-dhitalnabin224@gmail.com}
+      VITE_I18N_DEFAULT_LANGUAGE: ${VITE_I18N_DEFAULT_LANGUAGE:-en}
+      VITE_I18N_SUPPORTED_LANGUAGE: ${VITE_I18N_SUPPORTED_LANGUAGE:-en,fr}
+      VITE_EMAILJS_SERVICE_ID: ${VITE_EMAILJS_SERVICE_ID:-}
+      VITE_EMAILJS_TEMPLATE_ID: ${VITE_EMAILJS_TEMPLATE_ID:-}
+      VITE_EMAILJS_PUBLIC_KEY: ${VITE_EMAILJS_PUBLIC_KEY:-}
+      VITE_SOCIAL_FACEBOOK: ${VITE_SOCIAL_FACEBOOK:-}
+      VITE_SOCIAL_GITHUB: ${VITE_SOCIAL_GITHUB:-https://github.com}
+      VITE_SOCIAL_INSTAGRAM: ${VITE_SOCIAL_INSTAGRAM:-}
+      VITE_SOCIAL_LINKEDIN: ${VITE_SOCIAL_LINKEDIN:-}
+      VITE_SOCIAL_TWITTER: ${VITE_SOCIAL_TWITTER:-}
     depends_on:
       - api
     networks:
@@ -102,9 +162,52 @@ services:
       dockerfile: ./apps/portfolio-nextjs/docker/Dockerfile
     container_name: notadream-portfolio-nextjs
     ports:
-      - "3000:3000"
+      - "${PORTFOLIO_NEXTJS_PORT:-3000}:${PORTFOLIO_NEXTJS_PORT:-3000}"
     environment:
+      # Core Application Settings
       NODE_ENV: ${NODE_ENV:-development}
+      PORT: ${PORTFOLIO_NEXTJS_PORT:-3000}
+      NEXT_PUBLIC_ENVIRONMENT: ${NEXT_PUBLIC_ENVIRONMENT:-development}
+      # Application Metadata
+      NEXT_PUBLIC_APP_TITLE: ${NEXT_PUBLIC_APP_TITLE:-Nabin Dhital | Full-Stack Developer & SEO Specialist}
+      NEXT_PUBLIC_APP_DESCRIPTION: ${NEXT_PUBLIC_APP_DESCRIPTION:-A creative and dynamic Full-Stack Developer portfolio showcasing expertise in web development, mobile app development, and SEO-based services.}
+      NEXT_PUBLIC_APP_KEYWORDS: ${NEXT_PUBLIC_APP_KEYWORDS:-Full-Stack Developer, Web Development, Mobile App Development, SEO Services, React, JavaScript, CSS, HTML, Node.js, Portfolio}
+      NEXT_PUBLIC_APP_AUTHOR: ${NEXT_PUBLIC_APP_AUTHOR:-Nabin Dhital}
+      NEXT_PUBLIC_APP_NAME: ${NEXT_PUBLIC_APP_NAME:-Nabin Dhital}
+      NEXT_PUBLIC_COPYRIGHT_HOLDER: ${NEXT_PUBLIC_COPYRIGHT_HOLDER:-Nabin Dhital}
+      NEXT_PUBLIC_VERSION: ${NEXT_PUBLIC_VERSION:-0.1.0}
+      # URLs & Domains
+      NEXT_PUBLIC_BASE_APP_URL: ${NEXT_PUBLIC_BASE_APP_URL:-http://localhost:3000}
+      NEXT_PUBLIC_CANONICAL_URL: ${NEXT_PUBLIC_CANONICAL_URL:-https://nabin-dhital.com}
+      NEXT_PUBLIC_API_BASE_URL: ${NEXT_PUBLIC_API_BASE_URL:-http://localhost:4000}
+      # Social Media Links
+      NEXT_PUBLIC_APP_LINKEDIN_URL: ${NEXT_PUBLIC_APP_LINKEDIN_URL:-https://www.linkedin.com/in/dhitalnabin}
+      NEXT_PUBLIC_APP_GITHUB_URL: ${NEXT_PUBLIC_APP_GITHUB_URL:-https://github.com/Nabin99}
+      NEXT_PUBLIC_APP_TWITTER_URL: ${NEXT_PUBLIC_APP_TWITTER_URL:-https://twitter.com/dhitalnabin111}
+      NEXT_PUBLIC_APP_FACEBOOK_URL: ${NEXT_PUBLIC_APP_FACEBOOK_URL:-https://www.facebook.com/dhitalnabin111}
+      NEXT_PUBLIC_APP_INSTAGRAM_URL: ${NEXT_PUBLIC_APP_INSTAGRAM_URL:-https://www.instagram.com/dhitalnabin11}
+      NEXT_PUBLIC_APP_YOUTUBE_URL: ${NEXT_PUBLIC_APP_YOUTUBE_URL:-https://www.youtube.com/channel/UC9Q6z1Q1Z6}
+      NEXT_PUBLIC_APP_TWITTER_HANDLE: ${NEXT_PUBLIC_APP_TWITTER_HANDLE:-@dhitalnabin111}
+      # Theme Configuration
+      NEXT_PUBLIC_APP_THEME_COLOR: ${NEXT_PUBLIC_APP_THEME_COLOR:-#16c7d5}
+      NEXT_PUBLIC_APP_THEME_MULTI_COLOR_MODE: ${NEXT_PUBLIC_APP_THEME_MULTI_COLOR_MODE:-false}
+      # Email Configuration (EmailJS)
+      NEXT_PUBLIC_EMAILJS_SERVICE_ID: ${NEXT_PUBLIC_EMAILJS_SERVICE_ID:-service_8ydegqh}
+      NEXT_PUBLIC_EMAILJS_TEMPLATE_ID: ${NEXT_PUBLIC_EMAILJS_TEMPLATE_ID:-template_tuc61gb}
+      NEXT_PUBLIC_EMAILJS_USER_ID: ${NEXT_PUBLIC_EMAILJS_USER_ID:-xjbCaLkYMZiZzQOp0}
+      NEXT_PUBLIC_APP_EMAIL: ${NEXT_PUBLIC_APP_EMAIL:-nabin@example.com}
+      # Analytics & Tracking
+      NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: ${NEXT_PUBLIC_GOOGLE_ANALYTICS_ID:-}
+      NEXT_PUBLIC_GTAG_ID: ${NEXT_PUBLIC_GTAG_ID:-}
+      # SEO Configuration
+      NEXT_PUBLIC_SITE_LANGUAGE: ${NEXT_PUBLIC_SITE_LANGUAGE:-en}
+      NEXT_PUBLIC_SITE_LOCALE: ${NEXT_PUBLIC_SITE_LOCALE:-en_US}
+      # Feature Flags
+      NEXT_PUBLIC_ENABLE_ANALYTICS: ${NEXT_PUBLIC_ENABLE_ANALYTICS:-false}
+      NEXT_PUBLIC_ENABLE_COMMENTS: ${NEXT_PUBLIC_ENABLE_COMMENTS:-false}
+      NEXT_PUBLIC_ENABLE_BLOG: ${NEXT_PUBLIC_ENABLE_BLOG:-true}
+      # API Configuration
+      NEXT_PUBLIC_API_TIMEOUT: ${NEXT_PUBLIC_API_TIMEOUT:-30000}
     depends_on:
       - api
     networks:
