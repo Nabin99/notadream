@@ -1217,7 +1217,7 @@ git clone <repo-url>
 cd notadream
 
 # 2. Install pnpm (if not installed)
-npm install -g pnpm@9.15.9
+npm install -g pnpm@11
 
 # 3. Install dependencies
 pnpm install

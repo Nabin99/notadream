@@ -10,7 +10,7 @@
 FROM node:20-alpine as build
 
 # Use a specific version of pnpm and set configurations
-RUN npm install -g pnpm@7.21.1 \
+RUN npm install -g pnpm@9.15.9 \
     && pnpm config set store-dir .pnpm-store \
     && pnpm config set auto-install-peers true
 
@@ -43,7 +43,7 @@ RUN pnpm --filter ./libs/react/ build && \
 FROM node:20-alpine as production
 
 # Install pnpm in production image
-RUN npm install -g pnpm@7.21.1
+RUN npm install -g pnpm@9.15.9
 
 # Create app directory
 WORKDIR /apps/notadream/

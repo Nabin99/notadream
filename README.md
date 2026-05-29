@@ -149,7 +149,7 @@ pnpm run lint:fix
 ### **Testing**
 
 ```bash
-# Run all tests
+# Run all tests (serial - recommended for local development)
 pnpm run test
 
 # Run unit tests only
@@ -158,9 +158,21 @@ pnpm run test:unit
 # Run integration tests
 pnpm run test:integration
 
+# Run tests with coverage report
+pnpm run test:coverage
+
+# Watch mode for development
+pnpm run test:watch
+
 # Run tests in CI mode
 pnpm run test:ci
 ```
+
+> **📚 For detailed testing information**, see [TESTING.md](./TESTING.md) guide which includes:
+> - Framework-specific configuration (Jest, Vitest)
+> - Coverage requirements (50% minimum)
+> - Troubleshooting common issues
+> - CI/CD integration patterns
 
 ---
 
@@ -287,6 +299,7 @@ docker run -p 3000:3000 \
 
 ### **Project Guides**
 
+- [TESTING.md](TESTING.md) - **Comprehensive testing guide** (Jest, Vitest, coverage, troubleshooting)
 - [GITHUB_ACTIONS_SETUP.md](GITHUB_ACTIONS_SETUP.md) - CI/CD deployment guide
 - [FIREBASE_SETUP_GUIDE.md](instructions/FIREBASE_SETUP_GUIDE.md) - Firebase configuration and setup
 - [DOCKER_COMPOSE_GUIDE.md](instructions/DOCKER_COMPOSE_GUIDE.md) - Docker deployment guide
@@ -313,9 +326,12 @@ docker run -p 3000:3000 \
 | `pnpm lint` | Run ESLint on all apps |
 | `pnpm lint:fix` | Fix linting issues automatically |
 | `pnpm typecheck` | Run TypeScript type checking |
-| `pnpm test` | Run all tests |
+| `pnpm test` | Run all tests (serial execution) |
+| `pnpm test:parallel` | Run all tests in parallel (CI) |
 | `pnpm test:unit` | Run unit tests only |
-| `pnpm test:ci` | Run tests in CI mode |
+| `pnpm test:watch` | Run tests in watch mode |
+| `pnpm test:coverage` | Generate coverage reports |
+| `pnpm test:ci` | Run tests in CI mode with coverage |
 | `pnpm sort-package` | Sort package.json files |
 
 ### **Per App**

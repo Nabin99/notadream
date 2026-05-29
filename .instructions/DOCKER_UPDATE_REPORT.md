@@ -1,7 +1,7 @@
 # Docker Files Update Report
 
 **Last Updated**: May 27, 2026  
-**Status**: ✅ All Dockerfiles updated to pnpm@9.15.9
+**Status**: ✅ All Dockerfiles updated to pnpm@11
 
 ---
 
@@ -41,7 +41,7 @@
 **Changes Made:**
 ```diff
 - pnpm@7.21.1 ❌ (version doesn't exist in npm registry)
-+ pnpm@9.15.9 ✅ (current project version)
++ pnpm@11 ✅ (latest major version)
 
 # Production stage optimizations:
 + Health check (30s interval)
@@ -55,7 +55,7 @@
 ```dockerfile
 # Optimized production stage
 FROM node:20-alpine as production
-RUN npm install -g pnpm@9.15.9
+RUN npm install -g pnpm@11
 WORKDIR /apps/notadream/
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 COPY apps/api/package.json apps/api/

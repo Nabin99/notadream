@@ -15,11 +15,10 @@
     "lint:fix:staged": "pnpm run --parallel -r --filter !@notadream/blogs lint:fix",
     "prepare": "husky",
     "sort-package": "sort-package-json && pnpm run sort-package",
-    "test": "pnpm run -r test",
-    "test:parallel": "pnpm run -r --parallel test",
-    "test:ci": "pnpm run -r test:ci",
-    "test:unit": "pnpm run -r test:unit",
-    "test:unit:ci": "pnpm run -r test:unit:ci",
+    "test": "pnpm run --parallel test ",
+    "test:ci": "pnpm run test:ci --parallel",
+    "test:unit": "pnpm run test:unit --parallel",
+    "test:unit:ci": "pnpm run test:unit:ci --parallel",
     "typecheck": "pnpm run -r --parallel typecheck"
   },
   "devDependencies": {
@@ -27,7 +26,7 @@
     "@commitlint/config-conventional": "19.7.1",
     "eslint-plugin-react": "^7.37.5",
     "husky": "^9.1.7",
-    "turbo": "^2.5.8"
+    "turbo": "^2.9.16"
   },
   "workspaces": [
     "libs/*",

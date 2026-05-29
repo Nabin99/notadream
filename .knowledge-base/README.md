@@ -33,6 +33,14 @@
    - Common development commands
    - Debugging and troubleshooting
    - Code organization and conventions
+   - Testing workflow and best practices
+
+### 5.1 **[Testing Guide - MAIN REFERENCE](../TESTING.md)** 
+   - Jest and Vitest configuration
+   - Running tests locally and in CI
+   - Coverage requirements and reports
+   - Troubleshooting test issues
+   - Common gotchas (watch mode, freezing)
 
 ### 6. **[Database & Infrastructure](./06-database-infrastructure.md)**
    - Database setup and schemas
@@ -72,6 +80,12 @@
 1. Read [Architecture Overview](./01-architecture.md)
 2. Follow [Team Onboarding](./10-team-onboarding.md)
 3. Check [Development Workflow](./05-development-workflow.md)
+4. Read [Testing Guide](../TESTING.md) for test setup
+
+**Need to Test Your Code?**
+1. Review [Testing Guide](../TESTING.md) - comprehensive reference
+2. Check [Development Workflow Testing Section](./05-development-workflow.md#testing-during-development)
+3. Troubleshoot using [Known Issues](./09-known-issues.md) (see Issue #5 about Vitest)
 
 **Need to Deploy?**
 1. Review [Deployment Guide](./07-deployment.md)

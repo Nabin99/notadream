@@ -158,7 +158,44 @@ Connect to API and implement blog features.
 
 ## 📋 Minor Issues
 
-### 5. Environment Variables - Defaults May Not Match Production
+### 5. Vitest Watch Mode Freezes Tests (RESOLVED)
+
+**Status**: ✅ RESOLVED  
+**Severity**: LOW (Developer Experience)  
+**Affected Component**: `libs/react`, `apps/api`, `apps/admin`, `apps/portfolio`  
+
+#### Previous Problem
+Running bare `vitest` command in package.json test scripts would:
+1. Enter watch mode by default
+2. Never exit, waiting for file changes
+3. When run in parallel with other packages, exhaust system resources
+4. Cause laptop to freeze and tests to timeout
+
+#### Root Cause
+- Vitest enters watch mode by default unless `--run` flag is provided
+- Watch mode is useful for development but not for CI/scripting
+- Multiple jsdom environments in parallel consumed too much memory
+
+#### Solution Applied ✅
+```json
+{
+  "scripts": {
+    "test": "vitest run",              // ✅ Exits after tests
+    "test:watch": "vitest --watch",    // ✅ Explicit watch mode
+    "test:coverage": "vitest run --coverage"
+  }
+}
+```
+
+#### Key Takeaways
+- Always use `vitest run` in test scripts
+- Use `pnpm test:watch` only for local development
+- Use `pnpm test` (serial) for local development, `pnpm test:parallel` for CI
+- See [TESTING.md](../../TESTING.md) for detailed testing guide
+
+---
+
+### 6. Environment Variables - Defaults May Not Match Production
 
 **Status**: ⚠️ REVIEW  
 **Severity**: LOW  
@@ -179,7 +216,7 @@ JWT_SECRET: ${JWT_SECRET:-your-super-secret-key}      # Weak default
 
 ---
 
-### 6. Database Connections Optional
+### 7. Database Connections Optional
 
 **Status**: ⚠️ NOT ENFORCED  
 **Severity**: LOW  
@@ -201,7 +238,7 @@ await validateDatabaseConnection();
 
 ---
 
-### 7. No Error Handling in Frontend
+### 8. No Error Handling in Frontend
 
 **Status**: ⚠️ NOT IMPLEMENTED  
 **Severity**: LOW  
