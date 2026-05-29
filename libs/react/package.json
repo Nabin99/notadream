@@ -22,9 +22,9 @@
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --ignore-path .eslintignore ",
     "lint:fix": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\" --ignore-path .eslintignore ",
     "typecheck": "tsc",
-    "test": "vitest",
+    "test": "vitest run",
     "test:watch": "vitest --watch",
-    "test:coverage": "vitest --coverage",
+    "test:coverage": "vitest run --coverage",
     "test:unit": "vitest run",
     "test:unit:ci": "vitest run --coverage"
   },

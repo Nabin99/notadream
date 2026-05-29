@@ -4,6 +4,8 @@ module.exports = {
   roots: ["<rootDir>/src"],
   testMatch: ["**/__tests__/**/*.test.ts", "**/*.test.ts"],
   moduleFileExtensions: ["ts", "js", "json"],
+  maxWorkers: 1,
+  testTimeout: 10000,
   collectCoverageFrom: [
     "src/**/*.ts",
     "!src/**/*.d.ts",

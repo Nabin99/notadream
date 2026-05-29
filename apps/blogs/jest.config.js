@@ -10,6 +10,8 @@ const customJestConfig = {
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
   testEnvironment: "jest-environment-jsdom",
   testMatch: ["**/__tests__/**/*.test.ts?(x)", "**/?(*.)+(spec|test).ts?(x)"],
+  maxWorkers: 1,
+  testTimeout: 10000,
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/src/$1",
   },

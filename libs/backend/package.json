@@ -20,11 +20,11 @@
     "build": "tsc --incremental && vite build",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --ignore-path .eslintignore ",
     "lint:fix": "eslint --fix \"src/**/*.{js,jsx,ts,tsx}\" --ignore-path .eslintignore ",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage",
-    "test:unit": "jest",
-    "test:unit:ci": "jest --coverage --ci"
+    "test": "jest --maxWorkers=1",
+    "test:watch": "jest --watch --maxWorkers=1",
+    "test:coverage": "jest --coverage --maxWorkers=1",
+    "test:unit": "jest --maxWorkers=1",
+    "test:unit:ci": "jest --coverage --ci --maxWorkers=1"
   },
   "dependencies": {},
   "devDependencies": {

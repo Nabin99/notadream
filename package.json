@@ -15,12 +15,11 @@
     "lint:fix:staged": "pnpm run --parallel -r --filter !@notadream/blogs lint:fix",
     "prepare": "husky",
     "sort-package": "sort-package-json && pnpm run sort-package",
-    "test": "pnpm run --parallel test ",
-    "test:ci": "pnpm run test:ci --parallel",
-    "test:integration": "pnpm run test:integration --parallel",
-    "test:integration:ci": "pnpm run test:integration:ci --parallel",
-    "test:unit": "pnpm run test:unit --parallel",
-    "test:unit:ci": "pnpm run test:unit:ci --parallel",
+    "test": "pnpm run -r test",
+    "test:parallel": "pnpm run -r --parallel test",
+    "test:ci": "pnpm run -r test:ci",
+    "test:unit": "pnpm run -r test:unit",
+    "test:unit:ci": "pnpm run -r test:unit:ci",
     "typecheck": "pnpm run -r --parallel typecheck"
   },
   "devDependencies": {

@@ -11,9 +11,9 @@
     "lint:fix": "eslint --fix --ext ts,tsx",
     "preview": "vite preview",
     "typecheck": "tsc",
-    "test": "vitest",
+    "test": "vitest run",
     "test:watch": "vitest --watch",
-    "test:coverage": "vitest --coverage",
+    "test:coverage": "vitest run --coverage",
     "test:unit": "vitest run",
     "test:unit:ci": "vitest run --coverage"
   },
