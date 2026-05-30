@@ -4,6 +4,8 @@
  * Auth: Requires Firebase Admin token
  */
 
+export const dynamic = 'force-dynamic';
+
 import { NextRequest, NextResponse } from 'next/server';
 import { doc, updateDoc } from 'firebase/firestore';
 import { getAppConfig } from '@notadream/react';

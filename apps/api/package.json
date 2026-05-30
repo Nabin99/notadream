@@ -7,7 +7,12 @@
     "build": "esbuild ./src/index.ts --platform=node --bundle --minify --outfile=dist/index.js",
     "lint": "eslint \"src/**/*.{js,ts}\" --ignore-path .eslintignore ",
     "lint:fix": "eslint --fix \"src/**/*.{js,ts}\" --ignore-path .eslintignore ",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest --watch",
+    "test:coverage": "vitest run --coverage",
+    "test:unit": "vitest run",
+    "test:unit:ci": "vitest run --coverage"
   },
   "dependencies": {
     "@notadream/backend": "workspace:^",
@@ -26,9 +31,11 @@
     "eslint-plugin-promise": "^6.6.0",
     "eslint-plugin-unicorn": "^47.0.0",
     "prettier": "^3.5.1",
+    "supertest": "^6.3.3",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^5.7.3"
+    "typescript": "^5.7.3",
+    "vitest": "^1.0.4"
   },
   "engines": {
     "node": ">=18",

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 import { About } from './About';
 
-export const dynamic = 'force-dynamic';
+export const dynamic = 'force-static';
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_APP_URL || 'http://localhost:3000';
 

@@ -168,6 +168,75 @@ Then import in apps:
 import { Button } from '@notadream/react/components';
 ```
 
+## Testing During Development
+
+### Running Tests
+
+```bash
+# Run all tests (serial - recommended)
+pnpm test
+
+# Run tests in watch mode (auto-rerun on changes)
+pnpm test:watch
+
+# Run tests for specific package
+cd apps/portfolio && pnpm test:watch
+
+# Generate coverage report
+pnpm test:coverage
+```
+
+### Test Frameworks
+
+- **Jest**: Used for `libs/backend`, `apps/blogs`, `apps/portfolio-nextjs`
+- **Vitest**: Used for `libs/react`, `apps/api`, `apps/admin`, `apps/portfolio`
+
+### Writing Tests
+
+```typescript
+// Example: Component test
+import { render, screen } from '@testing-library/react';
+import { Button } from './Button';
+
+describe('Button Component', () => {
+  it('should render with text', () => {
+    render(<Button>Click me</Button>);
+    expect(screen.getByText('Click me')).toBeInTheDocument();
+  });
+});
+
+// Example: Utility test
+import { buildQuery } from './query-builder';
+
+describe('buildQuery', () => {
+  it('should build valid SQL', () => {
+    const result = buildQuery({ table: 'users' });
+    expect(result).toBe('SELECT * FROM users');
+  });
+});
+```
+
+### Coverage Requirements
+
+Minimum coverage threshold: **50%** across all metrics
+- Branches
+- Functions  
+- Lines
+- Statements
+
+View coverage: `open apps/portfolio/coverage/index.html`
+
+### Pre-commit Testing
+
+Tests run automatically before committing (via Husky):
+```bash
+git commit -m "feat: new feature"
+# Husky runs linting, type-check, and tests
+# Commit only succeeds if all pass
+```
+
+For detailed testing guide, see [TESTING.md](../../TESTING.md)
+
 ## Git Workflow
 
 ### Branch Naming Convention

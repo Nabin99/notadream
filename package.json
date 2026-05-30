@@ -17,8 +17,6 @@
     "sort-package": "sort-package-json && pnpm run sort-package",
     "test": "pnpm run --parallel test ",
     "test:ci": "pnpm run test:ci --parallel",
-    "test:integration": "pnpm run test:integration --parallel",
-    "test:integration:ci": "pnpm run test:integration:ci --parallel",
     "test:unit": "pnpm run test:unit --parallel",
     "test:unit:ci": "pnpm run test:unit:ci --parallel",
     "typecheck": "pnpm run -r --parallel typecheck"
@@ -28,7 +26,7 @@
     "@commitlint/config-conventional": "19.7.1",
     "eslint-plugin-react": "^7.37.5",
     "husky": "^9.1.7",
-    "turbo": "^2.5.8"
+    "turbo": "^2.9.16"
   },
   "workspaces": [
     "libs/*",

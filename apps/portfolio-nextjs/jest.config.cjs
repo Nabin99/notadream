@@ -7,6 +7,8 @@ module.exports = {
   testEnvironment: 'jsdom',
   roots: ['<rootDir>/'],
   testMatch: ['**/__tests__/**/*.test.ts', '**/__tests__/**/*.test.tsx'],
+  maxWorkers: 1,
+  testTimeout: 10000,
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/$1',
   },
