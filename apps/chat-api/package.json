@@ -7,12 +7,7 @@
     "build": "esbuild ./src/index.ts --platform=node --bundle --minify --outfile=dist/index.js",
     "lint": "eslint \"src/**/*.{js,ts}\" --ignore-path .eslintignore",
     "lint:fix": "eslint --fix \"src/**/*.{js,ts}\" --ignore-path .eslintignore",
-    "typecheck": "tsc",
-    "test": "vitest run",
-    "test:watch": "vitest --watch",
-    "test:coverage": "vitest run --coverage",
-    "test:unit": "vitest run",
-    "test:unit:ci": "vitest run --coverage"
+    "typecheck": "tsc"
   },
   "dependencies": {
     "@google/generative-ai": "^0.3.0",
