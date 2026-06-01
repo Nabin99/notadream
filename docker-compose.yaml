@@ -154,6 +154,33 @@ services:
       - "com.notadream.version=0.1.0"
 
   # ==========================================
+  # Chat API (Google Gemini Powered)
+  # ==========================================
+  chat-api:
+    build:
+      context: .
+      dockerfile: ./apps/chat-api/docker/Dockerfile
+    container_name: notadream-chat-api
+    ports:
+      - "${CHAT_API_PORT:-4001}:${CHAT_API_PORT:-4001}"
+    environment:
+      NODE_ENV: ${NODE_ENV:-development}
+      PORT: ${CHAT_API_PORT:-4001}
+      GOOGLE_API_KEY: ${GOOGLE_API_KEY:-}
+    networks:
+      - notadream-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:${CHAT_API_PORT:-4001}/health', (r) => {if (r.statusCode !== 200) throw new Error(r.statusCode)})"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+    labels:
+      - "com.notadream.service=chat-api"
+      - "com.notadream.version=0.1.0"
+
+  # ==========================================
   # Portfolio (Next.js + Nginx)
   # ==========================================
   portfolio-nextjs:

@@ -9,3 +9,6 @@ export * from "./pages";
 export * from "./routing";
 
 export * from "./config";
+
+// Chat module - all chat-related types, components, hooks, utilities
+export * from "./chat";
